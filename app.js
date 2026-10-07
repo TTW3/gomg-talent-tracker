@@ -178,17 +178,29 @@ function chooseSuggestion(suggestion){
  if(box){box.innerHTML="";box.classList.remove("open");}
  if(input.classList.contains("girlinput")){const c=charById(id),holder=input.parentElement.querySelector("[data-girl-icon]");if(holder){const icon=charIcon(c);holder.innerHTML=icon?`<img src="${esc(icon)}" alt="">`:"";}}
 }
+// Touch-friendly suggestion selection: a tap selects, but a vertical swipe
+// is allowed to scroll the suggestion list instead of selecting an item.
+let suggestionPointer=null;
 document.addEventListener("pointerdown",e=>{
  const suggestion=e.target.closest(".suggestion");
  if(!suggestion)return;
- e.preventDefault();
- chooseSuggestion(suggestion);
-},{passive:false});
+ suggestionPointer={suggestion,x:e.clientX,y:e.clientY};
+});
+document.addEventListener("pointerup",e=>{
+ const p=suggestionPointer;suggestionPointer=null;
+ if(!p)return;
+ const dx=e.clientX-p.x,dy=e.clientY-p.y;
+ if(Math.hypot(dx,dy)>8)return;
+ if(!p.suggestion.isConnected)return;
+ p.suggestion.dataset.chosen="1";
+ chooseSuggestion(p.suggestion);
+});
+document.addEventListener("pointercancel",()=>{suggestionPointer=null});
 document.addEventListener("click",e=>{
  const suggestion=e.target.closest(".suggestion");
  if(!suggestion)return;
- // Fallback for browsers that do not emit pointerdown for this control.
- if(suggestion.dataset.chosen==="1")return;
+ // Pointerup already handled a tap on touch/mouse.
+ if(suggestion.dataset.chosen==="1"){delete suggestion.dataset.chosen;return;}
  chooseSuggestion(suggestion);
 });
 function showTalentInfo(t){

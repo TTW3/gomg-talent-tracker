@@ -66,3 +66,6 @@ footer{display:flex;justify-content:space-between;color:var(--muted);font-size:1
   .talent-editor{min-width:0}
   .talent-info-btn{flex:0 0 32px}
 }
+
+/* Allow vertical touch scrolling in Girl/Talent suggestion lists. */
+.suggestions{touch-action:pan-y;-webkit-overflow-scrolling:touch}
