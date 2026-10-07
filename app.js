@@ -21,6 +21,7 @@ function talentById(id){return GAME.talents.find(x=>x.id===id)}
 function charById(id){return GAME.characters.find(x=>x.id===id)}
 function talentLabel(id){let t=talentById(id);return t?t.name_en||t.name_source||id:(id||"")}
 function charLabel(id){let c=charById(id);return c?c.name_en:id||""}
+function charIcon(c){if(!c)return "";return c.icon||((c.source_id||"")?`https://gomg-wiki.pages.dev/assets/icons/Header/${encodeURIComponent(c.source_id)}.png`:"")}
 function tierClass(t){return t?`tier tier-${t}`:""}
 function displayTalent(t){if(!t)return '<span class="muted">Empty</span>';let x=talentById(t);if(!x)return esc(t);return `<span class="${tierClass(x.rank)}">${esc(x.name_en||x.name_source)}</span>`}
 function migrate(){
@@ -64,7 +65,8 @@ function render(){
 function girlEditor(g,i){
  const value=g.charId?charLabel(g.charId):(g.name||"");
  const tabs=Array.from({length:BOARD_COUNT},(_,b)=>`<button type="button" class="board-tab ${b===(g.activeBoard||0)?"active":""}" data-board="${b}" data-g="${i}">Board ${b+1}</button>`).join("");
- return `<div class="girl-cell"><div class="autocomplete"><input class="girlinput" data-g="${i}" value="${esc(value)}" placeholder="Gõ tên Girl..." autocomplete="off"><div class="suggestions"></div></div><div class="board-tabs">${tabs}</div></div>`;
+ const c=g.charId?charById(g.charId):null; const icon=charIcon(c);
+  return `<div class="girl-cell"><div class="autocomplete girl-autocomplete"><div class="selected-girl-icon" data-girl-icon>${icon?`<img src="${esc(icon)}" alt="">`:``}</div><input class="girlinput" data-g="${i}" value="${esc(value)}" placeholder="Gõ tên Girl..." autocomplete="off"><div class="suggestions"></div></div><div class="board-tabs">${tabs}</div></div>`;
 }
 function talentEditor(t,i,b,s){
  const value=t?talentLabel(t):"";
@@ -110,8 +112,10 @@ function showSuggestions(input){
  if(!items.length){box.innerHTML="";box.classList.remove("open");return}
  box.innerHTML=items.map(x=>{
    const id=esc(x.id),name=esc(x.name_en||x.name_source||"");
+   const icon=charIcon(x);
+   const iconHtml=isGirl&&icon?`<img class="suggestion-icon" src="${esc(icon)}" alt="" loading="lazy">`:"";
    const source=x.name_source&&x.name_en!==x.name_source?`<small>${esc(x.name_source)}</small>`:"";
-   return `<div class="suggestion" data-id="${id}"><span>${name}</span>${source}</div>`;
+   return `<div class="suggestion" data-id="${id}">${iconHtml}<span class="suggestion-name">${name}</span>${source}</div>`;
  }).join("");
  box.classList.add("open");
 }
@@ -150,6 +154,7 @@ function chooseSuggestion(suggestion){
  input.value=input.classList.contains("girlinput")?charLabel(id):talentLabel(id);
  const box=input.parentElement.querySelector(".suggestions");
  if(box){box.innerHTML="";box.classList.remove("open");}
+ if(input.classList.contains("girlinput")){const c=charById(id),holder=input.parentElement.querySelector("[data-girl-icon]");if(holder){const icon=charIcon(c);holder.innerHTML=icon?`<img src="${esc(icon)}" alt="">`:"";}}
 }
 document.addEventListener("pointerdown",e=>{
  const suggestion=e.target.closest(".suggestion");
