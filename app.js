@@ -135,6 +135,24 @@ document.addEventListener("input",e=>{
 document.addEventListener("focusin",e=>{
  if(e.target.matches(".girlinput,.talentinput"))showSuggestions(e.target);
 });
+function updateTalentInfoButton(input,id){
+ const editor=input.closest(".talent-editor");
+ if(!editor)return;
+ let btn=editor.querySelector("[data-talent-info]");
+ if(!id){
+   if(btn)btn.remove();
+   return;
+ }
+ if(!btn){
+   btn=document.createElement("button");
+   btn.type="button";
+   btn.className="talent-info-btn";
+   btn.title="Xem mô tả Talent";
+   btn.textContent="ⓘ";
+   editor.appendChild(btn);
+ }
+ btn.dataset.talentInfo=id;
+}
 function chooseSuggestion(suggestion){
  const input=suggestion.closest(".autocomplete")?.querySelector("input");
  if(!input)return;
@@ -155,6 +173,7 @@ function chooseSuggestion(suggestion){
  // replace the input DOM while the browser is still processing the click/touch.
  localStorage.setItem(KEY,JSON.stringify(db));
  input.value=input.classList.contains("girlinput")?charLabel(id):talentLabel(id);
+ if(input.classList.contains("talentinput"))updateTalentInfoButton(input,id);
  const box=input.parentElement.querySelector(".suggestions");
  if(box){box.innerHTML="";box.classList.remove("open");}
  if(input.classList.contains("girlinput")){const c=charById(id),holder=input.parentElement.querySelector("[data-girl-icon]");if(holder){const icon=charIcon(c);holder.innerHTML=icon?`<img src="${esc(icon)}" alt="">`:"";}}
