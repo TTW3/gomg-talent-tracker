@@ -128,23 +128,36 @@ document.addEventListener("input",e=>{
 document.addEventListener("focusin",e=>{
  if(e.target.matches(".girlinput,.talentinput"))showSuggestions(e.target);
 });
-document.addEventListener("mousedown",e=>{
- const suggestion=e.target.closest(".suggestion");
- if(!suggestion)return;
- const input=suggestion.closest(".autocomplete").querySelector("input");
+function chooseSuggestion(suggestion){
+ const input=suggestion.closest(".autocomplete")?.querySelector("input");
+ if(!input)return;
  const id=suggestion.dataset.id;
  if(input.classList.contains("girlinput")){
    const i=+input.dataset.g;
    const c=charById(id);
-   if(!c)return;
+   if(!c||!db.girls[i])return;
    db.girls[i].charId=c.id;
    db.girls[i].name=charLabel(c.id);
    db.girls[i].customName=false;
  }else{
    const i=+input.dataset.g,s=+input.dataset.s;
-   db.girls[i].talents[s]=id;
+   if(!db.girls[i])return;
+   db.girls[i].boards[+input.dataset.b][s]=id;
  }
  save();
+}
+document.addEventListener("pointerdown",e=>{
+ const suggestion=e.target.closest(".suggestion");
+ if(!suggestion)return;
+ e.preventDefault();
+ chooseSuggestion(suggestion);
+},{passive:false});
+document.addEventListener("click",e=>{
+ const suggestion=e.target.closest(".suggestion");
+ if(!suggestion)return;
+ // Fallback for browsers that do not emit pointerdown for this control.
+ if(suggestion.dataset.chosen==="1")return;
+ chooseSuggestion(suggestion);
 });
 document.addEventListener("focusout",e=>{
  if(!e.target.matches(".girlinput,.talentinput"))return;
@@ -157,7 +170,7 @@ document.addEventListener("keydown",e=>{
  if(!e.target.matches(".girlinput,.talentinput")||e.key!=="Enter")return;
  const box=e.target.parentElement.querySelector(".suggestions.open");
  const first=box?.querySelector(".suggestion");
- if(first){e.preventDefault();first.dispatchEvent(new MouseEvent("mousedown",{bubbles:true}))}
+ if(first){e.preventDefault();chooseSuggestion(first)}
 });
 function fillGirlSelects(){
  const opts=db.girls.map((g,i)=>`<option value="${i}">${esc(g.name)}</option>`).join("");$("aGirl").innerHTML=opts;$(`bGirl`).innerHTML=opts;
@@ -214,7 +227,7 @@ function syncPath(){return localStorage.getItem(SYNC_PATH_KEY)||$("syncPath")?.v
 function setSyncStatus(msg,ok=false){const el=$("syncStatus");if(el){el.textContent=msg;el.classList.toggle("ok",ok)}}
 function apiUrl(path){const r=syncRepo();return `https://api.github.com/repos/${encodeURIComponent(r.owner)}/${encodeURIComponent(r.repo)}/contents/${path.split('/').map(encodeURIComponent).join('/')}`}
 async function ghRequest(path,opts={}){const token=syncToken();if(!token)throw Error("Chưa nhập GitHub Token.");const headers={Accept:"application/vnd.github+json",Authorization:`Bearer ${token}`,"X-GitHub-Api-Version":"2022-11-28",...(opts.body?{"Content-Type":"application/json"}:{})};const r=await fetch(apiUrl(path),{...opts,headers});let data={};try{data=await r.json()}catch{}if(!r.ok)throw Error(data.message||`GitHub API ${r.status}`);return data}
-async function pullSync(silent=false){try{const pass=syncPass();if(!pass)throw Error("Chưa nhập mật khẩu mã hóa.");const data=await ghRequest(syncPath(),{method:"GET",cache:"no-store"});const encryptedText=new TextDecoder().decode(unb64(data.content));const remote=await decryptSync(encryptedText,pass);if(!remote.girls)throw Error("Dữ liệu sync không hợp lệ.");db=remote;db.girls=(db.girls||[]).map((g,i)=>normalizeGirl(g,i));db.log=db.log||[];saveSilently();render();setSyncStatus(`✓ Đã lấy dữ liệu từ GitHub lúc ${new Date().toLocaleTimeString('vi-VN')}`,true);return true}catch(e){if(!silent)setSyncStatus(`✕ ${e.message}`);return false}}
+async function pullSync(silent=false){try{const pass=syncPass();if(!pass)throw Error("Chưa nhập mật khẩu mã hóa.");const data=await ghRequest(syncPath(),{method:"GET",cache:"no-store"});let encryptedText=new TextDecoder().decode(unb64(data.content));if(!encryptedText.trim().startsWith("{")){try{encryptedText=new TextDecoder().decode(unb64(encryptedText));}catch{}}const remote=await decryptSync(encryptedText,pass);if(!remote.girls)throw Error("Dữ liệu sync không hợp lệ.");db=remote;db.girls=(db.girls||[]).map((g,i)=>normalizeGirl(g,i));db.log=db.log||[];saveSilently();render();setSyncStatus(`✓ Đã lấy dữ liệu từ GitHub lúc ${new Date().toLocaleTimeString('vi-VN')}`,true);return true}catch(e){if(!silent)setSyncStatus(`✕ ${e.message}`);return false}}
 async function pushSync(){try{const token=$("ghToken").value.trim(),pass=$("syncPass").value,path=$("syncPath").value.trim()||"sync-data/gomg-tracker.enc.json";if(!token)throw Error("Chưa nhập GitHub Token.");if(!pass)throw Error("Chưa nhập mật khẩu mã hóa.");localStorage.setItem(SYNC_TOKEN_KEY,token);localStorage.setItem(SYNC_PASS_KEY,pass);localStorage.setItem(SYNC_PATH_KEY,path);setSyncStatus("Đang đẩy dữ liệu lên GitHub…");let sha=null;try{const existing=await ghRequest(path,{method:"GET",cache:"no-store"});sha=existing.sha}catch(e){if(!/Not Found/i.test(e.message))throw e}const encrypted=await encryptSync(db,pass);const body={message:`Sync GOMG tracker ${new Date().toISOString()}`,content:b64(textBytes(encrypted)),...(sha?{sha}:{})};await ghRequest(path,{method:"PUT",body:JSON.stringify(body)});setSyncStatus(`✓ Đã đẩy dữ liệu lên ${syncRepo().owner}/${syncRepo().repo} lúc ${new Date().toLocaleTimeString('vi-VN')}`,true)}catch(e){setSyncStatus(`✕ ${e.message}`)}}
 function initSyncUI(){
  const token=localStorage.getItem(SYNC_TOKEN_KEY)||"",pass=localStorage.getItem(SYNC_PASS_KEY)||"",path=localStorage.getItem(SYNC_PATH_KEY)||"sync-data/gomg-tracker.enc.json";
