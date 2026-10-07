@@ -187,7 +187,9 @@ def main():
                 cid=new_id()
         rec={'id':cid,'name_en':u['name_en']}
         # Keep the machine-readable source ID so future updates can match safely.
-        if sid: rec['source_id']=sid
+        if sid:
+            rec['source_id']=sid
+            rec['icon']=f'https://gomg-wiki.pages.dev/assets/icons/Header/{sid}.png'
         if u.get('base_name'): rec['base_name']=u['base_name']
         for k in ('rarity','role','type','element','terrain','variant','base_id','source','kind'):
             if u.get(k): rec[k]=u[k]
