@@ -96,6 +96,44 @@ def probe_hxsngh():
             json_urls.append(urljoin(u,m))
     return {'status':'ok','scripts':len(scripts),'data_urls':sorted(set(json_urls))[:50]}
 
+def normalize_character_names(chars):
+    """Make every character display name unique, especially Alter units."""
+    # First prefer the explicit variant supplied by the source.
+    for c in chars:
+        name = clean(c.get('name_en') or c.get('name_source') or c.get('id') or 'Unknown')
+        variant = clean(c.get('variant') or '')
+        base = clean(c.get('base_name') or '')
+        if variant:
+            # If the source already included the variant, don't duplicate it.
+            if not re.search(r'\(' + re.escape(variant) + r'\)\s*$', name, re.I):
+                name = f"{base or name} ({variant})"
+        c['name_en'] = name
+
+    # Final safety net: no two records may have the same display name.
+    seen = {}
+    for c in chars:
+        key = normalize_key(c['name_en'])
+        seen[key] = seen.get(key, 0) + 1
+    used = {}
+    for c in chars:
+        key = normalize_key(c['name_en'])
+        if seen[key] > 1:
+            variant = clean(c.get('variant') or '')
+            source_id = clean(c.get('source_id') or c.get('id') or '')
+            suffix = variant or source_id
+            if suffix and f"({suffix})" not in c['name_en']:
+                c['name_en'] = f"{c['name_en']} ({suffix})"
+        # Absolute last resort if the source still gives duplicates.
+        k2 = normalize_key(c['name_en'])
+        used[k2] = used.get(k2, 0) + 1
+        if used[k2] > 1:
+            sid = clean(c.get('source_id') or c.get('id') or str(used[k2]))
+            c['name_en'] = f"{c['name_en']} [{sid}]"
+    return chars
+
+def normalize_key(s):
+    return re.sub(r'\s+', ' ', str(s or '').strip().lower())
+
 def merge_preserve_talents(old,new):
     # Keep existing curated English talent names. The updater can add safe records later
     # when a machine-readable English source is found.
@@ -115,24 +153,42 @@ def main():
         old=json.load(open(OUT,encoding='utf-8'))
     except Exception:
         old={'schema_version':3,'talents':[]}
-    # Preserve tracker IDs by matching the existing display name + variant.
+    # Normalize names before matching. Every Alter must remain uniquely addressable.
+    units=normalize_character_names(units)
+
+    # Preserve tracker IDs by source_id first, then by display name + variant.
     # This is important because localStorage stores charId values.
     old_chars=old.get('characters',[]) if isinstance(old.get('characters',[]),list) else []
-    old_map={}
+    old_by_source={}
+    old_by_name={}
     for c in old_chars:
-        key=(str(c.get('name_en','')).strip().lower(), str(c.get('variant','')).strip().lower())
-        if key[0]: old_map[key]=c.get('id')
-    used=set(x for x in old_map.values() if x)
+        sid=str(c.get('source_id') or '').strip()
+        key=(normalize_key(c.get('name_en','')), normalize_key(c.get('variant','')))
+        if sid: old_by_source[sid]=c.get('id')
+        if key[0]: old_by_name[key]=c.get('id')
+    used=set(x for x in list(old_by_source.values())+list(old_by_name.values()) if x)
     next_num=1
     def new_id():
         nonlocal next_num
         while f'char_{next_num:03d}' in used: next_num+=1
-        x=f'char_{next_num:03d}'; used.add(x); next_num+=1; return x
+        x=f'char_{next_num:03d}'; used.add(x); return x
     chars=[]
     for u in units:
-        key=(u['name_en'].strip().lower(), str(u.get('variant','')).strip().lower())
-        cid=old_map.get(key) or new_id()
+        sid=str(u.get('id') or '').strip()
+        key=(normalize_key(u['name_en']), normalize_key(u.get('variant','')))
+        cid=old_by_source.get(sid) or old_by_name.get(key)
+        # Keep the existing alter-style ID when it is already present.
+        if not cid:
+            if sid.startswith('M') and '_' in sid:
+                cid=f'alter_{sid}'
+                if cid in used: cid=new_id()
+                else: used.add(cid)
+            else:
+                cid=new_id()
         rec={'id':cid,'name_en':u['name_en']}
+        # Keep the machine-readable source ID so future updates can match safely.
+        if sid: rec['source_id']=sid
+        if u.get('base_name'): rec['base_name']=u['base_name']
         for k in ('rarity','role','type','element','terrain','variant','base_id','source','kind'):
             if u.get(k): rec[k]=u[k]
         chars.append(rec)
