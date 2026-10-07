@@ -20,6 +20,7 @@ function save(){localStorage.setItem(KEY,JSON.stringify(db));render()}
 function talentById(id){return GAME.talents.find(x=>x.id===id)}
 function charById(id){return GAME.characters.find(x=>x.id===id)}
 function talentLabel(id){let t=talentById(id);return t?t.name_en||t.name_source||id:(id||"")}
+function talentDescription(t){return t?(t.description_en||t.description||t.desc||t.effect_en||t.effect||t.effect_source||""):""}
 function charLabel(id){let c=charById(id);return c?c.name_en:id||""}
 function charIcon(c){if(!c)return "";return c.icon||((c.source_id||"")?`https://gomg-wiki.pages.dev/assets/icons/Header/${encodeURIComponent(c.source_id)}.png`:"")}
 function tierClass(t){return t?`tier tier-${t}`:""}
@@ -70,7 +71,7 @@ function girlEditor(g,i){
 }
 function talentEditor(t,i,b,s){
  const value=t?talentLabel(t):"";
- return `<div class="autocomplete"><input class="talentinput" data-g="${i}" data-b="${b}" data-s="${s}" value="${esc(value)}" placeholder="Gõ tên Talent..." autocomplete="off"><div class="suggestions"></div></div>`;
+ return `<div class="talent-editor"><div class="autocomplete"><input class="talentinput" data-g="${i}" data-b="${b}" data-s="${s}" value="${esc(value)}" placeholder="Gõ tên Talent..." autocomplete="off"><div class="suggestions"></div></div>${t?`<button type="button" class="talent-info-btn" data-talent-info="${esc(t)}" title="Xem mô tả Talent">ⓘ</button>`:""}</div>`;
 }
 function normalizeText(v){return String(v||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim()}
 function fuzzyScore(query,text){
@@ -115,7 +116,9 @@ function showSuggestions(input){
    const icon=charIcon(x);
    const iconHtml=isGirl&&icon?`<img class="suggestion-icon" src="${esc(icon)}" alt="" loading="lazy">`:"";
    const source=x.name_source&&x.name_en!==x.name_source?`<small>${esc(x.name_source)}</small>`:"";
-   return `<div class="suggestion" data-id="${id}">${iconHtml}<span class="suggestion-name">${name}</span>${source}</div>`;
+   const desc=!isGirl?talentDescription(x):"";
+   const descHtml=desc?`<div class="suggestion-desc">${esc(desc)}</div>`:"";
+   return `<div class="suggestion" data-id="${id}">${iconHtml}<span class="suggestion-name"><span>${name}</span>${descHtml}</span>${source}</div>`;
  }).join("");
  box.classList.add("open");
 }
@@ -169,6 +172,27 @@ document.addEventListener("click",e=>{
  if(suggestion.dataset.chosen==="1")return;
  chooseSuggestion(suggestion);
 });
+function showTalentInfo(t){
+ const modal=$("talentModal"); if(!modal)return;
+ const name=t.name_en||t.name_source||t.id;
+ const desc=talentDescription(t)||"Chưa có mô tả trong database hiện tại.";
+ const source=t.name_source&&t.name_en!==t.name_source?`<div class="modal-source">${esc(t.name_source)}</div>`:"";
+ $("talentModalTitle").textContent=name;
+ $("talentModalMeta").innerHTML=`<span class="pill ${tierClass(t.rank)}">${esc(t.rank||"Unknown")}</span>${source}`;
+ $("talentModalBody").textContent=desc;
+ modal.hidden=false;
+}
+function closeTalentInfo(){$("talentModal")?.setAttribute("hidden","")}
+$("talentModalClose")?.addEventListener("click",closeTalentInfo);
+$("talentModal")?.addEventListener("click",e=>{if(e.target.id==="talentModal")closeTalentInfo()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeTalentInfo()});
+
+document.addEventListener("click",e=>{
+ const btn=e.target.closest("[data-talent-info]");
+ if(!btn)return;
+ const t=talentById(btn.dataset.talentInfo);
+ if(t)showTalentInfo(t);
+});
 document.addEventListener("focusout",e=>{
  if(!e.target.matches(".girlinput,.talentinput"))return;
  setTimeout(()=>{
@@ -205,7 +229,7 @@ function swapTalent(){
 function renderLookup(){
  const q=normalizeText($("talentSearch").value),out=$("lookup");if(!q){out.innerHTML='<span class="muted">Nhập tên talent để tìm.</span>';return}
  const matches=GAME.talents.filter(t=>normalizeText(t.name_en+" "+(t.name_source||"")).includes(q)).slice(0,30);
- const rows=[];matches.forEach(t=>{db.girls.forEach(g=>g.boards.forEach((board,b)=>board.forEach((id,s)=>{if(id===t.id)rows.push(`<div class="lookup-item"><b>${esc(g.name)}</b><span class="pill">Board ${b+1}</span><span class="pill">Talent ${s+1}</span><span class="pill ${tierClass(t.rank)}">${esc(t.name_en||t.name_source)}</span></div>`)})))});
+ const rows=[];matches.forEach(t=>{db.girls.forEach(g=>g.boards.forEach((board,b)=>board.forEach((id,s)=>{if(id===t.id)rows.push(`<div class="lookup-item"><div><b>${esc(g.name)}</b><span class="pill">Board ${b+1}</span><span class="pill">Talent ${s+1}</span><span class="pill ${tierClass(t.rank)}">${esc(t.name_en||t.name_source)}</span></div>${talentDescription(t)?`<div class="lookup-desc">${esc(talentDescription(t))}</div>`:""}</div>`)})))});
  out.innerHTML=rows.length?rows.join(""):(matches.length?'<span class="muted">Talent có trong database nhưng chưa được gán cho Girl nào.</span>':'<span class="muted">Không tìm thấy trong bundled database.</span>');
 }
 function renderHistory(){$("history").innerHTML=db.log.length?db.log.slice().reverse().map(x=>`<div class="history-row"><time>${esc(x.time)}</time>${esc(x.text)}</div>`).join(""):'<span class="muted">Chưa có SWAP.</span>'}
