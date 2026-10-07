@@ -178,27 +178,46 @@ function chooseSuggestion(suggestion){
  if(box){box.innerHTML="";box.classList.remove("open");}
  if(input.classList.contains("girlinput")){const c=charById(id),holder=input.parentElement.querySelector("[data-girl-icon]");if(holder){const icon=charIcon(c);holder.innerHTML=icon?`<img src="${esc(icon)}" alt="">`:"";}}
 }
-// Touch-friendly suggestion selection: a tap selects, but a vertical swipe
-// is allowed to scroll the suggestion list instead of selecting an item.
+// Touch-friendly suggestion selection.
+// A tap selects; a drag/swipe scrolls the suggestion list and MUST NOT select.
 let suggestionPointer=null;
+let suppressSuggestionClick=false;
 document.addEventListener("pointerdown",e=>{
  const suggestion=e.target.closest(".suggestion");
  if(!suggestion)return;
- suggestionPointer={suggestion,x:e.clientX,y:e.clientY};
+ suggestionPointer={suggestion,x:e.clientX,y:e.clientY,moved:false,pointerId:e.pointerId};
+});
+document.addEventListener("pointermove",e=>{
+ const p=suggestionPointer;
+ if(!p||p.pointerId!==e.pointerId)return;
+ const dx=e.clientX-p.x,dy=e.clientY-p.y;
+ if(Math.hypot(dx,dy)>8)p.moved=true;
 });
 document.addEventListener("pointerup",e=>{
  const p=suggestionPointer;suggestionPointer=null;
- if(!p)return;
- const dx=e.clientX-p.x,dy=e.clientY-p.y;
- if(Math.hypot(dx,dy)>8)return;
+ if(!p||p.pointerId!==e.pointerId)return;
+ if(p.moved){
+   // The browser may still emit a click after a touch scroll. Swallow that click.
+   suppressSuggestionClick=true;
+   setTimeout(()=>{suppressSuggestionClick=false},250);
+   return;
+ }
  if(!p.suggestion.isConnected)return;
  p.suggestion.dataset.chosen="1";
  chooseSuggestion(p.suggestion);
 });
-document.addEventListener("pointercancel",()=>{suggestionPointer=null});
+document.addEventListener("pointercancel",()=>{
+ suggestionPointer=null;
+ suppressSuggestionClick=true;
+ setTimeout(()=>{suppressSuggestionClick=false},250);
+});
 document.addEventListener("click",e=>{
  const suggestion=e.target.closest(".suggestion");
  if(!suggestion)return;
+ if(suppressSuggestionClick){
+   suppressSuggestionClick=false;
+   return;
+ }
  // Pointerup already handled a tap on touch/mouse.
  if(suggestion.dataset.chosen==="1"){delete suggestion.dataset.chosen;return;}
  chooseSuggestion(suggestion);
