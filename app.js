@@ -191,4 +191,39 @@ $("importFile").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new 
 $("search").oninput=render;$("talentSearch").oninput=renderLookup;$("addGirlBtn").onclick=addGirl;$("swapBtn").onclick=swapTalent;$("exportBtn").onclick=exportData;
 $("resetBtn").onclick=()=>{if(confirm("Reset toàn bộ tracker?")){db=clone(starter);save()}};
 $("clearLogBtn").onclick=()=>{if(confirm("Xóa lịch sử SWAP?")){db.log=[];save()}};
+
+// ---------------- GitHub encrypted sync ----------------
+const SYNC_TOKEN_KEY="gomg-gh-token";
+const SYNC_PASS_KEY="gomg-sync-pass";
+const SYNC_PATH_KEY="gomg-sync-path";
+function syncRepo(){
+  const parts=location.pathname.split('/').filter(Boolean);
+  const owner=location.hostname.endsWith('.github.io')?location.hostname.split('.')[0]:"ttw3";
+  const repo=parts[0]||"gomg-talent-tracker";
+  return {owner,repo};
+}
+function b64(bytes){let s="";bytes=new Uint8Array(bytes);for(let i=0;i<bytes.length;i+=0x8000)s+=String.fromCharCode(...bytes.subarray(i,i+0x8000));return btoa(s)}
+function unb64(s){const bin=atob(s.replace(/\n/g,""));const out=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)out[i]=bin.charCodeAt(i);return out}
+function textBytes(s){return new TextEncoder().encode(s)}
+async function deriveKey(pass,salt){const base=await crypto.subtle.importKey("raw",textBytes(pass),"PBKDF2",false,["deriveKey"]);return crypto.subtle.deriveKey({name:"PBKDF2",salt,iterations:120000,hash:"SHA-256"},base,{name:"AES-GCM",length:256},false,["encrypt","decrypt"])}
+async function encryptSync(data,pass){const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));const key=await deriveKey(pass,salt);const plain=textBytes(JSON.stringify(data));const cipher=await crypto.subtle.encrypt({name:"AES-GCM",iv},key,plain);return JSON.stringify({version:1,createdAt:new Date().toISOString(),salt:b64(salt),iv:b64(iv),data:b64(cipher)})}
+async function decryptSync(payload,pass){const x=typeof payload==='string'?JSON.parse(payload):payload;if(x.version!==1)throw Error("Sync file version không hỗ trợ");const key=await deriveKey(pass,unb64(x.salt));const plain=await crypto.subtle.decrypt({name:"AES-GCM",iv:unb64(x.iv)},key,unb64(x.data));return JSON.parse(new TextDecoder().decode(plain))}
+function syncToken(){return localStorage.getItem(SYNC_TOKEN_KEY)||$("ghToken")?.value.trim()||""}
+function syncPass(){return localStorage.getItem(SYNC_PASS_KEY)||$("syncPass")?.value||""}
+function syncPath(){return localStorage.getItem(SYNC_PATH_KEY)||$("syncPath")?.value.trim()||"sync-data/gomg-tracker.enc.json"}
+function setSyncStatus(msg,ok=false){const el=$("syncStatus");if(el){el.textContent=msg;el.classList.toggle("ok",ok)}}
+function apiUrl(path){const r=syncRepo();return `https://api.github.com/repos/${encodeURIComponent(r.owner)}/${encodeURIComponent(r.repo)}/contents/${path.split('/').map(encodeURIComponent).join('/')}`}
+async function ghRequest(path,opts={}){const token=syncToken();if(!token)throw Error("Chưa nhập GitHub Token.");const headers={Accept:"application/vnd.github+json",Authorization:`Bearer ${token}`,"X-GitHub-Api-Version":"2022-11-28",...(opts.body?{"Content-Type":"application/json"}:{})};const r=await fetch(apiUrl(path),{...opts,headers});let data={};try{data=await r.json()}catch{}if(!r.ok)throw Error(data.message||`GitHub API ${r.status}`);return data}
+async function pullSync(silent=false){try{const pass=syncPass();if(!pass)throw Error("Chưa nhập mật khẩu mã hóa.");const data=await ghRequest(syncPath(),{method:"GET",cache:"no-store"});const remote=await decryptSync(data.content,pass);if(!remote.girls)throw Error("Dữ liệu sync không hợp lệ.");db=remote;db.girls=(db.girls||[]).map((g,i)=>normalizeGirl(g,i));db.log=db.log||[];saveSilently();render();setSyncStatus(`✓ Đã lấy dữ liệu từ GitHub lúc ${new Date().toLocaleTimeString('vi-VN')}`,true);return true}catch(e){if(!silent)setSyncStatus(`✕ ${e.message}`);return false}}
+async function pushSync(){try{const token=$("ghToken").value.trim(),pass=$("syncPass").value,path=$("syncPath").value.trim()||"sync-data/gomg-tracker.enc.json";if(!token)throw Error("Chưa nhập GitHub Token.");if(!pass)throw Error("Chưa nhập mật khẩu mã hóa.");localStorage.setItem(SYNC_TOKEN_KEY,token);localStorage.setItem(SYNC_PASS_KEY,pass);localStorage.setItem(SYNC_PATH_KEY,path);setSyncStatus("Đang đẩy dữ liệu lên GitHub…");let sha=null;try{const existing=await ghRequest(path,{method:"GET",cache:"no-store"});sha=existing.sha}catch(e){if(!/Not Found/i.test(e.message))throw e}const encrypted=await encryptSync(db,pass);const body={message:`Sync GOMG tracker ${new Date().toISOString()}`,content:b64(textBytes(encrypted)),...(sha?{sha}:{})};await ghRequest(path,{method:"PUT",body:JSON.stringify(body)});setSyncStatus(`✓ Đã đẩy dữ liệu lên ${syncRepo().owner}/${syncRepo().repo} lúc ${new Date().toLocaleTimeString('vi-VN')}`,true)}catch(e){setSyncStatus(`✕ ${e.message}`)}}
+function initSyncUI(){
+ const token=localStorage.getItem(SYNC_TOKEN_KEY)||"",pass=localStorage.getItem(SYNC_PASS_KEY)||"",path=localStorage.getItem(SYNC_PATH_KEY)||"sync-data/gomg-tracker.enc.json";
+ if($("ghToken"))$("ghToken").value=token;if($("syncPass"))$("syncPass").value=pass;if($("syncPath"))$("syncPath").value=path;
+ $("syncBtn")?.addEventListener("click",()=>{$("syncPanel").hidden=!$("syncPanel").hidden});
+ $("closeSyncBtn")?.addEventListener("click",()=>$("syncPanel").hidden=true);
+ $("pushSyncBtn")?.addEventListener("click",pushSync);
+ $("pullSyncBtn")?.addEventListener("click",()=>pullSync(false));
+}
+
+initSyncUI();
 init();
