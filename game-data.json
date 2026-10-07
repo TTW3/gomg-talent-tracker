@@ -1,7 +1,7 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "last_checked": "2026-10-07",
-  "character_source": "https://mocha-gameguide.com/gensho/characters/",
+  "character_source": "https://gomg-wiki.pages.dev/units/",
   "talent_source": "https://mocha-gameguide.com/gensho/talents/",
   "official_update_source": "https://www.chillyroom.com/en/game-news/40/262",
   "characters": [
@@ -868,6 +868,627 @@
       "name_en": "Fishfolk Priest",
       "rarity": "Green",
       "role": "Priest"
+    },
+    {
+      "id": "alter_M12205_000",
+      "name_en": "Windstrider (Bunny)",
+      "rarity": "Orange",
+      "role": "Archer",
+      "source_id": "M12205_000",
+      "base_name": "Windstrider",
+      "variant": "Bunny"
+    },
+    {
+      "id": "alter_M12205_001",
+      "name_en": "Windstrider (Swimsuit)",
+      "rarity": "Orange",
+      "role": "Archer",
+      "source_id": "M12205_001",
+      "base_name": "Windstrider",
+      "variant": "Swimsuit"
+    },
+    {
+      "id": "alter_M12301_001",
+      "name_en": "Harpy Princess (Frostbound)",
+      "rarity": "Orange",
+      "role": "Archer",
+      "source_id": "M12301_001",
+      "base_name": "Harpy Princess",
+      "variant": "Frostbound"
+    },
+    {
+      "id": "alter_M31302_000",
+      "name_en": "Core Golem (Mecha)",
+      "rarity": "Orange",
+      "role": "Archer",
+      "source_id": "M31302_000",
+      "base_name": "Core Golem",
+      "variant": "Mecha"
+    },
+    {
+      "id": "alter_M51303_001",
+      "name_en": "Imp (Swimsuit)",
+      "rarity": "Orange",
+      "role": "Archer",
+      "source_id": "M51303_001",
+      "base_name": "Imp",
+      "variant": "Swimsuit"
+    },
+    {
+      "id": "alter_M12211_000",
+      "name_en": "Desert Dancer (Lunar)",
+      "rarity": "Orange",
+      "role": "Mage",
+      "source_id": "M12211_000",
+      "base_name": "Desert Dancer",
+      "variant": "Lunar"
+    },
+    {
+      "id": "alter_M12303_000",
+      "name_en": "Troll Sorceress (Alchemy)",
+      "rarity": "Orange",
+      "role": "Mage",
+      "source_id": "M12303_000",
+      "base_name": "Troll Sorceress",
+      "variant": "Alchemy"
+    },
+    {
+      "id": "alter_M13302_000",
+      "name_en": "Earth Herald (Nightmare)",
+      "rarity": "Orange",
+      "role": "Mage",
+      "source_id": "M13302_000",
+      "base_name": "Earth Herald",
+      "variant": "Nightmare"
+    },
+    {
+      "id": "alter_M13303_001",
+      "name_en": "Earth Witch (Sandstorm)",
+      "rarity": "Orange",
+      "role": "Mage",
+      "source_id": "M13303_001",
+      "base_name": "Earth Witch",
+      "variant": "Sandstorm"
+    },
+    {
+      "id": "alter_M13303_002",
+      "name_en": "Earth Witch (Lava)",
+      "rarity": "Orange",
+      "role": "Mage",
+      "source_id": "M13303_002",
+      "base_name": "Earth Witch",
+      "variant": "Lava"
+    },
+    {
+      "id": "alter_M13304_001",
+      "name_en": "Wasp Witch (Frostbound)",
+      "rarity": "Orange",
+      "role": "Mage",
+      "source_id": "M13304_001",
+      "base_name": "Wasp Witch",
+      "variant": "Frostbound"
+    },
+    {
+      "id": "alter_M13305_000",
+      "name_en": "Grand Magician (Bunny)",
+      "rarity": "Orange",
+      "role": "Mage",
+      "source_id": "M13305_000",
+      "base_name": "Grand Magician",
+      "variant": "Bunny"
+    },
+    {
+      "id": "alter_M13306_000",
+      "name_en": "Crystal Shroom (Dark Star)",
+      "rarity": "Orange",
+      "role": "Mage",
+      "source_id": "M13306_000",
+      "base_name": "Crystal Shroom",
+      "variant": "Dark Star"
+    },
+    {
+      "id": "alter_M13307_000",
+      "name_en": "Rose Sovereign (Nightfall)",
+      "rarity": "Orange",
+      "role": "Mage",
+      "source_id": "M13307_000",
+      "base_name": "Rose Sovereign",
+      "variant": "Nightfall"
+    },
+    {
+      "id": "alter_M23301_000",
+      "name_en": "Slime Queen (Crystal)",
+      "rarity": "Orange",
+      "role": "Mage",
+      "source_id": "M23301_000",
+      "base_name": "Slime Queen",
+      "variant": "Crystal"
+    },
+    {
+      "id": "alter_M23301_001",
+      "name_en": "Slime Queen (Lava)",
+      "rarity": "Orange",
+      "role": "Mage",
+      "source_id": "M23301_001",
+      "base_name": "Slime Queen",
+      "variant": "Lava"
+    },
+    {
+      "id": "alter_M53301_000",
+      "name_en": "Astral Fiend (Swimsuit)",
+      "rarity": "Orange",
+      "role": "Mage",
+      "source_id": "M53301_000",
+      "base_name": "Astral Fiend",
+      "variant": "Swimsuit"
+    },
+    {
+      "id": "alter_M53301_001",
+      "name_en": "Astral Fiend (Frostbound)",
+      "rarity": "Orange",
+      "role": "Mage",
+      "source_id": "M53301_001",
+      "base_name": "Astral Fiend",
+      "variant": "Frostbound"
+    },
+    {
+      "id": "alter_M14301_000",
+      "name_en": "Flawless Sage (Sovereign)",
+      "rarity": "Orange",
+      "role": "Priest",
+      "source_id": "M14301_000",
+      "base_name": "Flawless Sage",
+      "variant": "Sovereign"
+    },
+    {
+      "id": "alter_M14301_001",
+      "name_en": "Flawless Sage (Swimsuit)",
+      "rarity": "Orange",
+      "role": "Priest",
+      "source_id": "M14301_001",
+      "base_name": "Flawless Sage",
+      "variant": "Swimsuit"
+    },
+    {
+      "id": "alter_M24301_000",
+      "name_en": "Serene Undine (Silver)",
+      "rarity": "Orange",
+      "role": "Priest",
+      "source_id": "M24301_000",
+      "base_name": "Serene Undine",
+      "variant": "Silver"
+    },
+    {
+      "id": "alter_M34301_000",
+      "name_en": "Wish Djinn (Astral)",
+      "rarity": "Orange",
+      "role": "Priest",
+      "source_id": "M34301_000",
+      "base_name": "Wish Djinn",
+      "variant": "Astral"
+    },
+    {
+      "id": "alter_M54301_000",
+      "name_en": "Forest Nymph (Inferno)",
+      "rarity": "Orange",
+      "role": "Priest",
+      "source_id": "M54301_000",
+      "base_name": "Forest Nymph",
+      "variant": "Inferno"
+    },
+    {
+      "id": "alter_M11301_000",
+      "name_en": "Legion Commander (Tribal)",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "source_id": "M11301_000",
+      "base_name": "Legion Commander",
+      "variant": "Tribal"
+    },
+    {
+      "id": "alter_M11302_000",
+      "name_en": "Shadow Dragoness (Pale)",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "source_id": "M11302_000",
+      "base_name": "Shadow Dragoness",
+      "variant": "Pale"
+    },
+    {
+      "id": "alter_M11303_002",
+      "name_en": "Snowman Knightess (Lava)",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "source_id": "M11303_002",
+      "base_name": "Snowman Knightess",
+      "variant": "Lava"
+    },
+    {
+      "id": "alter_M11304_000",
+      "name_en": "Minotaur Brave (Legion)",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "source_id": "M11304_000",
+      "base_name": "Minotaur Brave",
+      "variant": "Legion"
+    },
+    {
+      "id": "alter_M11304_001",
+      "name_en": "Minotaur Brave (Black Sail)",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "source_id": "M11304_001",
+      "base_name": "Minotaur Brave",
+      "variant": "Black Sail"
+    },
+    {
+      "id": "alter_M21301_000",
+      "name_en": "Golden Maiden (Lava)",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "source_id": "M21301_000",
+      "base_name": "Golden Maiden",
+      "variant": "Lava"
+    },
+    {
+      "id": "alter_M21302_000",
+      "name_en": "Timeless Lord (Golden)",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "source_id": "M21302_000",
+      "base_name": "Timeless Lord",
+      "variant": "Golden"
+    },
+    {
+      "id": "alter_M31301_000",
+      "name_en": "Holy Blade (Swimsuit)",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "source_id": "M31301_000",
+      "base_name": "Holy Blade",
+      "variant": "Swimsuit"
+    },
+    {
+      "id": "alter_M31301_001",
+      "name_en": "Holy Blade (Frostbound)",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "source_id": "M31301_001",
+      "base_name": "Holy Blade",
+      "variant": "Frostbound"
+    },
+    {
+      "id": "alter_M31303_000",
+      "name_en": "Titan Lancer (Thunder)",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "source_id": "M31303_000",
+      "base_name": "Titan Lancer",
+      "variant": "Thunder"
+    },
+    {
+      "id": "alter_M41301_000",
+      "name_en": "Ghost Captain (Circus)",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "source_id": "M41301_000",
+      "base_name": "Ghost Captain",
+      "variant": "Circus"
+    },
+    {
+      "id": "alter_M51302_001",
+      "name_en": "Dawn Dragoness (Swimsuit)",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "source_id": "M51302_001",
+      "base_name": "Dawn Dragoness",
+      "variant": "Swimsuit"
+    },
+    {
+      "id": "alter_M51303_000",
+      "name_en": "Imp (Pajama)",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "source_id": "M51303_000",
+      "base_name": "Imp",
+      "variant": "Pajama"
+    },
+    {
+      "id": "alter_M52301_000",
+      "name_en": "Stellar Archer (Fairy World)",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "source_id": "M52301_000",
+      "base_name": "Stellar Archer",
+      "variant": "Fairy World"
+    },
+    {
+      "id": "alter_M53301_002",
+      "name_en": "Astral Fiend (Jester)",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "source_id": "M53301_002",
+      "base_name": "Astral Fiend",
+      "variant": "Jester"
+    },
+    {
+      "id": "alter_M12201_000",
+      "name_en": "Lurking Shadow (Bunny)",
+      "rarity": "Purple",
+      "role": "Archer",
+      "source_id": "M12201_000",
+      "base_name": "Lurking Shadow",
+      "variant": "Bunny"
+    },
+    {
+      "id": "alter_M12202_001",
+      "name_en": "Warg Archer (Frostbound)",
+      "rarity": "Purple",
+      "role": "Archer",
+      "source_id": "M12202_001",
+      "base_name": "Warg Archer",
+      "variant": "Frostbound"
+    },
+    {
+      "id": "alter_M12207_000",
+      "name_en": "Candy (Elf)",
+      "rarity": "Purple",
+      "role": "Archer",
+      "source_id": "M12207_000",
+      "base_name": "Candy",
+      "variant": "Elf"
+    },
+    {
+      "id": "alter_M13204_000",
+      "name_en": "Magic Attendant (Swimsuit)",
+      "rarity": "Purple",
+      "role": "Archer",
+      "source_id": "M13204_000",
+      "base_name": "Magic Attendant",
+      "variant": "Swimsuit"
+    },
+    {
+      "id": "alter_M22201_002",
+      "name_en": "Boulder Gunner (Lava)",
+      "rarity": "Purple",
+      "role": "Archer",
+      "source_id": "M22201_002",
+      "base_name": "Boulder Gunner",
+      "variant": "Lava"
+    },
+    {
+      "id": "alter_M22202_002",
+      "name_en": "Gilt Archer (Lava)",
+      "rarity": "Purple",
+      "role": "Archer",
+      "source_id": "M22202_002",
+      "base_name": "Gilt Archer",
+      "variant": "Lava"
+    },
+    {
+      "id": "alter_M13201_000",
+      "name_en": "Poppy (Mage)",
+      "rarity": "Purple",
+      "role": "Mage",
+      "source_id": "M13201_000",
+      "base_name": "Poppy",
+      "variant": "Mage"
+    },
+    {
+      "id": "alter_M13202_000",
+      "name_en": "Soul Mage (Swimsuit)",
+      "rarity": "Purple",
+      "role": "Mage",
+      "source_id": "M13202_000",
+      "base_name": "Soul Mage",
+      "variant": "Swimsuit"
+    },
+    {
+      "id": "alter_M14206_002",
+      "name_en": "Troll Overseer (Lava)",
+      "rarity": "Purple",
+      "role": "Mage",
+      "source_id": "M14206_002",
+      "base_name": "Troll Overseer",
+      "variant": "Lava"
+    },
+    {
+      "id": "alter_M23204_000",
+      "name_en": "Tempest Herald (Thunder)",
+      "rarity": "Purple",
+      "role": "Mage",
+      "source_id": "M23204_000",
+      "base_name": "Tempest Herald",
+      "variant": "Thunder"
+    },
+    {
+      "id": "alter_M14201_001",
+      "name_en": "War Priest (Frostbound)",
+      "rarity": "Purple",
+      "role": "Priest",
+      "source_id": "M14201_001",
+      "base_name": "War Priest",
+      "variant": "Frostbound"
+    },
+    {
+      "id": "alter_M14202_000",
+      "name_en": "Goblin Priest (Nightmare)",
+      "rarity": "Purple",
+      "role": "Priest",
+      "source_id": "M14202_000",
+      "base_name": "Goblin Priest",
+      "variant": "Nightmare"
+    },
+    {
+      "id": "alter_M14202_001",
+      "name_en": "Goblin Priest (Swimsuit)",
+      "rarity": "Purple",
+      "role": "Priest",
+      "source_id": "M14202_001",
+      "base_name": "Goblin Priest",
+      "variant": "Swimsuit"
+    },
+    {
+      "id": "alter_M14203_000",
+      "name_en": "Zhaocai (Priest)",
+      "rarity": "Purple",
+      "role": "Priest",
+      "source_id": "M14203_000",
+      "base_name": "Zhaocai",
+      "variant": "Priest"
+    },
+    {
+      "id": "alter_M11201_000",
+      "name_en": "Hunter Brave (Nightmare)",
+      "rarity": "Purple",
+      "role": "Warrior",
+      "source_id": "M11201_000",
+      "base_name": "Hunter Brave",
+      "variant": "Nightmare"
+    },
+    {
+      "id": "alter_M11203_000",
+      "name_en": "Pepper (Knightess)",
+      "rarity": "Purple",
+      "role": "Warrior",
+      "source_id": "M11203_000",
+      "base_name": "Pepper",
+      "variant": "Knightess"
+    },
+    {
+      "id": "alter_M11205_001",
+      "name_en": "Dire Wolf (Frostbound)",
+      "rarity": "Purple",
+      "role": "Warrior",
+      "source_id": "M11205_001",
+      "base_name": "Dire Wolf",
+      "variant": "Frostbound"
+    },
+    {
+      "id": "alter_M11209_000",
+      "name_en": "Minotaur Blade (Swimsuit)",
+      "rarity": "Purple",
+      "role": "Warrior",
+      "source_id": "M11209_000",
+      "base_name": "Minotaur Blade",
+      "variant": "Swimsuit"
+    },
+    {
+      "id": "alter_M21201_002",
+      "name_en": "Stone Guard (Lava)",
+      "rarity": "Purple",
+      "role": "Warrior",
+      "source_id": "M21201_002",
+      "base_name": "Stone Guard",
+      "variant": "Lava"
+    },
+    {
+      "id": "alter_M21202_000",
+      "name_en": "Gale Warrior (Thunder)",
+      "rarity": "Purple",
+      "role": "Warrior",
+      "source_id": "M21202_000",
+      "base_name": "Gale Warrior",
+      "variant": "Thunder"
+    },
+    {
+      "id": "alter_M51201_001",
+      "name_en": "Astral Guardian (Frostbound)",
+      "rarity": "Purple",
+      "role": "Warrior",
+      "source_id": "M51201_001",
+      "base_name": "Astral Guardian",
+      "variant": "Frostbound"
+    },
+    {
+      "id": "alter_M12101_001",
+      "name_en": "Wolfkin Hunter (Frostbound)",
+      "rarity": "Blue",
+      "role": "Archer",
+      "source_id": "M12101_001",
+      "base_name": "Wolfkin Hunter",
+      "variant": "Frostbound"
+    },
+    {
+      "id": "alter_M12102_002",
+      "name_en": "Troll Hurler (Lava)",
+      "rarity": "Blue",
+      "role": "Archer",
+      "source_id": "M12102_002",
+      "base_name": "Troll Hurler",
+      "variant": "Lava"
+    },
+    {
+      "id": "alter_M13104_001",
+      "name_en": "Wolfkin Shaman (Frostbound)",
+      "rarity": "Blue",
+      "role": "Mage",
+      "source_id": "M13104_001",
+      "base_name": "Wolfkin Shaman",
+      "variant": "Frostbound"
+    },
+    {
+      "id": "alter_M11103_001",
+      "name_en": "Warg Warrior (Frostbound)",
+      "rarity": "Blue",
+      "role": "Warrior",
+      "source_id": "M11103_001",
+      "base_name": "Warg Warrior",
+      "variant": "Frostbound"
+    },
+    {
+      "id": "alter_M11106_002",
+      "name_en": "Troll Guard (Lava)",
+      "rarity": "Blue",
+      "role": "Warrior",
+      "source_id": "M11106_002",
+      "base_name": "Troll Guard",
+      "variant": "Lava"
+    },
+    {
+      "id": "alter_M11109_001",
+      "name_en": "Harpy Girl (Frostbound)",
+      "rarity": "Blue",
+      "role": "Warrior",
+      "source_id": "M11109_001",
+      "base_name": "Harpy Girl",
+      "variant": "Frostbound"
+    },
+    {
+      "id": "alter_M12003_001",
+      "name_en": "Bee Hunter (Frostbound)",
+      "rarity": "Green",
+      "role": "Archer",
+      "source_id": "M12003_001",
+      "base_name": "Bee Hunter",
+      "variant": "Frostbound"
+    },
+    {
+      "id": "alter_M12004_002",
+      "name_en": "Mine Gatherer (Lava)",
+      "rarity": "Green",
+      "role": "Archer",
+      "source_id": "M12004_002",
+      "base_name": "Mine Gatherer",
+      "variant": "Lava"
+    },
+    {
+      "id": "alter_M11005_001",
+      "name_en": "Bee Warrior (Frostbound)",
+      "rarity": "Green",
+      "role": "Warrior",
+      "source_id": "M11005_001",
+      "base_name": "Bee Warrior",
+      "variant": "Frostbound"
+    },
+    {
+      "id": "alter_M11007_002",
+      "name_en": "Gold Digger (Lava)",
+      "rarity": "Green",
+      "role": "Warrior",
+      "source_id": "M11007_002",
+      "base_name": "Gold Digger",
+      "variant": "Lava"
     }
   ],
   "talents": [
@@ -1719,8 +2340,8 @@
       "origin": "translated-source"
     }
   ],
-  "notes": {
-    "characters": "144 base characters listed by the community database. Altered/limited variants may need separate entries.",
-    "talents": "The public source available here lists 431 talents with Japanese/Chinese names, but it does not provide a complete English catalog. Exact English names are included where verified from the user's data or official English update notes; other entries keep a translated/source label rather than pretending it is an official English name."
-  }
+  "notes": [
+    "Character database updated from the Guild of Monster Girls Wiki Units index (datamine 1.1.1.0).",
+    "The wiki currently reports inconsistent counts: Search Units says 214, while the Units Index lists 144 standard + 69 alter = 213. This file includes the 213 explicitly listed units and does not invent the missing 214th unit."
+  ]
 }
