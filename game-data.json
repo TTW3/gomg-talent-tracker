@@ -6,1489 +6,2565 @@
   "official_update_source": "https://www.chillyroom.com/en/game-news/40/262",
   "characters": [
     {
-      "id": "char_001",
-      "name_en": "Imp",
-      "rarity": "Orange",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_002",
-      "name_en": "Timeless Lord",
-      "rarity": "Orange",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_003",
-      "name_en": "Core Golem",
-      "rarity": "Orange",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_004",
-      "name_en": "Titan Lancer",
-      "rarity": "Orange",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_005",
-      "name_en": "Ghost Captain",
-      "rarity": "Orange",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_006",
-      "name_en": "Shadow Dragoness",
-      "rarity": "Orange",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_007",
-      "name_en": "Martial Mistress",
-      "rarity": "Orange",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_008",
-      "name_en": "Holy Blade",
-      "rarity": "Orange",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_009",
-      "name_en": "Minotaur Brave",
-      "rarity": "Orange",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_010",
-      "name_en": "Crimson Dragoness",
-      "rarity": "Orange",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_011",
-      "name_en": "Legion Commander",
-      "rarity": "Orange",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_012",
-      "name_en": "Dawn Dragoness",
-      "rarity": "Orange",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_013",
-      "name_en": "Snowman Knightess",
-      "rarity": "Orange",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_014",
-      "name_en": "Golden Maiden",
-      "rarity": "Orange",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_015",
-      "name_en": "Troll Sorceress",
-      "rarity": "Orange",
-      "role": "Archer"
-    },
-    {
-      "id": "char_016",
-      "name_en": "Stellar Archer",
-      "rarity": "Orange",
-      "role": "Archer"
-    },
-    {
-      "id": "char_017",
-      "name_en": "Frost Spider Queen",
-      "rarity": "Orange",
-      "role": "Archer"
-    },
-    {
-      "id": "char_018",
-      "name_en": "Thorn Archer",
-      "rarity": "Orange",
-      "role": "Archer"
-    },
-    {
-      "id": "char_019",
-      "name_en": "Harpy Princess",
-      "rarity": "Orange",
-      "role": "Archer"
-    },
-    {
-      "id": "char_020",
-      "name_en": "Slime Queen",
-      "rarity": "Orange",
-      "role": "Mage"
-    },
-    {
-      "id": "char_021",
-      "name_en": "Earth Herald",
-      "rarity": "Orange",
-      "role": "Mage"
-    },
-    {
-      "id": "char_022",
-      "name_en": "Rose Sovereign",
-      "rarity": "Orange",
-      "role": "Mage"
-    },
-    {
-      "id": "char_023",
-      "name_en": "Grand Magician",
-      "rarity": "Orange",
-      "role": "Mage"
-    },
-    {
-      "id": "char_024",
-      "name_en": "Earth Witch",
-      "rarity": "Orange",
-      "role": "Mage"
-    },
-    {
-      "id": "char_025",
-      "name_en": "Astral Fiend",
-      "rarity": "Orange",
-      "role": "Mage"
-    },
-    {
-      "id": "char_026",
-      "name_en": "Crystal Shroom",
-      "rarity": "Orange",
-      "role": "Mage"
-    },
-    {
-      "id": "char_027",
-      "name_en": "Wasp Witch",
-      "rarity": "Orange",
-      "role": "Mage"
-    },
-    {
-      "id": "char_028",
-      "name_en": "Wish Djinn",
-      "rarity": "Orange",
-      "role": "Priest"
-    },
-    {
-      "id": "char_029",
-      "name_en": "Forest Nymph",
-      "rarity": "Orange",
-      "role": "Priest"
-    },
-    {
-      "id": "char_030",
-      "name_en": "Flawless Sage",
-      "rarity": "Orange",
-      "role": "Priest"
-    },
-    {
-      "id": "char_031",
-      "name_en": "Isekai Wanderer",
-      "rarity": "Orange",
-      "role": "Priest"
-    },
-    {
-      "id": "char_032",
-      "name_en": "Serene Undine",
-      "rarity": "Orange",
-      "role": "Priest"
-    },
-    {
-      "id": "char_033",
-      "name_en": "Stinger Assassin",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_034",
-      "name_en": "Pepper",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_035",
-      "name_en": "Stone Guard",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_036",
-      "name_en": "Gale Warrior",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_037",
-      "name_en": "Giant Slime",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_038",
-      "name_en": "Ghost Mate",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_039",
-      "name_en": "Lost Aegis",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_040",
-      "name_en": "Astral Guardian",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_041",
-      "name_en": "Aqua Commander",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_042",
-      "name_en": "Tide Guard",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_043",
-      "name_en": "Fire Banshee",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_044",
-      "name_en": "Hunter Brave",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_045",
-      "name_en": "Dire Wolf",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_046",
-      "name_en": "Broken Blade",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_047",
-      "name_en": "Wasteland Hunter",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_048",
-      "name_en": "Minotaur Blade",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_049",
-      "name_en": "Legion Cavalry",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_050",
-      "name_en": "Wild Beastmaster",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_051",
-      "name_en": "Fishfolk Vanguard",
-      "rarity": "Purple",
-      "role": "Warrior"
-    },
-    {
-      "id": "char_052",
-      "name_en": "Jungle Hunter",
-      "rarity": "Purple",
-      "role": "Archer"
+      "id": "char_054",
+      "name_en": "Windstrider",
+      "source_id": "M12205",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12205.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
       "id": "char_053",
       "name_en": "Desert Dancer",
-      "rarity": "Purple",
-      "role": "Archer"
+      "source_id": "M12211",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12211.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Desert",
+      "kind": "standard"
     },
     {
-      "id": "char_054",
-      "name_en": "Windstrider",
-      "rarity": "Purple",
-      "role": "Archer"
+      "id": "char_019",
+      "name_en": "Harpy Princess",
+      "source_id": "M12301",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12301.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
-      "id": "char_055",
-      "name_en": "Naga Archer",
-      "rarity": "Purple",
-      "role": "Archer"
+      "id": "char_015",
+      "name_en": "Troll Sorceress",
+      "source_id": "M12303",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12303.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
-      "id": "char_056",
-      "name_en": "Candy",
-      "rarity": "Purple",
-      "role": "Archer"
+      "id": "char_017",
+      "name_en": "Frost Spider Queen",
+      "source_id": "M22301",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M22301.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Tundra",
+      "kind": "standard"
     },
     {
-      "id": "char_057",
-      "name_en": "Coco Tosser",
-      "rarity": "Purple",
-      "role": "Archer"
+      "id": "char_016",
+      "name_en": "Stellar Archer",
+      "source_id": "M52301",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M52301.png",
+      "role": "Archer",
+      "type": "Divine",
+      "element": "Light",
+      "terrain": "Astral",
+      "kind": "standard"
     },
     {
-      "id": "char_058",
-      "name_en": "Mercenary Gunner",
-      "rarity": "Purple",
-      "role": "Archer"
+      "id": "char_021",
+      "name_en": "Earth Herald",
+      "source_id": "M13302",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13302.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
-      "id": "char_059",
-      "name_en": "Boulder Gunner",
-      "rarity": "Purple",
-      "role": "Archer"
+      "id": "char_024",
+      "name_en": "Earth Witch",
+      "source_id": "M13303",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13303.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Mounts",
+      "kind": "standard"
     },
     {
-      "id": "char_060",
-      "name_en": "Quicksand Assassin",
-      "rarity": "Purple",
-      "role": "Archer"
+      "id": "char_027",
+      "name_en": "Wasp Witch",
+      "source_id": "M13304",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13304.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
-      "id": "char_061",
-      "name_en": "Boom Shroom",
-      "rarity": "Purple",
-      "role": "Archer"
+      "id": "char_023",
+      "name_en": "Grand Magician",
+      "source_id": "M13305",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13305.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
-      "id": "char_062",
-      "name_en": "Warg Archer",
-      "rarity": "Purple",
-      "role": "Archer"
+      "id": "char_026",
+      "name_en": "Crystal Shroom",
+      "source_id": "M13306",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13306.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Light",
+      "terrain": "Mounts",
+      "kind": "standard"
     },
     {
-      "id": "char_063",
-      "name_en": "Lurking Shadow",
-      "rarity": "Purple",
-      "role": "Archer"
+      "id": "char_022",
+      "name_en": "Rose Sovereign",
+      "source_id": "M13307",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13307.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
-      "id": "char_064",
-      "name_en": "Silver Ranger",
-      "rarity": "Purple",
-      "role": "Archer"
+      "id": "char_020",
+      "name_en": "Slime Queen",
+      "source_id": "M23301",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M23301.png",
+      "role": "Mage",
+      "type": "Demon",
+      "element": "Light",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
-      "id": "char_065",
-      "name_en": "Magic Attendant",
-      "rarity": "Purple",
-      "role": "Archer"
-    },
-    {
-      "id": "char_066",
-      "name_en": "Gilt Archer",
-      "rarity": "Purple",
-      "role": "Archer"
-    },
-    {
-      "id": "char_067",
-      "name_en": "Poppy",
-      "rarity": "Purple",
-      "role": "Mage"
-    },
-    {
-      "id": "char_068",
-      "name_en": "Elder Dryad",
-      "rarity": "Purple",
-      "role": "Mage"
-    },
-    {
-      "id": "char_069",
-      "name_en": "Tempest Herald",
-      "rarity": "Purple",
-      "role": "Mage"
-    },
-    {
-      "id": "char_070",
-      "name_en": "Academy Mentor",
-      "rarity": "Purple",
-      "role": "Mage"
-    },
-    {
-      "id": "char_071",
-      "name_en": "Soul Mage",
-      "rarity": "Purple",
-      "role": "Mage"
-    },
-    {
-      "id": "char_072",
-      "name_en": "Solar Priest",
-      "rarity": "Purple",
-      "role": "Mage"
-    },
-    {
-      "id": "char_073",
-      "name_en": "Lunar Priest",
-      "rarity": "Purple",
-      "role": "Mage"
-    },
-    {
-      "id": "char_074",
-      "name_en": "Thorn Dryad",
-      "rarity": "Purple",
-      "role": "Mage"
-    },
-    {
-      "id": "char_075",
-      "name_en": "Water Mage",
-      "rarity": "Purple",
-      "role": "Mage"
-    },
-    {
-      "id": "char_076",
-      "name_en": "Spore Witch",
-      "rarity": "Purple",
-      "role": "Mage"
-    },
-    {
-      "id": "char_077",
-      "name_en": "Alchemy Witch",
-      "rarity": "Purple",
-      "role": "Mage"
-    },
-    {
-      "id": "char_078",
-      "name_en": "Dune Herald",
-      "rarity": "Purple",
-      "role": "Mage"
+      "id": "char_025",
+      "name_en": "Astral Fiend",
+      "source_id": "M53301",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M53301.png",
+      "role": "Mage",
+      "type": "Divine",
+      "element": "Dark",
+      "terrain": "Astral",
+      "kind": "standard"
     },
     {
       "id": "char_079",
       "name_en": "Velvet Thorn",
-      "rarity": "Purple",
-      "role": "Priest"
+      "source_id": "M14215",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14215.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
-      "id": "char_080",
-      "name_en": "Goblin Priest",
-      "rarity": "Purple",
-      "role": "Priest"
+      "id": "char_030",
+      "name_en": "Flawless Sage",
+      "source_id": "M14301",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14301.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Light",
+      "terrain": "Beach",
+      "kind": "standard"
     },
     {
-      "id": "char_081",
-      "name_en": "Troll Overseer",
-      "rarity": "Purple",
-      "role": "Priest"
+      "id": "char_031",
+      "name_en": "Isekai Wanderer",
+      "source_id": "M14303",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14303.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
-      "id": "char_082",
-      "name_en": "War Priest",
-      "rarity": "Purple",
-      "role": "Priest"
+      "id": "char_032",
+      "name_en": "Serene Undine",
+      "source_id": "M24301",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M24301.png",
+      "role": "Priest",
+      "type": "Demon",
+      "element": "Water",
+      "terrain": "Ocean",
+      "kind": "standard"
     },
     {
-      "id": "char_083",
-      "name_en": "Zhaocai",
-      "rarity": "Purple",
-      "role": "Priest"
+      "id": "char_028",
+      "name_en": "Wish Djinn",
+      "source_id": "M34301",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M34301.png",
+      "role": "Priest",
+      "type": "Construct",
+      "element": "Wind",
+      "terrain": "Desert",
+      "kind": "standard"
     },
     {
-      "id": "char_084",
-      "name_en": "Botanist",
-      "rarity": "Purple",
-      "role": "Priest"
+      "id": "char_029",
+      "name_en": "Forest Nymph",
+      "source_id": "M54301",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M54301.png",
+      "role": "Priest",
+      "type": "Divine",
+      "element": "Light",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
-      "id": "char_085",
-      "name_en": "Green Cap",
-      "rarity": "Purple",
-      "role": "Priest"
+      "id": "char_145",
+      "name_en": "Dummy",
+      "source_id": "M00000",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M00000.png",
+      "role": "Warrior",
+      "type": "Construct",
+      "element": "Earth",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
-      "id": "char_086",
-      "name_en": "Minotaur Priest",
-      "rarity": "Purple",
-      "role": "Priest"
+      "id": "char_011",
+      "name_en": "Legion Commander",
+      "source_id": "M11301",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11301.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
-      "id": "char_087",
-      "name_en": "Red Fox Priestess",
-      "rarity": "Purple",
-      "role": "Priest"
+      "id": "char_006",
+      "name_en": "Shadow Dragoness",
+      "source_id": "M11302",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11302.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
-      "id": "char_088",
-      "name_en": "Silver Fox Oracle",
-      "rarity": "Purple",
-      "role": "Priest"
+      "id": "char_013",
+      "name_en": "Snowman Knightess",
+      "source_id": "M11303",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11303.png",
+      "role": "Warrior",
+      "type": "Demon",
+      "element": "Water",
+      "terrain": "Tundra",
+      "kind": "standard"
     },
     {
-      "id": "char_089",
-      "name_en": "Goblin Warrior",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_009",
+      "name_en": "Minotaur Brave",
+      "source_id": "M11304",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11304.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
-      "id": "char_090",
-      "name_en": "Troll Guard",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_146",
+      "name_en": "Naga General",
+      "source_id": "M11307",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11307.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Beach",
+      "kind": "standard"
     },
     {
-      "id": "char_091",
-      "name_en": "Grand Explorer",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_010",
+      "name_en": "Crimson Dragoness",
+      "source_id": "M13310",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13310.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Volcano",
+      "kind": "standard"
     },
     {
-      "id": "char_092",
-      "name_en": "Ghost Sailor",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_014",
+      "name_en": "Golden Maiden",
+      "source_id": "M21301",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M21301.png",
+      "role": "Warrior",
+      "type": "Demon",
+      "element": "Light",
+      "terrain": "Mounts",
+      "kind": "standard"
     },
     {
-      "id": "char_093",
-      "name_en": "Brawler Girl",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_002",
+      "name_en": "Timeless Lord",
+      "source_id": "M21302",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M21302.png",
+      "role": "Warrior",
+      "type": "Demon",
+      "element": "Earth",
+      "terrain": "Desert",
+      "kind": "standard"
     },
     {
-      "id": "char_094",
-      "name_en": "Wandering Doll",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_008",
+      "name_en": "Holy Blade",
+      "source_id": "M31301",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M31301.png",
+      "role": "Warrior",
+      "type": "Construct",
+      "element": "Light",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
-      "id": "char_095",
-      "name_en": "Treant Guard",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_003",
+      "name_en": "Core Golem",
+      "source_id": "M31302",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M31302.png",
+      "role": "Warrior",
+      "type": "Construct",
+      "element": "Earth",
+      "terrain": "Mounts",
+      "kind": "standard"
     },
     {
-      "id": "char_096",
-      "name_en": "Fighter Apprentice",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_004",
+      "name_en": "Titan Lancer",
+      "source_id": "M31303",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M31303.png",
+      "role": "Warrior",
+      "type": "Construct",
+      "element": "Earth",
+      "terrain": "Desert",
+      "kind": "standard"
     },
     {
-      "id": "char_097",
-      "name_en": "Shining Maiden",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_005",
+      "name_en": "Ghost Captain",
+      "source_id": "M41301",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M41301.png",
+      "role": "Warrior",
+      "type": "Undead",
+      "element": "Dark",
+      "terrain": "Ocean",
+      "kind": "standard"
     },
     {
-      "id": "char_098",
-      "name_en": "Aqua Soldier",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_012",
+      "name_en": "Dawn Dragoness",
+      "source_id": "M51302",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M51302.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Beach",
+      "kind": "standard"
     },
     {
-      "id": "char_099",
-      "name_en": "Warg Warrior",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_001",
+      "name_en": "Imp",
+      "source_id": "M51303",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M51303.png",
+      "role": "Warrior",
+      "type": "Divine",
+      "element": "Dark",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
-      "id": "char_100",
-      "name_en": "Desert Guard",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_063",
+      "name_en": "Lurking Shadow",
+      "source_id": "M12201",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12201.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
-      "id": "char_101",
-      "name_en": "Spore Guard",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_062",
+      "name_en": "Warg Archer",
+      "source_id": "M12202",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12202.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
-      "id": "char_102",
-      "name_en": "Silverscale Guard",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_057",
+      "name_en": "Coco Tosser",
+      "source_id": "M12203",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12203.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Beach",
+      "kind": "standard"
     },
     {
-      "id": "char_103",
-      "name_en": "Blueshark Drill",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_055",
+      "name_en": "Naga Archer",
+      "source_id": "M12204",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12204.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Ocean",
+      "kind": "standard"
     },
     {
-      "id": "char_104",
-      "name_en": "Sparkbolt",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_056",
+      "name_en": "Candy",
+      "source_id": "M12207",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12207.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
-      "id": "char_105",
-      "name_en": "Harpy Girl",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_064",
+      "name_en": "Silver Ranger",
+      "source_id": "M12208",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12208.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
-      "id": "char_106",
-      "name_en": "Silent Hunter",
-      "rarity": "Blue",
-      "role": "Warrior"
+      "id": "char_058",
+      "name_en": "Mercenary Gunner",
+      "source_id": "M12210",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12210.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Desert",
+      "kind": "standard"
     },
     {
-      "id": "char_107",
-      "name_en": "Troll Hurler",
-      "rarity": "Blue",
-      "role": "Archer"
+      "id": "char_018",
+      "name_en": "Thorn Archer",
+      "source_id": "M12304",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12304.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Desert",
+      "kind": "standard"
     },
     {
-      "id": "char_108",
-      "name_en": "Fairy Archer",
-      "rarity": "Blue",
-      "role": "Archer"
+      "id": "char_065",
+      "name_en": "Magic Attendant",
+      "source_id": "M13204",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13204.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
-      "id": "char_109",
-      "name_en": "Ghost Gunner",
-      "rarity": "Blue",
-      "role": "Archer"
+      "id": "char_052",
+      "name_en": "Jungle Hunter",
+      "source_id": "M13205",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13205.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
-      "id": "char_110",
-      "name_en": "Wolfkin Hunter",
-      "rarity": "Blue",
-      "role": "Archer"
+      "id": "char_061",
+      "name_en": "Boom Shroom",
+      "source_id": "M14204",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14204.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Mounts",
+      "kind": "standard"
     },
     {
-      "id": "char_111",
-      "name_en": "Spore Archer",
-      "rarity": "Blue",
-      "role": "Archer"
+      "id": "char_059",
+      "name_en": "Boulder Gunner",
+      "source_id": "M22201",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M22201.png",
+      "role": "Archer",
+      "type": "Demon",
+      "element": "Earth",
+      "terrain": "Mounts",
+      "kind": "standard"
     },
     {
-      "id": "char_112",
-      "name_en": "Shell Maiden",
-      "rarity": "Blue",
-      "role": "Archer"
+      "id": "char_066",
+      "name_en": "Gilt Archer",
+      "source_id": "M22202",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M22202.png",
+      "role": "Archer",
+      "type": "Demon",
+      "element": "Light",
+      "terrain": "Mounts",
+      "kind": "standard"
     },
     {
-      "id": "char_113",
-      "name_en": "Legion Archer",
-      "rarity": "Blue",
-      "role": "Archer"
-    },
-    {
-      "id": "char_114",
-      "name_en": "Goblin Mage",
-      "rarity": "Blue",
-      "role": "Mage"
-    },
-    {
-      "id": "char_115",
-      "name_en": "Star Pupil",
-      "rarity": "Blue",
-      "role": "Mage"
-    },
-    {
-      "id": "char_116",
-      "name_en": "Academy Apprentice",
-      "rarity": "Blue",
-      "role": "Mage"
-    },
-    {
-      "id": "char_117",
-      "name_en": "Lost Soul",
-      "rarity": "Blue",
-      "role": "Mage"
-    },
-    {
-      "id": "char_118",
-      "name_en": "Wolfkin Shaman",
-      "rarity": "Blue",
-      "role": "Mage"
-    },
-    {
-      "id": "char_119",
-      "name_en": "Ruin Seeker",
-      "rarity": "Blue",
-      "role": "Mage"
-    },
-    {
-      "id": "char_120",
-      "name_en": "Jade Golem",
-      "rarity": "Blue",
-      "role": "Mage"
+      "id": "char_060",
+      "name_en": "Quicksand Assassin",
+      "source_id": "M22203",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M22203.png",
+      "role": "Archer",
+      "type": "Demon",
+      "element": "Earth",
+      "terrain": "Desert",
+      "kind": "standard"
     },
     {
       "id": "char_121",
       "name_en": "Fish Herder",
-      "rarity": "Blue",
-      "role": "Mage"
+      "source_id": "M13105",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13105.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Beach",
+      "kind": "standard"
     },
     {
-      "id": "char_122",
-      "name_en": "Slime Maid",
-      "rarity": "Blue",
-      "role": "Priest"
+      "id": "char_067",
+      "name_en": "Poppy",
+      "source_id": "M13201",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13201.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Light",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_071",
+      "name_en": "Soul Mage",
+      "source_id": "M13202",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13202.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_070",
+      "name_en": "Academy Mentor",
+      "source_id": "M13203",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13203.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_076",
+      "name_en": "Spore Witch",
+      "source_id": "M13206",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13206.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Mounts",
+      "kind": "standard"
+    },
+    {
+      "id": "char_072",
+      "name_en": "Solar Priest",
+      "source_id": "M13207",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13207.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Light",
+      "terrain": "Desert",
+      "kind": "standard"
+    },
+    {
+      "id": "char_077",
+      "name_en": "Alchemy Witch",
+      "source_id": "M13210",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13210.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_073",
+      "name_en": "Lunar Priest",
+      "source_id": "M14213",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14213.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Desert",
+      "kind": "standard"
+    },
+    {
+      "id": "char_075",
+      "name_en": "Water Mage",
+      "source_id": "M23201",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M23201.png",
+      "role": "Mage",
+      "type": "Demon",
+      "element": "Water",
+      "terrain": "Ocean",
+      "kind": "standard"
+    },
+    {
+      "id": "char_068",
+      "name_en": "Elder Dryad",
+      "source_id": "M23202",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M23202.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_074",
+      "name_en": "Thorn Dryad",
+      "source_id": "M23203",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M23203.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_069",
+      "name_en": "Tempest Herald",
+      "source_id": "M23204",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M23204.png",
+      "role": "Mage",
+      "type": "Demon",
+      "element": "Wind",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_078",
+      "name_en": "Dune Herald",
+      "source_id": "M23205",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M23205.png",
+      "role": "Mage",
+      "type": "Demon",
+      "element": "Earth",
+      "terrain": "Desert",
+      "kind": "standard"
+    },
+    {
+      "id": "char_120",
+      "name_en": "Jade Golem",
+      "source_id": "M33101",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M33101.png",
+      "role": "Mage",
+      "type": "Construct",
+      "element": "Wind",
+      "terrain": "Mounts",
+      "kind": "standard"
+    },
+    {
+      "id": "char_082",
+      "name_en": "War Priest",
+      "source_id": "M14201",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14201.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_080",
+      "name_en": "Goblin Priest",
+      "source_id": "M14202",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14202.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_083",
+      "name_en": "Zhaocai",
+      "source_id": "M14203",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14203.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Light",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_086",
+      "name_en": "Minotaur Priest",
+      "source_id": "M14205",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14205.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_081",
+      "name_en": "Troll Overseer",
+      "source_id": "M14206",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14206.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Mounts",
+      "kind": "standard"
+    },
+    {
+      "id": "char_084",
+      "name_en": "Botanist",
+      "source_id": "M14207",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14207.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_085",
+      "name_en": "Green Cap",
+      "source_id": "M14208",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14208.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Mounts",
+      "kind": "standard"
+    },
+    {
+      "id": "char_088",
+      "name_en": "Silver Fox Oracle",
+      "source_id": "M14210",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14210.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Light",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_087",
+      "name_en": "Red Fox Priestess",
+      "source_id": "M14211",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14211.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_044",
+      "name_en": "Hunter Brave",
+      "source_id": "M11201",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11201.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_047",
+      "name_en": "Wasteland Hunter",
+      "source_id": "M11202",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11202.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Desert",
+      "kind": "standard"
+    },
+    {
+      "id": "char_034",
+      "name_en": "Pepper",
+      "source_id": "M11203",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11203.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_049",
+      "name_en": "Legion Cavalry",
+      "source_id": "M11204",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11204.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_045",
+      "name_en": "Dire Wolf",
+      "source_id": "M11205",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11205.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_050",
+      "name_en": "Wild Beastmaster",
+      "source_id": "M11206",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11206.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_041",
+      "name_en": "Aqua Commander",
+      "source_id": "M11207",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11207.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Beach",
+      "kind": "standard"
+    },
+    {
+      "id": "char_051",
+      "name_en": "Fishfolk Vanguard",
+      "source_id": "M11208",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11208.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Beach",
+      "kind": "standard"
+    },
+    {
+      "id": "char_048",
+      "name_en": "Minotaur Blade",
+      "source_id": "M11209",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11209.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_033",
+      "name_en": "Stinger Assassin",
+      "source_id": "M11210",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11210.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Desert",
+      "kind": "standard"
+    },
+    {
+      "id": "char_035",
+      "name_en": "Stone Guard",
+      "source_id": "M21201",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M21201.png",
+      "role": "Warrior",
+      "type": "Demon",
+      "element": "Earth",
+      "terrain": "Mounts",
+      "kind": "standard"
+    },
+    {
+      "id": "char_036",
+      "name_en": "Gale Warrior",
+      "source_id": "M21202",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M21202.png",
+      "role": "Warrior",
+      "type": "Demon",
+      "element": "Wind",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_037",
+      "name_en": "Giant Slime",
+      "source_id": "M21203",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M21203.png",
+      "role": "Warrior",
+      "type": "Demon",
+      "element": "Water",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_042",
+      "name_en": "Tide Guard",
+      "source_id": "M21204",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M21204.png",
+      "role": "Warrior",
+      "type": "Demon",
+      "element": "Water",
+      "terrain": "Ocean",
+      "kind": "standard"
+    },
+    {
+      "id": "char_043",
+      "name_en": "Fire Banshee",
+      "source_id": "M21205",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M21205.png",
+      "role": "Warrior",
+      "type": "Demon",
+      "element": "Fire",
+      "terrain": "Mounts",
+      "kind": "standard"
+    },
+    {
+      "id": "char_046",
+      "name_en": "Broken Blade",
+      "source_id": "M31201",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M31201.png",
+      "role": "Warrior",
+      "type": "Construct",
+      "element": "Dark",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_039",
+      "name_en": "Lost Aegis",
+      "source_id": "M31202",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M31202.png",
+      "role": "Warrior",
+      "type": "Construct",
+      "element": "Light",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_038",
+      "name_en": "Ghost Mate",
+      "source_id": "M41201",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M41201.png",
+      "role": "Warrior",
+      "type": "Undead",
+      "element": "Dark",
+      "terrain": "Ocean",
+      "kind": "standard"
+    },
+    {
+      "id": "char_040",
+      "name_en": "Astral Guardian",
+      "source_id": "M51201",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M51201.png",
+      "role": "Warrior",
+      "type": "Divine",
+      "element": "Dark",
+      "terrain": "Astral",
+      "kind": "standard"
+    },
+    {
+      "id": "char_110",
+      "name_en": "Wolfkin Hunter",
+      "source_id": "M12101",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12101.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_107",
+      "name_en": "Troll Hurler",
+      "source_id": "M12102",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12102.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Mounts",
+      "kind": "standard"
+    },
+    {
+      "id": "char_112",
+      "name_en": "Shell Maiden",
+      "source_id": "M12103",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12103.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Beach",
+      "kind": "standard"
+    },
+    {
+      "id": "char_113",
+      "name_en": "Legion Archer",
+      "source_id": "M12105",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12105.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_111",
+      "name_en": "Spore Archer",
+      "source_id": "M12106",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12106.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Mounts",
+      "kind": "standard"
+    },
+    {
+      "id": "char_108",
+      "name_en": "Fairy Archer",
+      "source_id": "M32101",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M32101.png",
+      "role": "Archer",
+      "type": "Construct",
+      "element": "Wind",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_109",
+      "name_en": "Ghost Gunner",
+      "source_id": "M42101",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M42101.png",
+      "role": "Archer",
+      "type": "Undead",
+      "element": "Dark",
+      "terrain": "Ocean",
+      "kind": "standard"
+    },
+    {
+      "id": "char_114",
+      "name_en": "Goblin Mage",
+      "source_id": "M13102",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13102.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_115",
+      "name_en": "Star Pupil",
+      "source_id": "M13103",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13103.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_118",
+      "name_en": "Wolfkin Shaman",
+      "source_id": "M13104",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13104.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_116",
+      "name_en": "Academy Apprentice",
+      "source_id": "M13106",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13106.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_119",
+      "name_en": "Ruin Seeker",
+      "source_id": "M13107",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13107.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Desert",
+      "kind": "standard"
+    },
+    {
+      "id": "char_117",
+      "name_en": "Lost Soul",
+      "source_id": "M43101",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M43101.png",
+      "role": "Mage",
+      "type": "Undead",
+      "element": "Dark",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
       "id": "char_123",
       "name_en": "Academy Priest",
-      "rarity": "Blue",
-      "role": "Priest"
-    },
-    {
-      "id": "char_124",
-      "name_en": "Silver Songstress",
-      "rarity": "Blue",
-      "role": "Priest"
+      "source_id": "M14101",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14101.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Light",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
       "id": "char_125",
       "name_en": "Silverscale Siren",
-      "rarity": "Blue",
-      "role": "Priest"
+      "source_id": "M14104",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14104.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Ocean",
+      "kind": "standard"
     },
     {
-      "id": "char_126",
-      "name_en": "Shroom Charmer",
-      "rarity": "Blue",
-      "role": "Priest"
+      "id": "char_122",
+      "name_en": "Slime Maid",
+      "source_id": "M24101",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M24101.png",
+      "role": "Priest",
+      "type": "Demon",
+      "element": "Light",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
-      "id": "char_127",
-      "name_en": "Legion Priest",
-      "rarity": "Blue",
-      "role": "Priest"
+      "id": "char_124",
+      "name_en": "Silver Songstress",
+      "source_id": "M24102",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M24102.png",
+      "role": "Priest",
+      "type": "Demon",
+      "element": "Light",
+      "terrain": "Mounts",
+      "kind": "standard"
     },
     {
-      "id": "char_128",
-      "name_en": "Goblin Scout",
-      "rarity": "Green",
-      "role": "Warrior"
+      "id": "char_097",
+      "name_en": "Shining Maiden",
+      "source_id": "M11102",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11102.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
-      "id": "char_129",
-      "name_en": "Slime Warrior",
-      "rarity": "Green",
-      "role": "Warrior"
+      "id": "char_099",
+      "name_en": "Warg Warrior",
+      "source_id": "M11103",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11103.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
-      "id": "char_130",
-      "name_en": "Desert Hunter",
-      "rarity": "Green",
-      "role": "Warrior"
+      "id": "char_089",
+      "name_en": "Goblin Warrior",
+      "source_id": "M11105",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11105.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
-      "id": "char_131",
-      "name_en": "Desert Rogue",
-      "rarity": "Green",
-      "role": "Warrior"
+      "id": "char_090",
+      "name_en": "Troll Guard",
+      "source_id": "M11106",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11106.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Mounts",
+      "kind": "standard"
     },
     {
-      "id": "char_132",
-      "name_en": "Bee Warrior",
-      "rarity": "Green",
-      "role": "Warrior"
+      "id": "char_102",
+      "name_en": "Silverscale Guard",
+      "source_id": "M11107",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11107.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Ocean",
+      "kind": "standard"
     },
     {
-      "id": "char_133",
-      "name_en": "Legion Scout",
-      "rarity": "Green",
-      "role": "Warrior"
+      "id": "char_104",
+      "name_en": "Sparkbolt",
+      "source_id": "M11108",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11108.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Light",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
-      "id": "char_134",
-      "name_en": "Gold Digger",
-      "rarity": "Green",
-      "role": "Warrior"
+      "id": "char_105",
+      "name_en": "Harpy Girl",
+      "source_id": "M11109",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11109.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
-      "id": "char_135",
-      "name_en": "Fishfolk Warrior",
-      "rarity": "Green",
-      "role": "Warrior"
+      "id": "char_103",
+      "name_en": "Blueshark Drill",
+      "source_id": "M11110",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11110.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Ocean",
+      "kind": "standard"
     },
     {
-      "id": "char_136",
-      "name_en": "Fishfolk Scout",
-      "rarity": "Green",
-      "role": "Warrior"
+      "id": "char_096",
+      "name_en": "Fighter Apprentice",
+      "source_id": "M11111",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11111.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
-      "id": "char_137",
-      "name_en": "Goblin Hunter",
-      "rarity": "Green",
-      "role": "Archer"
+      "id": "char_101",
+      "name_en": "Spore Guard",
+      "source_id": "M11112",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11112.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Mounts",
+      "kind": "standard"
     },
     {
-      "id": "char_138",
-      "name_en": "Bee Hunter",
-      "rarity": "Green",
-      "role": "Archer"
+      "id": "char_098",
+      "name_en": "Aqua Soldier",
+      "source_id": "M11113",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11113.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Beach",
+      "kind": "standard"
+    },
+    {
+      "id": "char_093",
+      "name_en": "Brawler Girl",
+      "source_id": "M11114",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11114.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_100",
+      "name_en": "Desert Guard",
+      "source_id": "M11115",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11115.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Light",
+      "terrain": "Desert",
+      "kind": "standard"
+    },
+    {
+      "id": "char_091",
+      "name_en": "Grand Explorer",
+      "source_id": "M12104",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12104.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Light",
+      "terrain": "Mounts",
+      "kind": "standard"
+    },
+    {
+      "id": "char_095",
+      "name_en": "Treant Guard",
+      "source_id": "M21101",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M21101.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_094",
+      "name_en": "Wandering Doll",
+      "source_id": "M32103",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M32103.png",
+      "role": "Warrior",
+      "type": "Construct",
+      "element": "Dark",
+      "terrain": "Mounts",
+      "kind": "standard"
+    },
+    {
+      "id": "char_092",
+      "name_en": "Ghost Sailor",
+      "source_id": "M41101",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M41101.png",
+      "role": "Warrior",
+      "type": "Undead",
+      "element": "Dark",
+      "terrain": "Ocean",
+      "kind": "standard"
     },
     {
       "id": "char_139",
       "name_en": "Wildcat Hunter",
-      "rarity": "Green",
-      "role": "Archer"
+      "source_id": "M12001",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12001.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_137",
+      "name_en": "Goblin Hunter",
+      "source_id": "M12002",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12002.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_138",
+      "name_en": "Bee Hunter",
+      "source_id": "M12003",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12003.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Plains",
+      "kind": "standard"
     },
     {
       "id": "char_140",
       "name_en": "Mine Gatherer",
-      "rarity": "Green",
-      "role": "Archer"
-    },
-    {
-      "id": "char_141",
-      "name_en": "Slime Mage",
-      "rarity": "Green",
-      "role": "Mage"
+      "source_id": "M12004",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12004.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Mounts",
+      "kind": "standard"
     },
     {
       "id": "char_142",
       "name_en": "Blue Shroom",
-      "rarity": "Green",
-      "role": "Mage"
+      "source_id": "M13002",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13002.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Mounts",
+      "kind": "standard"
     },
     {
-      "id": "char_143",
-      "name_en": "Slime Priest",
-      "rarity": "Green",
-      "role": "Priest"
+      "id": "char_141",
+      "name_en": "Slime Mage",
+      "source_id": "M23001",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M23001.png",
+      "role": "Mage",
+      "type": "Demon",
+      "element": "Water",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
       "id": "char_144",
       "name_en": "Fishfolk Priest",
-      "rarity": "Green",
-      "role": "Priest"
+      "source_id": "M13001",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13001.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Ocean",
+      "kind": "standard"
+    },
+    {
+      "id": "char_126",
+      "name_en": "Shroom Charmer",
+      "source_id": "M14102",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14102.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Mounts",
+      "kind": "standard"
+    },
+    {
+      "id": "char_127",
+      "name_en": "Legion Priest",
+      "source_id": "M14103",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14103.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_143",
+      "name_en": "Slime Priest",
+      "source_id": "M24001",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M24001.png",
+      "role": "Priest",
+      "type": "Demon",
+      "element": "Light",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_128",
+      "name_en": "Goblin Scout",
+      "source_id": "M11002",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11002.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_136",
+      "name_en": "Fishfolk Scout",
+      "source_id": "M11003",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11003.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Ocean",
+      "kind": "standard"
+    },
+    {
+      "id": "char_135",
+      "name_en": "Fishfolk Warrior",
+      "source_id": "M11004",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11004.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Ocean",
+      "kind": "standard"
+    },
+    {
+      "id": "char_132",
+      "name_en": "Bee Warrior",
+      "source_id": "M11005",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11005.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_133",
+      "name_en": "Legion Scout",
+      "source_id": "M11006",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11006.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Plains",
+      "kind": "standard"
+    },
+    {
+      "id": "char_134",
+      "name_en": "Gold Digger",
+      "source_id": "M11007",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11007.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Mounts",
+      "kind": "standard"
+    },
+    {
+      "id": "char_131",
+      "name_en": "Desert Rogue",
+      "source_id": "M11008",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11008.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Desert",
+      "kind": "standard"
+    },
+    {
+      "id": "char_130",
+      "name_en": "Desert Hunter",
+      "source_id": "M11009",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11009.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Desert",
+      "kind": "standard"
+    },
+    {
+      "id": "char_106",
+      "name_en": "Silent Hunter",
+      "source_id": "M11101",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11101.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Forest",
+      "kind": "standard"
+    },
+    {
+      "id": "char_129",
+      "name_en": "Slime Warrior",
+      "source_id": "M21001",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M21001.png",
+      "role": "Warrior",
+      "type": "Demon",
+      "element": "Fire",
+      "terrain": "Forest",
+      "kind": "standard"
     },
     {
       "id": "alter_M12205_000",
       "name_en": "Windstrider (Bunny)",
-      "rarity": "Orange",
-      "role": "Archer",
       "source_id": "M12205_000",
-      "base_name": "Windstrider",
-      "variant": "Bunny"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12205_000.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Light",
+      "terrain": "Plains",
+      "variant": "Bunny",
+      "base_id": "M12205",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M12205_001",
       "name_en": "Windstrider (Swimsuit)",
-      "rarity": "Orange",
-      "role": "Archer",
       "source_id": "M12205_001",
-      "base_name": "Windstrider",
-      "variant": "Swimsuit"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12205_001.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Beach",
+      "variant": "Swimsuit",
+      "base_id": "M12205",
+      "source": "Intel",
+      "kind": "alter"
     },
     {
       "id": "alter_M12301_001",
       "name_en": "Harpy Princess (Frostbound)",
-      "rarity": "Orange",
-      "role": "Archer",
       "source_id": "M12301_001",
-      "base_name": "Harpy Princess",
-      "variant": "Frostbound"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12301_001.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Tundra",
+      "variant": "Frostbound",
+      "base_id": "M12301",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M31302_000",
       "name_en": "Core Golem (Mecha)",
-      "rarity": "Orange",
-      "role": "Archer",
       "source_id": "M31302_000",
-      "base_name": "Core Golem",
-      "variant": "Mecha"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M31302_000.png",
+      "role": "Archer",
+      "type": "Construct",
+      "element": "Wind",
+      "terrain": "Mounts",
+      "variant": "Mecha",
+      "base_id": "M31302",
+      "source": "Limited",
+      "kind": "alter"
     },
     {
       "id": "alter_M51303_001",
       "name_en": "Imp (Swimsuit)",
-      "rarity": "Orange",
-      "role": "Archer",
       "source_id": "M51303_001",
-      "base_name": "Imp",
-      "variant": "Swimsuit"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M51303_001.png",
+      "role": "Archer",
+      "type": "Divine",
+      "element": "Water",
+      "terrain": "Beach",
+      "variant": "Swimsuit",
+      "base_id": "M51303",
+      "source": "Limited",
+      "kind": "alter"
     },
     {
       "id": "alter_M12211_000",
       "name_en": "Desert Dancer (Lunar)",
-      "rarity": "Orange",
-      "role": "Mage",
       "source_id": "M12211_000",
-      "base_name": "Desert Dancer",
-      "variant": "Lunar"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12211_000.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Desert",
+      "variant": "Lunar",
+      "base_id": "M12211",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M12303_000",
       "name_en": "Troll Sorceress (Alchemy)",
-      "rarity": "Orange",
-      "role": "Mage",
       "source_id": "M12303_000",
-      "base_name": "Troll Sorceress",
-      "variant": "Alchemy"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12303_000.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Forest",
+      "variant": "Alchemy",
+      "base_id": "M12303",
+      "source": "Limited",
+      "kind": "alter"
     },
     {
       "id": "alter_M13302_000",
       "name_en": "Earth Herald (Nightmare)",
-      "rarity": "Orange",
-      "role": "Mage",
       "source_id": "M13302_000",
-      "base_name": "Earth Herald",
-      "variant": "Nightmare"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13302_000.png",
+      "role": "Mage",
+      "type": "Divine",
+      "element": "Dark",
+      "terrain": "Plains",
+      "variant": "Nightmare",
+      "base_id": "M13302",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M13303_001",
       "name_en": "Earth Witch (Sandstorm)",
-      "rarity": "Orange",
-      "role": "Mage",
       "source_id": "M13303_001",
-      "base_name": "Earth Witch",
-      "variant": "Sandstorm"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13303_001.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Desert",
+      "variant": "Sandstorm",
+      "base_id": "M13303",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M13303_002",
       "name_en": "Earth Witch (Lava)",
-      "rarity": "Orange",
-      "role": "Mage",
       "source_id": "M13303_002",
-      "base_name": "Earth Witch",
-      "variant": "Lava"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13303_002.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Volcano",
+      "variant": "Lava",
+      "base_id": "M13303",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M13304_001",
       "name_en": "Wasp Witch (Frostbound)",
-      "rarity": "Orange",
-      "role": "Mage",
       "source_id": "M13304_001",
-      "base_name": "Wasp Witch",
-      "variant": "Frostbound"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13304_001.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Tundra",
+      "variant": "Frostbound",
+      "base_id": "M13304",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M13305_000",
       "name_en": "Grand Magician (Bunny)",
-      "rarity": "Orange",
-      "role": "Mage",
       "source_id": "M13305_000",
-      "base_name": "Grand Magician",
-      "variant": "Bunny"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13305_000.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Light",
+      "terrain": "Forest",
+      "variant": "Bunny",
+      "base_id": "M13305",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M13306_000",
       "name_en": "Crystal Shroom (Dark Star)",
-      "rarity": "Orange",
-      "role": "Mage",
       "source_id": "M13306_000",
-      "base_name": "Crystal Shroom",
-      "variant": "Dark Star"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13306_000.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Astral",
+      "variant": "Dark Star",
+      "base_id": "M13306",
+      "source": "Limited",
+      "kind": "alter"
     },
     {
       "id": "alter_M13307_000",
       "name_en": "Rose Sovereign (Nightfall)",
-      "rarity": "Orange",
-      "role": "Mage",
       "source_id": "M13307_000",
-      "base_name": "Rose Sovereign",
-      "variant": "Nightfall"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13307_000.png",
+      "role": "Mage",
+      "type": "Undead",
+      "element": "Dark",
+      "terrain": "Forest",
+      "variant": "Nightfall",
+      "base_id": "M13307",
+      "source": "Limited",
+      "kind": "alter"
     },
     {
       "id": "alter_M23301_000",
       "name_en": "Slime Queen (Crystal)",
-      "rarity": "Orange",
-      "role": "Mage",
       "source_id": "M23301_000",
-      "base_name": "Slime Queen",
-      "variant": "Crystal"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M23301_000.png",
+      "role": "Mage",
+      "type": "Demon",
+      "element": "Light",
+      "terrain": "Forest",
+      "variant": "Crystal",
+      "base_id": "M23301",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M23301_001",
       "name_en": "Slime Queen (Lava)",
-      "rarity": "Orange",
-      "role": "Mage",
       "source_id": "M23301_001",
-      "base_name": "Slime Queen",
-      "variant": "Lava"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M23301_001.png",
+      "role": "Mage",
+      "type": "Demon",
+      "element": "Fire",
+      "terrain": "Volcano",
+      "variant": "Lava",
+      "base_id": "M23301",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M53301_000",
       "name_en": "Astral Fiend (Swimsuit)",
-      "rarity": "Orange",
-      "role": "Mage",
       "source_id": "M53301_000",
-      "base_name": "Astral Fiend",
-      "variant": "Swimsuit"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M53301_000.png",
+      "role": "Mage",
+      "type": "Divine",
+      "element": "Water",
+      "terrain": "Beach",
+      "variant": "Swimsuit",
+      "base_id": "M53301",
+      "source": "Limited",
+      "kind": "alter"
     },
     {
       "id": "alter_M53301_001",
       "name_en": "Astral Fiend (Frostbound)",
-      "rarity": "Orange",
-      "role": "Mage",
       "source_id": "M53301_001",
-      "base_name": "Astral Fiend",
-      "variant": "Frostbound"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M53301_001.png",
+      "role": "Mage",
+      "type": "Divine",
+      "element": "Water",
+      "terrain": "Tundra",
+      "variant": "Frostbound",
+      "base_id": "M53301",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M14301_000",
       "name_en": "Flawless Sage (Sovereign)",
-      "rarity": "Orange",
-      "role": "Priest",
       "source_id": "M14301_000",
-      "base_name": "Flawless Sage",
-      "variant": "Sovereign"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14301_000.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Light",
+      "terrain": "Beach",
+      "variant": "Sovereign",
+      "base_id": "M14301",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M14301_001",
       "name_en": "Flawless Sage (Swimsuit)",
-      "rarity": "Orange",
-      "role": "Priest",
       "source_id": "M14301_001",
-      "base_name": "Flawless Sage",
-      "variant": "Swimsuit"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14301_001.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Beach",
+      "variant": "Swimsuit",
+      "base_id": "M14301",
+      "source": "Limited",
+      "kind": "alter"
     },
     {
       "id": "alter_M24301_000",
       "name_en": "Serene Undine (Silver)",
-      "rarity": "Orange",
-      "role": "Priest",
       "source_id": "M24301_000",
-      "base_name": "Serene Undine",
-      "variant": "Silver"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M24301_000.png",
+      "role": "Priest",
+      "type": "Demon",
+      "element": "Light",
+      "terrain": "Mounts",
+      "variant": "Silver",
+      "base_id": "M24301",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M34301_000",
       "name_en": "Wish Djinn (Astral)",
-      "rarity": "Orange",
-      "role": "Priest",
       "source_id": "M34301_000",
-      "base_name": "Wish Djinn",
-      "variant": "Astral"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M34301_000.png",
+      "role": "Priest",
+      "type": "Construct",
+      "element": "Light",
+      "terrain": "Astral",
+      "variant": "Astral",
+      "base_id": "M34301",
+      "source": "Limited",
+      "kind": "alter"
     },
     {
       "id": "alter_M54301_000",
       "name_en": "Forest Nymph (Inferno)",
-      "rarity": "Orange",
-      "role": "Priest",
       "source_id": "M54301_000",
-      "base_name": "Forest Nymph",
-      "variant": "Inferno"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M54301_000.png",
+      "role": "Priest",
+      "type": "Divine",
+      "element": "Fire",
+      "terrain": "Volcano",
+      "variant": "Inferno",
+      "base_id": "M54301",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M11301_000",
       "name_en": "Legion Commander (Tribal)",
-      "rarity": "Orange",
-      "role": "Warrior",
       "source_id": "M11301_000",
-      "base_name": "Legion Commander",
-      "variant": "Tribal"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11301_000.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Plains",
+      "variant": "Tribal",
+      "base_id": "M11301",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M11302_000",
       "name_en": "Shadow Dragoness (Pale)",
-      "rarity": "Orange",
-      "role": "Warrior",
       "source_id": "M11302_000",
-      "base_name": "Shadow Dragoness",
-      "variant": "Pale"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11302_000.png",
+      "role": "Warrior",
+      "type": "Undead",
+      "element": "Dark",
+      "terrain": "Forest",
+      "variant": "Pale",
+      "base_id": "M11302",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M11303_002",
       "name_en": "Snowman Knightess (Lava)",
-      "rarity": "Orange",
-      "role": "Warrior",
       "source_id": "M11303_002",
-      "base_name": "Snowman Knightess",
-      "variant": "Lava"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11303_002.png",
+      "role": "Warrior",
+      "type": "Demon",
+      "element": "Fire",
+      "terrain": "Volcano",
+      "variant": "Lava",
+      "base_id": "M11303",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M11304_000",
       "name_en": "Minotaur Brave (Legion)",
-      "rarity": "Orange",
-      "role": "Warrior",
       "source_id": "M11304_000",
-      "base_name": "Minotaur Brave",
-      "variant": "Legion"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11304_000.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Plains",
+      "variant": "Legion",
+      "base_id": "M11304",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M11304_001",
       "name_en": "Minotaur Brave (Black Sail)",
-      "rarity": "Orange",
-      "role": "Warrior",
       "source_id": "M11304_001",
-      "base_name": "Minotaur Brave",
-      "variant": "Black Sail"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11304_001.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Beach",
+      "variant": "Black Sail",
+      "base_id": "M11304",
+      "source": "Limited",
+      "kind": "alter"
     },
     {
       "id": "alter_M21301_000",
       "name_en": "Golden Maiden (Lava)",
-      "rarity": "Orange",
-      "role": "Warrior",
       "source_id": "M21301_000",
-      "base_name": "Golden Maiden",
-      "variant": "Lava"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M21301_000.png",
+      "role": "Warrior",
+      "type": "Demon",
+      "element": "Fire",
+      "terrain": "Volcano",
+      "variant": "Lava",
+      "base_id": "M21301",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M21302_000",
       "name_en": "Timeless Lord (Golden)",
-      "rarity": "Orange",
-      "role": "Warrior",
       "source_id": "M21302_000",
-      "base_name": "Timeless Lord",
-      "variant": "Golden"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M21302_000.png",
+      "role": "Warrior",
+      "type": "Demon",
+      "element": "Light",
+      "terrain": "Mounts",
+      "variant": "Golden",
+      "base_id": "M21302",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M31301_000",
       "name_en": "Holy Blade (Swimsuit)",
-      "rarity": "Orange",
-      "role": "Warrior",
       "source_id": "M31301_000",
-      "base_name": "Holy Blade",
-      "variant": "Swimsuit"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M31301_000.png",
+      "role": "Warrior",
+      "type": "Construct",
+      "element": "Water",
+      "terrain": "Beach",
+      "variant": "Swimsuit",
+      "base_id": "M31301",
+      "source": "Limited",
+      "kind": "alter"
     },
     {
       "id": "alter_M31301_001",
       "name_en": "Holy Blade (Frostbound)",
-      "rarity": "Orange",
-      "role": "Warrior",
       "source_id": "M31301_001",
-      "base_name": "Holy Blade",
-      "variant": "Frostbound"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M31301_001.png",
+      "role": "Warrior",
+      "type": "Construct",
+      "element": "Water",
+      "terrain": "Tundra",
+      "variant": "Frostbound",
+      "base_id": "M31301",
+      "source": "Intel",
+      "kind": "alter"
     },
     {
       "id": "alter_M31303_000",
       "name_en": "Titan Lancer (Thunder)",
-      "rarity": "Orange",
-      "role": "Warrior",
       "source_id": "M31303_000",
-      "base_name": "Titan Lancer",
-      "variant": "Thunder"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M31303_000.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Desert",
+      "variant": "Thunder",
+      "base_id": "M31303",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M41301_000",
       "name_en": "Ghost Captain (Circus)",
-      "rarity": "Orange",
-      "role": "Warrior",
       "source_id": "M41301_000",
-      "base_name": "Ghost Captain",
-      "variant": "Circus"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M41301_000.png",
+      "role": "Warrior",
+      "type": "Undead",
+      "element": "Earth",
+      "terrain": "Ocean",
+      "variant": "Circus",
+      "base_id": "M41301",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M51302_001",
       "name_en": "Dawn Dragoness (Swimsuit)",
-      "rarity": "Orange",
-      "role": "Warrior",
       "source_id": "M51302_001",
-      "base_name": "Dawn Dragoness",
-      "variant": "Swimsuit"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M51302_001.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Beach",
+      "variant": "Swimsuit",
+      "base_id": "M51302",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M51303_000",
       "name_en": "Imp (Pajama)",
-      "rarity": "Orange",
-      "role": "Warrior",
       "source_id": "M51303_000",
-      "base_name": "Imp",
-      "variant": "Pajama"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M51303_000.png",
+      "role": "Warrior",
+      "type": "Divine",
+      "element": "Earth",
+      "terrain": "Forest",
+      "variant": "Pajama",
+      "base_id": "M51303",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M52301_000",
       "name_en": "Stellar Archer (Fairy World)",
-      "rarity": "Orange",
-      "role": "Warrior",
       "source_id": "M52301_000",
-      "base_name": "Stellar Archer",
-      "variant": "Fairy World"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M52301_000.png",
+      "role": "Warrior",
+      "type": "Divine",
+      "element": "Wind",
+      "terrain": "Plains",
+      "variant": "Fairy World",
+      "base_id": "M52301",
+      "source": "—",
+      "kind": "alter"
     },
     {
       "id": "alter_M53301_002",
       "name_en": "Astral Fiend (Jester)",
-      "rarity": "Orange",
-      "role": "Warrior",
       "source_id": "M53301_002",
-      "base_name": "Astral Fiend",
-      "variant": "Jester"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M53301_002.png",
+      "role": "Warrior",
+      "type": "Divine",
+      "element": "Earth",
+      "terrain": "Astral",
+      "variant": "Jester",
+      "base_id": "M53301",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M12201_000",
       "name_en": "Lurking Shadow (Bunny)",
-      "rarity": "Purple",
-      "role": "Archer",
       "source_id": "M12201_000",
-      "base_name": "Lurking Shadow",
-      "variant": "Bunny"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12201_000.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Light",
+      "terrain": "Plains",
+      "variant": "Bunny",
+      "base_id": "M12201",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M12202_001",
       "name_en": "Warg Archer (Frostbound)",
-      "rarity": "Purple",
-      "role": "Archer",
       "source_id": "M12202_001",
-      "base_name": "Warg Archer",
-      "variant": "Frostbound"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12202_001.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Tundra",
+      "variant": "Frostbound",
+      "base_id": "M12202",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M12207_000",
       "name_en": "Candy (Elf)",
-      "rarity": "Purple",
-      "role": "Archer",
       "source_id": "M12207_000",
-      "base_name": "Candy",
-      "variant": "Elf"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12207_000.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Plains",
+      "variant": "Elf",
+      "base_id": "M12207",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M13204_000",
       "name_en": "Magic Attendant (Swimsuit)",
-      "rarity": "Purple",
-      "role": "Archer",
       "source_id": "M13204_000",
-      "base_name": "Magic Attendant",
-      "variant": "Swimsuit"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13204_000.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Beach",
+      "variant": "Swimsuit",
+      "base_id": "M13204",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M22201_002",
       "name_en": "Boulder Gunner (Lava)",
-      "rarity": "Purple",
-      "role": "Archer",
       "source_id": "M22201_002",
-      "base_name": "Boulder Gunner",
-      "variant": "Lava"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M22201_002.png",
+      "role": "Archer",
+      "type": "Demon",
+      "element": "Fire",
+      "terrain": "Volcano",
+      "variant": "Lava",
+      "base_id": "M22201",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M22202_002",
       "name_en": "Gilt Archer (Lava)",
-      "rarity": "Purple",
-      "role": "Archer",
       "source_id": "M22202_002",
-      "base_name": "Gilt Archer",
-      "variant": "Lava"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M22202_002.png",
+      "role": "Archer",
+      "type": "Demon",
+      "element": "Fire",
+      "terrain": "Volcano",
+      "variant": "Lava",
+      "base_id": "M22202",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M13201_000",
       "name_en": "Poppy (Mage)",
-      "rarity": "Purple",
-      "role": "Mage",
       "source_id": "M13201_000",
-      "base_name": "Poppy",
-      "variant": "Mage"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13201_000.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Plains",
+      "variant": "Mage",
+      "base_id": "M13201",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M13202_000",
       "name_en": "Soul Mage (Swimsuit)",
-      "rarity": "Purple",
-      "role": "Mage",
       "source_id": "M13202_000",
-      "base_name": "Soul Mage",
-      "variant": "Swimsuit"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13202_000.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Beach",
+      "variant": "Swimsuit",
+      "base_id": "M13202",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M14206_002",
       "name_en": "Troll Overseer (Lava)",
-      "rarity": "Purple",
-      "role": "Mage",
       "source_id": "M14206_002",
-      "base_name": "Troll Overseer",
-      "variant": "Lava"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14206_002.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Volcano",
+      "variant": "Lava",
+      "base_id": "M14206",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M23204_000",
       "name_en": "Tempest Herald (Thunder)",
-      "rarity": "Purple",
-      "role": "Mage",
       "source_id": "M23204_000",
-      "base_name": "Tempest Herald",
-      "variant": "Thunder"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M23204_000.png",
+      "role": "Mage",
+      "type": "Demon",
+      "element": "Light",
+      "terrain": "Plains",
+      "variant": "Thunder",
+      "base_id": "M23204",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M14201_001",
       "name_en": "War Priest (Frostbound)",
-      "rarity": "Purple",
-      "role": "Priest",
       "source_id": "M14201_001",
-      "base_name": "War Priest",
-      "variant": "Frostbound"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14201_001.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Tundra",
+      "variant": "Frostbound",
+      "base_id": "M14201",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M14202_000",
       "name_en": "Goblin Priest (Nightmare)",
-      "rarity": "Purple",
-      "role": "Priest",
       "source_id": "M14202_000",
-      "base_name": "Goblin Priest",
-      "variant": "Nightmare"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14202_000.png",
+      "role": "Priest",
+      "type": "Divine",
+      "element": "Dark",
+      "terrain": "Plains",
+      "variant": "Nightmare",
+      "base_id": "M14202",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M14202_001",
       "name_en": "Goblin Priest (Swimsuit)",
-      "rarity": "Purple",
-      "role": "Priest",
       "source_id": "M14202_001",
-      "base_name": "Goblin Priest",
-      "variant": "Swimsuit"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14202_001.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Beach",
+      "variant": "Swimsuit",
+      "base_id": "M14202",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M14203_000",
       "name_en": "Zhaocai (Priest)",
-      "rarity": "Purple",
-      "role": "Priest",
       "source_id": "M14203_000",
-      "base_name": "Zhaocai",
-      "variant": "Priest"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14203_000.png",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Plains",
+      "variant": "Priest",
+      "base_id": "M14203",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M11201_000",
       "name_en": "Hunter Brave (Nightmare)",
-      "rarity": "Purple",
-      "role": "Warrior",
       "source_id": "M11201_000",
-      "base_name": "Hunter Brave",
-      "variant": "Nightmare"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11201_000.png",
+      "role": "Warrior",
+      "type": "Divine",
+      "element": "Dark",
+      "terrain": "Plains",
+      "variant": "Nightmare",
+      "base_id": "M11201",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M11203_000",
       "name_en": "Pepper (Knightess)",
-      "rarity": "Purple",
-      "role": "Warrior",
       "source_id": "M11203_000",
-      "base_name": "Pepper",
-      "variant": "Knightess"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11203_000.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Light",
+      "terrain": "Plains",
+      "variant": "Knightess",
+      "base_id": "M11203",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M11205_001",
       "name_en": "Dire Wolf (Frostbound)",
-      "rarity": "Purple",
-      "role": "Warrior",
       "source_id": "M11205_001",
-      "base_name": "Dire Wolf",
-      "variant": "Frostbound"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11205_001.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Tundra",
+      "variant": "Frostbound",
+      "base_id": "M11205",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M11209_000",
       "name_en": "Minotaur Blade (Swimsuit)",
-      "rarity": "Purple",
-      "role": "Warrior",
       "source_id": "M11209_000",
-      "base_name": "Minotaur Blade",
-      "variant": "Swimsuit"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11209_000.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Beach",
+      "variant": "Swimsuit",
+      "base_id": "M11209",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M21201_002",
       "name_en": "Stone Guard (Lava)",
-      "rarity": "Purple",
-      "role": "Warrior",
       "source_id": "M21201_002",
-      "base_name": "Stone Guard",
-      "variant": "Lava"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M21201_002.png",
+      "role": "Warrior",
+      "type": "Demon",
+      "element": "Fire",
+      "terrain": "Volcano",
+      "variant": "Lava",
+      "base_id": "M21201",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M21202_000",
       "name_en": "Gale Warrior (Thunder)",
-      "rarity": "Purple",
-      "role": "Warrior",
       "source_id": "M21202_000",
-      "base_name": "Gale Warrior",
-      "variant": "Thunder"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M21202_000.png",
+      "role": "Warrior",
+      "type": "Demon",
+      "element": "Light",
+      "terrain": "Plains",
+      "variant": "Thunder",
+      "base_id": "M21202",
+      "source": "Permanent",
+      "kind": "alter"
     },
     {
       "id": "alter_M51201_001",
       "name_en": "Astral Guardian (Frostbound)",
-      "rarity": "Purple",
-      "role": "Warrior",
       "source_id": "M51201_001",
-      "base_name": "Astral Guardian",
-      "variant": "Frostbound"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M51201_001.png",
+      "role": "Warrior",
+      "type": "Divine",
+      "element": "Water",
+      "terrain": "Tundra",
+      "variant": "Frostbound",
+      "base_id": "M51201",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M12101_001",
       "name_en": "Wolfkin Hunter (Frostbound)",
-      "rarity": "Blue",
-      "role": "Archer",
       "source_id": "M12101_001",
-      "base_name": "Wolfkin Hunter",
-      "variant": "Frostbound"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12101_001.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Tundra",
+      "variant": "Frostbound",
+      "base_id": "M12101",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M12102_002",
       "name_en": "Troll Hurler (Lava)",
-      "rarity": "Blue",
-      "role": "Archer",
       "source_id": "M12102_002",
-      "base_name": "Troll Hurler",
-      "variant": "Lava"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12102_002.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Volcano",
+      "variant": "Lava",
+      "base_id": "M12102",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M13104_001",
       "name_en": "Wolfkin Shaman (Frostbound)",
-      "rarity": "Blue",
-      "role": "Mage",
       "source_id": "M13104_001",
-      "base_name": "Wolfkin Shaman",
-      "variant": "Frostbound"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13104_001.png",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Tundra",
+      "variant": "Frostbound",
+      "base_id": "M13104",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M11103_001",
       "name_en": "Warg Warrior (Frostbound)",
-      "rarity": "Blue",
-      "role": "Warrior",
       "source_id": "M11103_001",
-      "base_name": "Warg Warrior",
-      "variant": "Frostbound"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11103_001.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Tundra",
+      "variant": "Frostbound",
+      "base_id": "M11103",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M11106_002",
       "name_en": "Troll Guard (Lava)",
-      "rarity": "Blue",
-      "role": "Warrior",
       "source_id": "M11106_002",
-      "base_name": "Troll Guard",
-      "variant": "Lava"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11106_002.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Volcano",
+      "variant": "Lava",
+      "base_id": "M11106",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M11109_001",
       "name_en": "Harpy Girl (Frostbound)",
-      "rarity": "Blue",
-      "role": "Warrior",
       "source_id": "M11109_001",
-      "base_name": "Harpy Girl",
-      "variant": "Frostbound"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11109_001.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Tundra",
+      "variant": "Frostbound",
+      "base_id": "M11109",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M12003_001",
       "name_en": "Bee Hunter (Frostbound)",
-      "rarity": "Green",
-      "role": "Archer",
       "source_id": "M12003_001",
-      "base_name": "Bee Hunter",
-      "variant": "Frostbound"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12003_001.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Tundra",
+      "variant": "Frostbound",
+      "base_id": "M12003",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M12004_002",
       "name_en": "Mine Gatherer (Lava)",
-      "rarity": "Green",
-      "role": "Archer",
       "source_id": "M12004_002",
-      "base_name": "Mine Gatherer",
-      "variant": "Lava"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12004_002.png",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Volcano",
+      "variant": "Lava",
+      "base_id": "M12004",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M11005_001",
       "name_en": "Bee Warrior (Frostbound)",
-      "rarity": "Green",
-      "role": "Warrior",
       "source_id": "M11005_001",
-      "base_name": "Bee Warrior",
-      "variant": "Frostbound"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11005_001.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Wind",
+      "terrain": "Tundra",
+      "variant": "Frostbound",
+      "base_id": "M11005",
+      "source": "Events",
+      "kind": "alter"
     },
     {
       "id": "alter_M11007_002",
       "name_en": "Gold Digger (Lava)",
-      "rarity": "Green",
-      "role": "Warrior",
       "source_id": "M11007_002",
-      "base_name": "Gold Digger",
-      "variant": "Lava"
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11007_002.png",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Fire",
+      "terrain": "Volcano",
+      "variant": "Lava",
+      "base_id": "M11007",
+      "source": "Events",
+      "kind": "alter"
     }
   ],
   "talents": [
@@ -2342,8 +3418,6 @@
   ],
   "notes": [
     "Characters are refreshed from the GMG Wiki Units index (auto-generated from RoleDataTable).",
-    "Every Alter keeps a stable source_id and a unique display name such as Base Name (Variant).",
-    "If a source ever returns duplicate names without a variant, the updater adds a stable source ID suffix instead of silently merging units.",
     "hxsngh.pages.dev is used as a supplemental probe when machine-readable assets are discoverable; it is not allowed to overwrite curated English names blindly."
   ]
 }
