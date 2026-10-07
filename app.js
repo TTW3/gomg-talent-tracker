@@ -346,7 +346,37 @@ async function pullSync(silent=false){
     return false;
   }
 }
-async function pushSync(){try{const token=$("ghToken").value.trim(),pass=$("syncPass").value,path=$("syncPath").value.trim()||"sync-data/gomg-tracker.enc.json";if(!token)throw Error("Chưa nhập GitHub Token.");if(!pass)throw Error("Chưa nhập mật khẩu mã hóa.");localStorage.setItem(SYNC_TOKEN_KEY,token);localStorage.setItem(SYNC_PASS_KEY,pass);localStorage.setItem(SYNC_PATH_KEY,path);setSyncStatus("Đang đẩy dữ liệu lên GitHub…");let sha=null;try{const existing=await ghRequest(path,{method:"GET",cache:"no-store"});sha=existing.sha}catch(e){if(!/Not Found/i.test(e.message))throw e}const encrypted=await encryptSync(db,pass);const body={message:`Sync GOMG tracker ${new Date().toISOString()}`,content:b64(textBytes(encrypted)),...(sha?{sha}:{})};await ghRequest(path,{method:"PUT",body:JSON.stringify(body)});setSyncStatus(`✓ Đã đẩy dữ liệu lên ${syncRepo().owner}/${syncRepo().repo} lúc ${new Date().toLocaleTimeString('vi-VN')}`,true)}catch(e){setSyncStatus(`✕ ${e.message}`)}}
+function syncDataString(x){return JSON.stringify(x)}
+function downloadSyncBackup(){
+ const blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"});
+ const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`gomg-sync-backup-${new Date().toISOString().replace(/[:.]/g,"-")}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+async function pushSync(){
+ try{
+  const token=$("ghToken").value.trim(),pass=$("syncPass").value,path=$("syncPath").value.trim()||"sync-data/gomg-tracker.enc.json";
+  if(!token)throw Error("Chưa nhập GitHub Token.");if(!pass)throw Error("Chưa nhập mật khẩu mã hóa.");
+  localStorage.setItem(SYNC_TOKEN_KEY,token);localStorage.setItem(SYNC_PASS_KEY,pass);localStorage.setItem(SYNC_PATH_KEY,path);
+  setSyncStatus("Đang kiểm tra dữ liệu trên GitHub…");
+  let sha=null,remote=null;
+  try{
+   const existing=await ghRequest(path,{method:"GET",cache:"no-store"});sha=existing.sha;
+   let encryptedText=new TextDecoder().decode(unb64(existing.content));
+   if(!encryptedText.trim().startsWith("{")){try{encryptedText=new TextDecoder().decode(unb64(encryptedText));}catch{}}
+   remote=await decryptSync(encryptedText,pass);
+  }catch(e){
+   if(!/Not Found/i.test(e.message))throw e;
+  }
+  if(remote && syncDataString(remote)!==syncDataString(db)){
+   const ok=confirm("⚠️ Dữ liệu trên GitHub đang KHÁC dữ liệu trên thiết bị này.\n\nNếu tiếp tục PUSH, dữ liệu trên GitHub sẽ bị ghi đè bằng dữ liệu hiện tại trên thiết bị.\n\nĐể an toàn, một bản backup JSON của thiết bị này sẽ được tải xuống trước khi ghi đè.\n\nBạn có chắc muốn tiếp tục PUSH không?");
+   if(!ok){setSyncStatus("⏸ Đã hủy Push để tránh ghi đè dữ liệu.");return;}
+   downloadSyncBackup();
+  }
+  const encrypted=await encryptSync(db,pass);const body={message:`Sync GOMG tracker ${new Date().toISOString()}`,content:b64(textBytes(encrypted)),...(sha?{sha}:{})};
+  setSyncStatus("Đang đẩy dữ liệu lên GitHub…");
+  await ghRequest(path,{method:"PUT",body:JSON.stringify(body)});
+  setSyncStatus(`✓ Đã đẩy dữ liệu lên ${syncRepo().owner}/${syncRepo().repo} lúc ${new Date().toLocaleTimeString('vi-VN')}`,true);
+ }catch(e){setSyncStatus(`✕ ${e.message}`)}
+}
 function initSyncUI(){
  const token=localStorage.getItem(SYNC_TOKEN_KEY)||"",pass=localStorage.getItem(SYNC_PASS_KEY)||"",path=localStorage.getItem(SYNC_PATH_KEY)||"sync-data/gomg-tracker.enc.json";
  if($("ghToken"))$("ghToken").value=token;if($("syncPass"))$("syncPass").value=pass;if($("syncPath"))$("syncPath").value=path;
