@@ -1553,140 +1553,160 @@
       "name_en": "Eternal Tide",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "Increases the maximum Soothe stack limit for all targets based on Talent level."
     },
     {
       "id": "talent_010",
       "name_en": "Foam Shield",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "When attacked, consumes Soothe stacks to reduce total DMG received."
     },
     {
       "id": "talent_011",
       "name_en": "Ocean's Grace",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "When at max Soothe, survives fatal DMG and then removes all Soothe stacks."
     },
     {
       "id": "talent_012",
       "name_en": "Tidal Bond",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "When at max Soothe, greatly increases Action Mana."
     },
     {
       "id": "talent_013",
       "name_en": "Abyssal Blessing",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "Greatly increases the Soothe stack limit; when Soothe exceeds a threshold, it counts as max Soothe."
     },
     {
       "id": "talent_014",
       "name_en": "Deep Command",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "When casting skills, increases Soothe stacks based on the number of allies."
     },
     {
       "id": "talent_015",
       "name_en": "Flow Mastery",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "When at max Soothe, increases the amount of Soothe stacks dealt."
     },
     {
       "id": "talent_016",
       "name_en": "Ocean Force",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "After applying Soothe, causes enemies to lose Mana and allies to gain Mana."
     },
     {
       "id": "talent_017",
       "name_en": "Sea Conjure",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "Grants herself Soothe based on Toughness lost by both sides."
     },
     {
       "id": "talent_018",
       "name_en": "Seagod Decree",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "On the first turn, all targets cannot inflict non-Instant statuses except Soothe."
     },
     {
       "id": "talent_019",
       "name_en": "Fearless Mind",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "After Cleanse, grants herself Toughness and increases her Toughness limit."
     },
     {
       "id": "talent_020",
       "name_en": "Valor Song",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "Increases total DMG dealt based on current Toughness."
     },
     {
       "id": "talent_021",
       "name_en": "Purging Light",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "Increases Cleanse stacks dealt, with an extra effect against Debuffed targets."
     },
     {
       "id": "talent_022",
       "name_en": "Pristine Wings",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "Increases Cleanse stacks dealt; after action ends, grants herself Cleanse."
     },
     {
       "id": "talent_023",
       "name_en": "Holy Descent",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "Before battle starts, increases Toughness limit by a percentage and grants equal Toughness."
     },
     {
       "id": "talent_024",
       "name_en": "Damp Scales",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "After taking DMG, consumes Soothe stacks to gain an equal amount of HP."
     },
     {
       "id": "talent_025",
       "name_en": "Tidal Sovereign",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "Based on Soothe stacks, reduces HP Loss received."
     },
     {
       "id": "talent_026",
       "name_en": "Cycle Strike",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "After attacking, grants herself Mana but reduces the total DMG percentage dealt."
     },
     {
       "id": "talent_027",
       "name_en": "Multi-Arm Sync",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "After casting a skill, cannot be Countered."
     },
     {
       "id": "talent_028",
       "name_en": "Tidal Foresight",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update"
+      "origin": "official-update",
+      "description_en": "Before the turn starts, increases Action Mana for each ally at max Soothe."
     },
     {
       "id": "talent_029",
