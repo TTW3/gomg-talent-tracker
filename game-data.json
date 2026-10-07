@@ -1497,976 +1497,853 @@
       "name_en": "Astral Double",
       "name_source": "",
       "rank": "Orange",
-      "origin": "verified-user",
-      "description_en": ""
+      "origin": "verified-user"
     },
     {
       "id": "talent_002",
       "name_en": "Double Fortune",
       "name_source": "",
       "rank": "Orange",
-      "origin": "verified-user",
-      "description_en": ""
+      "origin": "verified-user"
     },
     {
       "id": "talent_003",
       "name_en": "Nine Lives",
       "name_source": "九命の猫妖",
       "rank": "Orange",
-      "origin": "community-source",
-      "description_en": ""
+      "origin": "community-source"
     },
     {
       "id": "talent_004",
       "name_en": "High Momentum",
       "name_source": "",
       "rank": "Orange",
-      "origin": "verified-user",
-      "description_en": ""
+      "origin": "verified-user"
     },
     {
       "id": "talent_005",
       "name_en": "High Morale",
       "name_source": "",
       "rank": "Orange",
-      "origin": "verified-user",
-      "description_en": ""
+      "origin": "verified-user"
     },
     {
       "id": "talent_006",
       "name_en": "Youthful Vigor",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_007",
       "name_en": "Deep Sea Sneak",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_008",
       "name_en": "Water Infuse",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_009",
       "name_en": "Eternal Tide",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_010",
       "name_en": "Foam Shield",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_011",
       "name_en": "Ocean's Grace",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_012",
       "name_en": "Tidal Bond",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_013",
       "name_en": "Abyssal Blessing",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_014",
       "name_en": "Deep Command",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_015",
       "name_en": "Flow Mastery",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_016",
       "name_en": "Ocean Force",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_017",
       "name_en": "Sea Conjure",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_018",
       "name_en": "Seagod Decree",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_019",
       "name_en": "Fearless Mind",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_020",
       "name_en": "Valor Song",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_021",
       "name_en": "Purging Light",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_022",
       "name_en": "Pristine Wings",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_023",
       "name_en": "Holy Descent",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_024",
       "name_en": "Damp Scales",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_025",
       "name_en": "Tidal Sovereign",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_026",
       "name_en": "Cycle Strike",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_027",
       "name_en": "Multi-Arm Sync",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_028",
       "name_en": "Tidal Foresight",
       "name_source": "",
       "rank": "Orange",
-      "origin": "official-update",
-      "description_en": ""
+      "origin": "official-update"
     },
     {
       "id": "talent_029",
       "name_en": "Energy Disruption",
       "name_source": "エネルギーの乱れ",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_030",
       "name_en": "Energy Extraction",
       "name_source": "エネルギー抽出",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_031",
       "name_en": "Universal Wish Power",
       "name_source": "万物の願力",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_032",
       "name_en": "Talentful Leadership",
       "name_source": "人材活用",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_033",
       "name_en": "Elemental Curse",
       "name_source": "元素の呪い",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_034",
       "name_en": "Elemental Reaction",
       "name_source": "元素反応",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_035",
       "name_en": "Forethought Strategy",
       "name_source": "先読みの策",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_036",
       "name_en": "Fixed Cannon",
       "name_source": "固定砲",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_037",
       "name_en": "High Morale",
       "name_source": "士気高揚",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_038",
       "name_en": "Gifted Talent",
       "name_source": "天与の才",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_039",
       "name_en": "Genius Leader",
       "name_source": "天才指導者",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_040",
       "name_en": "Assurance Carpet",
       "name_source": "安心の絨毯",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_041",
       "name_en": "Bandit Nature",
       "name_source": "強盗の本性",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_042",
       "name_en": "Ammo Replenishment",
       "name_source": "弾薬補充",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_043",
       "name_en": "Wind Dance",
       "name_source": "疾風の舞",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_044",
       "name_en": "Multi-Casting",
       "name_source": "マルチ詠唱",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_045",
       "name_en": "One-Shot Sure Hit",
       "name_source": "一撃必中",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_046",
       "name_en": "Triple Assault",
       "name_source": "三連猛襲",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_047",
       "name_en": "Fixed Turret",
       "name_source": "固定砲台",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_048",
       "name_en": "Perfect Performance",
       "name_source": "完璧な演目",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_049",
       "name_en": "Mountain-like",
       "name_source": "山のごとし",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_050",
       "name_en": "Huge Object Throw",
       "name_source": "巨物投げ",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_051",
       "name_en": "Phantom Pollen",
       "name_source": "幻惑の花粉",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_052",
       "name_en": "Backline Killer",
       "name_source": "後列キラー",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_053",
       "name_en": "Vengeful Obsession",
       "name_source": "復讐の執念",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_054",
       "name_en": "Totem Worship",
       "name_source": "トーテム崇拝",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_055",
       "name_en": "Careful Nurturing",
       "name_source": "丁寧な育成",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_056",
       "name_en": "Immortality",
       "name_source": "不老不死",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_057",
       "name_en": "Thorn Regeneration",
       "name_source": "再生のトゲ",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_058",
       "name_en": "Robust Body",
       "name_source": "剛健な体",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_059",
       "name_en": "Primitive Body",
       "name_source": "原始の肉体",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_060",
       "name_en": "Ancient Bloodline",
       "name_source": "古の血筋",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_061",
       "name_en": "Ancient God's Blessing",
       "name_source": "古神の祝福",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_062",
       "name_en": "Absorption Aura",
       "name_source": "吸収のオーラ",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_063",
       "name_en": "Self-Respect",
       "name_source": "唯我独尊",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_064",
       "name_en": "Earth Messenger",
       "name_source": "大地の使者",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_065",
       "name_en": "Fully Armed",
       "name_source": "完全武装",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_066",
       "name_en": "Rock Armor",
       "name_source": "岩石の鎧",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_067",
       "name_en": "Tough Body",
       "name_source": "強靭肉体",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_068",
       "name_en": "Rapid Growth",
       "name_source": "急成長",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_069",
       "name_en": "Moisture Lock",
       "name_source": "水分ロック",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_070",
       "name_en": "Moisture Absorption",
       "name_source": "水分吸収",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_071",
       "name_en": "Water Orb Stock",
       "name_source": "水玉ストック",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_072",
       "name_en": "Moist Skin",
       "name_source": "水纏の肌",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_073",
       "name_en": "Child of Eternal Night",
       "name_source": "永夜の申し子",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_074",
       "name_en": "Eternal Life",
       "name_source": "永遠の命",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_075",
       "name_en": "Deep-Sea Colossus",
       "name_source": "深海の巨物",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_076",
       "name_en": "Moist Breath",
       "name_source": "湿った息吹",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_077",
       "name_en": "Flame Invasion",
       "name_source": "炎の侵攻",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_078",
       "name_en": "Titan Giant",
       "name_source": "タイタンの巨人",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_079",
       "name_en": "Unknowable Power",
       "name_source": "不可知の力",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_080",
       "name_en": "Unyielding Will",
       "name_source": "不屈の意志",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_081",
       "name_en": "Immortal Sun",
       "name_source": "不滅の烈陽",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_082",
       "name_en": "Legendary Creature",
       "name_source": "伝説の生物",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_083",
       "name_en": "Cold Illusion",
       "name_source": "冷徹なる錯覚",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_084",
       "name_en": "Frostbite Erosion",
       "name_source": "凍気侵食",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_085",
       "name_en": "Nightmare Domain",
       "name_source": "夢魔の領域",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_086",
       "name_en": "Weather Control",
       "name_source": "天候支配",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_087",
       "name_en": "Genius Battle Maniac",
       "name_source": "天才戦闘狂",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_088",
       "name_en": "Fearsome Roar",
       "name_source": "恐怖の咆哮",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_089",
       "name_en": "Fear Ritual",
       "name_source": "恐怖の儀式",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_090",
       "name_en": "Quick Reflex Body",
       "name_source": "俊敏な体",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_091",
       "name_en": "Lively Spirit",
       "name_source": "元気ハツラツ",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_092",
       "name_en": "Kite Master",
       "name_source": "凧の名人",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_093",
       "name_en": "Power Utilization",
       "name_source": "動力活用",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_094",
       "name_en": "Only God",
       "name_source": "唯一の神",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_095",
       "name_en": "Hope Flame",
       "name_source": "希望の炎",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_096",
       "name_en": "Luck Aura",
       "name_source": "幸運オーラ",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_097",
       "name_en": "Lucky Constitution",
       "name_source": "幸運体質",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_098",
       "name_en": "Mining Master",
       "name_source": "掘削の達人",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_099",
       "name_en": "Endless Barrage",
       "name_source": "無尽の連撃",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_100",
       "name_en": "Infinite Yellow Sand",
       "name_source": "無限の黄砂",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_101",
       "name_en": "Fortune Comes",
       "name_source": "福星",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_102",
       "name_en": "Energy Reflection",
       "name_source": "エネルギー反射",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_103",
       "name_en": "Energy Absorption",
       "name_source": "エネルギー吸収",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_104",
       "name_en": "Glass Cannon",
       "name_source": "ガラス大砲",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_105",
       "name_en": "Core Position",
       "name_source": "コア位置",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_106",
       "name_en": "Scorpion Poison",
       "name_source": "サソリ毒",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_107",
       "name_en": "Skill Penetration",
       "name_source": "スキル貫通",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_108",
       "name_en": "Damage Sharing",
       "name_source": "ダメージ分担",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_109",
       "name_en": "Recycle",
       "name_source": "リサイクル",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_110",
       "name_en": "Rune Analysis",
       "name_source": "ルーン解析",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_111",
       "name_en": "Unity",
       "name_source": "一体感",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_112",
       "name_en": "Victory Before Battle",
       "name_source": "不戦勝",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_113",
       "name_en": "Curl Up",
       "name_source": "丸める",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_114",
       "name_en": "Needle Barrage",
       "name_source": "乱れ針",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_115",
       "name_en": "Ghost Curse",
       "name_source": "亡霊の呪い",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_116",
       "name_en": "Element Control",
       "name_source": "元素操縦",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_117",
       "name_en": "Ancestor's Protection",
       "name_source": "先祖の庇護",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_118",
       "name_en": "Cooling Rock Armor",
       "name_source": "冷却岩鎧",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_119",
       "name_en": "Blade Spirit Clone",
       "name_source": "剣精の分身",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_120",
       "name_en": "Power Furnace",
       "name_source": "動力溶鉱炉",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     },
     {
       "id": "talent_121",
       "name_en": "Critical Moment",
       "name_source": "勝負どき",
       "rank": "Orange",
-      "origin": "translated-source",
-      "description_en": ""
+      "origin": "translated-source"
     }
   ],
   "notes": [
     "Characters are refreshed from the GMG Wiki Units index (auto-generated from RoleDataTable).",
     "Every Alter keeps a stable source_id and a unique display name such as Base Name (Variant).",
     "If a source ever returns duplicate names without a variant, the updater adds a stable source ID suffix instead of silently merging units.",
-    "hxsngh.pages.dev is used as a supplemental probe when machine-readable assets are discoverable; it is not allowed to overwrite curated English names blindly.",
-    "Talent records support description_en/description fields. Descriptions are shown when supplied by a source; no effect text is invented when the current bundled source does not provide it.",
-    "Talent records support description_en/description/desc/effect_en fields; the UI shows them when verified source data provides a description."
+    "hxsngh.pages.dev is used as a supplemental probe when machine-readable assets are discoverable; it is not allowed to overwrite curated English names blindly."
   ]
 }
