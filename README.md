@@ -15,3 +15,14 @@ Nguồn công khai hiện có danh sách 431 talent nhưng chủ yếu cung cấ
 - Các mục khác giữ tên nguồn/nhãn dịch, không giả mạo là tên English chính thức.
 - `game-data.json` được thiết kế để thay thế/cập nhật sau này mà không sửa code.
 
+## GitHub Pages
+Upload 4 file vào repository:
+- index.html
+- style.css
+- app.js
+- game-data.json
+
+Sau khi commit, GitHub Pages sẽ tự deploy lại.
+
+## Lưu ý
+Nếu bạn đang dùng phiên bản cũ đã có dữ liệu localStorage, v2 dùng key mới nên sẽ không tự lấy database cũ. Hãy export backup cũ trước khi đổi phiên bản nếu bạn đã nhập nhiều dữ liệu.

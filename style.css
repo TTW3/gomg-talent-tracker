@@ -17,3 +17,5 @@ footer{display:flex;justify-content:space-between;color:var(--muted);font-size:1
 .suggestions{display:none;position:absolute;left:0;top:calc(100% + 3px);width:max(100%,260px);max-height:240px;overflow:auto;background:#fffaf5;border:1px solid var(--line);border-radius:9px;box-shadow:0 8px 20px #6e493426;z-index:1000}
 .suggestions.open{display:block}.suggestion{padding:8px 10px;cursor:pointer;border-bottom:1px solid #eadbd0;display:flex;justify-content:space-between;gap:8px;align-items:center}
 .suggestion:last-child{border-bottom:0}.suggestion:hover{background:#f1e2d5}.suggestion span{font-weight:600}.suggestion small{color:var(--muted);font-size:10px;text-align:right}
+
+.board-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}.board-tab{border:1px solid #d8b9a6;background:#fff7f0;color:#6d4b3c;border-radius:6px;padding:3px 7px;font-size:11px;cursor:pointer}.board-tab.active{background:#ead2c3;font-weight:700}.girl-cell{min-width:190px}.swapgrid{grid-template-columns:repeat(3,minmax(0,1fr));}.lookup-item{gap:6px}.lookup-item .pill{white-space:nowrap}@media(max-width:900px){.swapgrid{grid-template-columns:1fr 1fr}}

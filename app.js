@@ -1,5 +1,17 @@
 const KEY="gomg-talent-tracker-v3";let GAME=null,db=null;
 const starter={girls:[],log:[]};
+const BOARD_COUNT=4,SLOT_COUNT=4;
+function emptyBoards(){return Array.from({length:BOARD_COUNT},()=>Array(SLOT_COUNT).fill(""))}
+function normalizeGirl(g,i){
+  let boards=g.boards;
+  if(!Array.isArray(boards)){
+    const old=Array.isArray(g.talents)?g.talents.slice(0,SLOT_COUNT):Array(SLOT_COUNT).fill("");
+    boards=emptyBoards(); boards[0]=old.concat(Array(Math.max(0,SLOT_COUNT-old.length)).fill("")).slice(0,SLOT_COUNT);
+  } else {
+    boards=Array.from({length:BOARD_COUNT},(_,b)=>Array.isArray(boards[b])?boards[b].slice(0,SLOT_COUNT).concat(Array(Math.max(0,SLOT_COUNT-(boards[b]||[]).length)).fill("")).slice(0,SLOT_COUNT):Array(SLOT_COUNT).fill(""));
+  }
+  return {...g,boards,activeBoard:Number.isInteger(g.activeBoard)&&g.activeBoard>=0&&g.activeBoard<BOARD_COUNT?g.activeBoard:0};
+}
 const $=id=>document.getElementById(id);
 function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
 function clone(x){return JSON.parse(JSON.stringify(x))}
@@ -13,14 +25,15 @@ function tierClass(t){return t?`tier tier-${t}`:""}
 function displayTalent(t){if(!t)return '<span class="muted">Empty</span>';let x=talentById(t);if(!x)return esc(t);return `<span class="${tierClass(x.rank)}">${esc(x.name_en||x.name_source)}</span>`}
 function migrate(){
  db=loadLocal();
- // Convert old string-based records to database IDs where possible.
- const charMap=new Map(GAME.characters.map(c=>[c.name_en.toLowerCase(),c.id]));
- const talMap=new Map(GAME.talents.flatMap(t=>[[t.name_en.toLowerCase(),t.id],[(t.name_source||"").toLowerCase(),t.id]].filter(x=>x[0])));
- db.girls=(db.girls||[]).map((g,i)=>{
-   let cid=charMap.get(String(g.charId||g.name||"").toLowerCase());
-   const name=g.name||"";
-   if(!cid && name && !/^Character \\d+$/i.test(name)) cid=charMap.get(name.toLowerCase());
-   return {charId:cid||null,name:cid?charLabel(cid):(name||`Custom Girl ${i+1}`),customName:cid?false:true,talents:(g.talents||["","","",""]).map(t=>talMap.get(String(t).toLowerCase())||t)};
+ const charMap=new Map(GAME.characters.map(c=>[(c.name_en||"").toLowerCase(),c.id]));
+ const talMap=new Map(GAME.talents.flatMap(t=>[[String(t.name_en||"").toLowerCase(),t.id],[String(t.name_source||"").toLowerCase(),t.id]].filter(x=>x[0])));
+ db.girls=(db.girls||[]).map((raw,i)=>{
+   const g=normalizeGirl(raw,i);
+   let cid=g.charId;
+   const probe=String(g.charId||g.name||"").toLowerCase();
+   if(!cid) cid=charMap.get(probe);
+   const boards=g.boards.map(board=>board.map(t=>talMap.get(String(t).toLowerCase())||t));
+   return {charId:cid||null,name:cid?charLabel(cid):(g.name||`Custom Girl ${i+1}`),customName:cid?false:true,boards,activeBoard:g.activeBoard};
  });
  db.log=db.log||[];
  saveSilently();
@@ -34,31 +47,28 @@ async function init(){
  db=loadLocal();migrate();render();
 }
 function render(){
- const q=$("search").value.trim().toLowerCase(),body=$("girlsBody");body.innerHTML="";
+ const q=normalizeText($("search").value),body=$("girlsBody");body.innerHTML="";
  (db.girls||[]).forEach((g,i)=>{
-  const search=(g.name+" "+g.talents.map(talentLabel).join(" ")).toLowerCase();if(q&&!search.includes(q))return;
+  const allTalentIds=g.boards.flat();
+  const search=normalizeText(g.name+" "+allTalentIds.map(talentLabel).join(" "));if(q&&!search.includes(q))return;
+  const b=Math.min(BOARD_COUNT-1,Math.max(0,g.activeBoard||0));g.activeBoard=b;
   const tr=document.createElement("tr");
-  tr.innerHTML=`<td>${girlEditor(g,i)}</td>`+g.talents.map((t,s)=>`<td>${talentEditor(t,i,s)}</td>`).join("")+`<td><button class="danger" data-del="${i}">Xóa</button></td>`;
+  tr.innerHTML=`<td>${girlEditor(g,i)}</td>`+g.boards[b].map((t,s)=>`<td>${talentEditor(t,i,b,s)}</td>`).join("")+`<td><button class="danger" data-del="${i}">Xóa</button></td>`;
   tr.querySelector("[data-del]").onclick=()=>{if(confirm("Xóa Girl này khỏi tracker?")){db.girls.splice(i,1);save()}};
   body.appendChild(tr);
  });
- fillGirlSelects();fillSlotSelects();renderLookup();renderHistory();
- $("girlCount").textContent=db.girls.length;$("talentCount").textContent=db.girls.length*4;$("logCount").textContent=db.log.length;
+ fillGirlSelects();fillBoardSelects();fillSlotSelects();renderLookup();renderHistory();
+ $("girlCount").textContent=db.girls.length;$("talentCount").textContent=db.girls.length*BOARD_COUNT*SLOT_COUNT;$("logCount").textContent=db.log.length;
  $("charDbCount").textContent=GAME.characters.length;$("talentDbCount").textContent=GAME.talents.length;
 }
 function girlEditor(g,i){
  const value=g.charId?charLabel(g.charId):(g.name||"");
- return `<div class="autocomplete">
-   <input class="girlinput" data-g="${i}" value="${esc(value)}" placeholder="Gõ tên Girl..." autocomplete="off">
-   <div class="suggestions"></div>
- </div>`;
+ const tabs=Array.from({length:BOARD_COUNT},(_,b)=>`<button type="button" class="board-tab ${b===(g.activeBoard||0)?"active":""}" data-board="${b}" data-g="${i}">Board ${b+1}</button>`).join("");
+ return `<div class="girl-cell"><div class="autocomplete"><input class="girlinput" data-g="${i}" value="${esc(value)}" placeholder="Gõ tên Girl..." autocomplete="off"><div class="suggestions"></div></div><div class="board-tabs">${tabs}</div></div>`;
 }
-function talentEditor(t,i,s){
+function talentEditor(t,i,b,s){
  const value=t?talentLabel(t):"";
- return `<div class="autocomplete">
-   <input class="talentinput" data-g="${i}" data-s="${s}" value="${esc(value)}" placeholder="Gõ tên Talent..." autocomplete="off">
-   <div class="suggestions"></div>
- </div>`;
+ return `<div class="autocomplete"><input class="talentinput" data-g="${i}" data-b="${b}" data-s="${s}" value="${esc(value)}" placeholder="Gõ tên Talent..." autocomplete="off"><div class="suggestions"></div></div>`;
 }
 function normalizeText(v){return String(v||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim()}
 function fuzzyScore(query,text){
@@ -105,6 +115,13 @@ function showSuggestions(input){
  }).join("");
  box.classList.add("open");
 }
+document.addEventListener("click",e=>{
+ const tab=e.target.closest(".board-tab");
+ if(!tab)return;
+ const i=+tab.dataset.g,b=+tab.dataset.board;
+ if(!db.girls[i])return;
+ db.girls[i].activeBoard=b;save();
+});
 document.addEventListener("input",e=>{
  if(e.target.matches(".girlinput,.talentinput"))showSuggestions(e.target);
 });
@@ -143,32 +160,34 @@ document.addEventListener("keydown",e=>{
  if(first){e.preventDefault();first.dispatchEvent(new MouseEvent("mousedown",{bubbles:true}))}
 });
 function fillGirlSelects(){
- const opts=db.girls.map((g,i)=>`<option value="${i}">${esc(g.name)}</option>`).join("");$("aGirl").innerHTML=opts;$("bGirl").innerHTML=opts;
+ const opts=db.girls.map((g,i)=>`<option value="${i}">${esc(g.name)}</option>`).join("");$("aGirl").innerHTML=opts;$(`bGirl`).innerHTML=opts;
 }
-function fillSlotSelects(){const x=['Talent 1','Talent 2','Talent 3','Talent 4'];$("aSlot").innerHTML=x.map((v,i)=>`<option value="${i}">${v}</option>`).join("");$("bSlot").innerHTML=x.map((v,i)=>`<option value="${i}">${v}</option>`).join("")}
-
-function addGirl(){db.girls.push({charId:GAME.characters[0]?.id||null,name:GAME.characters[0]?.name_en||"Custom Girl",customName:false,talents:["","","",""]});save()}
+function fillBoardSelects(){
+ const x=Array.from({length:BOARD_COUNT},(_,i)=>`<option value="${i}">Board ${i+1}</option>`).join("");$("aBoard").innerHTML=x;$("bBoard").innerHTML=x;
+}
+function fillSlotSelects(){const x=Array.from({length:SLOT_COUNT},(_,i)=>`<option value="${i}">Talent ${i+1}</option>`).join("");$("aSlot").innerHTML=x;$("bSlot").innerHTML=x}
+function addGirl(){const c=GAME.characters[0];db.girls.push({charId:c?.id||null,name:c?.name_en||"Custom Girl",customName:false,boards:emptyBoards(),activeBoard:0});save()}
 function swapTalent(){
  if(db.girls.length<2)return alert("Cần ít nhất 2 Girl.");
- const ai=+$("aGirl").value,bi=+$("bGirl").value,as=+$("aSlot").value,bs=+$("bSlot").value;
- if(ai===bi&&as===bs)return alert("Hãy chọn 2 slot khác nhau.");
- const A=db.girls[ai],B=db.girls[bi],at=A.talents[as],bt=B.talents[bs];
+ const ai=+$(`aGirl`).value,bi=+$(`bGirl`).value,ab=+$(`aBoard`).value,bb=+$(`bBoard`).value,as=+$(`aSlot`).value,bs=+$(`bSlot`).value;
+ if(ai===bi&&ab===bb&&as===bs)return alert("Hãy chọn 2 slot khác nhau.");
+ const A=db.girls[ai],B=db.girls[bi],at=A.boards[ab][as],bt=B.boards[bb][bs];
  if(!at||!bt)return alert("Cả 2 slot phải có talent.");
  const ta=talentById(at),tb=talentById(bt);
  if(ta&&tb&&ta.rank!==tb.rank)return alert(`Không thể SWAP khác tier: ${ta.rank} ↔ ${tb.rank}`);
- [A.talents[as],B.talents[bs]]=[bt,at];
- db.log.push({time:new Date().toLocaleString("vi-VN"),text:`${A.name} [T${as+1}] ${talentLabel(at)} ↔ ${B.name} [T${bs+1}] ${talentLabel(bt)}`});
+ [A.boards[ab][as],B.boards[bb][bs]]=[bt,at];
+ db.log.push({time:new Date().toLocaleString("vi-VN"),text:`${A.name} [B${ab+1} T${as+1}] ${talentLabel(at)} ↔ ${B.name} [B${bb+1} T${bs+1}] ${talentLabel(bt)}`});
  save();
 }
 function renderLookup(){
- const q=$("talentSearch").value.trim().toLowerCase(),out=$("lookup");if(!q){out.innerHTML='<span class="muted">Nhập tên talent để tìm.</span>';return}
- const matches=GAME.talents.filter(t=>(t.name_en+" "+(t.name_source||"")).toLowerCase().includes(q)).slice(0,30);
- const rows=[];matches.forEach(t=>{db.girls.forEach(g=>g.talents.forEach((id,s)=>{if(id===t.id)rows.push(`<div class="lookup-item"><b>${esc(g.name)}</b><span class="pill">Talent ${s+1}</span><span class="pill ${tierClass(t.rank)}">${esc(t.name_en||t.name_source)}</span></div>`)}))});
+ const q=normalizeText($("talentSearch").value),out=$("lookup");if(!q){out.innerHTML='<span class="muted">Nhập tên talent để tìm.</span>';return}
+ const matches=GAME.talents.filter(t=>normalizeText(t.name_en+" "+(t.name_source||"")).includes(q)).slice(0,30);
+ const rows=[];matches.forEach(t=>{db.girls.forEach(g=>g.boards.forEach((board,b)=>board.forEach((id,s)=>{if(id===t.id)rows.push(`<div class="lookup-item"><b>${esc(g.name)}</b><span class="pill">Board ${b+1}</span><span class="pill">Talent ${s+1}</span><span class="pill ${tierClass(t.rank)}">${esc(t.name_en||t.name_source)}</span></div>`)})))});
  out.innerHTML=rows.length?rows.join(""):(matches.length?'<span class="muted">Talent có trong database nhưng chưa được gán cho Girl nào.</span>':'<span class="muted">Không tìm thấy trong bundled database.</span>');
 }
 function renderHistory(){$("history").innerHTML=db.log.length?db.log.slice().reverse().map(x=>`<div class="history-row"><time>${esc(x.time)}</time>${esc(x.text)}</div>`).join(""):'<span class="muted">Chưa có SWAP.</span>'}
 function exportData(){const blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="gomg-talent-backup.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
-$("importFile").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!x.girls)throw 0;db=x;save()}catch{alert("JSON không hợp lệ.")}};r.readAsText(f)}
+$("importFile").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!x.girls)throw 0;db=x;db.girls=(db.girls||[]).map((g,i)=>normalizeGirl(g,i));db.log=db.log||[];save()}catch{alert("JSON không hợp lệ.")}};r.readAsText(f)}
 $("search").oninput=render;$("talentSearch").oninput=renderLookup;$("addGirlBtn").onclick=addGirl;$("swapBtn").onclick=swapTalent;$("exportBtn").onclick=exportData;
 $("resetBtn").onclick=()=>{if(confirm("Reset toàn bộ tracker?")){db=clone(starter);save()}};
 $("clearLogBtn").onclick=()=>{if(confirm("Xóa lịch sử SWAP?")){db.log=[];save()}};
