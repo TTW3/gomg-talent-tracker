@@ -1,76 +1,12 @@
-<!doctype html>
-<html lang="vi">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#6e4934">
-<title>GOMG Talent Tracker</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="topbar">
-  <div class="brand"><div class="brand-mark">GMG</div><div><h1>Talent Tracker</h1><span>Guild of Monster Girls</span></div></div>
-  <div class="top-actions">
-    <button id="exportBtn">Export</button>
-    <label class="file-btn">Import <input id="importFile" type="file" accept=".json"></label>
-  </div>
-</header>
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GOMG Talent Tracker</title><meta name="description" content="Guild of Monster Girls Talent Tracker"><link rel="stylesheet" href="style.css"></head>
+<body><header class="topbar"><div class="brand"><div class="brand-mark">GMG</div><div><h1>Talent Tracker <span id="dbBadge">DB loading…</span></h1><small>Guild of Monster Girls</small></div></div><div class="top-actions"><button id="exportBtn">Export</button><label class="file-btn">Import <input id="importFile" type="file" accept=".json"></label></div></header>
 <main>
-<section class="hero">
-  <div><h2>Quản lý toàn bộ Talent của bạn</h2><p>Theo dõi Girl nào đang giữ Talent nào, thực hiện SWAP và xem lại lịch sử.</p></div>
-  <div class="hero-stats"><div><b id="girlCount">0</b><span>Girls</span></div><div><b id="talentCount">0</b><span>Talent slots</span></div><div><b id="logCount">0</b><span>Swaps</span></div></div>
-</section>
-
-<section class="card toolbar">
-  <input id="search" placeholder="🔎  Tìm Girl hoặc Talent...">
-  <div class="add-girl-select">
-    <input id="addGirlSearch" class="girl-search" autocomplete="off" placeholder="＋ Nhập tên Girl để thêm...">
-    <div id="addGirlResults" class="suggestions"></div>
-  </div>
-  <button id="resetBtn" class="danger">Reset</button>
-</section>
-
-<section class="card">
-  <div class="section-head"><div><h2>Talent Database</h2><span class="muted">4 slot / Girl</span></div></div>
-  <div class="table-wrap"><table>
-    <thead><tr><th>Girl</th><th>Talent 1</th><th>Talent 2</th><th>Talent 3</th><th>Talent 4</th><th></th></tr></thead>
-    <tbody id="girlsBody"></tbody>
-  </table></div>
-</section>
-
-<section class="grid-2">
-<section class="card">
-  <div class="section-head"><div><h2>⚡ SWAP Talent</h2><span class="muted">Hoán đổi đúng 2 slot</span></div></div>
-  <div class="swap-grid">
-    <div class="search-select">
-      <label for="aSearch">Girl A</label>
-      <input id="aSearch" class="girl-search" autocomplete="off" placeholder="🔍 Nhập tên Girl...">
-      <div id="aResults" class="suggestions"></div>
-    </div>
-    <label>Slot A<select id="aSlot"><option value="0">Talent 1</option><option value="1">Talent 2</option><option value="2">Talent 3</option><option value="3">Talent 4</option></select></label>
-    <div class="search-select">
-      <label for="bSearch">Girl B</label>
-      <input id="bSearch" class="girl-search" autocomplete="off" placeholder="🔍 Nhập tên Girl...">
-      <div id="bResults" class="suggestions"></div>
-    </div>
-    <label>Slot B<select id="bSlot"><option value="0">Talent 1</option><option value="1">Talent 2</option><option value="2">Talent 3</option><option value="3">Talent 4</option></select></label>
-  </div>
-  <div class="selected-row"><span id="aSelected" class="selected-pill">Girl A: Chưa chọn</span><span id="bSelected" class="selected-pill">Girl B: Chưa chọn</span></div>
-  <button class="primary wide" id="swapBtn">↔ SWAP</button>
-  <p class="hint">Gõ vài chữ trong tên Girl, chọn kết quả hiện ra. Phần còn lại giống V2.</p>
-</section>
-
-<section class="card">
-  <div class="section-head"><div><h2>🔎 Talent Lookup</h2><span class="muted">Talent đang nằm ở đâu?</span></div></div>
-  <input id="talentSearch" placeholder="Nhập tên talent..."><div id="lookupResult" class="lookup"></div>
-</section>
-</section>
-
-<section class="card">
-  <div class="section-head"><div><h2>📜 Swap History</h2><span class="muted">Lịch sử thay đổi</span></div><button id="clearLogBtn">Xóa lịch sử</button></div>
-  <div id="history" class="history"></div>
-</section>
-<footer><span>GOMG Talent Tracker</span><span>Local mode • Dữ liệu được lưu trên trình duyệt</span></footer>
-</main>
-<script src="app.js"></script>
-</body>
-</html>
+<section class="hero"><div><h2>Talent Database</h2><p>Chọn Girl/Talent từ database thay vì gõ tay. Dữ liệu theo dõi của bạn vẫn riêng trên trình duyệt.</p></div><div class="stats"><div><b id="girlCount">0</b><span>Girls</span></div><div><b id="talentCount">0</b><span>Slots</span></div><div><b id="logCount">0</b><span>Swaps</span></div></div></section>
+<section class="card toolbar"><input id="search" placeholder="🔎 Tìm Girl hoặc Talent trong kho của bạn…"><button class="primary" id="addGirlBtn">＋ Thêm Girl</button><button id="resetBtn" class="danger">Reset</button></section>
+<section class="card"><div class="section-head"><div><h2>Danh sách Girl của bạn</h2><span class="muted">Tên chuẩn từ game database</span></div><span id="dbStatus" class="status">Đang tải…</span></div><div class="table-wrap"><table><thead><tr><th>Girl</th><th>Talent 1</th><th>Talent 2</th><th>Talent 3</th><th>Talent 4</th><th></th></tr></thead><tbody id="girlsBody"></tbody></table></div></section>
+<section class="grid2"><section class="card"><div class="section-head"><div><h2>⚡ SWAP Talent</h2><span class="muted">Hoán đổi 2 slot</span></div></div><div class="swapgrid"><label>Girl A<select id="aGirl"></select></label><label>Slot A<select id="aSlot"></select></label><label>Girl B<select id="bGirl"></select></label><label>Slot B<select id="bSlot"></select></label></div><button class="primary wide" id="swapBtn">↔ SWAP</button><p class="hint">Tracker sẽ kiểm tra tier của 2 talent trước khi đổi. Virtual Mimic của game chỉ đổi talent cùng tier.</p></section>
+<section class="card"><div class="section-head"><div><h2>🔎 Talent Lookup</h2><span class="muted">Talent đang ở Girl nào?</span></div></div><input id="talentSearch" placeholder="Tìm talent…"><div id="lookup" class="lookup"></div></section></section>
+<section class="card"><div class="section-head"><div><h2>📜 Swap History</h2><span class="muted">Lịch sử riêng của bạn</span></div><button id="clearLogBtn">Xóa lịch sử</button></div><div id="history" class="history"></div></section>
+<section class="card info"><h3>Database</h3><p>Character database: <b id="charDbCount">0</b>. Talent records currently bundled: <b id="talentDbCount">0</b>.</p><p class="muted">Nguồn công khai hiện liệt kê 144 character và 431 talent. Bản này dùng tên English đã xác minh ở những mục có nguồn English; các talent còn lại giữ tên nguồn/nhãn dịch để tránh bịa tên chính thức.</p></section>
+<footer><span>GOMG Talent Tracker</span><span>Fan-made • Local data • No account required</span></footer>
+</main><script src="app.js"></script></body></html>
