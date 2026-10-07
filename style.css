@@ -69,3 +69,9 @@ footer{display:flex;justify-content:space-between;color:var(--muted);font-size:1
 
 /* Allow vertical touch scrolling in Girl/Talent suggestion lists. */
 .suggestions{touch-action:pan-y;-webkit-overflow-scrolling:touch}
+
+/* Board talent count */
+.board-tab .board-count{font-size:.78em;opacity:.8;margin-left:3px;font-weight:600}
+@media(max-width:600px){
+  .board-tab .board-count{font-size:.76em}
+}

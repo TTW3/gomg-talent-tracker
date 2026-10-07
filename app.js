@@ -65,7 +65,10 @@ function render(){
 }
 function girlEditor(g,i){
  const value=g.charId?charLabel(g.charId):(g.name||"");
- const tabs=Array.from({length:BOARD_COUNT},(_,b)=>`<button type="button" class="board-tab ${b===(g.activeBoard||0)?"active":""}" data-board="${b}" data-g="${i}">Board ${b+1}</button>`).join("");
+ const tabs=Array.from({length:BOARD_COUNT},(_,b)=>{
+   const count=(g.boards[b]||[]).filter(Boolean).length;
+   return `<button type="button" class="board-tab ${b===(g.activeBoard||0)?"active":""}" data-board="${b}" data-g="${i}">Board ${b+1} <span class="board-count">${count}/4</span></button>`;
+ }).join("");
  const c=g.charId?charById(g.charId):null; const icon=charIcon(c);
   return `<div class="girl-cell"><div class="autocomplete girl-autocomplete"><div class="selected-girl-icon" data-girl-icon>${icon?`<img src="${esc(icon)}" alt="">`:``}</div><input class="girlinput" data-g="${i}" value="${esc(value)}" placeholder="Gõ tên Girl..." autocomplete="off"><div class="suggestions"></div></div><div class="board-tabs">${tabs}</div></div>`;
 }
