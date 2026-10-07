@@ -22,7 +22,10 @@
 
 <section class="card toolbar">
   <input id="search" placeholder="🔎  Tìm Girl hoặc Talent...">
-  <button class="primary" id="addGirlBtn">＋ Thêm Girl</button>
+  <div class="add-girl-select">
+    <input id="addGirlSearch" class="girl-search" autocomplete="off" placeholder="＋ Nhập tên Girl để thêm...">
+    <div id="addGirlResults" class="suggestions"></div>
+  </div>
   <button id="resetBtn" class="danger">Reset</button>
 </section>
 

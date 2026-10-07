@@ -96,14 +96,54 @@ function render(){
   updatePills();
 }
 
-/* ===== THIS IS THE ORIGINAL V2 "ADD GIRL" BEHAVIOR ===== */
-function addGirl(){
-  const number=db.girls.length+1;
-  db.girls.push({
-    name:`Character ${String(number).padStart(2,"0")}`,
-    talents:["","","",""]
+/* ===== ADD GIRL: searchable game character selector ===== */
+function getAddGirlSuggestions(query){
+  const q=query.trim().toLowerCase();
+  const existing=new Set(db.girls.map(g=>g.name.toLowerCase()));
+  return (gameData.characters||[])
+    .map(c=>({
+      name:c.name_en||c.name||"",
+      rarity:c.rarity||"",
+      role:c.role||"",
+      exists:existing.has((c.name_en||c.name||"").toLowerCase())
+    }))
+    .filter(x=>x.name && (!q || x.name.toLowerCase().includes(q)))
+    .slice(0,12);
+}
+
+function showAddGirlSuggestions(){
+  const input=$("addGirlSearch");
+  const box=$("addGirlResults");
+  const items=getAddGirlSuggestions(input.value);
+
+  box.innerHTML=items.length
+    ? items.map((x,i)=>`<div class="suggestion add-suggestion ${x.exists?"already-added":""}" data-i="${i}"><b>${esc(x.name)}</b><small>${esc([x.rarity,x.role].filter(Boolean).join(" • ") || "Game Database")}${x.exists?" • Đã có":""}</small></div>`).join("")
+    : `<div class="suggestion">Không tìm thấy Girl trong Game Database.</div>`;
+
+  box.classList.add("show");
+  box.querySelectorAll("[data-i]").forEach(el=>{
+    el.addEventListener("click",()=>{
+      const item=items[Number(el.dataset.i)];
+      if(item.exists){
+        alert(`"${item.name}" đã có trong Talent Database của bạn.`);
+        return;
+      }
+      db.girls.push({name:item.name,talents:["","","",""]});
+      saveDB();
+      input.value="";
+      box.classList.remove("show");
+    });
   });
-  saveDB();
+}
+
+function setupAddGirlSearch(){
+  const input=$("addGirlSearch");
+  const box=$("addGirlResults");
+  input.addEventListener("focus",showAddGirlSuggestions);
+  input.addEventListener("input",showAddGirlSuggestions);
+  document.addEventListener("click",e=>{
+    if(!input.parentElement.contains(e.target))box.classList.remove("show");
+  });
 }
 
 /* ===== SEARCH ONLY FOR SWAP SELECTOR ===== */
@@ -238,8 +278,8 @@ function exportData(){
   URL.revokeObjectURL(a.href);
 }
 
-/* ===== EVENTS: explicit element references so +Thêm Girl cannot fail ===== */
-$("addGirlBtn").addEventListener("click",addGirl);
+/* ===== EVENTS ===== */
+setupAddGirlSearch();
 $("swapBtn").addEventListener("click",swapTalent);
 $("exportBtn").addEventListener("click",exportData);
 $("search").addEventListener("input",render);
