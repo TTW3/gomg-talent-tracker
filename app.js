@@ -140,11 +140,16 @@ function chooseSuggestion(suggestion){
    db.girls[i].name=charLabel(c.id);
    db.girls[i].customName=false;
  }else{
-   const i=+input.dataset.g,s=+input.dataset.s;
+   const i=+input.dataset.g,s=+input.dataset.s,b=+input.dataset.b;
    if(!db.girls[i])return;
-   db.girls[i].boards[+input.dataset.b][s]=id;
+   db.girls[i].boards[b][s]=id;
  }
- save();
+ // Persist without re-rendering the table. Re-rendering immediately here can
+ // replace the input DOM while the browser is still processing the click/touch.
+ localStorage.setItem(KEY,JSON.stringify(db));
+ input.value=input.classList.contains("girlinput")?charLabel(id):talentLabel(id);
+ const box=input.parentElement.querySelector(".suggestions");
+ if(box){box.innerHTML="";box.classList.remove("open");}
 }
 document.addEventListener("pointerdown",e=>{
  const suggestion=e.target.closest(".suggestion");
