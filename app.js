@@ -47,22 +47,106 @@ function render(){
  $("charDbCount").textContent=GAME.characters.length;$("talentDbCount").textContent=GAME.talents.length;
 }
 function girlEditor(g,i){
- if(g.charId){return `<select class="girlselect" data-g="${i}">${GAME.characters.map(c=>`<option value="${c.id}" ${c.id===g.charId?"selected":""}>${esc(c.name_en)}</option>`).join("")}</select>`}
- return `<input class="customgirl" data-g="${i}" value="${esc(g.name)}" placeholder="Custom Girl">`;
+ const value=g.charId?charLabel(g.charId):(g.name||"");
+ return `<div class="autocomplete">
+   <input class="girlinput" data-g="${i}" value="${esc(value)}" placeholder="Gõ tên Girl..." autocomplete="off">
+   <div class="suggestions"></div>
+ </div>`;
 }
 function talentEditor(t,i,s){
- const opts=GAME.talents.map(x=>`<option value="${x.id}" ${x.id===t?"selected":""}>${esc(x.name_en||x.name_source)}${x.name_source&&x.name_en!==x.name_source?" · "+esc(x.name_source):""}</option>`).join("");
- return `<select class="slotselect" data-g="${i}" data-s="${s}"><option value="">— Empty —</option>${opts}</select>`;
+ const value=t?talentLabel(t):"";
+ return `<div class="autocomplete">
+   <input class="talentinput" data-g="${i}" data-s="${s}" value="${esc(value)}" placeholder="Gõ tên Talent..." autocomplete="off">
+   <div class="suggestions"></div>
+ </div>`;
 }
+function normalizeText(v){return String(v||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim()}
+function fuzzyScore(query,text){
+ const q=normalizeText(query),t=normalizeText(text);
+ if(!q)return 0;
+ if(t===q)return 1000;
+ if(t.startsWith(q))return 800-q.length;
+ const idx=t.indexOf(q);
+ if(idx>=0)return 600-idx;
+ const words=q.split(/\s+/).filter(Boolean);
+ let pos=0,score=0;
+ for(const w of words){const p=t.indexOf(w,pos);if(p<0)return -1;score+=100-p;pos=p+w.length}
+ return 300+score;
+}
+function findGirlSuggestions(query){
+ const q=normalizeText(query);
+ if(!q)return GAME.characters.slice(0,10);
+ return GAME.characters
+   .map(c=>({item:c,score:Math.max(fuzzyScore(q,c.name_en),fuzzyScore(q,c.name_source||""))}))
+   .filter(x=>x.score>=0)
+   .sort((a,b)=>b.score-a.score)
+   .slice(0,8)
+   .map(x=>x.item);
+}
+function findTalentSuggestions(query){
+ const q=normalizeText(query);
+ if(!q)return GAME.talents.slice(0,10);
+ return GAME.talents
+   .map(t=>({item:t,score:Math.max(fuzzyScore(q,t.name_en),fuzzyScore(q,t.name_source||""))}))
+   .filter(x=>x.score>=0)
+   .sort((a,b)=>b.score-a.score)
+   .slice(0,8)
+   .map(x=>x.item);
+}
+function showSuggestions(input){
+ const box=input.parentElement.querySelector(".suggestions");
+ const isGirl=input.classList.contains("girlinput");
+ const items=isGirl?findGirlSuggestions(input.value):findTalentSuggestions(input.value);
+ if(!items.length){box.innerHTML="";box.classList.remove("open");return}
+ box.innerHTML=items.map(x=>{
+   const id=esc(x.id),name=esc(x.name_en||x.name_source||"");
+   const source=x.name_source&&x.name_en!==x.name_source?`<small>${esc(x.name_source)}</small>`:"";
+   return `<div class="suggestion" data-id="${id}"><span>${name}</span>${source}</div>`;
+ }).join("");
+ box.classList.add("open");
+}
+document.addEventListener("input",e=>{
+ if(e.target.matches(".girlinput,.talentinput"))showSuggestions(e.target);
+});
+document.addEventListener("focusin",e=>{
+ if(e.target.matches(".girlinput,.talentinput"))showSuggestions(e.target);
+});
+document.addEventListener("mousedown",e=>{
+ const suggestion=e.target.closest(".suggestion");
+ if(!suggestion)return;
+ const input=suggestion.closest(".autocomplete").querySelector("input");
+ const id=suggestion.dataset.id;
+ if(input.classList.contains("girlinput")){
+   const i=+input.dataset.g;
+   const c=charById(id);
+   if(!c)return;
+   db.girls[i].charId=c.id;
+   db.girls[i].name=charLabel(c.id);
+   db.girls[i].customName=false;
+ }else{
+   const i=+input.dataset.g,s=+input.dataset.s;
+   db.girls[i].talents[s]=id;
+ }
+ save();
+});
+document.addEventListener("focusout",e=>{
+ if(!e.target.matches(".girlinput,.talentinput"))return;
+ setTimeout(()=>{
+   const box=e.target.parentElement.querySelector(".suggestions");
+   if(box)box.classList.remove("open");
+ },150);
+});
+document.addEventListener("keydown",e=>{
+ if(!e.target.matches(".girlinput,.talentinput")||e.key!=="Enter")return;
+ const box=e.target.parentElement.querySelector(".suggestions.open");
+ const first=box?.querySelector(".suggestion");
+ if(first){e.preventDefault();first.dispatchEvent(new MouseEvent("mousedown",{bubbles:true}))}
+});
 function fillGirlSelects(){
  const opts=db.girls.map((g,i)=>`<option value="${i}">${esc(g.name)}</option>`).join("");$("aGirl").innerHTML=opts;$("bGirl").innerHTML=opts;
 }
 function fillSlotSelects(){const x=['Talent 1','Talent 2','Talent 3','Talent 4'];$("aSlot").innerHTML=x.map((v,i)=>`<option value="${i}">${v}</option>`).join("");$("bSlot").innerHTML=x.map((v,i)=>`<option value="${i}">${v}</option>`).join("")}
-document.addEventListener("change",e=>{
- if(e.target.matches(".girlselect")){const i=+e.target.dataset.g;db.girls[i].charId=e.target.value;db.girls[i].name=charLabel(e.target.value);db.girls[i].customName=false;save()}
- if(e.target.matches(".customgirl")){const i=+e.target.dataset.g;db.girls[i].name=e.target.value.trim()||"Custom Girl";save()}
- if(e.target.matches(".slotselect")){const i=+e.target.dataset.g,s=+e.target.dataset.s;db.girls[i].talents[s]=e.target.value;save()}
-});
+
 function addGirl(){db.girls.push({charId:GAME.characters[0]?.id||null,name:GAME.characters[0]?.name_en||"Custom Girl",customName:false,talents:["","","",""]});save()}
 function swapTalent(){
  if(db.girls.length<2)return alert("Cần ít nhất 2 Girl.");
