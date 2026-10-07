@@ -1,28 +1,42 @@
-# GOMG Talent Tracker v2
+# GOMG Talent Tracker
 
-## Có gì mới?
-- `game-data.json` tách riêng khỏi code.
-- 144 base characters có tên English từ database cộng đồng.
-- Talent dùng ID cố định, tránh lỗi do đổi tên.
-- Talent selector/search thay vì gõ tay.
-- Kiểm tra tier khi SWAP.
-- Local data vẫn riêng cho từng người bằng localStorage.
-- Export/Import backup.
+Fan-made static tracker for **Guild of Monster Girls** talents.
 
-## Quan trọng về talent names
-Nguồn công khai hiện có danh sách 431 talent nhưng chủ yếu cung cấp tên Nhật/Trung, không có một catalog English hoàn chỉnh mà mình có thể xác minh. Vì vậy:
-- Các English talent đã được xác minh từ dữ liệu người dùng hoặc English patch notes được ghi là verified/official-update.
-- Các mục khác giữ tên nguồn/nhãn dịch, không giả mạo là tên English chính thức.
-- `game-data.json` được thiết kế để thay thế/cập nhật sau này mà không sửa code.
+## Included
+- 4 Talent Boards × 4 slots per Girl.
+- Girl/Talent searchable autocomplete.
+- Character icons from the GOMG Wiki.
+- 481 current Talent source records from the GOMG Wiki Search Talents index.
+- English Talent names/effects, including curated translations for Chinese-only source text.
+- Talent description popup via the `ⓘ` button.
+- Talent Lookup: Girl → Board → Slot.
+- SWAP with tier validation.
+- Swap history.
+- JSON Export / Import / Reset.
+- Per-browser private data via localStorage.
+- Optional encrypted GitHub sync using AES-GCM.
+- GitHub Actions updater for characters and talents.
+
+## Database notes
+`game-data.json` currently bundles the 481 source Talent records plus legacy records retained for compatibility with older tracker assignments. Existing `talent_###` IDs are preserved whenever a source Talent can be matched by name, so existing localStorage / encrypted sync data is not silently broken.
+
+The Talent source is:
+- https://gomg-wiki.pages.dev/search-talent-new
+- https://gomg-wiki.pages.dev/talent-search-index.js
+
+Character source:
+- https://gomg-wiki.pages.dev/units/
 
 ## GitHub Pages
-Upload 4 file vào repository:
-- index.html
-- style.css
-- app.js
-- game-data.json
+Upload/commit the repository contents, including:
+- `index.html`
+- `style.css`
+- `app.js`
+- `game-data.json`
+- `tools/update_game_data.py`
+- `.github/workflows/update-game-data.yml`
 
-Sau khi commit, GitHub Pages sẽ tự deploy lại.
+GitHub Pages will deploy the static site. The updater runs separately through GitHub Actions.
 
-## Lưu ý
-Nếu bạn đang dùng phiên bản cũ đã có dữ liệu localStorage, v2 dùng key mới nên sẽ không tự lấy database cũ. Hãy export backup cũ trước khi đổi phiên bản nếu bạn đã nhập nhiều dữ liệu.
+## Existing tracker data
+The app keeps user assignments in browser localStorage. The database update does not intentionally overwrite those assignments. For a safety backup, use **Export** before changing versions.

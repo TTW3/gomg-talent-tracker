@@ -1,21 +1,28 @@
 # GOMG Talent Tracker – automatic game-data updates
 
-The tracker keeps user assignments in browser `localStorage`; `game-data.json` is only the shared reference database shipped with the site.
+The tracker keeps user assignments in browser `localStorage`; `game-data.json` is the shared reference database shipped with the site.
 
 ## Sources
-- Primary unit source: https://gomg-wiki.pages.dev/units/
-- Supplemental source probe: https://hxsngh.pages.dev/#/role
-- Existing curated talent source: https://mocha-gameguide.com/gensho/talents/
+- Character source: https://gomg-wiki.pages.dev/units/
+- Talent page: https://gomg-wiki.pages.dev/search-talent-new
+- Talent index: https://gomg-wiki.pages.dev/talent-search-index.js
 
-## How it works
-GitHub Actions runs every Monday at 03:17 UTC (10:17 Vietnam time) and can also be run manually from **Actions → Update GOMG game data → Run workflow**.
+## Schedule
+GitHub Actions runs **daily at 02:17 UTC (09:17 Vietnam time)** and can also be run manually from:
+**Actions → Update GOMG game data → Run workflow**.
 
-The updater:
-1. Downloads the GMG Wiki Units index.
-2. Parses standard + alter units and safely refuses to overwrite the database if the result looks broken.
-3. Preserves the tracker's curated English talent list instead of guessing translations.
-4. Probes the hxsngh app for machine-readable JSON/CSV assets; if its internal structure changes, the update still succeeds using the primary source.
-5. Commits `game-data.json` only when something changed.
+## What the updater does
+1. Downloads the current GOMG Wiki Units index.
+2. Downloads `talent-search-index.js` and parses `window.TALENT_SEARCH_INDEX`.
+3. Refuses to overwrite the database if either source looks suspiciously incomplete.
+4. Preserves existing character IDs and `talent_###` IDs when records can be matched safely.
+5. Retains old talents that disappear from the current source as `legacy_only=true`, so old tracker assignments still resolve.
+6. Fills Chinese-only talent names/effects with the curated English translation map embedded in `tools/update_game_data.py`.
+7. Writes `game-data.json` and commits only when it changed.
 
-### Important
-The GitHub repository must contain the `.github/workflows/update-game-data.yml` and `tools/update_game_data.py` files. In **Settings → Actions → General**, workflow permissions should allow the workflow to read and write repository contents. The workflow itself also declares `permissions: contents: write`.
+### Workflow permissions
+The repository must contain:
+- `.github/workflows/update-game-data.yml`
+- `tools/update_game_data.py`
+
+The workflow declares `permissions: contents: write`, so no extra secret is required for the normal GitHub Actions commit.

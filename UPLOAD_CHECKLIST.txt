@@ -1,0 +1,24 @@
+GOMG Talent Tracker – upload checklist
+
+Upload/replace these files in the repository root:
+  index.html
+  style.css
+  app.js
+  game-data.json
+  README.md
+  AUTO_UPDATE.md
+  SYNC_GITHUB.md
+  ALTER_NAMES.md
+
+And these paths:
+  tools/update_game_data.py
+  .github/workflows/update-game-data.yml
+
+Do NOT upload any local sync-data file. User sync data stays in the encrypted GitHub file created by the site.
+
+After pushing:
+1. Open GitHub Pages and hard-refresh the site (Ctrl+F5).
+2. Check the DB badge and Talent count.
+3. Pick a Girl and a Talent, then click the Talent info (ⓘ) button to verify the description popup.
+4. If using GitHub Sync, test Pull/Push with the existing token + password.
+5. Open Actions and manually run “Update GOMG game data” once to verify the workflow has write permission.
