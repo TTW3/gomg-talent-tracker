@@ -23,7 +23,8 @@
     follow:['follow-up','follow up','extra action','extra actions'],
     resource:['mana','hp','soothe','nourishment','energy','stack','stacks'],
     weakness:['weakness','exposed','expose'],
-    position:['front','mid','back','nearest','farthest','highest','lowest']
+    position:['front','mid','back','nearest','farthest','highest','lowest'],
+    survival:['nine lives','extra life','revive','survive','survival','death']
   };
   let GAME=null, selectedId='', objective='Skill Synergy';
   function skillFor(c){return (GAME.skills||[]).filter(s=>s.id===c.source_id)}
@@ -67,6 +68,7 @@
     if(/defense|damage taken|shield|barrier|toughness/.test(s)) out.add('defense');
     if(/weakness|exposed|expose/.test(s)) out.add('weakness');
     if(/front|mid|back|nearest|farthest|highest|lowest/.test(s)) out.add('position');
+    if(/nine lives|extra life|revive|survive|survival|death/.test(s)) out.add('survival');
     if(/damage|dmg|attack|critical|crit|skill/.test(s)) out.add('damage');
     return out;
   }
@@ -89,7 +91,7 @@
     if(arch && overlapWords(arch,tx)>0) score+=3;
     // 4) Objective is a tie-breaker, not the main source of truth.
     if(objective==='DPS' && tm.has('damage')) score+=3;
-    if(objective==='Sustain' && (tm.has('hp')||tm.has('defense'))) score+=3;
+    if(objective==='Sustain' && (tm.has('hp')||tm.has('defense')||tm.has('survival'))) score+=5;
     if(objective==='Control' && tm.has('debuff')) score+=3;
     if(objective==='Speed' && tm.has('speed')) score+=3;
     if(objective==='Resource' && (tm.has('mana')||tm.has('resource')||tm.has('soothe'))) score+=3;
@@ -104,6 +106,22 @@
     if(chillOnly) score-=5;
     if(poisonOnly) score-=5;
     return score;
+  }
+  // Duplicate handling: 4 slots may contain the same talent, but duplicate effects do not always stack.
+  // Known non-stacking effects are treated as unique; other talents are allowed to repeat.
+  function duplicateKey(t){
+    return norm([t.name_en,t.description_en,t.effect_en,t.source_value,t.exclusive_name].join('|'));
+  }
+  function isNonStacking(t){
+    const x=talentText(t);
+    // Nine Lives is a unique 9-life effect: copies do not grant additional lives.
+    if(/\bnine lives\b/.test(norm(t.name_en||''))) return true;
+    // Explicit wording indicating uniqueness/non-stacking.
+    return /\b(non[- ]?stack|does not stack|cannot stack|only one|unique effect|duplicate effect)\b/.test(norm(x));
+  }
+  function repeatValue(t,count){
+    if(count<=1) return 1;
+    return isNonStacking(t) ? 1 : count;
   }
   function pairScore(a,b,skillMech){
     const A=mechanics(talentText(a)),B=mechanics(talentText(b)); let s=0;
@@ -122,33 +140,51 @@
     const pool=[];
     for(const x of [...exclusive,...scored]) if(!pool.some(y=>y.t.id===x.t.id)) pool.push(x);
     const capped=pool.slice(0,120);
-    if(capped.length<4)return null;
-    let beam=capped.slice(0,25).map(x=>[x.t]);
-    for(let depth=1;depth<4;depth++){
+    if(capped.length<1)return null;
+
+    // Search 4 slots. A talent may repeat. For non-stacking effects (e.g. Nine Lives),
+    // repeated copies are legal slots but contribute only once to the build score.
+    let beam=[{arr:[],score:0}];
+    for(let depth=0;depth<4;depth++){
       const next=[];
-      for(const arr of beam){
-        const used=new Set(arr.map(x=>x.id));
+      for(const state of beam){
         for(const x of capped){
-          if(used.has(x.t.id))continue;
-          let s=x.base;
-          for(const y of arr)s+=pairScore(x.t,y,sm);
-          next.push({arr:[...arr,x.t],score:s});
+          const arr=[...state.arr,x.t];
+          let score=state.score + x.base;
+          const sameCount=arr.filter(t=>t.id===x.t.id).length;
+          if(sameCount>1){
+            const effective=repeatValue(x.t,sameCount);
+            score -= x.base * (sameCount-effective);
+          }
+          for(const y of state.arr){ if(y.id===x.t.id && isNonStacking(x.t)) continue; score+=pairScore(x.t,y,sm); }
+          next.push({arr,score});
         }
       }
-      next.sort((a,b)=>b.score-a.score); beam=next.slice(0,80).map(x=>x.arr);
+      next.sort((a,b)=>b.score-a.score);
+      // Keep enough diversity so both repeat-heavy and mixed builds survive.
+      beam=next.slice(0,180);
     }
+
     let best=null,bestScore=-Infinity;
-    for(const arr of beam){
-      let score=arr.reduce((n,t)=>n+talentScore(t,skillText,sm,c),0);
-      for(let i=0;i<arr.length;i++)for(let j=i+1;j<arr.length;j++)score+=pairScore(arr[i],arr[j],sm);
-      // If an EX talent exists for this exact character, strongly prefer a build containing it.
+    for(const state of beam){
+      const arr=state.arr;
+      let score=0;
+      const counts=new Map();
+      for(const t of arr) counts.set(t.id,(counts.get(t.id)||0)+1);
+      for(const [id,count] of counts){
+        const t=arr.find(x=>x.id===id);
+        score += talentScore(t,skillText,sm,c);
+        const effective=repeatValue(t,count);
+        if(effective>1) score += (effective-1)*talentScore(t,skillText,sm,c);
+      }
+      for(let i=0;i<arr.length;i++)for(let j=i+1;j<arr.length;j++){ if(arr[i].id===arr[j].id && isNonStacking(arr[i])) continue; score+=pairScore(arr[i],arr[j],sm); }
       if(exclusive.length && arr.some(t=>exclusiveMatch(t,c))) score+=35;
       if(score>bestScore){bestScore=score;best=arr;}
     }
     return {character:c,skills:ss,mechanics:sm,talents:best,score:bestScore};
   }
   function explain(r){
-    const bits=[]; for(const m of ['damage','debuff','speed','mana','hp','soothe','counter','follow','weakness','position']) if(r.mechanics.has(m)) bits.push(m);
+    const bits=[]; for(const m of ['damage','debuff','speed','mana','hp','soothe','counter','follow','weakness','position','survival']) if(r.mechanics.has(m)) bits.push(m);
     return bits.slice(0,6);
   }
   function render(){
