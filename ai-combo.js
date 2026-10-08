@@ -27,6 +27,7 @@
     survival:['nine lives','extra life','revive','survive','survival','death']
   };
   let GAME=null, selectedId='', objective='Skill Synergy';
+  const recommendationCache=new Map();
   function skillFor(c){return (GAME.skills||[]).filter(s=>s.id===c.source_id)}
   function sourceText(c){const ss=skillFor(c);return [c.name_en,c.role,c.type,c.element,c.terrain,(c.archetypes||[]).join(' '),...ss.map(s=>s.skill+' '+s.desc+' '+(s.tags||[]).join(' '))].join(' ')}
   function mechanics(text){
@@ -149,7 +150,8 @@
     const exclusive=scored.filter(x=>exclusiveMatch(x.t,c));
     const pool=[];
     for(const x of [...exclusive,...scored]) if(!pool.some(y=>y.t.id===x.t.id)) pool.push(x);
-    const capped=pool.slice(0,120);
+    // Keep the expensive combo search small. Most useful candidates are already near the top.
+    const capped=pool.slice(0,36);
     if(capped.length<1)return null;
 
     // Search 4 slots. A talent may repeat. For non-stacking effects (e.g. Nine Lives),
@@ -172,7 +174,7 @@
       }
       next.sort((a,b)=>b.score-a.score);
       // Keep enough diversity so both repeat-heavy and mixed builds survive.
-      beam=next.slice(0,180);
+      beam=next.slice(0,48);
     }
 
     let best=null,bestScore=-Infinity;
@@ -197,9 +199,10 @@
     const bits=[]; for(const m of ['damage','debuff','speed','mana','hp','soothe','counter','follow','weakness','position','survival']) if(r.mechanics.has(m)) bits.push(m);
     return bits.slice(0,6);
   }
-  function render(){
+  function render(force=false){
     const out=document.getElementById('buildAdvisorResults'); if(!out)return;
-    const r=recommend(); if(!r){out.innerHTML='<div class="muted">Chọn một Character có dữ liệu skill để bắt đầu.</div>';return;}
+    const key=selectedId+'|'+objective;
+    const r=force ? recommend() : recommendationCache.get(key); if(!r){out.innerHTML='<div class="muted">Chọn một Character có dữ liệu skill để bắt đầu.</div>';return;}
     const mech=explain(r);
     out.innerHTML=`<div class="ba-summary"><div class="ba-character-selected">${r.character.icon?`<img class="ba-char-icon" src="${esc(r.character.icon)}" alt="" loading="lazy">`:''}<div><b>${esc(r.character.name_en)}</b><span class="muted"> · ${esc(r.character.source_id||'')}</span></div></div><div class="ba-tags">${mech.map(x=>`<span>${esc(x)}</span>`).join('')}</div></div>`+
       `<div class="ba-skills"><h3>Skill source</h3>${r.skills.length?r.skills.map(s=>`<article><b>${esc(s.skill)}</b><div>${esc(s.desc)}</div><small>${(s.tags||[]).map(esc).join(' · ')}</small></article>`).join(''):'<span class="muted">Không có skill record cho unit này.</span>'}</div>`+
@@ -213,7 +216,7 @@
     view.innerHTML=`<div class="section-head"><div><h2>🧠 Build Advisor</h2><span class="muted">Nhập Character → chọn gợi ý → đọc skill → đối chiếu toàn bộ Talent Database → đề xuất 4 Talent</span></div></div><div class="ba-controls"><label>Character<div class="ba-autocomplete"><input id="baCharacter" type="text" autocomplete="off" placeholder="Nhập tên Character..."><div id="baCharacterSuggestions" class="ba-suggestions" hidden></div></div></label><label>Mục tiêu<select id="baObjective"><option>Skill Synergy</option><option>DPS</option><option>Sustain</option><option>Control</option><option>Speed</option><option>Resource</option><option>Character Buff</option></select></label><button id="baGenerate" class="primary">✨ Đề xuất 4 Talent</button></div><div id="buildAdvisorResults" class="build-advisor-results"></div>`;
     switcher.parentNode.insertBefore(view,switcher.nextSibling);
     const trackerViews=document.querySelectorAll('.tracker-view'),dbView=document.getElementById('talentDatabaseView');
-    function show(){trackerViews.forEach(x=>x.hidden=true);if(dbView)dbView.hidden=true;view.hidden=false;btn.classList.add('primary');document.getElementById('trackerViewBtn')?.classList.remove('primary');document.getElementById('databaseViewBtn')?.classList.remove('primary');render();}
+    function show(){trackerViews.forEach(x=>x.hidden=true);if(dbView)dbView.hidden=true;view.hidden=false;btn.classList.add('primary');document.getElementById('trackerViewBtn')?.classList.remove('primary');document.getElementById('databaseViewBtn')?.classList.remove('primary'); const out=document.getElementById('buildAdvisorResults'); if(out && !recommendationCache.has(selectedId+'|'+objective)) out.innerHTML='<div class="muted">Chọn Character + mục tiêu rồi bấm ✨ Đề xuất 4 Talent.</div>'; }
     btn.onclick=show;
     document.getElementById('trackerViewBtn')?.addEventListener('click',()=>{view.hidden=true;btn.classList.remove('primary');});
     document.getElementById('databaseViewBtn')?.addEventListener('click',()=>{view.hidden=true;btn.classList.remove('primary');});
@@ -227,14 +230,18 @@
       const list=q?chars.filter(c=>norm(c.name_en).includes(q)||norm(c.source_id).includes(q)).slice(0,12):chars.slice(0,12);
       suggestions.innerHTML=list.map(c=>`<button type="button" class="ba-suggestion" data-id="${esc(c.id)}">${c.icon?`<img class="ba-suggestion-icon" src="${esc(c.icon)}" alt="" loading="lazy">`:''}<span class="ba-suggestion-name">${esc(c.name_en)}</span>${c.variant==='Alter'?'<small>Alter</small>':''}</button>`).join('');
       suggestions.hidden=!list.length;
-      suggestions.querySelectorAll('.ba-suggestion').forEach(b=>b.onclick=()=>{const c=chars.find(x=>x.id===b.dataset.id);if(!c)return;selectedId=c.id;input.value=c.name_en+(c.variant==='Alter'?' · Alter':'');suggestions.hidden=true;render();});
+      suggestions.querySelectorAll('.ba-suggestion').forEach(b=>b.onclick=()=>{const c=chars.find(x=>x.id===b.dataset.id);if(!c)return;selectedId=c.id;input.value=c.name_en+(c.variant==='Alter'?' · Alter':'');suggestions.hidden=true;recommendationCache.delete(selectedId+'|'+objective);render(false);});
     }
     input.addEventListener('input',()=>paintSuggestions(input.value));
     input.addEventListener('focus',()=>paintSuggestions(input.value));
     input.addEventListener('keydown',e=>{if(e.key==='Enter'){const first=suggestions.querySelector('.ba-suggestion');if(first)first.click();}else if(e.key==='Escape')suggestions.hidden=true;});
     document.addEventListener('click',e=>{if(!e.target.closest('.ba-autocomplete'))suggestions.hidden=true;});
-    document.getElementById('baObjective').onchange=e=>{objective=e.target.value;render()};
-    document.getElementById('baGenerate').onclick=render;
+    document.getElementById('baObjective').onchange=e=>{objective=e.target.value;recommendationCache.delete(selectedId+'|'+objective);render(false)};
+    document.getElementById('baGenerate').onclick=()=>{
+      const out=document.getElementById('buildAdvisorResults');
+      if(out) out.innerHTML='<div class="muted">⏳ Đang phân tích Talent...</div>';
+      setTimeout(()=>render(true),0);
+    };
     const style=document.createElement('style');style.textContent=`
       .build-advisor-view{margin-top:14px}.ba-controls{display:flex;gap:10px;align-items:end;flex-wrap:wrap}.ba-controls label{display:flex;flex-direction:column;gap:5px;min-width:230px}.ba-controls select,.ba-controls input{min-height:38px;box-sizing:border-box}.ba-autocomplete{position:relative}.ba-autocomplete input{width:100%;padding:8px 10px;border:1px solid var(--border,#ddd);border-radius:8px;background:var(--input-bg,transparent);color:inherit}.ba-suggestions{position:absolute;z-index:50;left:0;right:0;top:calc(100% + 4px);max-height:260px;overflow:auto;border:1px solid var(--border,#ddd);border-radius:10px;background:var(--card-bg,#fff);box-shadow:0 8px 24px rgba(0,0,0,.12)}.ba-suggestion{display:flex;width:100%;align-items:center;justify-content:flex-start;gap:9px;padding:7px 11px;border:0;border-bottom:1px solid var(--border,#ddd);background:transparent;color:inherit;text-align:left;cursor:pointer}.ba-suggestion:hover{background:rgba(127,127,127,.10)}.ba-suggestion-icon{width:32px;height:32px;object-fit:cover;border-radius:7px;flex:0 0 32px}.ba-suggestion-name{flex:1;min-width:0}.ba-suggestion small{opacity:.65;margin-left:auto}.ba-character-selected{display:flex;align-items:center;gap:9px}.ba-char-icon{width:42px;height:42px;object-fit:cover;border-radius:9px;flex:0 0 42px}.build-advisor-results{margin-top:16px}.ba-summary{display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid var(--border,#ddd);border-radius:12px;padding:12px}.ba-tags{display:flex;gap:5px;flex-wrap:wrap}.ba-tags span{padding:3px 8px;border:1px solid var(--border,#ddd);border-radius:999px;font-size:11px}.ba-skills{margin:14px 0}.ba-skills article{border-left:3px solid var(--accent,#888);padding:8px 10px;margin:7px 0;background:rgba(127,127,127,.06)}.ba-skills article div{font-size:12px;line-height:1.5;margin-top:3px}.ba-skills small{opacity:.7}.ba-talents{display:grid;gap:9px}.ba-talent{display:grid;grid-template-columns:34px 1fr;gap:10px;border:1px solid var(--border,#ddd);border-radius:12px;padding:11px}.ba-num{font-weight:800;font-size:18px}.ba-talent h4{margin:0 0 2px}.ba-talent p{margin:7px 0 0;font-size:12.5px;line-height:1.5}.build-advisor-view .hint{margin-top:14px}@media(max-width:700px){.ba-controls label,.ba-controls button{width:100%;box-sizing:border-box}.ba-summary{display:block}.ba-tags{margin-top:8px}}
     `;document.head.appendChild(style);
