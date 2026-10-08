@@ -172,24 +172,64 @@ def normalize_character_names(chars):
     return chars
 
 def merge_talents(old_talents, source):
+    # Match source records by immutable source ID first. Names are only fallbacks
+    # for older bundled records that predate legacy_source_id.
+    by_source_id={str(x.get('id')):x for x in source if x.get('id')}
     by_name={norm(x.get('name_en')):x for x in source if x.get('name_en')}
-    by_source={norm(x.get('name_source')):x for x in source if x.get('name_source')}
+    by_source_name={norm(x.get('name_source')):x for x in source if x.get('name_source')}
     used_source=set(); result=[]
+
     for old in old_talents:
-        if not isinstance(old,dict) or not old.get('id'): continue
-        match=by_name.get(norm(old.get('name_en'))) or by_source.get(norm(old.get('name_source')))
+        if not isinstance(old,dict) or not old.get('id'):
+            continue
+
+        source_id=str(old.get('legacy_source_id') or '').strip()
+        match=by_source_id.get(source_id)
+
+        # Very old records may not have legacy_source_id. Try their own ID
+        # if it is a source TF... ID, then fall back to English/source name.
+        if not match:
+            old_id=str(old.get('id') or '').strip()
+            if old_id in by_source_id:
+                match=by_source_id.get(old_id)
+        if not match:
+            match=by_name.get(norm(old.get('name_en'))) or by_source_name.get(norm(old.get('name_source')))
+
         if match:
-            r=copy.deepcopy(match); r['id']=old['id']; r['legacy_source_id']=match['id']; used_source.add(match['id'])
+            r=copy.deepcopy(match)
+            r['id']=old['id']
+            r['legacy_source_id']=match['id']
+            r.pop('legacy_only',None)
+            used_source.add(match['id'])
+
+            # Preserve tracker-facing/custom fields from the old record, but
+            # never overwrite source-controlled name/effect/tier/origin data.
             for k,v in old.items():
-                if k not in r and k not in {'id','name_en','name_source','rank','description_en','origin'}: r[k]=v
+                if k not in r and k not in {
+                    'id','name_en','name_source','rank','description_en',
+                    'origin','legacy_source_id','legacy_only'
+                }:
+                    r[k]=v
             result.append(r)
         else:
-            r=copy.deepcopy(old); r['legacy_only']=True; result.append(r)
-    used_ids={r.get('id') for r in result}; n=1
+            # Keep old records so existing tracker assignments do not break.
+            r=copy.deepcopy(old)
+            r['legacy_only']=True
+            result.append(r)
+
+    used_ids={r.get('id') for r in result}
+    n=1
     for src in source:
-        if src['id'] in used_source: continue
-        while f'talent_{n:03d}' in used_ids: n+=1
-        r=copy.deepcopy(src); r['id']=f'talent_{n:03d}'; r['legacy_source_id']=src['id']; used_ids.add(r['id']); result.append(r); n+=1
+        if src['id'] in used_source:
+            continue
+        while f'talent_{n:03d}' in used_ids:
+            n+=1
+        r=copy.deepcopy(src)
+        r['id']=f'talent_{n:03d}'
+        r['legacy_source_id']=src['id']
+        used_ids.add(r['id'])
+        result.append(r)
+        n+=1
     return result
 
 def build_characters(old, units):
@@ -240,7 +280,7 @@ def main():
         'notes':[
             'Characters are refreshed from the GOMG Wiki Units index.',
             'Talents are refreshed from the GOMG Wiki Search Talents index.',
-            'Existing talent_### IDs are preserved whenever an old record matches a source name.',
+            'Existing talent IDs are preserved; source records are matched by immutable source ID first, then by name as a legacy fallback.',
             'Legacy talents missing from the current source are retained with legacy_only=true.',
             'Chinese-only names/effects are filled using the curated English translation map in this updater.'
         ]
