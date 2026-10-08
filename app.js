@@ -25,6 +25,7 @@ function charById(id){return GAME.characters.find(x=>x.id===id)}
 function talentLabel(id){let t=talentById(id);const x=splitTalentValue(id);return t?t.name_en||t.name_source||x.id:(x.id||"")}
 function charLabel(id){let c=charById(id);return c?c.name_en:id||""}
 function tierClass(t){return t?`tier tier-${t}`:""}
+function talentValue(id){const t=talentById(id);return t?`${t.name_en||t.name_source||talentKey(id).id} · ${talentTier(id)}`:String(id||"")}
 function tierOptions(t,selected){return (t?.tiers||[]).map(x=>`<option value="${esc(x)}" ${x===selected?"selected":""}>${esc(x)}</option>`).join("")}
 function displayTalent(t){if(!t)return '<span class="muted">Empty</span>';let x=talentById(t);if(!x)return esc(t);return `<span class="${tierClass(talentTier(t))}">${esc(x.name_en||x.name_source)} · ${esc(talentTier(t))}</span>`}
 function migrate(){
@@ -72,7 +73,7 @@ function girlEditor(g,i){
  return `<div class="girl-cell"><div class="autocomplete"><input class="girlinput" data-g="${i}" value="${esc(value)}" placeholder="Gõ tên Girl..." autocomplete="off"><div class="suggestions"></div></div><div class="board-tabs">${tabs}</div></div>`;
 }
 function talentEditor(t,i,b,s){
- const value=t?talentLabel(t):""; const tt=t?talentById(t):null; const sel=t?talentTier(t):"";
+ const value=t?talentValue(t):""; const tt=t?talentById(t):null; const sel=t?talentTier(t):"";
  return `<div class="talent-editor"><div class="autocomplete"><input class="talentinput" data-g="${i}" data-b="${b}" data-s="${s}" value="${esc(value)}" placeholder="Gõ tên Talent..." autocomplete="off"><div class="suggestions"></div></div><select class="talent-tier-select" data-g="${i}" data-b="${b}" data-s="${s}" ${tt?"":"disabled"}><option value="">Tier</option>${tierOptions(tt,sel)}</select></div>`;
 }
 function normalizeText(v){return String(v||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim()}
@@ -114,9 +115,11 @@ function showSuggestions(input){
  const items=isGirl?findGirlSuggestions(input.value):findTalentSuggestions(input.value);
  if(!items.length){box.innerHTML="";box.classList.remove("open");return}
  box.innerHTML=items.map(x=>{
-   const id=esc(x.id),name=esc(x.name_en||x.name_source||"");
+   const name=esc(x.name_en||x.name_source||x.id);
    const source=x.name_source&&x.name_en!==x.name_source?`<small>${esc(x.name_source)}</small>`:"";
-   return `<div class="suggestion" data-id="${id}"><span>${name}</span>${source}</div>`;
+   if(isGirl)return `<div class="suggestion" data-id="${esc(x.id)}"><span>${name}</span>${source}</div>`;
+   const tiers=Array.isArray(x.tiers)&&x.tiers.length?x.tiers:(x.rank?[x.rank]:["Orange"]);
+   return tiers.map(tier=>`<div class="suggestion talent-tier-option" data-id="${esc(x.id)}" data-tier="${esc(tier)}"><span>${name}</span>${source}<b class="tier tier-${esc(tier)}">${esc(tier)}</b></div>`).join("");
  }).join("");
  box.classList.add("open");
 }
@@ -263,3 +266,7 @@ function initSyncUI(){
 
 initSyncUI();
 init();
+
+
+// Tier selector styling for Talent Tracker suggestions only.
+(function(){const st=document.createElement("style");st.textContent=`.talent-tier-option{gap:8px}.talent-tier-option .tier{margin-left:auto;font-size:11px;font-weight:700}.talent-tier-option small{margin-left:4px;opacity:.65}`;document.head.appendChild(st)})();
