@@ -75,7 +75,7 @@
   function talentScore(t, skillText, skillMech, char){
     const tx=talentText(t), tm=mechanics(tx); let score=tierBase(t);
     // 1) Character-exclusive talent is the strongest signal by far.
-    if(exclusiveMatch(t,char)) score += 60;
+    if(exclusiveMatch(t,char)) score += 28;
     // 2) Match the Character's actual mechanics/scaling.
     for(const m of skillMech){
       if(tm.has(m)){
@@ -119,9 +119,19 @@
     // Explicit wording indicating uniqueness/non-stacking.
     return /\b(non[- ]?stack|does not stack|cannot stack|only one|unique effect|duplicate effect)\b/.test(norm(x));
   }
+  function likelyStackable(t){
+    if(isNonStacking(t)) return false;
+    const x=norm(talentText(t));
+    // Only allow repeated copies to gain extra value when the effect itself
+    // looks like something that can accumulate. This prevents every EX from
+    // becoming an automatic 4x recommendation.
+    return /\b(per|each|every|stacks?|stacking|for every|for each)\b/.test(x)
+      || /\b(?:gain|deal|increase|reduce|boost|add|apply)\s+\+?\d/.test(x)
+      || /\+\d+(?:\.\d+)?\s*(?:luck|spd|speed|hp|mana|damage|dmg|attack|toughness|defense|%)/.test(x);
+  }
   function repeatValue(t,count){
     if(count<=1) return 1;
-    return isNonStacking(t) ? 1 : count;
+    return likelyStackable(t) ? count : 1;
   }
   function pairScore(a,b,skillMech){
     const A=mechanics(talentText(a)),B=mechanics(talentText(b)); let s=0;
@@ -154,9 +164,9 @@
           const sameCount=arr.filter(t=>t.id===x.t.id).length;
           if(sameCount>1){
             const effective=repeatValue(x.t,sameCount);
-            score -= x.base * (sameCount-effective);
+            score -= x.base * (sameCount-effective) * 1.25;
           }
-          for(const y of state.arr){ if(y.id===x.t.id && isNonStacking(x.t)) continue; score+=pairScore(x.t,y,sm); }
+          for(const y of state.arr){ if(y.id===x.t.id && !likelyStackable(x.t)) continue; score+=pairScore(x.t,y,sm); }
           next.push({arr,score});
         }
       }
@@ -177,8 +187,8 @@
         const effective=repeatValue(t,count);
         if(effective>1) score += (effective-1)*talentScore(t,skillText,sm,c);
       }
-      for(let i=0;i<arr.length;i++)for(let j=i+1;j<arr.length;j++){ if(arr[i].id===arr[j].id && isNonStacking(arr[i])) continue; score+=pairScore(arr[i],arr[j],sm); }
-      if(exclusive.length && arr.some(t=>exclusiveMatch(t,c))) score+=35;
+      for(let i=0;i<arr.length;i++)for(let j=i+1;j<arr.length;j++){ if(arr[i].id===arr[j].id && !likelyStackable(arr[i])) continue; score+=pairScore(arr[i],arr[j],sm); }
+      if(exclusive.length && arr.some(t=>exclusiveMatch(t,c))) score+=12;
       if(score>bestScore){bestScore=score;best=arr;}
     }
     return {character:c,skills:ss,mechanics:sm,talents:best,score:bestScore};
@@ -194,7 +204,7 @@
     out.innerHTML=`<div class="ba-summary"><div class="ba-character-selected">${r.character.icon?`<img class="ba-char-icon" src="${esc(r.character.icon)}" alt="" loading="lazy">`:''}<div><b>${esc(r.character.name_en)}</b><span class="muted"> · ${esc(r.character.source_id||'')}</span></div></div><div class="ba-tags">${mech.map(x=>`<span>${esc(x)}</span>`).join('')}</div></div>`+
       `<div class="ba-skills"><h3>Skill source</h3>${r.skills.length?r.skills.map(s=>`<article><b>${esc(s.skill)}</b><div>${esc(s.desc)}</div><small>${(s.tags||[]).map(esc).join(' · ')}</small></article>`).join(''):'<span class="muted">Không có skill record cho unit này.</span>'}</div>`+
       `<h3>4 Talent đề xuất</h3><div class="ba-talents">${r.talents.map((t,i)=>`<article class="ba-talent"><div class="ba-num">${i+1}</div><div><h4>${esc(t.name_en||t.name_source)}</h4><div class="muted">${esc(t.rank||'')} · ${esc(t.source_label||t.source_cat||'')}</div><p>${esc(t.description_en||t.effect_en||'Chưa có mô tả')}</p></div></article>`).join('')}</div>`+
-      `<p class="hint"><b>Cách chấm:</b> đối chiếu mechanic trong skill/tag của Character với effect/tags của Talent Database, sau đó cộng điểm synergy giữa 4 talent. Đây là bộ máy chấm điểm local, không gọi API AI và không dùng dữ liệu Tracker.</p>`;
+      `<p class="hint"><b>Cách chấm:</b> ưu tiên cơ chế thật sự trong Skill/Archetype, EX chỉ là một tín hiệu chứ không mặc định chiếm cả 4 slot. Talent lặp lại chỉ được cộng thêm nếu effect có dấu hiệu stack; hiệu ứng không stack như Nine Lives chỉ tính một lần. Đây là bộ máy chấm điểm local, không gọi API AI và không dùng dữ liệu Tracker.</p>`;
   }
   function inject(){
     const switcher=document.querySelector('.view-switcher'); if(!switcher||document.getElementById('buildAdvisorView'))return;
