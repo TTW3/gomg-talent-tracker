@@ -38,49 +38,113 @@
     const A=[...words(a)].filter(x=>!STOP.has(x)),B=new Set([...words(b)].filter(x=>!STOP.has(x)));
     let n=0; for(const w of A) if(B.has(w)) n++; return n;
   }
-  function tierBase(t){return t.rank==='Orange'?7:t.rank==='Purple'?5:t.rank==='Blue'?3:2}
+  function tierBase(t){return t.rank==='Orange'?2.5:t.rank==='Purple'?1.7:t.rank==='Blue'?1.1:0.7}
+  function exclusiveMatch(t,char){
+    const cid=String(char.source_id||'');
+    const exid=String(t.source_value||'');
+    const exname=norm(t.exclusive_name||'');
+    const cname=norm(char.name_en||'');
+    return (exid && cid && exid===cid) || (exname && cname && exname===cname);
+  }
   function smHasBuff(text){
     const s=norm(text);
     return ['buff','enhance','increase','boost','grant','gain','empower','strengthen','haste'].some(v=>s.includes(v));
   }
+  function directMechanicWords(text){
+    const s=norm(text);
+    const out=new Set();
+    // Important: only count a mechanic when it is actually present in the selected Character/skill.
+    if(/\bluck\b|fortune/.test(s)) out.add('luck');
+    if(/\bspd\b|speed|haste|action/.test(s)) out.add('speed');
+    if(/\bmana\b|energy|energized/.test(s)) out.add('mana');
+    if(/\bhp\b|health|heal|healing/.test(s)) out.add('hp');
+    if(/soothe|nourishment/.test(s)) out.add('soothe');
+    if(/burn|chill|poison|decay|stun|fear|expose|weakness|vulnerable|taunt|hinder/.test(s)) out.add('debuff');
+    if(/counter|thorns|reflect/.test(s)) out.add('counter');
+    if(/follow[- ]?up|extra action/.test(s)) out.add('follow');
+    if(/buff|enhance|increase|boost|grant|empower|strengthen/.test(s)) out.add('buff');
+    if(/status|stack|stacks/.test(s)) out.add('status');
+    if(/defense|damage taken|shield|barrier|toughness/.test(s)) out.add('defense');
+    if(/weakness|exposed|expose/.test(s)) out.add('weakness');
+    if(/front|mid|back|nearest|farthest|highest|lowest/.test(s)) out.add('position');
+    if(/damage|dmg|attack|critical|crit|skill/.test(s)) out.add('damage');
+    return out;
+  }
   function talentScore(t, skillText, skillMech, char){
-    const tx=talentText(t), tm=mechanics(tx); let score=tierBase(t)*0.8;
-    for(const m of skillMech){ if(tm.has(m)) score += (m==='damage'||m==='debuff'||m==='resource'||m==='follow')?5:3; }
-    score += Math.min(7, overlapWords(tx,skillText)*1.1);
-    const arch=(char.archetypes||[]).map(norm).join(' '), nt=norm(tx);
-    if(arch && overlapWords(arch,tx)>0) score+=2.5;
-    if(objective==='DPS' && tm.has('damage')) score+=4;
-    if(objective==='Sustain' && (tm.has('hp')||tm.has('defense'))) score+=4;
-    if(objective==='Control' && tm.has('debuff')) score+=4;
-    if(objective==='Speed' && tm.has('speed')) score+=4;
-    if(objective==='Resource' && (tm.has('mana')||tm.has('resource')||tm.has('soothe'))) score+=4;
-    if(objective==='Character Buff' && (tm.has('buff')||tm.has('status')||tm.has('speed')||tm.has('resource'))) score+=4;
-    if(objective==='Character Buff' && smHasBuff(skillText)) score += (tm.has('buff')||tm.has('status')) ? 3 : 0;
+    const tx=talentText(t), tm=mechanics(tx); let score=tierBase(t);
+    // 1) Character-exclusive talent is the strongest signal by far.
+    if(exclusiveMatch(t,char)) score += 60;
+    // 2) Match the Character's actual mechanics/scaling.
+    for(const m of skillMech){
+      if(tm.has(m)){
+        if(m==='luck') score+=14;
+        else if(m==='damage') score+=5;
+        else if(m==='resource'||m==='follow') score+=4.5;
+        else score+=3.5;
+      }
+    }
+    // 3) Exact words from the skill are useful, but much weaker than real mechanic matches.
+    score += Math.min(5, overlapWords(tx,skillText)*0.55);
+    const arch=(char.archetypes||[]).map(norm).join(' ');
+    if(arch && overlapWords(arch,tx)>0) score+=3;
+    // 4) Objective is a tie-breaker, not the main source of truth.
+    if(objective==='DPS' && tm.has('damage')) score+=3;
+    if(objective==='Sustain' && (tm.has('hp')||tm.has('defense'))) score+=3;
+    if(objective==='Control' && tm.has('debuff')) score+=3;
+    if(objective==='Speed' && tm.has('speed')) score+=3;
+    if(objective==='Resource' && (tm.has('mana')||tm.has('resource')||tm.has('soothe'))) score+=3;
+    if(objective==='Character Buff' && (tm.has('buff')||tm.has('status')||tm.has('speed')||tm.has('resource'))) score+=3;
+    if(objective==='Character Buff' && smHasBuff(skillText) && (tm.has('buff')||tm.has('status'))) score+=4;
+    // 5) Do NOT reward unrelated DoT/control effects just because they share the broad 'debuff' bucket.
+    const skillNorm=norm(skillText);
+    const burnOnly=!skillNorm.includes('burn') && /burn/.test(norm(tx));
+    const chillOnly=!skillNorm.includes('chill') && /chill/.test(norm(tx));
+    const poisonOnly=!skillNorm.includes('poison') && /poison/.test(norm(tx));
+    if(burnOnly) score-=5;
+    if(chillOnly) score-=5;
+    if(poisonOnly) score-=5;
     return score;
   }
-  function pairScore(a,b){
+  function pairScore(a,b,skillMech){
     const A=mechanics(talentText(a)),B=mechanics(talentText(b)); let s=0;
-    for(const m of A) if(B.has(m)) s+=m==='damage'||m==='resource'||m==='status'?2:1.25;
-    const pairs=[['debuff','damage'],['speed','damage'],['mana','damage'],['soothe','status'],['hp','defense'],['weakness','damage'],['follow','damage'],['counter','defense'],['position','damage']];
-    for(const [x,y] of pairs) if((A.has(x)&&B.has(y))||(A.has(y)&&B.has(x))) s+=2.5;
+    for(const m of A) if(B.has(m) && skillMech.has(m)) s+=m==='luck'||m==='damage'?1.8:1;
+    const pairs=[['debuff','damage'],['speed','damage'],['mana','damage'],['soothe','status'],['hp','defense'],['weakness','damage'],['follow','damage'],['counter','defense'],['position','damage'],['luck','damage']];
+    for(const [x,y] of pairs) if(skillMech.has(x)||skillMech.has(y)) if((A.has(x)&&B.has(y))||(A.has(y)&&B.has(x))) s+=1.5;
     return s;
   }
   function recommend(){
     const c=GAME.characters.find(x=>x.id===selectedId); if(!c)return null;
-    const ss=skillFor(c); const skillText=sourceText(c); const sm=mechanics(skillText);
-    const pool=(GAME.talents||[]).filter(t=>!t.legacy_only).map(t=>({t,base:talentScore(t,skillText,sm,c)})).sort((a,b)=>b.base-a.base).slice(0,80);
-    if(pool.length<4)return null;
-    let beam=pool.slice(0,20).map(x=>[x.t]);
+    const ss=skillFor(c); const skillText=sourceText(c); const sm=new Set([...mechanics(skillText),...directMechanicWords(skillText)]);
+    const all=(GAME.talents||[]).filter(t=>!t.legacy_only);
+    const scored=all.map(t=>({t,base:talentScore(t,skillText,sm,c)})).sort((a,b)=>b.base-a.base);
+    // Keep a broad pool so an exact EX talent can never be crowded out by generic high-tier talents.
+    const exclusive=scored.filter(x=>exclusiveMatch(x.t,c));
+    const pool=[];
+    for(const x of [...exclusive,...scored]) if(!pool.some(y=>y.t.id===x.t.id)) pool.push(x);
+    const capped=pool.slice(0,120);
+    if(capped.length<4)return null;
+    let beam=capped.slice(0,25).map(x=>[x.t]);
     for(let depth=1;depth<4;depth++){
       const next=[];
       for(const arr of beam){
         const used=new Set(arr.map(x=>x.id));
-        for(const x of pool){if(used.has(x.t.id))continue;let s=x.base;for(const y of arr)s+=pairScore(x.t,y);next.push({arr:[...arr,x.t],score:s});}
+        for(const x of capped){
+          if(used.has(x.t.id))continue;
+          let s=x.base;
+          for(const y of arr)s+=pairScore(x.t,y,sm);
+          next.push({arr:[...arr,x.t],score:s});
+        }
       }
-      next.sort((a,b)=>b.score-a.score); beam=next.slice(0,60).map(x=>x.arr);
+      next.sort((a,b)=>b.score-a.score); beam=next.slice(0,80).map(x=>x.arr);
     }
     let best=null,bestScore=-Infinity;
-    for(const arr of beam){let score=arr.reduce((n,t)=>n+talentScore(t,skillText,sm,c),0);for(let i=0;i<arr.length;i++)for(let j=i+1;j<arr.length;j++)score+=pairScore(arr[i],arr[j]);if(score>bestScore){bestScore=score;best=arr;}}
+    for(const arr of beam){
+      let score=arr.reduce((n,t)=>n+talentScore(t,skillText,sm,c),0);
+      for(let i=0;i<arr.length;i++)for(let j=i+1;j<arr.length;j++)score+=pairScore(arr[i],arr[j],sm);
+      // If an EX talent exists for this exact character, strongly prefer a build containing it.
+      if(exclusive.length && arr.some(t=>exclusiveMatch(t,c))) score+=35;
+      if(score>bestScore){bestScore=score;best=arr;}
+    }
     return {character:c,skills:ss,mechanics:sm,talents:best,score:bestScore};
   }
   function explain(r){
