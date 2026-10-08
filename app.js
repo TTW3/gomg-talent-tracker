@@ -62,6 +62,7 @@ function render(){
  fillGirlSelects();fillBoardSelects();fillSlotSelects();renderLookup();renderHistory();
  $("girlCount").textContent=db.girls.length;$("talentCount").textContent=db.girls.length*BOARD_COUNT*SLOT_COUNT;$("logCount").textContent=db.log.length;
  $("charDbCount").textContent=GAME.characters.length;$("talentDbCount").textContent=GAME.talents.length;
+ if($("talentDatabaseView")&&!$("talentDatabaseView").hidden)renderTalentDatabase();
 }
 function girlEditor(g,i){
  const value=g.charId?charLabel(g.charId):(g.name||"");
@@ -279,6 +280,63 @@ function swapTalent(){
  db.log.push({time:new Date().toLocaleString("vi-VN"),text:`${A.name} [B${ab+1} T${as+1}] ${talentLabel(at)} ↔ ${B.name} [B${bb+1} T${bs+1}] ${talentLabel(bt)}`});
  save();
 }
+function talentDbUsage(){
+ const usage=new Map();
+ (db.girls||[]).forEach(g=>{
+  (g.boards||[]).forEach((board,b)=>{
+   (board||[]).forEach((id,slot)=>{
+    if(!id)return;
+    if(!usage.has(id))usage.set(id,[]);
+    usage.get(id).push({girl:g.name||"Unknown Girl",board:b,slot});
+   });
+  });
+ });
+ return usage;
+}
+function talentDbMatches(t,q){
+ if(!q)return true;
+ const hay=normalizeText([t.name_en,t.name_source,t.description_en,t.description,t.effect_en,t.effect,t.source_label,t.source_value,t.exclusive_name,(t.tags||[]).join(" ")].filter(Boolean).join(" "));
+ return hay.includes(normalizeText(q));
+}
+function renderTalentDatabase(){
+ const out=$("talentDatabaseList"); if(!out)return;
+ const q=$("talentDbSearch")?.value||"";
+ const tier=document.querySelector("[data-db-tier].active")?.dataset.dbTier||"All";
+ const usage=talentDbUsage();
+ let list=(GAME.talents||[]).filter(t=>{
+   const tiers=Array.isArray(t.tiers)&&t.tiers.length?t.tiers:[t.rank].filter(Boolean);
+   return (tier==="All"||tiers.includes(tier)||t.rank===tier)&&talentDbMatches(t,q);
+ });
+ list.sort((a,b)=>String(a.name_en||a.name_source||"").localeCompare(String(b.name_en||b.name_source||""),"en",{sensitivity:"base"}));
+ $("talentDbResultCount").textContent=`${list.length} / ${GAME.talents.length} Talent`;
+ if(!list.length){out.innerHTML='<div class="muted">Không tìm thấy Talent phù hợp.</div>';return;}
+ out.innerHTML=list.map(t=>{
+   const tiers=Array.isArray(t.tiers)&&t.tiers.length?t.tiers:[t.rank].filter(Boolean);
+   const desc=talentDescription(t)||"Chưa có mô tả.";
+   const uses=usage.get(t.id)||[];
+   const tierHtml=tiers.map(r=>`<span class="db-tier tier-${esc(r)}">${esc(r)}</span>`).join("");
+   const usageHtml=uses.length?uses.map(u=>`<span class="db-use">${esc(u.girl)} · B${u.board+1} T${u.slot+1}</span>`).join(""):'<span class="db-unused">Chưa gán cho Girl nào</span>';
+   const source=t.source_label||t.exclusive_name||t.source_value||"";
+   return `<article class="talent-db-item"><div class="talent-db-head"><div><h3>${esc(t.name_en||t.name_source||t.id)}</h3>${t.name_source&&t.name_en!==t.name_source?`<small>${esc(t.name_source)}</small>`:""}</div><div class="db-tiers">${tierHtml}</div></div><div class="talent-db-desc">${esc(desc)}</div>${source?`<div class="talent-db-source">Nguồn: ${esc(source)}</div>`:""}<div class="talent-db-usage"><b>Đang dùng:</b> ${usageHtml}</div></article>`;
+ }).join("");
+}
+function initTalentDatabase(){
+ $("trackerViewBtn")?.addEventListener("click",()=>{
+   $("talentDatabaseView").hidden=true;document.querySelectorAll(".tracker-view").forEach(x=>x.hidden=false);
+   $("trackerViewBtn").classList.add("primary");$("databaseViewBtn").classList.remove("primary");
+ });
+ $("databaseViewBtn")?.addEventListener("click",()=>{
+   document.querySelectorAll(".tracker-view").forEach(x=>x.hidden=true);$("talentDatabaseView").hidden=false;
+   $("databaseViewBtn").classList.add("primary");$("trackerViewBtn").classList.remove("primary");
+   renderTalentDatabase();
+ });
+ $("talentDbSearch")?.addEventListener("input",renderTalentDatabase);
+ document.addEventListener("click",e=>{
+   const btn=e.target.closest("[data-db-tier]"); if(!btn)return;
+   document.querySelectorAll("[data-db-tier]").forEach(x=>x.classList.remove("active"));btn.classList.add("active");renderTalentDatabase();
+ });
+}
+
 function renderLookup(){
  const q=normalizeText($("talentSearch").value),out=$("lookup");if(!q){out.innerHTML='<span class="muted">Nhập tên talent để tìm.</span>';return}
  const matches=GAME.talents.filter(t=>normalizeText(t.name_en+" "+(t.name_source||"")).includes(q)).slice(0,30);
@@ -387,4 +445,5 @@ function initSyncUI(){
 }
 
 initSyncUI();
+initTalentDatabase();
 init();
