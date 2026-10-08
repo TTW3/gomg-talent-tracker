@@ -27,7 +27,7 @@ footer{display:flex;justify-content:space-between;color:var(--muted);font-size:1
 .suggestions.open{display:block}.suggestion{padding:8px 10px;cursor:pointer;border-bottom:1px solid #eadbd0;display:flex;justify-content:space-between;gap:8px;align-items:center}
 .suggestion:last-child{border-bottom:0}.suggestion:hover{background:#f1e2d5}.suggestion span{font-weight:600}.suggestion small{color:var(--muted);font-size:10px;text-align:right}
 
-.board-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}.board-tab{border:1px solid #d8b9a6;background:#fff7f0;color:#6d4b3c;border-radius:6px;padding:3px 7px;font-size:11px;cursor:pointer}.board-tab.active{background:#ead2c3;font-weight:700}.girl-cell{min-width:0;width:100%;overflow:hidden}.swapgrid{grid-template-columns:repeat(3,minmax(0,1fr));}.lookup-item{gap:6px}.lookup-item .pill{white-space:nowrap}@media(max-width:900px){.swapgrid{grid-template-columns:1fr 1fr}}
+.board-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}.board-tab{border:1px solid #d8b9a6;background:#fff7f0;color:#6d4b3c;border-radius:6px;padding:3px 7px;font-size:11px;cursor:pointer}.board-tab.active{background:#ead2c3;font-weight:700}.girl-cell{min-width:0;width:100%;overflow:visible}.swapgrid{grid-template-columns:repeat(3,minmax(0,1fr));}.lookup-item{gap:6px}.lookup-item .pill{white-space:nowrap}@media(max-width:900px){.swapgrid{grid-template-columns:1fr 1fr}}
 
 .sync-card{border:1px solid rgba(120,80,40,.22)}
 .syncgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}.syncgrid label{display:flex;flex-direction:column;gap:6px;font-weight:700}.syncgrid input{width:100%}.sync-actions{display:flex;gap:10px;margin-top:12px}.sync-actions button{flex:1}@media(max-width:800px){.syncgrid{grid-template-columns:1fr}.sync-actions{flex-direction:column}}
@@ -88,7 +88,7 @@ footer{display:flex;justify-content:space-between;color:var(--muted);font-size:1
 /* FIX9: force desktop talent table to fit viewport without horizontal scrolling */
 @media(min-width:601px){
   .table-wrap{width:100%;max-width:100%;overflow-x:hidden}
-  .girl-cell{min-width:0!important;width:100%;max-width:100%;overflow:hidden}
+  .girl-cell{min-width:0!important;width:100%;max-width:100%;overflow:visible}
   .talent-editor{min-width:0;width:100%;max-width:100%}
   .talent-editor .autocomplete{min-width:0;width:calc(100% - 37px);max-width:calc(100% - 37px)}
   .talent-editor .talent-info-btn{flex:0 0 32px}
