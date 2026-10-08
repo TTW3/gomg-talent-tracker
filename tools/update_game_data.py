@@ -26,6 +26,7 @@ from urllib.parse import urljoin
 from urllib.request import Request, urlopen
 
 UNITS_URL = "https://gomg-wiki.pages.dev/units/"
+SEARCH_UNIT_URL = "https://gomg-wiki.pages.dev/search-unit"
 TALENT_INDEX_URL = "https://gomg-wiki.pages.dev/talent-search-index.js"
 TALENT_PAGE_URL = "https://gomg-wiki.pages.dev/search-talent-new"
 HXSNGH_URL = "https://hxsngh.pages.dev/"
@@ -113,6 +114,17 @@ def fetch(url):
 def clean(s): return re.sub(r'\s+',' ',str(s or '')).strip()
 def norm(s): return re.sub(r'\s+',' ',str(s or '').strip().lower())
 
+def parse_search_unit(html):
+    def parse_const(name):
+        m=re.search(r"const\s+"+name+r"\s*=\s*(\[.*?\])\s*;",html,re.S)
+        if not m: raise ValueError(f"{name} not found in search-unit source")
+        value=json.loads(m.group(1))
+        if not isinstance(value,list): raise ValueError(f"{name} is not an array")
+        return value
+    units=parse_const("UNITS")
+    skills=parse_const("SKILL_UNITS")
+    return units, skills
+
 def parse_units(html):
     p=TableParser(); p.feed(html); out=[]
     for row in p.rows:
@@ -121,19 +133,8 @@ def parse_units(html):
         if alter and len(row)>=11:
             base=row[2].strip('` '); name=row[3]; theme=row[4]; cls=row[5]; typ=row[6]; elem=row[7]; terrain=row[8]; source=row[9]
             out.append({'id':uid,'name_en':name,'variant':theme,'base_id':base,'rarity':'','role':cls,'type':typ,'element':elem,'terrain':terrain,'source':source,'kind':'alter'})
-        elif not alter:
-            # Standard-unit rows have appeared in two layouts on the wiki:
-            #   7+ cells: ID | (unused/rarity) | Name | Role | Type | Element | Terrain
-            #   6 cells:  ID | Name | Role | Type | Element | Terrain
-            # The old parser only accepted the 7-cell layout, which silently
-            # dropped every standard character while still parsing alters.
-            if len(row) >= 7:
-                name, role, typ, elem, terrain = row[2], row[3], row[4], row[5], row[6]
-            elif len(row) >= 6:
-                name, role, typ, elem, terrain = row[1], row[2], row[3], row[4], row[5]
-            else:
-                continue
-            out.append({'id':uid,'name_en':name,'rarity':'','role':role,'type':typ,'element':elem,'terrain':terrain,'kind':'standard'})
+        elif not alter and len(row)>=7:
+            out.append({'id':uid,'name_en':row[2],'rarity':'','role':row[3],'type':row[4],'element':row[5],'terrain':row[6],'kind':'standard'})
     seen=set(); result=[]
     for x in out:
         if x['id'] not in seen: seen.add(x['id']); result.append(x)
@@ -223,18 +224,30 @@ def build_characters(old, units):
             used.add(cid)
         rec={'id':cid,'name_en':u['name_en']}
         if sid: rec['source_id']=sid; rec['icon']=f'https://gomg-wiki.pages.dev/assets/icons/Header/{sid}.png'
-        for k in ('rarity','role','type','element','terrain','variant','base_id','source','kind'):
+        for k in ('rarity','role','type','element','terrain','variant','base_id','source','kind','archetypes','stem'):
             if u.get(k): rec[k]=u[k]
+        if sid: rec['icon']=f'https://gomg-wiki.pages.dev/assets/icons/Header/{sid}.png'
         chars.append(rec)
     return chars
 
 def main():
     try:
-        units=normalize_character_names(parse_units(fetch(UNITS_URL)))
+        search_units, skills = parse_search_unit(fetch(SEARCH_UNIT_URL))
+        units=[]
+        for u in search_units:
+            units.append({
+                'id':u.get('id',''),'name_en':u.get('name',''),'variant':u.get('variant',''),
+                'base_id':u.get('name_base',''),'rarity':u.get('color',''),'role':u.get('class',''),
+                'type':u.get('type',''),'element':u.get('element',''),'terrain':u.get('terrain',''),
+                'source':u.get('stem',''),'kind':'alter' if u.get('variant')=='Alter' else 'standard',
+                'archetypes':u.get('archetypes',[]),'stem':u.get('stem','')
+            })
+        units=normalize_character_names(units)
         source=parse_talent_index(fetch(TALENT_INDEX_URL))
     except Exception as e:
         print(f'ERROR: source refresh failed: {e}',file=sys.stderr); return 2
-    if len(units)<100: print(f'ERROR: suspicious unit count {len(units)}',file=sys.stderr); return 3
+    if len(units)<200: print(f'ERROR: suspicious unit count {len(units)}',file=sys.stderr); return 3
+    if len(skills)<150: print(f'ERROR: suspicious skill count {len(skills)}',file=sys.stderr); return 5
     if len(source)<200: print(f'ERROR: suspicious talent count {len(source)}',file=sys.stderr); return 4
     try: old=json.load(open(OUT,encoding='utf-8'))
     except Exception: old={'schema_version':5,'characters':[],'talents':[]}
@@ -248,8 +261,13 @@ def main():
         'official_update_source':old.get('official_update_source','https://www.chillyroom.com/en/game-news/40/262'),
         'characters':build_characters(old,units),
         'talents':talents,
+        'skills':skills,
+        'skill_source':SEARCH_UNIT_URL,
+        'skill_count':len(skills),
+        'unit_source':SEARCH_UNIT_URL,
         'notes':[
-            'Characters are refreshed from the GOMG Wiki Units index.',
+            'Characters are refreshed from the full GOMG Wiki Search · Units dataset.',
+            'Active-skill records are refreshed from the GOMG Wiki Search · Units dataset.',
             'Talents are refreshed from the GOMG Wiki Search Talents index.',
             'Existing talent_### IDs are preserved whenever an old record matches a source name.',
             'Legacy talents missing from the current source are retained with legacy_only=true.',
@@ -260,6 +278,7 @@ def main():
     print(f'Updated characters: {len(db["characters"])}')
     print(f'Source talents: {len(source)}')
     print(f'Bundled talents after merge: {len(db["talents"])}')
+    print(f'Skills: {len(db["skills"])}')
     print(f'Legacy-only talents retained: {sum(1 for x in db["talents"] if x.get("legacy_only"))}')
     return 0
 
