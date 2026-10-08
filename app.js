@@ -17,14 +17,16 @@ function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&l
 function clone(x){return JSON.parse(JSON.stringify(x))}
 function loadLocal(){try{return JSON.parse(localStorage.getItem(KEY))||clone(starter)}catch{return clone(starter)}}
 function save(){localStorage.setItem(KEY,JSON.stringify(db));render()}
-function talentById(id){return GAME.talents.find(x=>x.id===id)}
+function splitTalentValue(v){const raw=String(v||"");const p=raw.lastIndexOf("|");return p>0?{id:raw.slice(0,p),tier:raw.slice(p+1)}:{id:raw,tier:""}}
+function talentById(id){const x=splitTalentValue(id);return GAME.talents.find(t=>t.id===x.id)}
+function talentTier(id){const x=splitTalentValue(id),t=talentById(id);return x.tier&&t&&t.tiers?.includes(x.tier)?x.tier:(t?.rank||"")}
+function talentValue(id,tier){if(!id)return "";const t=talentById(id);const tierOk=tier&&t?.tiers?.includes(tier)?tier:(t?.rank||"");return tierOk?`${splitTalentValue(id).id}|${tierOk}`:splitTalentValue(id).id}
 function charById(id){return GAME.characters.find(x=>x.id===id)}
-function talentLabel(id){let t=talentById(id);return t?t.name_en||t.name_source||id:(id||"")}
-function talentDescription(t){return t?(t.description_en||t.description||t.desc||t.effect_en||t.effect||t.effect_source||""):""}
+function talentLabel(id){let t=talentById(id);const x=splitTalentValue(id);return t?t.name_en||t.name_source||x.id:(x.id||"")}
 function charLabel(id){let c=charById(id);return c?c.name_en:id||""}
-function charIcon(c){if(!c)return "";return c.icon||((c.source_id||"")?`https://gomg-wiki.pages.dev/assets/icons/Header/${encodeURIComponent(c.source_id)}.png`:"")}
 function tierClass(t){return t?`tier tier-${t}`:""}
-function displayTalent(t){if(!t)return '<span class="muted">Empty</span>';let x=talentById(t);if(!x)return esc(t);return `<span class="${tierClass(x.rank)}">${esc(x.name_en||x.name_source)}</span>`}
+function tierOptions(t,selected){return (t?.tiers||[]).map(x=>`<option value="${esc(x)}" ${x===selected?"selected":""}>${esc(x)}</option>`).join("")}
+function displayTalent(t){if(!t)return '<span class="muted">Empty</span>';let x=talentById(t);if(!x)return esc(t);return `<span class="${tierClass(talentTier(t))}">${esc(x.name_en||x.name_source)} · ${esc(talentTier(t))}</span>`}
 function migrate(){
  db=loadLocal();
  const charMap=new Map(GAME.characters.map(c=>[(c.name_en||"").toLowerCase(),c.id]));
@@ -34,19 +36,20 @@ function migrate(){
    let cid=g.charId;
    const probe=String(g.charId||g.name||"").toLowerCase();
    if(!cid) cid=charMap.get(probe);
-   const boards=g.boards.map(board=>board.map(t=>talMap.get(String(t).toLowerCase())||t));
+   const boards=g.boards.map(board=>board.map(t=>{const raw=String(t||"");const parsed=splitTalentValue(raw);const base=talMap.get(parsed.id.toLowerCase())||parsed.id;const tt=GAME.talents.find(x=>x.id===base);const tier=parsed.tier&&tt?.tiers?.includes(parsed.tier)?parsed.tier:(tt?.rank||"");return tier?`${base}|${tier}`:base;}));
    return {charId:cid||null,name:cid?charLabel(cid):(g.name||`Custom Girl ${i+1}`),customName:cid?false:true,boards,activeBoard:g.activeBoard};
  });
  db.log=db.log||[];
  saveSilently();
 }
 function saveSilently(){localStorage.setItem(KEY,JSON.stringify(db))}
+function injectTalentTierStyle(){if(document.getElementById("talentTierStyle"))return;const st=document.createElement("style");st.id="talentTierStyle";st.textContent=".talent-editor{display:flex;gap:6px;align-items:center}.talent-editor .autocomplete{flex:1;min-width:0}.talent-tier-select{width:92px;min-height:34px;border:1px solid var(--border,#ddd);border-radius:8px;background:var(--input-bg,transparent);color:inherit}.talent-tier-select:disabled{opacity:.55}@media(max-width:700px){.talent-editor{flex-direction:column;align-items:stretch}.talent-tier-select{width:100%}}";document.head.appendChild(st)}
 async function init(){
  try{
   const r=await fetch("game-data.json",{cache:"no-store"});if(!r.ok)throw Error();
   GAME=await r.json();$("dbStatus").textContent=`Loaded ${GAME.characters.length} characters / ${GAME.talents.length} bundled talents`;$("dbBadge").textContent=`DB ${GAME.schema_version}`;
  }catch(e){GAME={characters:[],talents:[]};$("dbStatus").textContent="Database file not loaded — add game-data.json";$("dbBadge").textContent="DB error"}
- db=loadLocal();migrate();render();
+ db=loadLocal();migrate();injectTalentTierStyle();render();
 }
 function render(){
  const q=normalizeText($("search").value),body=$("girlsBody");body.innerHTML="";
@@ -62,20 +65,15 @@ function render(){
  fillGirlSelects();fillBoardSelects();fillSlotSelects();renderLookup();renderHistory();
  $("girlCount").textContent=db.girls.length;$("talentCount").textContent=db.girls.length*BOARD_COUNT*SLOT_COUNT;$("logCount").textContent=db.log.length;
  $("charDbCount").textContent=GAME.characters.length;$("talentDbCount").textContent=GAME.talents.length;
- if($("talentDatabaseView")&&!$("talentDatabaseView").hidden)renderTalentDatabase();
 }
 function girlEditor(g,i){
  const value=g.charId?charLabel(g.charId):(g.name||"");
- const tabs=Array.from({length:BOARD_COUNT},(_,b)=>{
-   const count=(g.boards[b]||[]).filter(Boolean).length;
-   return `<button type="button" class="board-tab ${b===(g.activeBoard||0)?"active":""}" data-board="${b}" data-g="${i}">Board ${b+1} <span class="board-count">${count}/4</span></button>`;
- }).join("");
- const c=g.charId?charById(g.charId):null; const icon=charIcon(c);
-  return `<div class="girl-cell"><div class="autocomplete girl-autocomplete"><div class="selected-girl-icon" data-girl-icon>${icon?`<img src="${esc(icon)}" alt="">`:``}</div><input class="girlinput" data-g="${i}" value="${esc(value)}" placeholder="Gõ tên Girl..." autocomplete="off"><div class="suggestions"></div></div><div class="board-tabs">${tabs}</div></div>`;
+ const tabs=Array.from({length:BOARD_COUNT},(_,b)=>`<button type="button" class="board-tab ${b===(g.activeBoard||0)?"active":""}" data-board="${b}" data-g="${i}">Board ${b+1}</button>`).join("");
+ return `<div class="girl-cell"><div class="autocomplete"><input class="girlinput" data-g="${i}" value="${esc(value)}" placeholder="Gõ tên Girl..." autocomplete="off"><div class="suggestions"></div></div><div class="board-tabs">${tabs}</div></div>`;
 }
 function talentEditor(t,i,b,s){
- const value=t?talentLabel(t):"";
- return `<div class="talent-editor"><div class="autocomplete"><input class="talentinput" data-g="${i}" data-b="${b}" data-s="${s}" value="${esc(value)}" placeholder="Gõ tên Talent..." autocomplete="off"><div class="suggestions"></div></div>${t?`<button type="button" class="talent-info-btn" data-talent-info="${esc(t)}" title="Xem mô tả Talent">ⓘ</button>`:""}</div>`;
+ const value=t?talentLabel(t):""; const tt=t?talentById(t):null; const sel=t?talentTier(t):"";
+ return `<div class="talent-editor"><div class="autocomplete"><input class="talentinput" data-g="${i}" data-b="${b}" data-s="${s}" value="${esc(value)}" placeholder="Gõ tên Talent..." autocomplete="off"><div class="suggestions"></div></div><select class="talent-tier-select" data-g="${i}" data-b="${b}" data-s="${s}" ${tt?"":"disabled"}><option value="">Tier</option>${tierOptions(tt,sel)}</select></div>`;
 }
 function normalizeText(v){return String(v||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim()}
 function fuzzyScore(query,text){
@@ -117,12 +115,8 @@ function showSuggestions(input){
  if(!items.length){box.innerHTML="";box.classList.remove("open");return}
  box.innerHTML=items.map(x=>{
    const id=esc(x.id),name=esc(x.name_en||x.name_source||"");
-   const icon=charIcon(x);
-   const iconHtml=isGirl&&icon?`<img class="suggestion-icon" src="${esc(icon)}" alt="" loading="lazy">`:"";
    const source=x.name_source&&x.name_en!==x.name_source?`<small>${esc(x.name_source)}</small>`:"";
-   const desc=!isGirl?talentDescription(x):"";
-   const descHtml=desc?`<div class="suggestion-desc">${esc(desc)}</div>`:"";
-   return `<div class="suggestion" data-id="${id}">${iconHtml}<span class="suggestion-name"><span>${name}</span>${descHtml}</span>${source}</div>`;
+   return `<div class="suggestion" data-id="${id}"><span>${name}</span>${source}</div>`;
  }).join("");
  box.classList.add("open");
 }
@@ -139,24 +133,6 @@ document.addEventListener("input",e=>{
 document.addEventListener("focusin",e=>{
  if(e.target.matches(".girlinput,.talentinput"))showSuggestions(e.target);
 });
-function updateTalentInfoButton(input,id){
- const editor=input.closest(".talent-editor");
- if(!editor)return;
- let btn=editor.querySelector("[data-talent-info]");
- if(!id){
-   if(btn)btn.remove();
-   return;
- }
- if(!btn){
-   btn=document.createElement("button");
-   btn.type="button";
-   btn.className="talent-info-btn";
-   btn.title="Xem mô tả Talent";
-   btn.textContent="ⓘ";
-   editor.appendChild(btn);
- }
- btn.dataset.talentInfo=id;
-}
 function chooseSuggestion(suggestion){
  const input=suggestion.closest(".autocomplete")?.querySelector("input");
  if(!input)return;
@@ -171,81 +147,40 @@ function chooseSuggestion(suggestion){
  }else{
    const i=+input.dataset.g,s=+input.dataset.s,b=+input.dataset.b;
    if(!db.girls[i])return;
-   db.girls[i].boards[b][s]=id;
+   const tierSel=input.parentElement.parentElement.querySelector(".talent-tier-select");
+   const t=talentById(id);
+   const chosen=tierSel?.value&&t?.tiers?.includes(tierSel.value)?tierSel.value:(t?.rank||"");
+   db.girls[i].boards[b][s]=chosen?`${id}|${chosen}`:id;
+   if(tierSel){tierSel.innerHTML=`<option value="">Tier</option>${tierOptions(t,chosen)}`;tierSel.disabled=!t;}
  }
  // Persist without re-rendering the table. Re-rendering immediately here can
  // replace the input DOM while the browser is still processing the click/touch.
  localStorage.setItem(KEY,JSON.stringify(db));
- input.value=input.classList.contains("girlinput")?charLabel(id):talentLabel(id);
- if(input.classList.contains("talentinput"))updateTalentInfoButton(input,id);
+ input.value=input.classList.contains("girlinput")?charLabel(id):talentLabel(db.girls[+input.dataset.g].boards[+input.dataset.b][+input.dataset.s]);
  const box=input.parentElement.querySelector(".suggestions");
  if(box){box.innerHTML="";box.classList.remove("open");}
- if(input.classList.contains("girlinput")){const c=charById(id),holder=input.parentElement.querySelector("[data-girl-icon]");if(holder){const icon=charIcon(c);holder.innerHTML=icon?`<img src="${esc(icon)}" alt="">`:"";}}
 }
-// Touch-friendly suggestion selection.
-// A tap selects; a drag/swipe scrolls the suggestion list and MUST NOT select.
-let suggestionPointer=null;
-let suppressSuggestionClick=false;
 document.addEventListener("pointerdown",e=>{
  const suggestion=e.target.closest(".suggestion");
  if(!suggestion)return;
- suggestionPointer={suggestion,x:e.clientX,y:e.clientY,moved:false,pointerId:e.pointerId};
-});
-document.addEventListener("pointermove",e=>{
- const p=suggestionPointer;
- if(!p||p.pointerId!==e.pointerId)return;
- const dx=e.clientX-p.x,dy=e.clientY-p.y;
- if(Math.hypot(dx,dy)>8)p.moved=true;
-});
-document.addEventListener("pointerup",e=>{
- const p=suggestionPointer;suggestionPointer=null;
- if(!p||p.pointerId!==e.pointerId)return;
- if(p.moved){
-   // The browser may still emit a click after a touch scroll. Swallow that click.
-   suppressSuggestionClick=true;
-   setTimeout(()=>{suppressSuggestionClick=false},250);
-   return;
- }
- if(!p.suggestion.isConnected)return;
- p.suggestion.dataset.chosen="1";
- chooseSuggestion(p.suggestion);
-});
-document.addEventListener("pointercancel",()=>{
- suggestionPointer=null;
- suppressSuggestionClick=true;
- setTimeout(()=>{suppressSuggestionClick=false},250);
-});
+ e.preventDefault();
+ chooseSuggestion(suggestion);
+},{passive:false});
 document.addEventListener("click",e=>{
  const suggestion=e.target.closest(".suggestion");
  if(!suggestion)return;
- if(suppressSuggestionClick){
-   suppressSuggestionClick=false;
-   return;
- }
- // Pointerup already handled a tap on touch/mouse.
- if(suggestion.dataset.chosen==="1"){delete suggestion.dataset.chosen;return;}
+ // Fallback for browsers that do not emit pointerdown for this control.
+ if(suggestion.dataset.chosen==="1")return;
  chooseSuggestion(suggestion);
 });
-function showTalentInfo(t){
- const modal=$("talentModal"); if(!modal)return;
- const name=t.name_en||t.name_source||t.id;
- const desc=talentDescription(t)||"Chưa có mô tả trong database hiện tại.";
- const source=t.name_source&&t.name_en!==t.name_source?`<div class="modal-source">${esc(t.name_source)}</div>`:"";
- $("talentModalTitle").textContent=name;
- $("talentModalMeta").innerHTML=`<span class="pill ${tierClass(t.rank)}">${esc(t.rank||"Unknown")}</span>${source}`;
- $("talentModalBody").textContent=desc;
- modal.hidden=false;
-}
-function closeTalentInfo(){$("talentModal")?.setAttribute("hidden","")}
-$("talentModalClose")?.addEventListener("click",closeTalentInfo);
-$("talentModal")?.addEventListener("click",e=>{if(e.target.id==="talentModal")closeTalentInfo()});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeTalentInfo()});
-
-document.addEventListener("click",e=>{
- const btn=e.target.closest("[data-talent-info]");
- if(!btn)return;
- const t=talentById(btn.dataset.talentInfo);
- if(t)showTalentInfo(t);
+document.addEventListener("change",e=>{
+ if(!e.target.matches(".talent-tier-select"))return;
+ const i=+e.target.dataset.g,b=+e.target.dataset.b,s=+e.target.dataset.s;
+ if(!db.girls[i])return;
+ const current=db.girls[i].boards[b][s],base=splitTalentValue(current).id,t=talentById(base);
+ if(!t)return;
+ db.girls[i].boards[b][s]=e.target.value?`${base}|${e.target.value}`:base;
+ save();
 });
 document.addEventListener("focusout",e=>{
  if(!e.target.matches(".girlinput,.talentinput"))return;
@@ -275,100 +210,15 @@ function swapTalent(){
  const A=db.girls[ai],B=db.girls[bi],at=A.boards[ab][as],bt=B.boards[bb][bs];
  if(!at||!bt)return alert("Cả 2 slot phải có talent.");
  const ta=talentById(at),tb=talentById(bt);
- if(ta&&tb&&ta.rank!==tb.rank)return alert(`Không thể SWAP khác tier: ${ta.rank} ↔ ${tb.rank}`);
+ if(ta&&tb&&talentTier(at)!==talentTier(bt))return alert(`Không thể SWAP khác tier: ${talentTier(at)} ↔ ${talentTier(bt)}`);
  [A.boards[ab][as],B.boards[bb][bs]]=[bt,at];
  db.log.push({time:new Date().toLocaleString("vi-VN"),text:`${A.name} [B${ab+1} T${as+1}] ${talentLabel(at)} ↔ ${B.name} [B${bb+1} T${bs+1}] ${talentLabel(bt)}`});
  save();
 }
-function talentDbUsage(){
- const usage=new Map();
- (db.girls||[]).forEach(g=>{
-  (g.boards||[]).forEach((board,b)=>{
-   (board||[]).forEach((id,slot)=>{
-    if(!id)return;
-    if(!usage.has(id))usage.set(id,[]);
-    usage.get(id).push({girl:g.name||"Unknown Girl",board:b,slot});
-   });
-  });
- });
- return usage;
-}
-function talentDbMatches(t,q){
- if(!q)return true;
- const hay=normalizeText([t.name_en,t.name_source,t.description_en,t.description,t.effect_en,t.effect,t.source_label,t.source_value,t.exclusive_name,(t.tags||[]).join(" ")].filter(Boolean).join(" "));
- return hay.includes(normalizeText(q));
-}
-function tierValueDetails(t){
- const tv=t&&t.tier_values&&typeof t.tier_values==="object"?t.tier_values:{};
- const tiers=Array.isArray(t?.tiers)&&t.tiers.length?t.tiers:[t?.rank].filter(Boolean);
- return tiers.filter(r=>tv[r]).map(r=>({tier:r,values:Array.isArray(tv[r])?tv[r]:[]}));
-}
-function tierSpecificDescription(t,tier){
- const base=String(t?.description_en||t?.description||t?.desc||t?.effect_en||t?.effect||t?.effect_source||"");
- const tv=t?.tier_values&&typeof t.tier_values==="object"?t.tier_values:{};
- const orange=Array.isArray(tv.Orange)?tv.Orange:[];
- const vals=Array.isArray(tv[tier])?tv[tier]:[];
- if(!base||!orange.length||tier==="Orange"||!vals.length)return base;
- let out=base;
- // Replace only numeric values that are unique in the Orange parameter set.
- // When the same Orange value represents multiple parameters, the raw tier
- // values below remain the authoritative detail.
- orange.forEach((oldVal,i)=>{
-   const next=vals[i];
-   if(next==null||next===oldVal||orange.filter(x=>x===oldVal).length!==1)return;
-   const re=new RegExp(`(?<![\\d.])${String(oldVal).replace(/[.*+?^${}()|[\\]\\]/g,"\\$&")}(?![\\d.])`,"g");
-   out=out.replace(re,String(next));
- });
- return out;
-}
-function renderTalentDatabase(){
- const out=$("talentDatabaseList"); if(!out)return;
- const q=$("talentDbSearch")?.value||"";
- const tier=document.querySelector("[data-db-tier].active")?.dataset.dbTier||"All";
- const usage=talentDbUsage();
- let list=(GAME.talents||[]).filter(t=>{
-   const tiers=Array.isArray(t.tiers)&&t.tiers.length?t.tiers:[t.rank].filter(Boolean);
-   return (tier==="All"||tiers.includes(tier)||t.rank===tier)&&talentDbMatches(t,q);
- });
- list.sort((a,b)=>String(a.name_en||a.name_source||"").localeCompare(String(b.name_en||b.name_source||""),"en",{sensitivity:"base"}));
- $("talentDbResultCount").textContent=`${list.length} / ${GAME.talents.length} Talent`;
- if(!list.length){out.innerHTML='<div class="muted">Không tìm thấy Talent phù hợp.</div>';return;}
- out.innerHTML=list.map(t=>{
-   const tiers=Array.isArray(t.tiers)&&t.tiers.length?t.tiers:[t.rank].filter(Boolean);
-   const desc=talentDescription(t)||"Chưa có mô tả.";
-   const uses=usage.get(t.id)||[];
-   const tierHtml=tiers.map(r=>`<span class="db-tier tier-${esc(r)}">${esc(r)}</span>`).join("");
-   const tierDetails=tierValueDetails(t);
-   const tierStatsHtml=tierDetails.length?`<div class="talent-tier-details"><b>Chỉ số theo Tier</b>${tierDetails.map(d=>{
-     const dsc=tierSpecificDescription(t,d.tier)||desc;
-     return `<div class="talent-tier-row"><div class="talent-tier-row-head"><span class="db-tier tier-${esc(d.tier)}">${esc(d.tier)}</span></div><div class="talent-tier-desc">${esc(dsc)}</div></div>`;
-   }).join("")}</div>`:"";
-   const usageHtml=uses.length?uses.map(u=>`<span class="db-use">${esc(u.girl)} · B${u.board+1} T${u.slot+1}</span>`).join(""):'<span class="db-unused">Chưa gán cho Girl nào</span>';
-   const source=t.source_label||t.exclusive_name||t.source_value||"";
-   return `<article class="talent-db-item"><div class="talent-db-head"><div><h3>${esc(t.name_en||t.name_source||t.id)}</h3>${t.name_source&&t.name_en!==t.name_source?`<small>${esc(t.name_source)}</small>`:""}</div><div class="db-tiers">${tierHtml}</div></div><div class="talent-db-desc">${esc(desc)}</div>${tierStatsHtml}${source?`<div class="talent-db-source">Nguồn: ${esc(source)}</div>`:""}<div class="talent-db-usage"><b>Đang dùng:</b> ${usageHtml}</div></article>`;
- }).join("");
-}
-function initTalentDatabase(){
- $("trackerViewBtn")?.addEventListener("click",()=>{
-   $("talentDatabaseView").hidden=true;document.querySelectorAll(".tracker-view").forEach(x=>x.hidden=false);
-   $("trackerViewBtn").classList.add("primary");$("databaseViewBtn").classList.remove("primary");
- });
- $("databaseViewBtn")?.addEventListener("click",()=>{
-   document.querySelectorAll(".tracker-view").forEach(x=>x.hidden=true);$("talentDatabaseView").hidden=false;
-   $("databaseViewBtn").classList.add("primary");$("trackerViewBtn").classList.remove("primary");
-   renderTalentDatabase();
- });
- $("talentDbSearch")?.addEventListener("input",renderTalentDatabase);
- document.addEventListener("click",e=>{
-   const btn=e.target.closest("[data-db-tier]"); if(!btn)return;
-   document.querySelectorAll("[data-db-tier]").forEach(x=>x.classList.remove("active"));btn.classList.add("active");renderTalentDatabase();
- });
-}
-
 function renderLookup(){
  const q=normalizeText($("talentSearch").value),out=$("lookup");if(!q){out.innerHTML='<span class="muted">Nhập tên talent để tìm.</span>';return}
  const matches=GAME.talents.filter(t=>normalizeText(t.name_en+" "+(t.name_source||"")).includes(q)).slice(0,30);
- const rows=[];matches.forEach(t=>{db.girls.forEach(g=>g.boards.forEach((board,b)=>board.forEach((id,s)=>{if(id===t.id)rows.push(`<div class="lookup-item"><div><b>${esc(g.name)}</b><span class="pill">Board ${b+1}</span><span class="pill">Talent ${s+1}</span><span class="pill ${tierClass(t.rank)}">${esc(t.name_en||t.name_source)}</span></div>${talentDescription(t)?`<div class="lookup-desc">${esc(talentDescription(t))}</div>`:""}</div>`)})))});
+ const rows=[];matches.forEach(t=>{db.girls.forEach(g=>g.boards.forEach((board,b)=>board.forEach((id,s)=>{if(splitTalentValue(id).id===t.id)rows.push(`<div class="lookup-item"><b>${esc(g.name)}</b><span class="pill">Board ${b+1}</span><span class="pill">Talent ${s+1}</span><span class="pill ${tierClass(talentTier(id))}">${esc(t.name_en||t.name_source)} · ${esc(talentTier(id))}</span></div>`)})))});
  out.innerHTML=rows.length?rows.join(""):(matches.length?'<span class="muted">Talent có trong database nhưng chưa được gán cho Girl nào.</span>':'<span class="muted">Không tìm thấy trong bundled database.</span>');
 }
 function renderHistory(){$("history").innerHTML=db.log.length?db.log.slice().reverse().map(x=>`<div class="history-row"><time>${esc(x.time)}</time>${esc(x.text)}</div>`).join(""):'<span class="muted">Chưa có SWAP.</span>'}
@@ -400,69 +250,8 @@ function syncPath(){return localStorage.getItem(SYNC_PATH_KEY)||$("syncPath")?.v
 function setSyncStatus(msg,ok=false){const el=$("syncStatus");if(el){el.textContent=msg;el.classList.toggle("ok",ok)}}
 function apiUrl(path){const r=syncRepo();return `https://api.github.com/repos/${encodeURIComponent(r.owner)}/${encodeURIComponent(r.repo)}/contents/${path.split('/').map(encodeURIComponent).join('/')}`}
 async function ghRequest(path,opts={}){const token=syncToken();if(!token)throw Error("Chưa nhập GitHub Token.");const headers={Accept:"application/vnd.github+json",Authorization:`Bearer ${token}`,"X-GitHub-Api-Version":"2022-11-28",...(opts.body?{"Content-Type":"application/json"}:{})};const r=await fetch(apiUrl(path),{...opts,headers});let data={};try{data=await r.json()}catch{}if(!r.ok)throw Error(data.message||`GitHub API ${r.status}`);return data}
-function decodeGithubPayload(content){
-  let value=String(content||"").replace(/\s/g,"");
-  for(let i=0;i<4;i++){
-    try{
-      const text=new TextDecoder().decode(unb64(value));
-      const trimmed=text.trim();
-      if(trimmed.startsWith("{")) return trimmed;
-      value=trimmed;
-    }catch(e){break}
-  }
-  throw Error("Dữ liệu GitHub không đúng định dạng mã hóa.");
-}
-async function pullSync(silent=false){
-  try{
-    const pass=syncPass();
-    if(!pass)throw Error("Chưa nhập mật khẩu mã hóa.");
-    const data=await ghRequest(syncPath(),{method:"GET",cache:"no-store"});
-    const encryptedText=decodeGithubPayload(data.content);
-    const remote=await decryptSync(encryptedText,pass);
-    if(!remote || !Array.isArray(remote.girls))throw Error("Dữ liệu sync không hợp lệ.");
-    db=remote;
-    db.girls=(db.girls||[]).map((g,i)=>normalizeGirl(g,i));
-    db.log=db.log||[];
-    saveSilently();
-    render();
-    setSyncStatus(`✓ Đã lấy dữ liệu từ GitHub lúc ${new Date().toLocaleTimeString('vi-VN')}`,true);
-    return true;
-  }catch(e){
-    if(!silent)setSyncStatus(`✕ ${e.message}`);
-    return false;
-  }
-}
-function syncDataString(x){return JSON.stringify(x)}
-function downloadSyncBackup(){
- const blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"});
- const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`gomg-sync-backup-${new Date().toISOString().replace(/[:.]/g,"-")}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
-}
-async function pushSync(){
- try{
-  const token=$("ghToken").value.trim(),pass=$("syncPass").value,path=$("syncPath").value.trim()||"sync-data/gomg-tracker.enc.json";
-  if(!token)throw Error("Chưa nhập GitHub Token.");if(!pass)throw Error("Chưa nhập mật khẩu mã hóa.");
-  localStorage.setItem(SYNC_TOKEN_KEY,token);localStorage.setItem(SYNC_PASS_KEY,pass);localStorage.setItem(SYNC_PATH_KEY,path);
-  setSyncStatus("Đang kiểm tra dữ liệu trên GitHub…");
-  let sha=null,remote=null;
-  try{
-   const existing=await ghRequest(path,{method:"GET",cache:"no-store"});sha=existing.sha;
-   let encryptedText=new TextDecoder().decode(unb64(existing.content));
-   if(!encryptedText.trim().startsWith("{")){try{encryptedText=new TextDecoder().decode(unb64(encryptedText));}catch{}}
-   remote=await decryptSync(encryptedText,pass);
-  }catch(e){
-   if(!/Not Found/i.test(e.message))throw e;
-  }
-  if(remote && syncDataString(remote)!==syncDataString(db)){
-   const ok=confirm("⚠️ Dữ liệu trên GitHub đang KHÁC dữ liệu trên thiết bị này.\n\nNếu tiếp tục PUSH, dữ liệu trên GitHub sẽ bị ghi đè bằng dữ liệu hiện tại trên thiết bị.\n\nĐể an toàn, một bản backup JSON của thiết bị này sẽ được tải xuống trước khi ghi đè.\n\nBạn có chắc muốn tiếp tục PUSH không?");
-   if(!ok){setSyncStatus("⏸ Đã hủy Push để tránh ghi đè dữ liệu.");return;}
-   downloadSyncBackup();
-  }
-  const encrypted=await encryptSync(db,pass);const body={message:`Sync GOMG tracker ${new Date().toISOString()}`,content:b64(textBytes(encrypted)),...(sha?{sha}:{})};
-  setSyncStatus("Đang đẩy dữ liệu lên GitHub…");
-  await ghRequest(path,{method:"PUT",body:JSON.stringify(body)});
-  setSyncStatus(`✓ Đã đẩy dữ liệu lên ${syncRepo().owner}/${syncRepo().repo} lúc ${new Date().toLocaleTimeString('vi-VN')}`,true);
- }catch(e){setSyncStatus(`✕ ${e.message}`)}
-}
+async function pullSync(silent=false){try{const pass=syncPass();if(!pass)throw Error("Chưa nhập mật khẩu mã hóa.");const data=await ghRequest(syncPath(),{method:"GET",cache:"no-store"});let encryptedText=new TextDecoder().decode(unb64(data.content));if(!encryptedText.trim().startsWith("{")){try{encryptedText=new TextDecoder().decode(unb64(encryptedText));}catch{}}const remote=await decryptSync(encryptedText,pass);if(!remote.girls)throw Error("Dữ liệu sync không hợp lệ.");db=remote;db.girls=(db.girls||[]).map((g,i)=>normalizeGirl(g,i));db.log=db.log||[];saveSilently();render();setSyncStatus(`✓ Đã lấy dữ liệu từ GitHub lúc ${new Date().toLocaleTimeString('vi-VN')}`,true);return true}catch(e){if(!silent)setSyncStatus(`✕ ${e.message}`);return false}}
+async function pushSync(){try{const token=$("ghToken").value.trim(),pass=$("syncPass").value,path=$("syncPath").value.trim()||"sync-data/gomg-tracker.enc.json";if(!token)throw Error("Chưa nhập GitHub Token.");if(!pass)throw Error("Chưa nhập mật khẩu mã hóa.");localStorage.setItem(SYNC_TOKEN_KEY,token);localStorage.setItem(SYNC_PASS_KEY,pass);localStorage.setItem(SYNC_PATH_KEY,path);setSyncStatus("Đang đẩy dữ liệu lên GitHub…");let sha=null;try{const existing=await ghRequest(path,{method:"GET",cache:"no-store"});sha=existing.sha}catch(e){if(!/Not Found/i.test(e.message))throw e}const encrypted=await encryptSync(db,pass);const body={message:`Sync GOMG tracker ${new Date().toISOString()}`,content:b64(textBytes(encrypted)),...(sha?{sha}:{})};await ghRequest(path,{method:"PUT",body:JSON.stringify(body)});setSyncStatus(`✓ Đã đẩy dữ liệu lên ${syncRepo().owner}/${syncRepo().repo} lúc ${new Date().toLocaleTimeString('vi-VN')}`,true)}catch(e){setSyncStatus(`✕ ${e.message}`)}}
 function initSyncUI(){
  const token=localStorage.getItem(SYNC_TOKEN_KEY)||"",pass=localStorage.getItem(SYNC_PASS_KEY)||"",path=localStorage.getItem(SYNC_PATH_KEY)||"sync-data/gomg-tracker.enc.json";
  if($("ghToken"))$("ghToken").value=token;if($("syncPass"))$("syncPass").value=pass;if($("syncPath"))$("syncPath").value=path;
@@ -473,5 +262,4 @@ function initSyncUI(){
 }
 
 initSyncUI();
-initTalentDatabase();
 init();
