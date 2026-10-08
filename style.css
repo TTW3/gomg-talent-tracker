@@ -99,3 +99,10 @@ footer{display:flex;justify-content:space-between;color:var(--muted);font-size:1
 
 /* Talent Database: show every tier's stored parameter values clearly. */
 .talent-tier-details{margin-top:10px;padding-top:9px;border-top:1px solid #eadbd0}.talent-tier-details> b{display:block;font-size:11px;margin-bottom:7px;color:var(--brown)}.talent-tier-row{padding:7px 0;border-top:1px dashed #eadbd0}.talent-tier-row:first-of-type{border-top:0}.talent-tier-row-head{margin-bottom:4px}.talent-tier-desc{font-size:11px;line-height:1.45}.db-stats{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}.db-stat{font-size:10px;padding:3px 6px;border-radius:6px;background:#f1e2d5}.db-stat b{font-weight:700}
+
+/* Fix: hidden tracker/database sections must stay hidden even with grid/flex display rules */
+.grid2[hidden],
+.tracker-view[hidden],
+.talent-database-view[hidden] {
+  display: none !important;
+}
