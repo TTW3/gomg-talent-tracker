@@ -341,8 +341,7 @@ function renderTalentDatabase(){
    const tierDetails=tierValueDetails(t);
    const tierStatsHtml=tierDetails.length?`<div class="talent-tier-details"><b>Chỉ số theo Tier</b>${tierDetails.map(d=>{
      const dsc=tierSpecificDescription(t,d.tier)||desc;
-     const vals=d.values.length?d.values.map((v,i)=>`<span class="db-stat"><b>Giá trị ${i+1}:</b> ${esc(v)}</span>`).join(""):"";
-     return `<div class="talent-tier-row"><div class="talent-tier-row-head"><span class="db-tier tier-${esc(d.tier)}">${esc(d.tier)}</span></div><div class="talent-tier-desc">${esc(dsc)}</div>${vals?`<div class="db-stats">${vals}</div>`:""}</div>`;
+     return `<div class="talent-tier-row"><div class="talent-tier-row-head"><span class="db-tier tier-${esc(d.tier)}">${esc(d.tier)}</span></div><div class="talent-tier-desc">${esc(dsc)}</div></div>`;
    }).join("")}</div>`:"";
    const usageHtml=uses.length?uses.map(u=>`<span class="db-use">${esc(u.girl)} · B${u.board+1} T${u.slot+1}</span>`).join(""):'<span class="db-unused">Chưa gán cho Girl nào</span>';
    const source=t.source_label||t.exclusive_name||t.source_value||"";
