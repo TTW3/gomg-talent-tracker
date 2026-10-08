@@ -298,6 +298,29 @@ function talentDbMatches(t,q){
  const hay=normalizeText([t.name_en,t.name_source,t.description_en,t.description,t.effect_en,t.effect,t.source_label,t.source_value,t.exclusive_name,(t.tags||[]).join(" ")].filter(Boolean).join(" "));
  return hay.includes(normalizeText(q));
 }
+function tierValueDetails(t){
+ const tv=t&&t.tier_values&&typeof t.tier_values==="object"?t.tier_values:{};
+ const tiers=Array.isArray(t?.tiers)&&t.tiers.length?t.tiers:[t?.rank].filter(Boolean);
+ return tiers.filter(r=>tv[r]).map(r=>({tier:r,values:Array.isArray(tv[r])?tv[r]:[]}));
+}
+function tierSpecificDescription(t,tier){
+ const base=String(t?.description_en||t?.description||t?.desc||t?.effect_en||t?.effect||t?.effect_source||"");
+ const tv=t?.tier_values&&typeof t.tier_values==="object"?t.tier_values:{};
+ const orange=Array.isArray(tv.Orange)?tv.Orange:[];
+ const vals=Array.isArray(tv[tier])?tv[tier]:[];
+ if(!base||!orange.length||tier==="Orange"||!vals.length)return base;
+ let out=base;
+ // Replace only numeric values that are unique in the Orange parameter set.
+ // When the same Orange value represents multiple parameters, the raw tier
+ // values below remain the authoritative detail.
+ orange.forEach((oldVal,i)=>{
+   const next=vals[i];
+   if(next==null||next===oldVal||orange.filter(x=>x===oldVal).length!==1)return;
+   const re=new RegExp(`(?<![\\d.])${String(oldVal).replace(/[.*+?^${}()|[\\]\\]/g,"\\$&")}(?![\\d.])`,"g");
+   out=out.replace(re,String(next));
+ });
+ return out;
+}
 function renderTalentDatabase(){
  const out=$("talentDatabaseList"); if(!out)return;
  const q=$("talentDbSearch")?.value||"";
@@ -315,9 +338,15 @@ function renderTalentDatabase(){
    const desc=talentDescription(t)||"Chưa có mô tả.";
    const uses=usage.get(t.id)||[];
    const tierHtml=tiers.map(r=>`<span class="db-tier tier-${esc(r)}">${esc(r)}</span>`).join("");
+   const tierDetails=tierValueDetails(t);
+   const tierStatsHtml=tierDetails.length?`<div class="talent-tier-details"><b>Chỉ số theo Tier</b>${tierDetails.map(d=>{
+     const dsc=tierSpecificDescription(t,d.tier)||desc;
+     const vals=d.values.length?d.values.map((v,i)=>`<span class="db-stat"><b>Giá trị ${i+1}:</b> ${esc(v)}</span>`).join(""):"";
+     return `<div class="talent-tier-row"><div class="talent-tier-row-head"><span class="db-tier tier-${esc(d.tier)}">${esc(d.tier)}</span></div><div class="talent-tier-desc">${esc(dsc)}</div>${vals?`<div class="db-stats">${vals}</div>`:""}</div>`;
+   }).join("")}</div>`:"";
    const usageHtml=uses.length?uses.map(u=>`<span class="db-use">${esc(u.girl)} · B${u.board+1} T${u.slot+1}</span>`).join(""):'<span class="db-unused">Chưa gán cho Girl nào</span>';
    const source=t.source_label||t.exclusive_name||t.source_value||"";
-   return `<article class="talent-db-item"><div class="talent-db-head"><div><h3>${esc(t.name_en||t.name_source||t.id)}</h3>${t.name_source&&t.name_en!==t.name_source?`<small>${esc(t.name_source)}</small>`:""}</div><div class="db-tiers">${tierHtml}</div></div><div class="talent-db-desc">${esc(desc)}</div>${source?`<div class="talent-db-source">Nguồn: ${esc(source)}</div>`:""}<div class="talent-db-usage"><b>Đang dùng:</b> ${usageHtml}</div></article>`;
+   return `<article class="talent-db-item"><div class="talent-db-head"><div><h3>${esc(t.name_en||t.name_source||t.id)}</h3>${t.name_source&&t.name_en!==t.name_source?`<small>${esc(t.name_source)}</small>`:""}</div><div class="db-tiers">${tierHtml}</div></div><div class="talent-db-desc">${esc(desc)}</div>${tierStatsHtml}${source?`<div class="talent-db-source">Nguồn: ${esc(source)}</div>`:""}<div class="talent-db-usage"><b>Đang dùng:</b> ${usageHtml}</div></article>`;
  }).join("");
 }
 function initTalentDatabase(){

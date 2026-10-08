@@ -17,8 +17,8 @@ footer{display:flex;justify-content:space-between;color:var(--muted);font-size:1
   .table-wrap{overflow-x:hidden}
   table{min-width:0;max-width:100%}
   th,td{min-width:0}
-  thead th:first-child,tbody td:first-child{width:18%}
-  thead th:nth-child(2),thead th:nth-child(3),thead th:nth-child(4),thead th:nth-child(5),tbody td:nth-child(2),tbody td:nth-child(3),tbody td:nth-child(4),tbody td:nth-child(5){width:19%}
+  thead th:first-child,tbody td:first-child{width:24%}
+  thead th:nth-child(2),thead th:nth-child(3),thead th:nth-child(4),thead th:nth-child(5),tbody td:nth-child(2),tbody td:nth-child(3),tbody td:nth-child(4),tbody td:nth-child(5){width:17.5%}
   thead th:last-child,tbody td:last-child{width:6%}
 }
 
@@ -93,3 +93,9 @@ footer{display:flex;justify-content:space-between;color:var(--muted);font-size:1
   .talent-editor .autocomplete{min-width:0;width:calc(100% - 37px);max-width:calc(100% - 37px)}
   .talent-editor .talent-info-btn{flex:0 0 32px}
 }
+
+.view-switcher{display:flex;gap:8px;margin:0 0 15px}.view-switcher button{min-width:150px}.talent-database-view{min-height:500px}.talent-db-toolbar{display:flex;gap:10px;align-items:center;margin-bottom:14px}.talent-db-toolbar>input{flex:1;min-width:0}.talent-tier-filters{display:flex;gap:6px;flex-wrap:wrap}.talent-tier-filters button{padding:7px 9px;font-size:12px}.talent-tier-filters button.active{background:#ead2c3;font-weight:700}.talent-db-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.talent-db-item{border:1px solid #eadbd0;border-radius:11px;background:#fffdf9;padding:12px}.talent-db-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.talent-db-head h3{margin:0;font-size:15px}.talent-db-head small{color:var(--muted);font-size:11px}.db-tiers{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}.db-tier{font-size:10px;padding:3px 7px;border-radius:20px;background:#eee0d3;font-weight:700}.talent-db-desc{margin-top:8px;font-size:12px;line-height:1.5}.talent-db-source{margin-top:7px;color:var(--muted);font-size:10px}.talent-db-usage{margin-top:9px;padding-top:8px;border-top:1px solid #eadbd0;font-size:11px;line-height:1.5}.db-use{display:inline-block;margin:2px 3px 2px 0;padding:3px 6px;border-radius:6px;background:#f1e2d5}.db-unused{color:var(--muted)}
+@media(max-width:760px){.view-switcher button{flex:1;min-width:0}.talent-db-toolbar{display:block}.talent-tier-filters{margin-top:9px}.talent-db-list{grid-template-columns:1fr}.talent-db-head{display:block}.db-tiers{justify-content:flex-start;margin-top:7px}}
+
+/* Talent Database: show every tier's stored parameter values clearly. */
+.talent-tier-details{margin-top:10px;padding-top:9px;border-top:1px solid #eadbd0}.talent-tier-details> b{display:block;font-size:11px;margin-bottom:7px;color:var(--brown)}.talent-tier-row{padding:7px 0;border-top:1px dashed #eadbd0}.talent-tier-row:first-of-type{border-top:0}.talent-tier-row-head{margin-bottom:4px}.talent-tier-desc{font-size:11px;line-height:1.45}.db-stats{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}.db-stat{font-size:10px;padding:3px 6px;border-radius:6px;background:#f1e2d5}.db-stat b{font-weight:700}
