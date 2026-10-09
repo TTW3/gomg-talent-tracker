@@ -22,10 +22,23 @@ function talentById(id){const x=splitTalentValue(id);return GAME.talents.find(t=
 function talentTier(id){const x=splitTalentValue(id),t=talentById(id);return x.tier&&t&&t.tiers?.includes(x.tier)?x.tier:(t?.rank||"")}
 function talentValue(id,tier){if(!id)return "";const t=talentById(id);const tierOk=tier&&t?.tiers?.includes(tier)?tier:(t?.rank||"");return tierOk?`${splitTalentValue(id).id}|${tierOk}`:splitTalentValue(id).id}
 function charById(id){return GAME.characters.find(x=>x.id===id)}
-function talentLabel(id){let t=talentById(id);const x=splitTalentValue(id);return t?t.name_en||t.name_source||x.id:(x.id||"")}
+function talentLabel(id){let t=talentById(id);const x=splitTalentValue(id);return t?talentName(t):(x.id||"")}
 function charLabel(id){let c=charById(id);return c?c.name_en:id||""}
 function tierClass(t){return t?`tier tier-${t}`:""}
 function tierOptions(t,selected){return (t?.tiers||[]).map(x=>`<option value="${esc(x)}" ${x===selected?"selected":""}>${esc(x)}</option>`).join("")}
+const NAME_TRANSLATIONS={"伤害加深":"Deepened Damage","冬眠蛰伏":"Hibernating Ambush","剧毒唾液":"Toxic Saliva","动态视觉":"Dynamic Vision","动能转化":"Kinetic Conversion","厚实鳞甲":"Thick Scales","变温爆发":"Ectothermic Burst","变色鳞甲":"Color-Changing Scales","吸水皮肤":"Water-Absorbing Skin","奇形吹管":"Strange Flute","巨颚撕咬":"Giant Jaw Bite","强力后肢":"Powerful Hind Legs","断尾求生":"Tail-Shedding Survival","施虐打击":"Sadistic Strike","既定程序":"Preset Program","死亡翻滚":"Death Roll","沼泽霸主":"Swamp Overlord","浪潮翻涌":"Surging Tide","清脆蛙鸣":"Clear Frog Call","猎魔仪式":"Demon Hunt Ritual","疯狂生长":"Wild Growth","耐心潜伏":"Patient Ambush","能源自毁":"Energy Self-Destruct","自我诊断":"Self-Diagnosis","致命毒素":"Deadly Toxin","超载运行":"Overload","远古意志":"Ancient Will","难以清洗":"Hard to Cleanse","默默潜水":"Silent Diving"};
+function talentName(t){return t?.name_en||NAME_TRANSLATIONS[t?.name_source||t?.name_cn]||t?.name_source||t?.name_cn||t?.id||"Unknown Talent"}
+function talentSourceName(t){return t?.name_source||t?.name_cn||""}
+function tierEffect(t,tier){let text=t?.description_en||t?.effect_en||t?.description||"No description available.";const vals=(t?.tier_values?.[tier]||[]).filter(v=>v!==undefined&&v!==null&&String(v)!=="0"&&String(v)!=="");let n=0;if(vals.length)text=text.replace(/\b\d+(?:\.\d+)?\b/g,match=>n<vals.length?String(vals[n++]):match);return text}
+function tierDot(tier){return ({Green:"🟢",Blue:"🔵",Purple:"🟣",Orange:"🟠"})[tier]||"⚪"}
+function renderTalentDatabase(){const list=$("talentDatabaseList");if(!list)return;const q=normalizeText($("talentDbSearch")?.value||"");const active=document.querySelector('[data-db-tier].active')?.dataset.dbTier||"All";
+ const matches=GAME.talents.filter(t=>{const text=normalizeText([talentName(t),talentSourceName(t),t.effect_en,t.effect_cn,t.source_label,t.source_value].join(" "));return (!q||text.includes(q))&&(active==="All"||(t.tiers||[t.rank]).includes(active));}).sort((a,b)=>talentName(a).localeCompare(talentName(b)));
+ $("talentDbResultCount").textContent=`${matches.length} talents`;
+ list.innerHTML=matches.map(t=>{const tiers=(t.tiers||[t.rank].filter(Boolean)).filter(Boolean);const source=talentSourceName(t);return `<article class="talent-db-card"><button type="button" class="talent-db-open" data-talent-id="${esc(t.id)}"><span class="talent-db-title">${esc(talentName(t))}</span>${source&&source!==talentName(t)?`<small class="talent-source-name">${esc(source)}</small>`:""}<span class="talent-db-meta">${esc(t.source_label||t.source_cat||"")}</span></button><div class="talent-db-tier-list">${tiers.map(tier=>`<div class="talent-db-tier"><b>${tierDot(tier)} ${esc(tier)}</b><p>${esc(tierEffect(t,tier))}</p></div>`).join("")}</div><button type="button" class="talent-info-btn" data-talent-id="${esc(t.id)}" aria-label="Chi tiết ${esc(talentName(t))}">i</button></article>`}).join("")||'<p class="muted">Không tìm thấy Talent phù hợp.</p>';
+}
+function openTalentModal(id){const t=GAME.talents.find(x=>x.id===id);if(!t)return;$("talentModalTitle").textContent=talentName(t);const src=talentSourceName(t);$("talentModalMeta").innerHTML=`${src&&src!==talentName(t)?`<div class="talent-source-name">Tên gốc: ${esc(src)}</div>`:""}<span>${esc(t.source_label||t.source_cat||"")}</span>`;const tiers=(t.tiers||[t.rank].filter(Boolean)).filter(Boolean);$("talentModalBody").innerHTML=tiers.map(tier=>`<section class="talent-modal-tier"><h4>${tierDot(tier)} ${esc(tier)}</h4><p>${esc(tierEffect(t,tier))}</p></section>`).join("")+`<details><summary>Thông tin gốc</summary><p>${esc(t.effect_cn||"")}</p><small>${esc(t.id||"")}</small></details>`;$("talentModal").hidden=false}
+function initTalentDatabase(){const dbBtn=$("databaseViewBtn"),trackerBtn=$("trackerViewBtn"),view=$("talentDatabaseView");if(!dbBtn||!trackerBtn||!view)return;function show(which){const database=which==="database";document.querySelectorAll(".tracker-view").forEach(x=>x.hidden=database);view.hidden=!database;dbBtn.classList.toggle("primary",database);trackerBtn.classList.toggle("primary",!database);if(database)renderTalentDatabase()};dbBtn.addEventListener("click",()=>show("database"));trackerBtn.addEventListener("click",()=>show("tracker"));$("talentDbSearch")?.addEventListener("input",renderTalentDatabase);document.querySelectorAll("[data-db-tier]").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll("[data-db-tier]").forEach(x=>x.classList.toggle("active",x===btn));renderTalentDatabase()}));$("talentDatabaseList")?.addEventListener("click",e=>{const b=e.target.closest("[data-talent-id]");if(b)openTalentModal(b.dataset.talentId)});$("talentModalClose")?.addEventListener("click",()=>$("talentModal").hidden=true);$("talentModal")?.addEventListener("click",e=>{if(e.target.id==="talentModal")$("talentModal").hidden=true});document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("talentModal"))$("talentModal").hidden=true})}
+function injectTalentDatabaseStyle(){if($("talentDatabaseStyle"))return;const st=document.createElement("style");st.id="talentDatabaseStyle";st.textContent=`.talent-db-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:12px}.talent-db-card{position:relative;border:1px solid var(--border,#ddd);border-radius:14px;padding:14px;padding-right:42px;min-width:0}.talent-db-open{display:flex;flex-direction:column;gap:4px;text-align:left;background:transparent;border:0;padding:0;color:inherit;width:100%;cursor:pointer}.talent-db-title{font-size:17px;font-weight:750}.talent-source-name{display:block;color:var(--muted,#777);font-size:13px}.talent-db-meta{font-size:12px;opacity:.7}.talent-db-tier-list{display:grid;gap:10px;margin-top:12px}.talent-db-tier{border-top:1px solid var(--border,#ddd);padding-top:9px}.talent-db-tier b{display:block;margin-bottom:4px}.talent-db-tier p,.talent-modal-tier p{margin:0;white-space:normal;line-height:1.5}.talent-info-btn{position:absolute;right:10px;top:10px;border-radius:50%;width:27px;height:27px;padding:0;font-weight:800}.talent-modal[hidden]{display:none}.talent-modal{position:fixed;inset:0;z-index:1000;background:#0008;display:grid;place-items:center;padding:16px}.talent-modal-card{background:var(--card,#fff);color:inherit;border-radius:16px;max-width:650px;width:100%;max-height:85vh;overflow:auto;padding:18px}.talent-modal-head{display:flex;justify-content:space-between;gap:12px;align-items:start}.talent-modal-tier{padding:12px 0;border-bottom:1px solid var(--border,#ddd)}.talent-modal-tier h4{margin:0 0 6px}.talent-modal-body details{margin-top:12px}@media(max-width:600px){.talent-db-list{grid-template-columns:1fr}.talent-db-title{font-size:16px}}`;document.head.appendChild(st)}
 function displayTalent(t){if(!t)return '<span class="muted">Empty</span>';let x=talentById(t);if(!x)return esc(t);return `<span class="${tierClass(talentTier(t))}">${esc(x.name_en||x.name_source)} · ${esc(talentTier(t))}</span>`}
 function migrate(){
  db=loadLocal();
@@ -43,13 +56,13 @@ function migrate(){
  saveSilently();
 }
 function saveSilently(){localStorage.setItem(KEY,JSON.stringify(db))}
-function injectTrackerExtrasStyle(){if(document.getElementById("trackerExtrasStyle"))return;const st=document.createElement("style");st.id="trackerExtrasStyle";st.textContent=`.girl-title-row{display:flex;align-items:center;gap:8px}.girl-icon{width:38px;height:38px;object-fit:cover;border-radius:9px;flex:none;background:var(--surface-2,#eee)}.girl-cell .girlinput{min-width:0;width:100%;box-sizing:border-box}.board-usage{font-size:11px;color:var(--muted,#888);margin-top:5px}.board-tab{white-space:nowrap}.talent-input-row{display:flex;align-items:center;gap:5px;min-width:0}.talent-input-row .autocomplete{flex:1;min-width:0}.talentinput{width:100%;box-sizing:border-box}.talent-info-btn{flex:none;width:27px;height:27px;padding:0;border-radius:50%;font-weight:800;line-height:1}.talent-db-card{border:1px solid var(--border,#ddd);border-radius:10px;padding:12px;display:flex;gap:12px;align-items:flex-start;cursor:pointer}.talent-db-card:hover{border-color:var(--accent,#98704d)}.talent-db-card-main{flex:1;min-width:0}.talent-db-title{font-weight:700}.talent-db-tiers{display:flex;gap:5px;flex-wrap:wrap;margin:6px 0}.talent-db-effect{font-size:13px;opacity:.85;white-space:pre-wrap}.talent-tier-values{margin-top:8px;padding:8px 10px;border-radius:8px;background:var(--surface-2,#f5f5f5);font-size:12px}.talent-tier-value-row{display:flex;gap:10px;align-items:flex-start;margin-top:4px}.talent-tier-value-row .tier{min-width:58px;flex:none}.talent-tier-value-row>span:last-child{overflow-wrap:anywhere}.talent-db-list{display:grid;gap:9px}.talent-db-toolbar{display:grid;gap:10px;margin-bottom:14px}.talent-tier-filters{display:flex;gap:6px;flex-wrap:wrap}.talent-tier-filters button.active{outline:2px solid var(--accent,#98704d)}.talent-modal[hidden]{display:none!important}.talent-modal{position:fixed;inset:0;background:#0008;z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px}.talent-modal-card{width:min(680px,100%);max-height:85vh;overflow:auto;background:var(--card,#fff);color:var(--text,inherit);border-radius:14px;padding:16px}.talent-modal-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.talent-modal-body{white-space:pre-wrap;line-height:1.5}.talent-modal-meta{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}@media(max-width:700px){.girl-icon{width:30px;height:30px}.board-tabs{overflow-x:auto}.talent-db-card{padding:9px}}`;document.head.appendChild(st)}
+function injectTalentTierStyle(){if(document.getElementById("talentTierStyle"))return;const st=document.createElement("style");st.id="talentTierStyle";st.textContent=".talent-editor{display:flex;gap:6px;align-items:center}.talent-editor .autocomplete{flex:1;min-width:0}.talent-tier-select{width:92px;min-height:34px;border:1px solid var(--border,#ddd);border-radius:8px;background:var(--input-bg,transparent);color:inherit}.talent-tier-select:disabled{opacity:.55}@media(max-width:700px){.talent-editor{flex-direction:column;align-items:stretch}.talent-tier-select{width:100%}}";document.head.appendChild(st)}
 async function init(){
  try{
   const r=await fetch("game-data.json",{cache:"no-store"});if(!r.ok)throw Error();
   GAME=await r.json();$("dbStatus").textContent=`Loaded ${GAME.characters.length} characters / ${GAME.talents.length} bundled talents`;$("dbBadge").textContent=`DB ${GAME.schema_version}`;
  }catch(e){GAME={characters:[],talents:[]};$("dbStatus").textContent="Database file not loaded — add game-data.json";$("dbBadge").textContent="DB error"}
- db=loadLocal();migrate();injectTrackerExtrasStyle();initTalentDatabase();render();
+ db=loadLocal();migrate();injectTalentTierStyle();injectTalentDatabaseStyle();initTalentDatabase();render();
 }
 function render(){
  const q=normalizeText($("search").value),body=$("girlsBody");body.innerHTML="";
@@ -64,19 +77,16 @@ function render(){
  });
  fillGirlSelects();fillBoardSelects();fillSlotSelects();renderLookup();renderHistory();
  $("girlCount").textContent=db.girls.length;$("talentCount").textContent=db.girls.length*BOARD_COUNT*SLOT_COUNT;$("logCount").textContent=db.log.length;
- $("charDbCount").textContent=GAME.characters.length;$("talentDbCount").textContent=GAME.talents.length;
- if($("talentDatabaseList"))renderTalentDatabase();
+ $("charDbCount").textContent=GAME.characters.length;$("talentDbCount").textContent=GAME.talents.length;renderTalentDatabase();
 }
 function girlEditor(g,i){
  const value=g.charId?charLabel(g.charId):(g.name||"");
- const c=g.charId?charById(g.charId):null;
- const usedBoards=g.boards.filter(board=>board.some(Boolean)).length;
- const tabs=Array.from({length:BOARD_COUNT},(_,b)=>{const filled=g.boards[b].filter(Boolean).length;return `<button type="button" class="board-tab ${b===(g.activeBoard||0)?"active":""}" data-board="${b}" data-g="${i}">Board ${b+1} · ${filled}/4</button>`}).join("");
- return `<div class="girl-cell"><div class="girl-title-row">${c?.icon?`<img class="girl-icon" src="${esc(c.icon)}" alt="" loading="lazy">`:''}<div class="autocomplete"><input class="girlinput" data-g="${i}" value="${esc(value)}" placeholder="Gõ tên Girl..." autocomplete="off"><div class="suggestions"></div></div></div><div class="board-usage">Boards used: ${usedBoards}/4</div><div class="board-tabs">${tabs}</div></div>`;
+ const tabs=Array.from({length:BOARD_COUNT},(_,b)=>`<button type="button" class="board-tab ${b===(g.activeBoard||0)?"active":""}" data-board="${b}" data-g="${i}">Board ${b+1}</button>`).join("");
+ return `<div class="girl-cell"><div class="autocomplete"><input class="girlinput" data-g="${i}" value="${esc(value)}" placeholder="Gõ tên Girl..." autocomplete="off"><div class="suggestions"></div></div><div class="board-tabs">${tabs}</div></div>`;
 }
 function talentEditor(t,i,b,s){
- const value=t?`${talentLabel(t)}${talentTier(t)?` · ${talentTier(t)}`:""}`:"";
- return `<div class="talent-input-row"><div class="autocomplete"><input class="talentinput" data-g="${i}" data-b="${b}" data-s="${s}" value="${esc(value)}" placeholder="Gõ tên Talent..." autocomplete="off"><div class="suggestions"></div></div>${t?`<button type="button" class="talent-info-btn" title="Xem hiệu ứng Talent" aria-label="Xem hiệu ứng Talent" data-talent-info="${esc(splitTalentValue(t).id)}" data-tier="${esc(talentTier(t))}">i</button>`:""}</div>`;
+ const value=t?talentValue(t):""; const tt=t?talentById(t):null; const sel=t?talentTier(t):"";
+ return `<div class="talent-editor"><div class="autocomplete"><input class="talentinput" data-g="${i}" data-b="${b}" data-s="${s}" value="${esc(value)}" placeholder="Gõ tên Talent..." autocomplete="off"><div class="suggestions"></div></div><select class="talent-tier-select" data-g="${i}" data-b="${b}" data-s="${s}" ${tt?"":"disabled"}><option value="">Tier</option>${tierOptions(tt,sel)}</select></div>`;
 }
 function normalizeText(v){return String(v||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim()}
 function fuzzyScore(query,text){
@@ -117,8 +127,8 @@ function showSuggestions(input){
  const items=isGirl?findGirlSuggestions(input.value):findTalentSuggestions(input.value);
  if(!items.length){box.innerHTML="";box.classList.remove("open");return}
  box.innerHTML=items.map(x=>{
-   const name=esc(x.name_en||x.name_source||x.id);
-   const source=x.name_source&&x.name_en!==x.name_source?`<small>${esc(x.name_source)}</small>`:"";
+   const name=esc(talentName(x));
+   const source=talentSourceName(x)&&talentName(x)!==talentSourceName(x)?`<small>${esc(talentSourceName(x))}</small>`:"";
    if(isGirl)return `<div class="suggestion" data-id="${esc(x.id)}"><span>${name}</span>${source}</div>`;
    const tiers=Array.isArray(x.tiers)&&x.tiers.length?x.tiers:(x.rank?[x.rank]:["Orange"]);
    return tiers.map(tier=>`<div class="suggestion talent-tier-option" data-id="${esc(x.id)}" data-tier="${esc(tier)}"><span>${name}</span>${source}<b class="tier tier-${esc(tier)}">${esc(tier)}</b></div>`).join("");
@@ -152,24 +162,16 @@ function chooseSuggestion(suggestion){
  }else{
    const i=+input.dataset.g,s=+input.dataset.s,b=+input.dataset.b;
    if(!db.girls[i])return;
+   const tierSel=input.parentElement.parentElement.querySelector(".talent-tier-select");
    const t=talentById(id);
-   const chosen=suggestion.dataset.tier&&t?.tiers?.includes(suggestion.dataset.tier)?suggestion.dataset.tier:(t?.rank||t?.tiers?.[0]||"");
+   const chosen=tierSel?.value&&t?.tiers?.includes(tierSel.value)?tierSel.value:(t?.rank||"");
    db.girls[i].boards[b][s]=chosen?`${id}|${chosen}`:id;
+   if(tierSel){tierSel.innerHTML=`<option value="">Tier</option>${tierOptions(t,chosen)}`;tierSel.disabled=!t;}
  }
  // Persist without re-rendering the table. Re-rendering immediately here can
  // replace the input DOM while the browser is still processing the click/touch.
  localStorage.setItem(KEY,JSON.stringify(db));
- if(input.classList.contains("girlinput")){
-   input.value=charLabel(id);
- }else{
-   const chosenValue=db.girls[+input.dataset.g].boards[+input.dataset.b][+input.dataset.s];
-   input.value=`${talentLabel(chosenValue)}${talentTier(chosenValue)?` · ${talentTier(chosenValue)}`:""}`;
-   const row=input.closest(".talent-input-row");
-   let info=row?.querySelector(".talent-info-btn");
-   if(row&&!info){info=document.createElement("button");info.type="button";info.className="talent-info-btn";info.textContent="i";info.title="Xem hiệu ứng Talent";info.setAttribute("aria-label","Xem hiệu ứng Talent");row.appendChild(info)}
-   if(info){info.dataset.talentInfo=splitTalentValue(chosenValue).id;info.dataset.tier=talentTier(chosenValue)||"";}
-   setTimeout(()=>{if(db?.girls?.[+input.dataset.g])render()},80);
- }
+ input.value=input.classList.contains("girlinput")?charLabel(id):talentLabel(db.girls[+input.dataset.g].boards[+input.dataset.b][+input.dataset.s]);
  const box=input.parentElement.querySelector(".suggestions");
  if(box){box.innerHTML="";box.classList.remove("open");}
 }
@@ -185,6 +187,15 @@ document.addEventListener("click",e=>{
  // Fallback for browsers that do not emit pointerdown for this control.
  if(suggestion.dataset.chosen==="1")return;
  chooseSuggestion(suggestion);
+});
+document.addEventListener("change",e=>{
+ if(!e.target.matches(".talent-tier-select"))return;
+ const i=+e.target.dataset.g,b=+e.target.dataset.b,s=+e.target.dataset.s;
+ if(!db.girls[i])return;
+ const current=db.girls[i].boards[b][s],base=splitTalentValue(current).id,t=talentById(base);
+ if(!t)return;
+ db.girls[i].boards[b][s]=e.target.value?`${base}|${e.target.value}`:base;
+ save();
 });
 document.addEventListener("focusout",e=>{
  if(!e.target.matches(".girlinput,.talentinput"))return;
@@ -221,8 +232,8 @@ function swapTalent(){
 }
 function renderLookup(){
  const q=normalizeText($("talentSearch").value),out=$("lookup");if(!q){out.innerHTML='<span class="muted">Nhập tên talent để tìm.</span>';return}
- const matches=GAME.talents.filter(t=>normalizeText(t.name_en+" "+(t.name_source||"")).includes(q)).slice(0,30);
- const rows=[];matches.forEach(t=>{db.girls.forEach(g=>g.boards.forEach((board,b)=>board.forEach((id,s)=>{if(splitTalentValue(id).id===t.id)rows.push(`<div class="lookup-item"><b>${esc(g.name)}</b><span class="pill">Board ${b+1}</span><span class="pill">Talent ${s+1}</span><span class="pill ${tierClass(talentTier(id))}">${esc(t.name_en||t.name_source)} · ${esc(talentTier(id))}</span></div>`)})))});
+ const matches=GAME.talents.filter(t=>normalizeText(talentName(t)+" "+(t.name_source||t.name_cn||"")).includes(q)).slice(0,30);
+ const rows=[];matches.forEach(t=>{db.girls.forEach(g=>g.boards.forEach((board,b)=>board.forEach((id,s)=>{if(splitTalentValue(id).id===t.id)rows.push(`<div class="lookup-item"><b>${esc(g.name)}</b><span class="pill">Board ${b+1}</span><span class="pill">Talent ${s+1}</span><span class="pill ${tierClass(talentTier(id))}">${esc(talentName(t))} · ${esc(talentTier(id))}</span></div>`)})))});
  out.innerHTML=rows.length?rows.join(""):(matches.length?'<span class="muted">Talent có trong database nhưng chưa được gán cho Girl nào.</span>':'<span class="muted">Không tìm thấy trong bundled database.</span>');
 }
 function renderHistory(){$("history").innerHTML=db.log.length?db.log.slice().reverse().map(x=>`<div class="history-row"><time>${esc(x.time)}</time>${esc(x.text)}</div>`).join(""):'<span class="muted">Chưa có SWAP.</span>'}
@@ -256,45 +267,6 @@ function apiUrl(path){const r=syncRepo();return `https://api.github.com/repos/${
 async function ghRequest(path,opts={}){const token=syncToken();if(!token)throw Error("Chưa nhập GitHub Token.");const headers={Accept:"application/vnd.github+json",Authorization:`Bearer ${token}`,"X-GitHub-Api-Version":"2022-11-28",...(opts.body?{"Content-Type":"application/json"}:{})};const r=await fetch(apiUrl(path),{...opts,headers});let data={};try{data=await r.json()}catch{}if(!r.ok)throw Error(data.message||`GitHub API ${r.status}`);return data}
 async function pullSync(silent=false){try{const pass=syncPass();if(!pass)throw Error("Chưa nhập mật khẩu mã hóa.");const data=await ghRequest(syncPath(),{method:"GET",cache:"no-store"});let encryptedText=new TextDecoder().decode(unb64(data.content));if(!encryptedText.trim().startsWith("{")){try{encryptedText=new TextDecoder().decode(unb64(encryptedText));}catch{}}const remote=await decryptSync(encryptedText,pass);if(!remote.girls)throw Error("Dữ liệu sync không hợp lệ.");db=remote;db.girls=(db.girls||[]).map((g,i)=>normalizeGirl(g,i));db.log=db.log||[];saveSilently();render();setSyncStatus(`✓ Đã lấy dữ liệu từ GitHub lúc ${new Date().toLocaleTimeString('vi-VN')}`,true);return true}catch(e){if(!silent)setSyncStatus(`✕ ${e.message}`);return false}}
 async function pushSync(){try{const token=$("ghToken").value.trim(),pass=$("syncPass").value,path=$("syncPath").value.trim()||"sync-data/gomg-tracker.enc.json";if(!token)throw Error("Chưa nhập GitHub Token.");if(!pass)throw Error("Chưa nhập mật khẩu mã hóa.");localStorage.setItem(SYNC_TOKEN_KEY,token);localStorage.setItem(SYNC_PASS_KEY,pass);localStorage.setItem(SYNC_PATH_KEY,path);setSyncStatus("Đang đẩy dữ liệu lên GitHub…");let sha=null;try{const existing=await ghRequest(path,{method:"GET",cache:"no-store"});sha=existing.sha}catch(e){if(!/Not Found/i.test(e.message))throw e}const encrypted=await encryptSync(db,pass);const body={message:`Sync GOMG tracker ${new Date().toISOString()}`,content:b64(textBytes(encrypted)),...(sha?{sha}:{})};await ghRequest(path,{method:"PUT",body:JSON.stringify(body)});setSyncStatus(`✓ Đã đẩy dữ liệu lên ${syncRepo().owner}/${syncRepo().repo} lúc ${new Date().toLocaleTimeString('vi-VN')}`,true)}catch(e){setSyncStatus(`✕ ${e.message}`)}}
-
-let activeDbTier="All";
-function talentEffect(t){return t?.effect_en||t?.description_en||t?.effect||t?.description||t?.effect_cn||t?.description_cn||"Chưa có mô tả trong database."}
-function talentTierBadges(t){const tiers=Array.isArray(t?.tiers)&&t.tiers.length?t.tiers:(t?.rank?[t.rank]:[]);return tiers.map(x=>`<span class="${tierClass(x)}">${esc(x)}</span>`).join("")||'<span class="muted">Unknown tier</span>'}
-function tierValueRows(t){
- const values=t?.tier_values||{};
- const order=["Green","Blue","Purple","Orange"];
- const tiers=[...order.filter(x=>Array.isArray(values[x])&&values[x].length),...Object.keys(values).filter(x=>!order.includes(x)&&Array.isArray(values[x])&&values[x].length)];
- if(!tiers.length)return "";
- return `<div class="talent-tier-values"><b>Chỉ số theo tier:</b>${tiers.map(x=>`<div class="talent-tier-value-row"><span class="${tierClass(x)}">${esc(x)}</span><span>${esc(values[x].join(" · "))}</span></div>`).join("")}</div>`;
-}
-function showTalentModal(id,tier=""){
- const t=GAME.talents.find(x=>x.id===id);if(!t)return;
- $("talentModalTitle").textContent=t.name_en||t.name_source||t.id;
- $("talentModalMeta").innerHTML=`<div class="talent-modal-meta">${talentTierBadges(t)}${t.source_label?`<span class="pill">${esc(t.source_label)}</span>`:""}</div>`;
- $("talentModalBody").innerHTML=`<p><b>Effect</b></p><div>${esc(talentEffect(t))}</div>${tier?`<p class="muted">Tier đang chọn: <b>${esc(tier)}</b></p>`:""}${tierValueRows(t)}${t.name_source?`<p><b>Source name</b><br>${esc(t.name_source)}</p>`:""}${t.exclusive_name?`<p><b>Exclusive</b><br>${esc(t.exclusive_name)}</p>`:""}${t.id?`<p class="muted">ID: ${esc(t.id)}</p>`:""}`;
- $("talentModal").hidden=false;
-}
-function renderTalentDatabase(){
- const q=normalizeText($("talentDbSearch")?.value||"");
- const list=(GAME.talents||[]).filter(t=>activeDbTier==="All"||(t.tiers||[t.rank]).includes(activeDbTier)).filter(t=>!q||normalizeText([t.name_en,t.name_source,t.effect_en,t.description_en,t.source_label,t.source_value,t.id,JSON.stringify(t.tier_values||{})].join(" ")).includes(q));
- $("talentDbResultCount").textContent=`${list.length} / ${GAME.talents.length}`;
- $("talentDatabaseList").innerHTML=list.map(t=>`<article class="talent-db-card" tabindex="0" role="button" data-db-talent="${esc(t.id)}"><div class="talent-db-card-main"><div class="talent-db-title">${esc(t.name_en||t.name_source||t.id)}</div>${t.name_source&&t.name_source!==t.name_en?`<div class="muted">${esc(t.name_source)}</div>`:""}<div class="talent-db-tiers">${talentTierBadges(t)}</div><div class="talent-db-effect">${esc(talentEffect(t))}</div>${tierValueRows(t)}${t.source_label?`<div class="muted">${esc(t.source_label)}</div>`:""}</div><button type="button" class="talent-info-btn" data-db-talent="${esc(t.id)}" aria-label="Chi tiết Talent">i</button></article>`).join("")||'<p class="muted">Không tìm thấy Talent phù hợp.</p>';
-}
-function initTalentDatabase(){
- const trackerBtn=$("trackerViewBtn"),dbBtn=$("databaseViewBtn"),dbView=$("talentDatabaseView");
- const trackerViews=document.querySelectorAll(".tracker-view");
- function showTracker(){trackerViews.forEach(x=>x.hidden=false);dbView.hidden=true;trackerBtn.classList.add("primary");dbBtn.classList.remove("primary");}
- function showDatabase(){trackerViews.forEach(x=>x.hidden=true);dbView.hidden=false;dbBtn.classList.add("primary");trackerBtn.classList.remove("primary");renderTalentDatabase();}
- trackerBtn?.addEventListener("click",showTracker);dbBtn?.addEventListener("click",showDatabase);
- $("talentDbSearch")?.addEventListener("input",renderTalentDatabase);
- document.querySelectorAll("[data-db-tier]").forEach(btn=>btn.addEventListener("click",()=>{activeDbTier=btn.dataset.dbTier;document.querySelectorAll("[data-db-tier]").forEach(x=>x.classList.toggle("active",x===btn));renderTalentDatabase()}));
- $("talentDatabaseList")?.addEventListener("click",e=>{const el=e.target.closest("[data-db-talent]");if(el)showTalentModal(el.dataset.dbTalent)});
- $("talentDatabaseList")?.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.matches("[data-db-talent]")){e.preventDefault();showTalentModal(e.target.dataset.dbTalent)}});
- $("talentModalClose")?.addEventListener("click",()=>$("talentModal").hidden=true);
- $("talentModal")?.addEventListener("click",e=>{if(e.target.id==="talentModal")$("talentModal").hidden=true});
- document.addEventListener("click",e=>{const btn=e.target.closest("[data-talent-info]");if(btn)showTalentModal(btn.dataset.talentInfo,btn.dataset.tier||"")});
-}
-
 function initSyncUI(){
  const token=localStorage.getItem(SYNC_TOKEN_KEY)||"",pass=localStorage.getItem(SYNC_PASS_KEY)||"",path=localStorage.getItem(SYNC_PATH_KEY)||"sync-data/gomg-tracker.enc.json";
  if($("ghToken"))$("ghToken").value=token;if($("syncPass"))$("syncPass").value=pass;if($("syncPath"))$("syncPath").value=path;
@@ -308,5 +280,5 @@ initSyncUI();
 init();
 
 
-// Compact tier badges in the autocomplete dropdown.
+// Tier selector styling for Talent Tracker suggestions only.
 (function(){const st=document.createElement("style");st.textContent=`.talent-tier-option{gap:8px}.talent-tier-option .tier{margin-left:auto;font-size:11px;font-weight:700}.talent-tier-option small{margin-left:4px;opacity:.65}`;document.head.appendChild(st)})();
