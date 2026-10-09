@@ -1,4 +1,4 @@
-const KEY="gomg-talent-tracker-v3";let GAME=null,db=null;
+const KEY="gomg-talent-tracker-v3";let GAME=null,EXTRAS=[] ,db=null;
 const starter={girls:[],log:[]};
 const BOARD_COUNT=4,SLOT_COUNT=4;
 function emptyBoards(){return Array.from({length:BOARD_COUNT},()=>Array(SLOT_COUNT).fill(""))}
@@ -69,35 +69,8 @@ function renderTalentDatabase(){const list=$("talentDatabaseList");if(!list)retu
  list.innerHTML=matches.map(t=>{const tiers=(t.tiers||[t.rank].filter(Boolean)).filter(Boolean);const source=talentSourceName(t);return `<article class="talent-db-card"><button type="button" class="talent-db-open" data-talent-id="${esc(t.id)}"><span class="talent-db-title">${esc(talentName(t))}</span>${source&&source!==talentName(t)?`<small class="talent-source-name">${esc(source)}</small>`:""}<span class="talent-db-meta">${esc(t.source_label||t.source_cat||"")}</span></button><div class="talent-db-tier-list">${tiers.map(tier=>`<div class="talent-db-tier"><b>${tierDot(tier)} ${esc(tier)}</b><p>${esc(tierEffect(t,tier))}</p></div>`).join("")}</div><button type="button" class="talent-info-btn" data-talent-id="${esc(t.id)}" aria-label="Chi tiết ${esc(talentName(t))}">i</button></article>`}).join("")||'<p class="muted">Không tìm thấy Talent phù hợp.</p>';
 }
 function openTalentModal(id){const t=GAME.talents.find(x=>x.id===id);if(!t)return;$("talentModalTitle").textContent=talentName(t);const src=talentSourceName(t);$("talentModalMeta").innerHTML=`${src&&src!==talentName(t)?`<div class="talent-source-name">Tên gốc: ${esc(src)}</div>`:""}<span>${esc(t.source_label||t.source_cat||"")}</span>`;const tiers=(t.tiers||[t.rank].filter(Boolean)).filter(Boolean);$("talentModalBody").innerHTML=tiers.map(tier=>`<section class="talent-modal-tier"><h4>${tierDot(tier)} ${esc(tier)}</h4><p>${esc(tierEffect(t,tier))}</p></section>`).join("")+`<details><summary>Thông tin gốc</summary><p>${esc(t.effect_cn||"")}</p><small>${esc(t.id||"")}</small></details>`;$("talentModal").hidden=false}
-function initTalentDatabase(){const dbBtn=$("databaseViewBtn"),trackerBtn=$("trackerViewBtn"),view=$("talentDatabaseView");if(!dbBtn||!trackerBtn||!view)return;function show(which){const database=which==="database",team=which==="team";document.querySelectorAll(".tracker-view").forEach(x=>x.hidden=database||team);view.hidden=!database;$("teamBuilderView").hidden=!team;dbBtn.classList.toggle("primary",database);trackerBtn.classList.toggle("primary",!database&&!team);$("teamBuilderViewBtn").classList.toggle("primary",team);if(database)renderTalentDatabase();if(team)renderTeams()};dbBtn.addEventListener("click",()=>show("database"));trackerBtn.addEventListener("click",()=>show("tracker"));$("teamBuilderViewBtn")?.addEventListener("click",()=>show("team"));$("talentDbSearch")?.addEventListener("input",renderTalentDatabase);document.querySelectorAll("[data-db-tier]").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll("[data-db-tier]").forEach(x=>x.classList.toggle("active",x===btn));renderTalentDatabase()}));$("talentDatabaseList")?.addEventListener("click",e=>{const b=e.target.closest("[data-talent-id]");if(b)openTalentModal(b.dataset.talentId)});$("talentModalClose")?.addEventListener("click",()=>$("talentModal").hidden=true);$("talentModal")?.addEventListener("click",e=>{if(e.target.id==="talentModal")$("talentModal").hidden=true});document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("talentModal"))$("talentModal").hidden=true})}
+function initTalentDatabase(){const dbBtn=$("databaseViewBtn"),trackerBtn=$("trackerViewBtn"),view=$("talentDatabaseView");if(!dbBtn||!trackerBtn||!view)return;function show(which){const database=which==="database";document.querySelectorAll(".tracker-view").forEach(x=>x.hidden=database);view.hidden=!database;dbBtn.classList.toggle("primary",database);trackerBtn.classList.toggle("primary",!database);if(database)renderTalentDatabase()};dbBtn.addEventListener("click",()=>show("database"));trackerBtn.addEventListener("click",()=>show("tracker"));$("talentDbSearch")?.addEventListener("input",renderTalentDatabase);document.querySelectorAll("[data-db-tier]").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll("[data-db-tier]").forEach(x=>x.classList.toggle("active",x===btn));renderTalentDatabase()}));$("talentDatabaseList")?.addEventListener("click",e=>{const b=e.target.closest("[data-talent-id]");if(b)openTalentModal(b.dataset.talentId)});$("talentModalClose")?.addEventListener("click",()=>$("talentModal").hidden=true);$("talentModal")?.addEventListener("click",e=>{if(e.target.id==="talentModal")$("talentModal").hidden=true});document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("talentModal"))$("talentModal").hidden=true})}
 function injectTalentDatabaseStyle(){if($("talentDatabaseStyle"))return;const st=document.createElement("style");st.id="talentDatabaseStyle";st.textContent=`.talent-db-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:12px}.talent-db-card{position:relative;border:1px solid var(--border,#ddd);border-radius:14px;padding:14px;padding-right:42px;min-width:0}.talent-db-open{display:flex;flex-direction:column;gap:4px;text-align:left;background:transparent;border:0;padding:0;color:inherit;width:100%;cursor:pointer}.talent-db-title{font-size:17px;font-weight:750}.talent-source-name{display:block;color:var(--muted,#777);font-size:13px}.talent-db-meta{font-size:12px;opacity:.7}.talent-db-tier-list{display:grid;gap:10px;margin-top:12px}.talent-db-tier{border-top:1px solid var(--border,#ddd);padding-top:9px}.talent-db-tier b{display:block;margin-bottom:4px}.talent-db-tier p,.talent-modal-tier p{margin:0;white-space:normal;line-height:1.5}.talent-info-btn{position:absolute;right:10px;top:10px;border-radius:50%;width:27px;height:27px;padding:0;font-weight:800}.talent-modal[hidden]{display:none}.talent-modal{position:fixed;inset:0;z-index:1000;background:#0008;display:grid;place-items:center;padding:16px}.talent-modal-card{background:var(--card,#fff);color:inherit;border-radius:16px;max-width:650px;width:100%;max-height:85vh;overflow:auto;padding:18px}.talent-modal-head{display:flex;justify-content:space-between;gap:12px;align-items:start}.talent-modal-tier{padding:12px 0;border-bottom:1px solid var(--border,#ddd)}.talent-modal-tier h4{margin:0 0 6px}.talent-modal-body details{margin-top:12px}.talent-db-category-filters,.talent-db-race-filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.talent-db-category-filters button,.talent-db-race-filters button{font-size:12px;padding:5px 9px;border:1px solid var(--border,#3a4148);border-radius:5px;background:transparent;color:inherit;cursor:pointer}.talent-db-category-filters button.active,.talent-db-race-filters button.active{background:var(--primary,#60442f);border-color:var(--primary,#60442f);color:#fff}.talent-db-race-filters[hidden]{display:none}@media(max-width:600px){.talent-db-list{grid-template-columns:1fr}.talent-db-title{font-size:16px}}`;document.head.appendChild(st)}
-// ---------------- Team Builder (separate local data; does not modify tracker) ----------------
-const TEAM_KEY="gomg-team-builder-v1";
-let teams=[];
-function loadTeams(){try{const x=JSON.parse(localStorage.getItem(TEAM_KEY)||"[]");return Array.isArray(x)?x:[]}catch{return []}}
-function saveTeams(){localStorage.setItem(TEAM_KEY,JSON.stringify(teams));renderTeams()}
-function newTeam(){return {id:"team_"+Date.now()+"_"+Math.random().toString(36).slice(2,7),name:`Team ${teams.length+1}`,members:["","",""],notes:""}}
-function initTeamBuilder(){
- teams=loadTeams();
- $("addTeamBtn")?.addEventListener("click",()=>{teams.push(newTeam());saveTeams()});
- const list=$("teamBuilderList");
- list?.addEventListener("change",e=>{const el=e.target.closest("[data-team-id]");if(!el)return;const t=teams.find(x=>x.id===el.dataset.teamId);if(!t)return;if(el.dataset.field==="member"){t.members[Number(el.dataset.slot)]=el.value;saveTeams()}});
- list?.addEventListener("input",e=>{const el=e.target.closest("[data-team-id]");if(!el)return;const t=teams.find(x=>x.id===el.dataset.teamId);if(!t)return;if(el.dataset.field==="name")t.name=el.value;else if(el.dataset.field==="notes")t.notes=el.value;else if(el.dataset.field==="member-query")showTeamSuggestions(el);localStorage.setItem(TEAM_KEY,JSON.stringify(teams))});
- list?.addEventListener("click",e=>{
-   const suggestion=e.target.closest("[data-team-char-option]");
-   if(suggestion){e.preventDefault();const wrap=suggestion.closest(".team-char-picker"),input=wrap?.querySelector("[data-field='member-query']");if(!input)return;chooseTeamCharacter(input,suggestion.dataset.teamCharOption);return}
-   const b=e.target.closest("[data-delete-team]");if(!b)return;if(confirm("Xóa đội hình này?")){teams=teams.filter(t=>t.id!==b.dataset.deleteTeam);saveTeams()}
- });
- list?.addEventListener("keydown",e=>{const input=e.target.closest("[data-field='member-query']");if(!input)return;const box=input.parentElement.querySelector(".team-char-suggestions");if(e.key==="Escape"){box.hidden=true;return}if(e.key==="Enter"){const first=box.querySelector("[data-team-char-option]");if(first){e.preventDefault();chooseTeamCharacter(input,first.dataset.teamCharOption)}}});
- document.addEventListener("click",e=>{if(!e.target.closest(".team-char-picker"))list?.querySelectorAll(".team-char-suggestions").forEach(x=>x.hidden=true)});
- if(!teams.length){teams.push(newTeam());saveTeams()}
-}
-function findTeamCharacterMatches(query){const q=normalizeText(query||"");return GAME.characters.filter(c=>!q||normalizeText([c.name_en,c.name_source,c.name_cn,c.id].join(" ")).includes(q)).sort((a,b)=>(a.name_en||a.id).localeCompare(b.name_en||b.id)).slice(0,10)}
-function showTeamSuggestions(input){const box=input.parentElement.querySelector(".team-char-suggestions");if(!box)return;const matches=findTeamCharacterMatches(input.value);box.innerHTML=matches.map(c=>`<button type="button" class="team-char-suggestion" data-team-char-option="${esc(c.id)}">${c.icon?`<img src="${esc(c.icon)}" alt="" loading="lazy" onerror="this.hidden=true">`:""}<span>${esc(c.name_en||c.id)}${c.name_source&&c.name_source!==c.name_en?`<small>${esc(c.name_source)}</small>`:""}</span></button>`).join("")||'<div class="team-char-no-match">Không tìm thấy nhân vật.</div>';box.hidden=false}
-function chooseTeamCharacter(input,id){const wrap=input.closest(".team-char-picker"),teamId=input.dataset.teamId,slot=Number(input.dataset.slot),t=teams.find(x=>x.id===teamId),c=charById(id);if(!t||!c)return;t.members[slot]=c.id;localStorage.setItem(TEAM_KEY,JSON.stringify(teams));renderTeams();const newInput=$(`teamBuilderList`).querySelector(`[data-team-id="${CSS.escape(teamId)}"][data-field="member-query"][data-slot="${slot}"]`);newInput?.focus()}
-function renderTeams(){const list=$("teamBuilderList");if(!list||!GAME)return;list.innerHTML=teams.map(t=>{while(!Array.isArray(t.members))t.members=["","",""];t.members=t.members.slice(0,3);while(t.members.length<3)t.members.push("");return `<article class="team-card" data-team-card="${esc(t.id)}"><div class="team-card-head"><input class="team-name" aria-label="Tên đội hình" data-team-id="${esc(t.id)}" data-field="name" value="${esc(t.name||"")}" placeholder="Tên đội hình"><button class="danger" type="button" data-delete-team="${esc(t.id)}">Xóa team</button></div><div class="team-slots">${t.members.map((id,i)=>{const c=charById(id);return `<div class="team-slot"><div class="team-slot-title">Vị trí ${i+1}</div>${c?.icon?`<img class="team-char-icon" src="${esc(c.icon)}" alt="" loading="lazy" onerror="this.hidden=true">`:`<div class="team-char-icon team-char-placeholder">${i+1}</div>`}<div class="team-char-picker"><input class="team-char-search" type="text" data-team-id="${esc(t.id)}" data-field="member-query" data-slot="${i}" value="${esc(c?.name_en||"")}" placeholder="Gõ tên nhân vật…" autocomplete="off" aria-label="Tìm nhân vật vị trí ${i+1}"><div class="team-char-suggestions" hidden></div></div>${c?`<div class="team-char-meta">${esc([c.rarity,c.role,c.element].filter(Boolean).join(" · ")||"Character")}</div>`:`<div class="team-char-meta">Nhập tên để chọn nhân vật</div>`}</div>`}).join("")}</div><label class="team-notes-label">Ghi chú / rotation<textarea rows="2" data-team-id="${esc(t.id)}" data-field="notes" placeholder="Ví dụ: thứ tự hành động, vai trò từng nhân vật…">${esc(t.notes||"")}</textarea></label></article>`}).join("")}
-
-
 function displayTalent(t){if(!t)return '<span class="muted">Empty</span>';let x=talentById(t);if(!x)return esc(t);return `<span class="${tierClass(talentTier(t))}">${esc(x.name_en||x.name_source)} · ${esc(talentTier(t))}</span>`}
 function migrate(){
  db=loadLocal();
@@ -116,12 +89,51 @@ function migrate(){
 }
 function saveSilently(){localStorage.setItem(KEY,JSON.stringify(db))}
 function injectTalentTierStyle(){if(document.getElementById("talentTierStyle"))return;const st=document.createElement("style");st.id="talentTierStyle";st.textContent=".talent-editor{display:flex;gap:6px;align-items:center}.talent-editor .autocomplete{flex:1;min-width:0}.talent-tier-select{width:92px;min-height:34px;border:1px solid var(--border,#ddd);border-radius:8px;background:var(--input-bg,transparent);color:inherit}.talent-tier-select:disabled{opacity:.55}.tracker-girl-line{display:flex;align-items:center;gap:8px}.tracker-girl-line .autocomplete{flex:1;min-width:0}.tracker-girl-icon{width:38px;height:38px;object-fit:cover;border-radius:8px;flex:0 0 38px}.tracker-talent-info{flex:0 0 28px;width:28px;height:28px;padding:0;border-radius:50%;font-weight:800;line-height:1}.tracker-talent-info:disabled{opacity:.3}@media(max-width:700px){.talent-editor{flex-wrap:wrap}.talent-editor .autocomplete{flex:1 1 calc(100% - 38px)}.talent-tier-select{width:100%}}";document.head.appendChild(st)}
+
+function initCharacterExtras(){
+ const btn=$("characterExtrasViewBtn"),talentBtn=$("databaseViewBtn"),trackerBtn=$("trackerViewBtn"),view=$("characterExtrasView");
+ if(!btn||!talentBtn||!trackerBtn||!view)return;
+ function show(which){
+  const extras=which==="extras",database=which==="database";
+  document.querySelectorAll(".tracker-view").forEach(x=>x.hidden=database||extras);
+  $("talentDatabaseView").hidden=!database;view.hidden=!extras;
+  trackerBtn.classList.toggle("primary",!database&&!extras);
+  talentBtn.classList.toggle("primary",database);btn.classList.toggle("primary",extras);
+  if(database)renderTalentDatabase();if(extras)renderCharacterExtras();
+ }
+ btn.addEventListener("click",()=>show("extras"));
+ talentBtn.addEventListener("click",()=>show("database"));
+ trackerBtn.addEventListener("click",()=>show("tracker"));
+ $("extrasSearch")?.addEventListener("input",renderCharacterExtras);
+ document.querySelectorAll("[data-extras-kind]").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll("[data-extras-kind]").forEach(x=>x.classList.toggle("active",x===b));renderCharacterExtras();
+ }));
+ renderCharacterExtras();
+}
+function renderCharacterExtras(){
+ const list=$("characterExtrasList");if(!list)return;
+ const q=normalizeText($("extrasSearch")?.value||"");
+ const kind=document.querySelector("[data-extras-kind].active")?.dataset.extrasKind||"All";
+ const fields=[["Trait","trait"],["Title","title"],["Perk","perk"]];
+ const rows=EXTRAS.filter(c=>{
+  const blob=normalizeText([c.character,c.base_name,c.variant,c.stem,...fields.flatMap(([label,key])=>[label,c[key]?.name,c[key]?.id,c[key]?.unlock,...(c[key]?.effect||[])])].join(" "));
+  return !q||blob.includes(q);
+ }).sort((a,b)=>a.character.localeCompare(b.character));
+ $("extrasResultCount").textContent=`${rows.length} / ${EXTRAS.length} profiles`;
+ list.innerHTML=rows.map(c=>{
+  const shown=fields.filter(([label])=>kind==="All"||kind===label);
+  const icon=c.icon?`<img class="extras-icon" src="${esc(c.icon)}" alt="" loading="lazy" onerror="this.hidden=true">`:"";
+  return `<article class="extras-card"><div class="extras-character">${icon}<div><b>${esc(c.character)}</b><small>${esc(c.variant||"Profile")} · ${esc(c.stem)}</small></div><a href="${esc(c.profile)}" target="_blank" rel="noopener">Wiki ↗</a></div><div class="extras-effects">${shown.map(([label,key])=>{const x=c[key]||{};return `<section class="extras-effect"><h4>${esc(label)}: ${esc(x.name||"Chưa có dữ liệu")}</h4><div class="extras-meta">${esc(x.id||"")} ${x.unlock?`· ${esc(x.unlock)}`:""}</div><p>${(x.effect||[]).map(line=>`<span>${esc(line)}</span>`).join("<br>")||'<span class="muted">Không có mô tả hiệu ứng.</span>'}</p></section>`}).join("")}</div></article>`;
+ }).join("")||'<p class="muted">Không tìm thấy Profile phù hợp.</p>';
+}
+
 async function init(){
  try{
   const r=await fetch("game-data.json",{cache:"no-store"});if(!r.ok)throw Error();
   GAME=await r.json();$("dbStatus").textContent=`Loaded ${GAME.characters.length} characters / ${GAME.talents.length} bundled talents`;$("dbBadge").textContent=`DB ${GAME.schema_version}`;
  }catch(e){GAME={characters:[],talents:[]};$("dbStatus").textContent="Database file not loaded — add game-data.json";$("dbBadge").textContent="DB error"}
- db=loadLocal();migrate();injectTalentTierStyle();injectTrackerLayoutStyle();injectTalentDatabaseStyle();initTalentDatabase();initTeamBuilder();render();
+ try{const er=await fetch("character-extras.json",{cache:"no-store"});if(er.ok){const ed=await er.json();EXTRAS=Array.isArray(ed.data)?ed.data:[]}}catch(e){EXTRAS=[]}
+ db=loadLocal();migrate();injectTalentTierStyle();injectTrackerLayoutStyle();injectTalentDatabaseStyle();initTalentDatabase();initCharacterExtras();render();
 }
 function render(){
  const q=normalizeText($("search").value),body=$("girlsBody");body.innerHTML="";
