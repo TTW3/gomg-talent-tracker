@@ -62,7 +62,7 @@ async function init(){
   const r=await fetch("game-data.json",{cache:"no-store"});if(!r.ok)throw Error();
   GAME=await r.json();$("dbStatus").textContent=`Loaded ${GAME.characters.length} characters / ${GAME.talents.length} bundled talents`;$("dbBadge").textContent=`DB ${GAME.schema_version}`;
  }catch(e){GAME={characters:[],talents:[]};$("dbStatus").textContent="Database file not loaded — add game-data.json";$("dbBadge").textContent="DB error"}
- db=loadLocal();migrate();injectTalentTierStyle();injectTalentDatabaseStyle();initTalentDatabase();render();
+ db=loadLocal();migrate();injectTalentTierStyle();injectTrackerLayoutStyle();injectTalentDatabaseStyle();initTalentDatabase();render();
 }
 function render(){
  const q=normalizeText($("search").value),body=$("girlsBody");body.innerHTML="";
@@ -71,7 +71,7 @@ function render(){
   const search=normalizeText(g.name+" "+allTalentIds.map(talentLabel).join(" "));if(q&&!search.includes(q))return;
   const b=Math.min(BOARD_COUNT-1,Math.max(0,g.activeBoard||0));g.activeBoard=b;
   const tr=document.createElement("tr");
-  tr.innerHTML=`<td>${girlEditor(g,i)}</td>`+g.boards[b].map((t,s)=>`<td>${talentEditor(t,i,b,s)}</td>`).join("")+`<td><button class="danger" data-del="${i}">Xóa</button></td>`;
+  tr.innerHTML=`<td>${girlEditor(g,i)}</td>`+g.boards[b].map((t,s)=>`<td>${talentEditor(t,i,b,s)}</td>`).join("")+`<td class="tracker-delete-cell"><button class="danger" data-del="${i}">Xóa</button></td>`;
   tr.querySelector("[data-del]").onclick=()=>{if(confirm("Xóa Girl này khỏi tracker?")){db.girls.splice(i,1);save()}};
   body.appendChild(tr);
  });
@@ -84,13 +84,44 @@ function girlEditor(g,i){
  const c=g.charId?charById(g.charId):null;
  const icon=c?.icon || (c?.source_id ? `https://gomg-wiki.pages.dev/assets/icons/Header/${c.source_id}.png` : "");
  const portrait=icon?`<img class="tracker-girl-icon" src="${esc(icon)}" alt="" loading="lazy" onerror="this.style.display='none'">`:"";
- const tabs=Array.from({length:BOARD_COUNT},(_,b)=>`<button type="button" class="board-tab ${b===(g.activeBoard||0)?"active":""}" data-board="${b}" data-g="${i}">Board ${b+1}</button>`).join("");
- return `<div class="girl-cell"><div class="tracker-girl-line">${portrait}<div class="autocomplete"><input class="girlinput" data-g="${i}" value="${esc(value)}" placeholder="Gõ tên Girl..." autocomplete="off"><div class="suggestions"></div></div></div><div class="board-tabs">${tabs}</div></div>`;
+ const active=Math.min(BOARD_COUNT-1,Math.max(0,g.activeBoard||0));
+ const boardTabs=Array.from({length:BOARD_COUNT},(_,b)=>{const count=(g.boards[b]||[]).filter(Boolean).length;return `<button type="button" class="board-tab ${b===active?"active":""} ${count===0?"board-empty":""}" data-board="${b}" data-g="${i}">Board ${b+1} <b>${count}/4</b></button>`}).join("");
+ const total=g.boards.flat().filter(Boolean).length;
+ return `<div class="girl-cell"><div class="tracker-girl-line">${portrait}<div class="autocomplete"><input class="girlinput" data-g="${i}" value="${esc(value)}" placeholder="Gõ tên Girl..." autocomplete="off"><div class="suggestions"></div></div><span class="tracker-total-count">${total}/16</span></div><div class="board-tabs">${boardTabs}</div></div>`;
 }
 function talentEditor(t,i,b,s){
- const value=t?talentLabel(t):""; const tt=t?talentById(t):null; const sel=t?talentTier(t):""; const talentId=t?splitTalentValue(t).id:"";
- return `<div class="talent-editor"><div class="autocomplete"><input class="talentinput" data-g="${i}" data-b="${b}" data-s="${s}" value="${esc(value)}" placeholder="Gõ tên Talent..." autocomplete="off"><div class="suggestions"></div></div><button type="button" class="tracker-talent-info" data-talent-info="${esc(talentId)}" ${tt?"":"disabled"} title="Xem chi tiết Talent" aria-label="Xem chi tiết Talent">i</button><select class="talent-tier-select" data-g="${i}" data-b="${b}" data-s="${s}" ${tt?"":"disabled"}><option value="">Tier</option>${tierOptions(tt,sel)}</select></div>`;
+ const value=t?talentLabel(t):"";const tt=t?talentById(t):null;const sel=t?talentTier(t):"";const talentId=t?splitTalentValue(t).id:"";
+ return `<div class="tracker-talent-card"><div class="tracker-talent-name-row"><div class="autocomplete"><input class="talentinput" data-g="${i}" data-b="${b}" data-s="${s}" value="${esc(value)}" placeholder="＋ Chọn talent" autocomplete="off"><div class="suggestions"></div></div><button type="button" class="tracker-talent-info" data-talent-info="${esc(talentId)}" ${tt?"":"disabled"} title="Xem chi tiết Talent" aria-label="Xem chi tiết Talent">i</button></div><select class="talent-tier-select" data-g="${i}" data-b="${b}" data-s="${s}" ${tt?"":"disabled"}><option value="">Tier</option>${tierOptions(tt,sel)}</select></div>`;
 }
+function injectTrackerLayoutStyle(){if($("trackerLayoutStyle"))return;const st=document.createElement("style");st.id="trackerLayoutStyle";st.textContent=`
+.tracker-view .table-wrap{overflow-x:auto}
+.tracker-view #girlsBody{vertical-align:top}
+.tracker-view .table-wrap table{width:100%;min-width:1050px;table-layout:fixed;border-collapse:separate;border-spacing:0}
+.tracker-view .table-wrap th:nth-child(1),.tracker-view .table-wrap td:nth-child(1){width:25%}
+.tracker-view .table-wrap th:nth-child(2),.tracker-view .table-wrap td:nth-child(2),.tracker-view .table-wrap th:nth-child(3),.tracker-view .table-wrap td:nth-child(3),.tracker-view .table-wrap th:nth-child(4),.tracker-view .table-wrap td:nth-child(4),.tracker-view .table-wrap th:nth-child(5),.tracker-view .table-wrap td:nth-child(5){width:17%}
+.tracker-view .table-wrap th:last-child,.tracker-view .table-wrap td:last-child{width:7%}
+.tracker-view .table-wrap td{padding:9px 7px;vertical-align:top}
+.tracker-girl-line{display:flex;align-items:center;gap:8px;min-width:0}
+.tracker-girl-line .autocomplete{flex:1;min-width:0}
+.tracker-girl-icon{width:42px;height:42px;object-fit:cover;border-radius:9px;flex:0 0 42px;background:#f3e4dc}
+.tracker-girl-line .girlinput{width:100%;min-width:0;box-sizing:border-box;height:44px}
+.tracker-total-count{flex:0 0 auto;background:#35ad62;color:#fff;border-radius:8px;padding:5px 8px;font-weight:800;white-space:nowrap}
+.board-tabs{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.board-tabs .board-tab{font-size:12px;padding:6px 8px;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.board-tabs .board-tab b{color:#21824a;font-size:12px}
+.board-tabs .board-tab.board-empty{opacity:.65}
+.tracker-talent-card{border:1px solid var(--border,#e5d5cc);border-radius:11px;overflow:visible;min-width:0;background:var(--card,#fffaf6)}
+.tracker-talent-name-row{display:flex;align-items:center;gap:7px;padding:7px 8px;min-width:0}
+.tracker-talent-name-row .autocomplete{flex:1;min-width:0}
+.tracker-talent-name-row .talentinput{display:block;width:100%;min-width:0;box-sizing:border-box;height:38px;border:0;background:transparent;padding:5px 3px;font-size:14px;text-overflow:clip}
+.tracker-talent-info{flex:0 0 28px;width:28px;height:28px;padding:0;border-radius:50%;font-weight:800;line-height:1;border:1px solid #e8c5b5;background:#fff4ee;color:#4a2a20}
+.tracker-talent-info:disabled{opacity:.25}
+.tracker-talent-card .talent-tier-select{display:block;width:calc(100% - 14px);margin:0 7px 7px;min-height:36px;box-sizing:border-box;border:1px solid var(--border,#dfc9bd);border-radius:8px;background:var(--input-bg,#fff);color:inherit;padding:5px 8px}
+.tracker-delete-cell{vertical-align:middle!important;text-align:center}
+.tracker-delete-cell button{white-space:nowrap}
+@media(max-width:700px){.tracker-view .table-wrap table{min-width:1030px}.tracker-girl-icon{width:34px;height:34px;flex-basis:34px}.tracker-total-count{font-size:12px;padding:4px 6px}.board-tabs .board-tab{padding:5px 6px}}
+`;document.head.appendChild(st)}
+
 function normalizeText(v){return String(v||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim()}
 function fuzzyScore(query,text){
  const q=normalizeText(query),t=normalizeText(text);
