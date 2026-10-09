@@ -25,6 +25,7 @@ function charById(id){return GAME.characters.find(x=>x.id===id)}
 function talentLabel(id){let t=talentById(id);const x=splitTalentValue(id);return t?t.name_en||t.name_source||x.id:(x.id||"")}
 function charLabel(id){let c=charById(id);return c?c.name_en:id||""}
 function tierClass(t){return t?`tier tier-${t}`:""}
+function talentValue(id){const t=talentById(id);return t?`${t.name_en||t.name_source||talentKey(id).id} · ${talentTier(id)}`:String(id||"")}
 function tierOptions(t,selected){return (t?.tiers||[]).map(x=>`<option value="${esc(x)}" ${x===selected?"selected":""}>${esc(x)}</option>`).join("")}
 function displayTalent(t){if(!t)return '<span class="muted">Empty</span>';let x=talentById(t);if(!x)return esc(t);return `<span class="${tierClass(talentTier(t))}">${esc(x.name_en||x.name_source)} · ${esc(talentTier(t))}</span>`}
 function migrate(){
@@ -43,12 +44,13 @@ function migrate(){
  saveSilently();
 }
 function saveSilently(){localStorage.setItem(KEY,JSON.stringify(db))}
+function injectTalentTierStyle(){if(document.getElementById("talentTierStyle"))return;const st=document.createElement("style");st.id="talentTierStyle";st.textContent=".talent-editor{display:flex;gap:6px;align-items:center}.talent-editor .autocomplete{flex:1;min-width:0}.talent-tier-select{width:92px;min-height:34px;border:1px solid var(--border,#ddd);border-radius:8px;background:var(--input-bg,transparent);color:inherit}.talent-tier-select:disabled{opacity:.55}@media(max-width:700px){.talent-editor{flex-direction:column;align-items:stretch}.talent-tier-select{width:100%}}";document.head.appendChild(st)}
 async function init(){
  try{
   const r=await fetch("game-data.json",{cache:"no-store"});if(!r.ok)throw Error();
   GAME=await r.json();$("dbStatus").textContent=`Loaded ${GAME.characters.length} characters / ${GAME.talents.length} bundled talents`;$("dbBadge").textContent=`DB ${GAME.schema_version}`;
  }catch(e){GAME={characters:[],talents:[]};$("dbStatus").textContent="Database file not loaded — add game-data.json";$("dbBadge").textContent="DB error"}
- db=loadLocal();migrate();render();
+ db=loadLocal();migrate();injectTalentTierStyle();render();
 }
 function render(){
  const q=normalizeText($("search").value),body=$("girlsBody");body.innerHTML="";
@@ -71,8 +73,8 @@ function girlEditor(g,i){
  return `<div class="girl-cell"><div class="autocomplete"><input class="girlinput" data-g="${i}" value="${esc(value)}" placeholder="Gõ tên Girl..." autocomplete="off"><div class="suggestions"></div></div><div class="board-tabs">${tabs}</div></div>`;
 }
 function talentEditor(t,i,b,s){
- const value=t?talentLabel(t):"";
- return `<div class="autocomplete"><input class="talentinput" data-g="${i}" data-b="${b}" data-s="${s}" value="${esc(value)}" placeholder="Gõ tên Talent..." autocomplete="off"><div class="suggestions"></div></div>`;
+ const value=t?talentValue(t):""; const tt=t?talentById(t):null; const sel=t?talentTier(t):"";
+ return `<div class="talent-editor"><div class="autocomplete"><input class="talentinput" data-g="${i}" data-b="${b}" data-s="${s}" value="${esc(value)}" placeholder="Gõ tên Talent..." autocomplete="off"><div class="suggestions"></div></div><select class="talent-tier-select" data-g="${i}" data-b="${b}" data-s="${s}" ${tt?"":"disabled"}><option value="">Tier</option>${tierOptions(tt,sel)}</select></div>`;
 }
 function normalizeText(v){return String(v||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim()}
 function fuzzyScore(query,text){
@@ -174,7 +176,15 @@ document.addEventListener("click",e=>{
  if(suggestion.dataset.chosen==="1")return;
  chooseSuggestion(suggestion);
 });
-
+document.addEventListener("change",e=>{
+ if(!e.target.matches(".talent-tier-select"))return;
+ const i=+e.target.dataset.g,b=+e.target.dataset.b,s=+e.target.dataset.s;
+ if(!db.girls[i])return;
+ const current=db.girls[i].boards[b][s],base=splitTalentValue(current).id,t=talentById(base);
+ if(!t)return;
+ db.girls[i].boards[b][s]=e.target.value?`${base}|${e.target.value}`:base;
+ save();
+});
 document.addEventListener("focusout",e=>{
  if(!e.target.matches(".girlinput,.talentinput"))return;
  setTimeout(()=>{
@@ -254,112 +264,9 @@ function initSyncUI(){
  $("pullSyncBtn")?.addEventListener("click",()=>pullSync(false));
 }
 
-
-// ---------------- Talent Database branch ----------------
-let activeDbTier="All";
-function tierValueFor(t,tier){
- const vals=t?.tier_values;
- if(!vals)return "";
- const v=vals[tier];
- if(Array.isArray(v))return v.map(x=>String(x)).join(" / ");
- if(v&&typeof v==="object")return Object.entries(v).map(([k,x])=>`${k}: ${x}`).join(" · ");
- return v==null?"":String(v);
-}
-function dbTierDescription(t,tier){
- const base=t.description_en||t.effect_en||t.name_source||"";
- const value=tierValueFor(t,tier);
- if(!value)return base;
- // The source's effect text may already contain the tier-specific effect.
- return `${base}${base? " ":""}<span class="muted">[${esc(tier)}: ${esc(value)}]</span>`;
-}
-function currentTalentUses(t){
- const uses=[];
- (db?.girls||[]).forEach(g=>(g.boards||[]).forEach((board,b)=>(board||[]).forEach((id,s)=>{
-  if(splitTalentValue(id).id===t.id)uses.push(`<div class="talent-db-use"><b>${esc(g.name)}</b><span class="pill">Board ${b+1}</span><span class="pill">Talent ${s+1}</span><span class="pill ${tierClass(talentTier(id))}">${esc(talentTier(id))}</span></div>`);
- })));
- return uses;
-}
-function openTalentModal(t,tier){
- const modal=$("talentModal");if(!modal)return;
- $("talentModalTitle").textContent=t.name_en||t.name_source||"Talent";
- $("talentModalMeta").innerHTML=`<span class="pill ${tierClass(tier)}">${esc(tier||t.rank||"Unknown tier")}</span> ${esc(t.source_label||t.source_cat||"")}`;
- const desc=t.description_en||t.effect_en||t.effect_cn||"Chưa có mô tả";
- const values=(t.tiers||[t.rank].filter(Boolean)).map(x=>`<section class="talent-tier-detail"><h4><span class="${tierClass(x)}">${esc(x)}</span></h4><p>${esc(desc)}</p>${tierValueFor(t,x)?`<p class="muted">Tier values: ${esc(tierValueFor(t,x))}</p>`:""}</section>`).join("");
- const uses=currentTalentUses(t);
- $("talentModalBody").innerHTML=`<p>${esc(desc)}</p>${t.effect_cn?`<p class="muted">${esc(t.effect_cn)}</p>`:""}<h4>Chi tiết theo tier</h4>${values||`<p>${esc(desc)}</p>`}<h4>Đang được sử dụng ở</h4>${uses.length?uses.join(""):'<p class="muted">Chưa được gán cho Girl nào.</p>'}`;
- modal.hidden=false;
-}
-function renderTalentDatabase(){
- const list=$("talentDatabaseList");if(!list||!GAME)return;
- const q=normalizeText($("talentDbSearch")?.value||"");
- const all=(GAME.talents||[]).filter(t=>{
-  const tiers=t.tiers?.length?t.tiers:(t.rank?[t.rank]:[]);
-  if(activeDbTier!=="All"&&!tiers.includes(activeDbTier))return false;
-  const hay=normalizeText([t.name_en,t.name_source,t.description_en,t.effect_en,t.effect_cn,t.source_label,t.source_cat,t.source_value,t.exclusive_name].join(" "));
-  return !q||hay.includes(q);
- }).sort((a,b)=>String(a.name_en||a.name_source||"").localeCompare(String(b.name_en||b.name_source||"")));
- $("talentDbResultCount").textContent=`${all.length} talents`;
- list.innerHTML=all.map(t=>{
-  const tiers=t.tiers?.length?t.tiers:(t.rank?[t.rank]:[]);
-  const chips=tiers.map(tier=>`<button type="button" class="talent-db-tier ${tierClass(tier)}" data-talent="${esc(t.id)}" data-tier="${esc(tier)}">${esc(tier)}</button>`).join("");
-  const desc=t.description_en||t.effect_en||t.effect_cn||"Chưa có mô tả";
-  const uses=currentTalentUses(t);
-  return `<article class="talent-db-card"><div class="talent-db-card-head"><div><h3>${esc(t.name_en||t.name_source||t.id)}</h3>${t.name_source&&t.name_en!==t.name_source?`<small>${esc(t.name_source)}</small>`:""}</div><div class="talent-db-tier-list">${chips}</div></div><p>${esc(desc)}</p><div class="talent-db-source muted">${esc(t.source_label||t.source_cat||"")}${t.exclusive_name?` · ${esc(t.exclusive_name)}`:""}</div>${uses.length?`<div class="talent-db-uses">${uses.join("")}</div>`:`<div class="muted">Chưa được gán cho Girl nào.</div>`}<button type="button" class="talent-db-details" data-talent="${esc(t.id)}" data-tier="${esc(tiers[0]||"")}">Chi tiết talent</button></article>`;
- }).join("")||'<p class="muted">Không tìm thấy Talent phù hợp.</p>';
-}
-function showTrackerView(){
- $("talentDatabaseView").hidden=true;
- document.querySelectorAll(".tracker-view").forEach(x=>x.hidden=false);
- $("trackerViewBtn")?.classList.add("primary");$("databaseViewBtn")?.classList.remove("primary");
- const advisor=$("buildAdvisorView");if(advisor)advisor.hidden=true;
- $("buildAdvisorBtn")?.classList.remove("primary");
-}
-function showTalentDatabaseView(){
- document.querySelectorAll(".tracker-view").forEach(x=>x.hidden=true);
- $("talentDatabaseView").hidden=false;
- $("trackerViewBtn")?.classList.remove("primary");$("databaseViewBtn")?.classList.add("primary");
- const advisor=$("buildAdvisorView");if(advisor)advisor.hidden=true;
- $("buildAdvisorBtn")?.classList.remove("primary");
- renderTalentDatabase();
-}
-function initTalentDatabase(){
- $("trackerViewBtn")?.addEventListener("click",showTrackerView);
- $("databaseViewBtn")?.addEventListener("click",showTalentDatabaseView);
- $("talentDbSearch")?.addEventListener("input",renderTalentDatabase);
- document.querySelectorAll("[data-db-tier]").forEach(btn=>btn.addEventListener("click",()=>{
-  activeDbTier=btn.dataset.dbTier||"All";
-  document.querySelectorAll("[data-db-tier]").forEach(x=>x.classList.toggle("active",x===btn));
-  renderTalentDatabase();
- }));
- $("talentDatabaseList")?.addEventListener("click",e=>{
-  const btn=e.target.closest("[data-talent]");if(!btn)return;
-  const t=GAME.talents.find(x=>x.id===btn.dataset.talent);if(t)openTalentModal(t,btn.dataset.tier||"");
- });
- $("talentModalClose")?.addEventListener("click",()=>{$("talentModal").hidden=true});
- $("talentModal")?.addEventListener("click",e=>{if(e.target===$("talentModal"))$("talentModal").hidden=true});
- document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("talentModal"))$("talentModal").hidden=true});
-}
-
-initTalentDatabase();
 initSyncUI();
 init();
 
 
 // Tier selector styling for Talent Tracker suggestions only.
 (function(){const st=document.createElement("style");st.textContent=`.talent-tier-option{gap:8px}.talent-tier-option .tier{margin-left:auto;font-size:11px;font-weight:700}.talent-tier-option small{margin-left:4px;opacity:.65}`;document.head.appendChild(st)})();
-
-(function(){if(document.getElementById("talentDbRuntimeStyle"))return;const st=document.createElement("style");st.id="talentDbRuntimeStyle";st.textContent=`
-.talent-db-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-top:14px}
-.talent-db-card{border:1px solid var(--border,#ddd);border-radius:12px;padding:12px;min-width:0}
-.talent-db-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-.talent-db-card h3{font-size:15px;margin:0 0 4px}.talent-db-card p{font-size:13px;line-height:1.45}
-.talent-db-tier-list{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
-.talent-db-tier,.talent-db-details{font:inherit;font-size:12px;padding:4px 7px;border:1px solid var(--border,#ddd);border-radius:7px;cursor:pointer;background:transparent;color:inherit}
-.talent-db-source{font-size:12px;margin:8px 0}.talent-db-uses{display:grid;gap:4px;margin:8px 0}
-.talent-db-use{display:flex;gap:5px;align-items:center;flex-wrap:wrap;font-size:12px}
-.talent-db-toolbar{display:grid;gap:10px}.talent-tier-filters{display:flex;gap:6px;flex-wrap:wrap}
-.talent-modal[hidden]{display:none!important}.talent-modal{position:fixed;inset:0;background:#0008;z-index:10000;display:flex;align-items:center;justify-content:center;padding:16px}
-.talent-modal-card{width:min(760px,100%);max-height:85vh;overflow:auto;background:var(--card,#fff);color:inherit;border:1px solid var(--border,#ddd);border-radius:14px;padding:16px}
-.talent-modal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.talent-modal-body{line-height:1.5}.talent-tier-detail{border-top:1px solid var(--border,#ddd);padding:6px 0}
-@media(max-width:600px){.talent-db-list{grid-template-columns:1fr}.talent-modal{padding:8px}.talent-modal-card{max-height:92vh}}
-`;document.head.appendChild(st)})();
