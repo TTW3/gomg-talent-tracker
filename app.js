@@ -119,7 +119,31 @@ function injectTrackerLayoutStyle(){if($("trackerLayoutStyle"))return;const st=d
 .tracker-talent-card .talent-tier-select{display:block;width:calc(100% - 14px);margin:0 7px 7px;min-height:36px;box-sizing:border-box;border:1px solid var(--border,#dfc9bd);border-radius:8px;background:var(--input-bg,#fff);color:inherit;padding:5px 8px}
 .tracker-delete-cell{vertical-align:middle!important;text-align:center}
 .tracker-delete-cell button{white-space:nowrap}
-@media(max-width:700px){.tracker-view .table-wrap table{min-width:1030px}.tracker-girl-icon{width:34px;height:34px;flex-basis:34px}.tracker-total-count{font-size:12px;padding:4px 6px}.board-tabs .board-tab{padding:5px 6px}}
+@media(max-width:700px){
+ .tracker-view .table-wrap{overflow-x:visible}
+ .tracker-view .table-wrap table{display:block;width:100%;min-width:0;table-layout:auto;border-collapse:separate;border-spacing:0}
+ .tracker-view .table-wrap thead{display:none}
+ .tracker-view .table-wrap tbody{display:block;width:100%}
+ .tracker-view .table-wrap tbody tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:9px 10px;position:relative;width:100%;box-sizing:border-box;padding:12px;margin:0 0 12px;border:1px solid var(--border,#e5d5cc);border-radius:14px;background:var(--card,#fffaf6)}
+ .tracker-view .table-wrap tbody td{display:block;width:auto!important;min-width:0;padding:0!important;vertical-align:top}
+ .tracker-view .table-wrap tbody td:first-child{grid-column:1/-1;padding-right:62px!important}
+ .tracker-view .table-wrap tbody td:nth-child(2)::before,.tracker-view .table-wrap tbody td:nth-child(3)::before,.tracker-view .table-wrap tbody td:nth-child(4)::before,.tracker-view .table-wrap tbody td:nth-child(5)::before{display:block;font-size:12px;font-weight:750;color:var(--muted,#7b6558);margin:0 0 5px 2px;content:"Talent"}
+ .tracker-view .table-wrap tbody td:nth-child(2)::before{content:"Talent 1"}
+ .tracker-view .table-wrap tbody td:nth-child(3)::before{content:"Talent 2"}
+ .tracker-view .table-wrap tbody td:nth-child(4)::before{content:"Talent 3"}
+ .tracker-view .table-wrap tbody td:nth-child(5)::before{content:"Talent 4"}
+ .tracker-view .table-wrap tbody td:last-child{position:absolute;right:10px;top:12px;width:auto!important}
+ .tracker-girl-line{gap:7px}
+ .tracker-girl-icon{width:38px;height:38px;flex-basis:38px}
+ .tracker-girl-line .girlinput{height:42px;font-size:13px}
+ .tracker-total-count{font-size:12px;padding:4px 6px}
+ .board-tabs .board-tab{padding:5px 7px;font-size:11px}
+ .tracker-talent-card{width:100%;box-sizing:border-box}
+ .tracker-talent-name-row{gap:5px;padding:6px}
+ .tracker-talent-name-row .talentinput{font-size:13px;height:40px}
+ .tracker-talent-info{flex-basis:27px;width:27px;height:27px}
+ .tracker-view .table-wrap tbody td:last-child button{padding:7px 10px;font-size:12px}
+}
 `;document.head.appendChild(st)}
 
 function normalizeText(v){return String(v||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim()}
