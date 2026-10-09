@@ -25,7 +25,7 @@ function charById(id){return GAME.characters.find(x=>x.id===id)}
 function talentLabel(id){let t=talentById(id);const x=splitTalentValue(id);return t?talentName(t):(x.id||"")}
 function charLabel(id){let c=charById(id);return c?c.name_en:id||""}
 function tierClass(t){return t?`tier tier-${t}`:""}
-function tierOptions(t,selected){return (t?.tiers||[]).map(x=>`<option value="${esc(x)}" ${x===selected?"selected":""}>${esc(x)}</option>`).join("")}
+function tierOptions(t,selected){const tiers=Array.isArray(t?.tiers)&&t.tiers.length?t.tiers:[t?.rank].filter(Boolean);const order=["Orange","Purple","Blue","Green"];const sorted=order.filter(x=>tiers.includes(x)).concat(tiers.filter(x=>!order.includes(x)));return sorted.map(x=>`<option value="${esc(x)}" ${x===selected?"selected":""}>${esc(x)}</option>`).join("")}
 const NAME_TRANSLATIONS={"伤害加深":"Deepened Damage","冬眠蛰伏":"Hibernating Ambush","剧毒唾液":"Toxic Saliva","动态视觉":"Dynamic Vision","动能转化":"Kinetic Conversion","厚实鳞甲":"Thick Scales","变温爆发":"Ectothermic Burst","变色鳞甲":"Color-Changing Scales","吸水皮肤":"Water-Absorbing Skin","奇形吹管":"Strange Flute","巨颚撕咬":"Giant Jaw Bite","强力后肢":"Powerful Hind Legs","断尾求生":"Tail-Shedding Survival","施虐打击":"Sadistic Strike","既定程序":"Preset Program","死亡翻滚":"Death Roll","沼泽霸主":"Swamp Overlord","浪潮翻涌":"Surging Tide","清脆蛙鸣":"Clear Frog Call","猎魔仪式":"Demon Hunt Ritual","疯狂生长":"Wild Growth","耐心潜伏":"Patient Ambush","能源自毁":"Energy Self-Destruct","自我诊断":"Self-Diagnosis","致命毒素":"Deadly Toxin","超载运行":"Overload","远古意志":"Ancient Will","难以清洗":"Hard to Cleanse","默默潜水":"Silent Diving"};
 function talentName(t){return t?.name_en||NAME_TRANSLATIONS[t?.name_source||t?.name_cn]||t?.name_source||t?.name_cn||t?.id||"Unknown Talent"}
 function talentSourceName(t){return t?.name_source||t?.name_cn||""}
@@ -196,11 +196,22 @@ function chooseSuggestion(suggestion){
  }else{
    const i=+input.dataset.g,s=+input.dataset.s,b=+input.dataset.b;
    if(!db.girls[i])return;
-   const tierSel=input.parentElement.parentElement.querySelector(".talent-tier-select");
+   const tierSel=input.closest(".tracker-talent-card")?.querySelector(".talent-tier-select");
    const t=talentById(id);
-   const chosen=tierSel?.value&&t?.tiers?.includes(tierSel.value)?tierSel.value:(t?.rank||"");
+   const availableTiers=(Array.isArray(t?.tiers)&&t.tiers.length?t.tiers:[t?.rank].filter(Boolean));
+   const tierOrder=["Orange","Purple","Blue","Green"];
+   const orderedTiers=tierOrder.filter(x=>availableTiers.includes(x)).concat(availableTiers.filter(x=>!tierOrder.includes(x)));
+   const chosen=tierSel?.value&&orderedTiers.includes(tierSel.value)?tierSel.value:(t?.rank&&orderedTiers.includes(t.rank)?t.rank:(orderedTiers[0]||""));
    db.girls[i].boards[b][s]=chosen?`${id}|${chosen}`:id;
-   if(tierSel){tierSel.innerHTML=`<option value="">Tier</option>${tierOptions(t,chosen)}`;tierSel.disabled=!t;}
+   if(tierSel){
+     // Rebuild the full tier list before enabling the native select. Some mobile
+     // browsers otherwise show only the first option until the popup is reopened.
+     tierSel.disabled=true;
+     tierSel.replaceChildren(new Option("Tier",""));
+     orderedTiers.forEach(tier=>tierSel.add(new Option(tier,tier,tier===chosen,tier===chosen)));
+     tierSel.value=chosen;
+     requestAnimationFrame(()=>{if(tierSel.isConnected)tierSel.disabled=!t;});
+   }
  }
  // Persist without re-rendering the table. Re-rendering immediately here can
  // replace the input DOM while the browser is still processing the click/touch.
