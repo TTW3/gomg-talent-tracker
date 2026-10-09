@@ -113,7 +113,7 @@ function injectTrackerLayoutStyle(){if($("trackerLayoutStyle"))return;const st=d
 .tracker-talent-card{border:1px solid var(--border,#e5d5cc);border-radius:11px;overflow:visible;min-width:0;background:var(--card,#fffaf6)}
 .tracker-talent-name-row{display:flex;align-items:center;gap:7px;padding:7px 8px;min-width:0}
 .tracker-talent-name-row .autocomplete{flex:1;min-width:0}
-.tracker-talent-name-row .talentinput{display:block;width:100%;min-width:0;box-sizing:border-box;height:38px;border:0;background:transparent;padding:5px 3px;font-size:14px;text-overflow:clip}
+.tracker-talent-name-row .talentinput{display:block;width:100%;min-width:0;box-sizing:border-box;height:38px;border:1px solid #ff858b;border-radius:8px;background:#fff4f3;padding:5px 10px;font-size:14px;text-overflow:clip;outline-offset:1px}.tracker-talent-name-row .talentinput:focus{border-color:#f05f6b;box-shadow:0 0 0 2px #ff858b24}.tracker-talent-name-row .talentinput::placeholder{color:#d36e72;opacity:1}
 .tracker-talent-info{flex:0 0 28px;width:28px;height:28px;padding:0;border-radius:50%;font-weight:800;line-height:1;border:1px solid #e8c5b5;background:#fff4ee;color:#4a2a20}
 .tracker-talent-info:disabled{opacity:.25}
 .tracker-talent-card .talent-tier-select{display:block;width:calc(100% - 14px);margin:0 7px 7px;min-height:36px;box-sizing:border-box;border:1px solid var(--border,#dfc9bd);border-radius:8px;background:var(--input-bg,#fff);color:inherit;padding:5px 8px}
