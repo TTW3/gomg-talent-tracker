@@ -29,7 +29,26 @@ function tierOptions(t,selected){const tiers=Array.isArray(t?.tiers)&&t.tiers.le
 const NAME_TRANSLATIONS={"伤害加深":"Deepened Damage","冬眠蛰伏":"Hibernating Ambush","剧毒唾液":"Toxic Saliva","动态视觉":"Dynamic Vision","动能转化":"Kinetic Conversion","厚实鳞甲":"Thick Scales","变温爆发":"Ectothermic Burst","变色鳞甲":"Color-Changing Scales","吸水皮肤":"Water-Absorbing Skin","奇形吹管":"Strange Flute","巨颚撕咬":"Giant Jaw Bite","强力后肢":"Powerful Hind Legs","断尾求生":"Tail-Shedding Survival","施虐打击":"Sadistic Strike","既定程序":"Preset Program","死亡翻滚":"Death Roll","沼泽霸主":"Swamp Overlord","浪潮翻涌":"Surging Tide","清脆蛙鸣":"Clear Frog Call","猎魔仪式":"Demon Hunt Ritual","疯狂生长":"Wild Growth","耐心潜伏":"Patient Ambush","能源自毁":"Energy Self-Destruct","自我诊断":"Self-Diagnosis","致命毒素":"Deadly Toxin","超载运行":"Overload","远古意志":"Ancient Will","难以清洗":"Hard to Cleanse","默默潜水":"Silent Diving"};
 function talentName(t){return t?.name_en||NAME_TRANSLATIONS[t?.name_source||t?.name_cn]||t?.name_source||t?.name_cn||t?.id||"Unknown Talent"}
 function talentSourceName(t){return t?.name_source||t?.name_cn||""}
-function tierEffect(t,tier){let text=t?.description_en||t?.effect_en||t?.description||"No description available.";const vals=(t?.tier_values?.[tier]||[]).filter(v=>v!==undefined&&v!==null&&String(v)!=="0"&&String(v)!=="");let n=0;if(vals.length)text=text.replace(/\b\d+(?:\.\d+)?\b/g,match=>n<vals.length?String(vals[n++]):match);return text}
+function tierEffect(t,tier){
+ const text=t?.description_en||t?.effect_en||t?.description||"No description available.";
+ const base=Array.isArray(t?.tier_values?.Orange)?t.tier_values.Orange:null;
+ const target=Array.isArray(t?.tier_values?.[tier])?t.tier_values[tier]:null;
+ if(!base||!target||tier==="Orange"||!base.length||!target.length)return text;
+ // tier_values are ordered by game parameters, not necessarily by the order numbers appear in English text.
+ // Match each Orange parameter to its matching number in the base English description before substituting.
+ const tokens=[...text.matchAll(/\b\d+(?:\.\d+)?\b/g)];
+ const used=new Set(), replacements=[];
+ const numeric=v=>{const n=Number(v);return Number.isFinite(n)?n:null};
+ for(let i=0;i<Math.min(base.length,target.length);i++){
+   const from=numeric(base[i]),to=target[i];
+   if(from===null||to===undefined||to===null||String(to)==="")continue;
+   const candidates=tokens.map((m,index)=>({m,index})).filter(x=>!used.has(x.index)&&numeric(x.m[0])===from);
+   if(candidates.length!==1)continue;
+   const hit=candidates[0];used.add(hit.index);replacements.push({start:hit.m.index,end:hit.m.index+hit.m[0].length,value:String(to)});
+ }
+ let result=text;for(const r of replacements.sort((a,b)=>b.start-a.start))result=result.slice(0,r.start)+r.value+result.slice(r.end);
+ return result;
+}
 function tierDot(tier){return ({Green:"🟢",Blue:"🔵",Purple:"🟣",Orange:"🟠"})[tier]||"⚪"}
 function renderTalentDatabase(){const list=$("talentDatabaseList");if(!list)return;const q=normalizeText($("talentDbSearch")?.value||"");const active=document.querySelector('[data-db-tier].active')?.dataset.dbTier||"All";
  const matches=GAME.talents.filter(t=>{const text=normalizeText([talentName(t),talentSourceName(t),t.effect_en,t.effect_cn,t.source_label,t.source_value].join(" "));return (!q||text.includes(q))&&(active==="All"||(t.tiers||[t.rank]).includes(active));}).sort((a,b)=>talentName(a).localeCompare(talentName(b)));
