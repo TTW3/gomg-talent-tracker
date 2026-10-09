@@ -259,6 +259,15 @@ function chooseSuggestion(suggestion){
    const orderedTiers=tierOrder.filter(x=>availableTiers.includes(x)).concat(availableTiers.filter(x=>!tierOrder.includes(x)));
    const chosen=tierSel?.value&&orderedTiers.includes(tierSel.value)?tierSel.value:(t?.rank&&orderedTiers.includes(t.rank)?t.rank:(orderedTiers[0]||""));
    db.girls[i].boards[b][s]=chosen?`${id}|${chosen}`:id;
+   // Update the info button immediately when a talent is chosen. The tracker
+   // deliberately avoids a full render here to preserve mobile suggestion taps.
+   const infoBtn=input.closest(".tracker-talent-card")?.querySelector(".tracker-talent-info");
+   if(infoBtn){
+     infoBtn.dataset.talentInfo=id;
+     infoBtn.disabled=!t;
+     infoBtn.title=t?`Xem chi tiết ${talentName(t)}`:"Xem chi tiết Talent";
+     infoBtn.setAttribute("aria-label",t?`Xem chi tiết ${talentName(t)}`:"Xem chi tiết Talent");
+   }
    if(tierSel){
      // Rebuild the full tier list before enabling the native select. Some mobile
      // browsers otherwise show only the first option until the popup is reopened.
