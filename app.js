@@ -17,15 +17,11 @@ function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&l
 function clone(x){return JSON.parse(JSON.stringify(x))}
 function loadLocal(){try{return JSON.parse(localStorage.getItem(KEY))||clone(starter)}catch{return clone(starter)}}
 function save(){localStorage.setItem(KEY,JSON.stringify(db));render()}
-function splitTalentValue(v){const raw=String(v||"");const p=raw.lastIndexOf("|");return p>0?{id:raw.slice(0,p),tier:raw.slice(p+1)}:{id:raw,tier:""}}
-function talentById(id){const x=splitTalentValue(id);return GAME.talents.find(t=>t.id===x.id)}
-function talentTier(id){const x=splitTalentValue(id),t=talentById(id);return x.tier&&t&&t.tiers?.includes(x.tier)?x.tier:(t?.rank||"")}
-function talentValue(id,tier){if(!id)return "";const t=talentById(id);const tierOk=tier&&t?.tiers?.includes(tier)?tier:(t?.rank||"");return tierOk?`${splitTalentValue(id).id}|${tierOk}`:splitTalentValue(id).id}
+function talentById(id){return GAME.talents.find(x=>x.id===id)}
 function charById(id){return GAME.characters.find(x=>x.id===id)}
-function talentLabel(id){let t=talentById(id);const x=splitTalentValue(id);return t?talentName(t):(x.id||"")}
+function talentLabel(id){let t=talentById(id);return t?talentName(t):(id||"")}
 function charLabel(id){let c=charById(id);return c?c.name_en:id||""}
 function tierClass(t){return t?`tier tier-${t}`:""}
-function tierOptions(t,selected){return (t?.tiers||[]).map(x=>`<option value="${esc(x)}" ${x===selected?"selected":""}>${esc(x)}</option>`).join("")}
 const NAME_TRANSLATIONS={"伤害加深":"Deepened Damage","冬眠蛰伏":"Hibernating Ambush","剧毒唾液":"Toxic Saliva","动态视觉":"Dynamic Vision","动能转化":"Kinetic Conversion","厚实鳞甲":"Thick Scales","变温爆发":"Ectothermic Burst","变色鳞甲":"Color-Changing Scales","吸水皮肤":"Water-Absorbing Skin","奇形吹管":"Strange Flute","巨颚撕咬":"Giant Jaw Bite","强力后肢":"Powerful Hind Legs","断尾求生":"Tail-Shedding Survival","施虐打击":"Sadistic Strike","既定程序":"Preset Program","死亡翻滚":"Death Roll","沼泽霸主":"Swamp Overlord","浪潮翻涌":"Surging Tide","清脆蛙鸣":"Clear Frog Call","猎魔仪式":"Demon Hunt Ritual","疯狂生长":"Wild Growth","耐心潜伏":"Patient Ambush","能源自毁":"Energy Self-Destruct","自我诊断":"Self-Diagnosis","致命毒素":"Deadly Toxin","超载运行":"Overload","远古意志":"Ancient Will","难以清洗":"Hard to Cleanse","默默潜水":"Silent Diving"};
 function talentName(t){return t?.name_en||NAME_TRANSLATIONS[t?.name_source||t?.name_cn]||t?.name_source||t?.name_cn||t?.id||"Unknown Talent"}
 function talentSourceName(t){return t?.name_source||t?.name_cn||""}
@@ -39,7 +35,7 @@ function renderTalentDatabase(){const list=$("talentDatabaseList");if(!list)retu
 function openTalentModal(id){const t=GAME.talents.find(x=>x.id===id);if(!t)return;$("talentModalTitle").textContent=talentName(t);const src=talentSourceName(t);$("talentModalMeta").innerHTML=`${src&&src!==talentName(t)?`<div class="talent-source-name">Tên gốc: ${esc(src)}</div>`:""}<span>${esc(t.source_label||t.source_cat||"")}</span>`;const tiers=(t.tiers||[t.rank].filter(Boolean)).filter(Boolean);$("talentModalBody").innerHTML=tiers.map(tier=>`<section class="talent-modal-tier"><h4>${tierDot(tier)} ${esc(tier)}</h4><p>${esc(tierEffect(t,tier))}</p></section>`).join("")+`<details><summary>Thông tin gốc</summary><p>${esc(t.effect_cn||"")}</p><small>${esc(t.id||"")}</small></details>`;$("talentModal").hidden=false}
 function initTalentDatabase(){const dbBtn=$("databaseViewBtn"),trackerBtn=$("trackerViewBtn"),view=$("talentDatabaseView");if(!dbBtn||!trackerBtn||!view)return;function show(which){const database=which==="database";document.querySelectorAll(".tracker-view").forEach(x=>x.hidden=database);view.hidden=!database;dbBtn.classList.toggle("primary",database);trackerBtn.classList.toggle("primary",!database);if(database)renderTalentDatabase()};dbBtn.addEventListener("click",()=>show("database"));trackerBtn.addEventListener("click",()=>show("tracker"));$("talentDbSearch")?.addEventListener("input",renderTalentDatabase);document.querySelectorAll("[data-db-tier]").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll("[data-db-tier]").forEach(x=>x.classList.toggle("active",x===btn));renderTalentDatabase()}));$("talentDatabaseList")?.addEventListener("click",e=>{const b=e.target.closest("[data-talent-id]");if(b)openTalentModal(b.dataset.talentId)});$("talentModalClose")?.addEventListener("click",()=>$("talentModal").hidden=true);$("talentModal")?.addEventListener("click",e=>{if(e.target.id==="talentModal")$("talentModal").hidden=true});document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("talentModal"))$("talentModal").hidden=true})}
 function injectTalentDatabaseStyle(){if($("talentDatabaseStyle"))return;const st=document.createElement("style");st.id="talentDatabaseStyle";st.textContent=`.talent-db-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:12px}.talent-db-card{position:relative;border:1px solid var(--border,#ddd);border-radius:14px;padding:14px;padding-right:42px;min-width:0}.talent-db-open{display:flex;flex-direction:column;gap:4px;text-align:left;background:transparent;border:0;padding:0;color:inherit;width:100%;cursor:pointer}.talent-db-title{font-size:17px;font-weight:750}.talent-source-name{display:block;color:var(--muted,#777);font-size:13px}.talent-db-meta{font-size:12px;opacity:.7}.talent-db-tier-list{display:grid;gap:10px;margin-top:12px}.talent-db-tier{border-top:1px solid var(--border,#ddd);padding-top:9px}.talent-db-tier b{display:block;margin-bottom:4px}.talent-db-tier p,.talent-modal-tier p{margin:0;white-space:normal;line-height:1.5}.talent-info-btn{position:absolute;right:10px;top:10px;border-radius:50%;width:27px;height:27px;padding:0;font-weight:800}.talent-modal[hidden]{display:none}.talent-modal{position:fixed;inset:0;z-index:1000;background:#0008;display:grid;place-items:center;padding:16px}.talent-modal-card{background:var(--card,#fff);color:inherit;border-radius:16px;max-width:650px;width:100%;max-height:85vh;overflow:auto;padding:18px}.talent-modal-head{display:flex;justify-content:space-between;gap:12px;align-items:start}.talent-modal-tier{padding:12px 0;border-bottom:1px solid var(--border,#ddd)}.talent-modal-tier h4{margin:0 0 6px}.talent-modal-body details{margin-top:12px}@media(max-width:600px){.talent-db-list{grid-template-columns:1fr}.talent-db-title{font-size:16px}}`;document.head.appendChild(st)}
-function displayTalent(t){if(!t)return '<span class="muted">Empty</span>';let x=talentById(t);if(!x)return esc(t);return `<span class="${tierClass(talentTier(t))}">${esc(x.name_en||x.name_source)} · ${esc(talentTier(t))}</span>`}
+function displayTalent(t){if(!t)return '<span class="muted">Empty</span>';let x=talentById(t);if(!x)return esc(t);return `<span class="${tierClass(x.rank)}">${esc(x.name_en||x.name_source)}</span>`}
 function migrate(){
  db=loadLocal();
  const charMap=new Map(GAME.characters.map(c=>[(c.name_en||"").toLowerCase(),c.id]));
@@ -49,20 +45,19 @@ function migrate(){
    let cid=g.charId;
    const probe=String(g.charId||g.name||"").toLowerCase();
    if(!cid) cid=charMap.get(probe);
-   const boards=g.boards.map(board=>board.map(t=>{const raw=String(t||"");const parsed=splitTalentValue(raw);const base=talMap.get(parsed.id.toLowerCase())||parsed.id;const tt=GAME.talents.find(x=>x.id===base);const tier=parsed.tier&&tt?.tiers?.includes(parsed.tier)?parsed.tier:(tt?.rank||"");return tier?`${base}|${tier}`:base;}));
+   const boards=g.boards.map(board=>board.map(t=>talMap.get(String(t).toLowerCase())||t));
    return {charId:cid||null,name:cid?charLabel(cid):(g.name||`Custom Girl ${i+1}`),customName:cid?false:true,boards,activeBoard:g.activeBoard};
  });
  db.log=db.log||[];
  saveSilently();
 }
 function saveSilently(){localStorage.setItem(KEY,JSON.stringify(db))}
-function injectTalentTierStyle(){if(document.getElementById("talentTierStyle"))return;const st=document.createElement("style");st.id="talentTierStyle";st.textContent=".talent-editor{display:flex;gap:6px;align-items:center}.talent-editor .autocomplete{flex:1;min-width:0}.talent-tier-select{width:92px;min-height:34px;border:1px solid var(--border,#ddd);border-radius:8px;background:var(--input-bg,transparent);color:inherit}.talent-tier-select:disabled{opacity:.55}@media(max-width:700px){.talent-editor{flex-direction:column;align-items:stretch}.talent-tier-select{width:100%}}";document.head.appendChild(st)}
 async function init(){
  try{
   const r=await fetch("game-data.json",{cache:"no-store"});if(!r.ok)throw Error();
   GAME=await r.json();$("dbStatus").textContent=`Loaded ${GAME.characters.length} characters / ${GAME.talents.length} bundled talents`;$("dbBadge").textContent=`DB ${GAME.schema_version}`;
  }catch(e){GAME={characters:[],talents:[]};$("dbStatus").textContent="Database file not loaded — add game-data.json";$("dbBadge").textContent="DB error"}
- db=loadLocal();migrate();injectTalentTierStyle();injectTalentDatabaseStyle();initTalentDatabase();render();
+ db=loadLocal();migrate();injectTalentDatabaseStyle();initTalentDatabase();render();
 }
 function render(){
  const q=normalizeText($("search").value),body=$("girlsBody");body.innerHTML="";
@@ -77,7 +72,7 @@ function render(){
  });
  fillGirlSelects();fillBoardSelects();fillSlotSelects();renderLookup();renderHistory();
  $("girlCount").textContent=db.girls.length;$("talentCount").textContent=db.girls.length*BOARD_COUNT*SLOT_COUNT;$("logCount").textContent=db.log.length;
- $("charDbCount").textContent=GAME.characters.length;$("talentDbCount").textContent=GAME.talents.length;renderTalentDatabase();
+ $("charDbCount").textContent=GAME.characters.length;$("talentDbCount").textContent=GAME.talents.length;
 }
 function girlEditor(g,i){
  const value=g.charId?charLabel(g.charId):(g.name||"");
@@ -85,8 +80,8 @@ function girlEditor(g,i){
  return `<div class="girl-cell"><div class="autocomplete"><input class="girlinput" data-g="${i}" value="${esc(value)}" placeholder="Gõ tên Girl..." autocomplete="off"><div class="suggestions"></div></div><div class="board-tabs">${tabs}</div></div>`;
 }
 function talentEditor(t,i,b,s){
- const value=t?talentValue(t):""; const tt=t?talentById(t):null; const sel=t?talentTier(t):"";
- return `<div class="talent-editor"><div class="autocomplete"><input class="talentinput" data-g="${i}" data-b="${b}" data-s="${s}" value="${esc(value)}" placeholder="Gõ tên Talent..." autocomplete="off"><div class="suggestions"></div></div><select class="talent-tier-select" data-g="${i}" data-b="${b}" data-s="${s}" ${tt?"":"disabled"}><option value="">Tier</option>${tierOptions(tt,sel)}</select></div>`;
+ const value=t?talentLabel(t):"";
+ return `<div class="autocomplete"><input class="talentinput" data-g="${i}" data-b="${b}" data-s="${s}" value="${esc(value)}" placeholder="Gõ tên Talent..." autocomplete="off"><div class="suggestions"></div></div>`;
 }
 function normalizeText(v){return String(v||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim()}
 function fuzzyScore(query,text){
@@ -127,11 +122,9 @@ function showSuggestions(input){
  const items=isGirl?findGirlSuggestions(input.value):findTalentSuggestions(input.value);
  if(!items.length){box.innerHTML="";box.classList.remove("open");return}
  box.innerHTML=items.map(x=>{
-   const name=esc(talentName(x));
-   const source=talentSourceName(x)&&talentName(x)!==talentSourceName(x)?`<small>${esc(talentSourceName(x))}</small>`:"";
-   if(isGirl)return `<div class="suggestion" data-id="${esc(x.id)}"><span>${name}</span>${source}</div>`;
-   const tiers=Array.isArray(x.tiers)&&x.tiers.length?x.tiers:(x.rank?[x.rank]:["Orange"]);
-   return tiers.map(tier=>`<div class="suggestion talent-tier-option" data-id="${esc(x.id)}" data-tier="${esc(tier)}"><span>${name}</span>${source}<b class="tier tier-${esc(tier)}">${esc(tier)}</b></div>`).join("");
+   const id=esc(x.id),name=esc(x.name_en||x.name_source||"");
+   const source=x.name_source&&x.name_en!==x.name_source?`<small>${esc(x.name_source)}</small>`:"";
+   return `<div class="suggestion" data-id="${id}"><span>${name}</span>${source}</div>`;
  }).join("");
  box.classList.add("open");
 }
@@ -162,16 +155,12 @@ function chooseSuggestion(suggestion){
  }else{
    const i=+input.dataset.g,s=+input.dataset.s,b=+input.dataset.b;
    if(!db.girls[i])return;
-   const tierSel=input.parentElement.parentElement.querySelector(".talent-tier-select");
-   const t=talentById(id);
-   const chosen=tierSel?.value&&t?.tiers?.includes(tierSel.value)?tierSel.value:(t?.rank||"");
-   db.girls[i].boards[b][s]=chosen?`${id}|${chosen}`:id;
-   if(tierSel){tierSel.innerHTML=`<option value="">Tier</option>${tierOptions(t,chosen)}`;tierSel.disabled=!t;}
+   db.girls[i].boards[b][s]=id;
  }
  // Persist without re-rendering the table. Re-rendering immediately here can
  // replace the input DOM while the browser is still processing the click/touch.
  localStorage.setItem(KEY,JSON.stringify(db));
- input.value=input.classList.contains("girlinput")?charLabel(id):talentLabel(db.girls[+input.dataset.g].boards[+input.dataset.b][+input.dataset.s]);
+ input.value=input.classList.contains("girlinput")?charLabel(id):talentLabel(id);
  const box=input.parentElement.querySelector(".suggestions");
  if(box){box.innerHTML="";box.classList.remove("open");}
 }
@@ -187,15 +176,6 @@ document.addEventListener("click",e=>{
  // Fallback for browsers that do not emit pointerdown for this control.
  if(suggestion.dataset.chosen==="1")return;
  chooseSuggestion(suggestion);
-});
-document.addEventListener("change",e=>{
- if(!e.target.matches(".talent-tier-select"))return;
- const i=+e.target.dataset.g,b=+e.target.dataset.b,s=+e.target.dataset.s;
- if(!db.girls[i])return;
- const current=db.girls[i].boards[b][s],base=splitTalentValue(current).id,t=talentById(base);
- if(!t)return;
- db.girls[i].boards[b][s]=e.target.value?`${base}|${e.target.value}`:base;
- save();
 });
 document.addEventListener("focusout",e=>{
  if(!e.target.matches(".girlinput,.talentinput"))return;
@@ -225,15 +205,15 @@ function swapTalent(){
  const A=db.girls[ai],B=db.girls[bi],at=A.boards[ab][as],bt=B.boards[bb][bs];
  if(!at||!bt)return alert("Cả 2 slot phải có talent.");
  const ta=talentById(at),tb=talentById(bt);
- if(ta&&tb&&talentTier(at)!==talentTier(bt))return alert(`Không thể SWAP khác tier: ${talentTier(at)} ↔ ${talentTier(bt)}`);
+ if(ta&&tb&&ta.rank!==tb.rank)return alert(`Không thể SWAP khác tier: ${ta.rank} ↔ ${tb.rank}`);
  [A.boards[ab][as],B.boards[bb][bs]]=[bt,at];
  db.log.push({time:new Date().toLocaleString("vi-VN"),text:`${A.name} [B${ab+1} T${as+1}] ${talentLabel(at)} ↔ ${B.name} [B${bb+1} T${bs+1}] ${talentLabel(bt)}`});
  save();
 }
 function renderLookup(){
  const q=normalizeText($("talentSearch").value),out=$("lookup");if(!q){out.innerHTML='<span class="muted">Nhập tên talent để tìm.</span>';return}
- const matches=GAME.talents.filter(t=>normalizeText(talentName(t)+" "+(t.name_source||t.name_cn||"")).includes(q)).slice(0,30);
- const rows=[];matches.forEach(t=>{db.girls.forEach(g=>g.boards.forEach((board,b)=>board.forEach((id,s)=>{if(splitTalentValue(id).id===t.id)rows.push(`<div class="lookup-item"><b>${esc(g.name)}</b><span class="pill">Board ${b+1}</span><span class="pill">Talent ${s+1}</span><span class="pill ${tierClass(talentTier(id))}">${esc(talentName(t))} · ${esc(talentTier(id))}</span></div>`)})))});
+ const matches=GAME.talents.filter(t=>normalizeText(t.name_en+" "+(t.name_source||"")).includes(q)).slice(0,30);
+ const rows=[];matches.forEach(t=>{db.girls.forEach(g=>g.boards.forEach((board,b)=>board.forEach((id,s)=>{if(id===t.id)rows.push(`<div class="lookup-item"><b>${esc(g.name)}</b><span class="pill">Board ${b+1}</span><span class="pill">Talent ${s+1}</span><span class="pill ${tierClass(t.rank)}">${esc(t.name_en||t.name_source)}</span></div>`)})))});
  out.innerHTML=rows.length?rows.join(""):(matches.length?'<span class="muted">Talent có trong database nhưng chưa được gán cho Girl nào.</span>':'<span class="muted">Không tìm thấy trong bundled database.</span>');
 }
 function renderHistory(){$("history").innerHTML=db.log.length?db.log.slice().reverse().map(x=>`<div class="history-row"><time>${esc(x.time)}</time>${esc(x.text)}</div>`).join(""):'<span class="muted">Chưa có SWAP.</span>'}
@@ -278,7 +258,3 @@ function initSyncUI(){
 
 initSyncUI();
 init();
-
-
-// Tier selector styling for Talent Tracker suggestions only.
-(function(){const st=document.createElement("style");st.textContent=`.talent-tier-option{gap:8px}.talent-tier-option .tier{margin-left:auto;font-size:11px;font-weight:700}.talent-tier-option small{margin-left:4px;opacity:.65}`;document.head.appendChild(st)})();
