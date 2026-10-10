@@ -1,6 +1,6 @@
 {
   "schema_version": 6,
-  "last_checked": "2026-10-09",
+  "last_checked": "2026-10-10",
   "character_source": "https://gomg-wiki.pages.dev/units/",
   "talent_source": "https://gomg-wiki.pages.dev/search-talent-new",
   "talent_index_source": "https://gomg-wiki.pages.dev/talent-search-index.js",
@@ -20621,6 +20621,41 @@
     },
     {
       "id": "talent_005",
+      "name_en": "Wild Growth",
+      "name_cn": "野蛮生长",
+      "effect_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
+      "effect_cn": "获得成长层数+2，每拥有50层成长使自身获得生命+1。",
+      "tiers": [
+        "Orange",
+        "Purple"
+      ],
+      "source_cat": "Race",
+      "source_label": "Race: Botanical",
+      "source_value": "Botanical",
+      "exclusive_name": "",
+      "exclusive_name_cn": "",
+      "icon": "",
+      "tags": [],
+      "tier_values": {
+        "Purple": [
+          "1",
+          "100",
+          "1"
+        ],
+        "Orange": [
+          "2",
+          "50",
+          "1"
+        ]
+      },
+      "name_source": "野蛮生长",
+      "description_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
+      "rank": "Orange",
+      "origin": "gomg-wiki-search-index",
+      "legacy_source_id": "TF12801_004"
+    },
+    {
+      "id": "talent_011",
       "name_en": "Wild Growth",
       "name_cn": "疯狂生长",
       "effect_en": "[CN: 获得生命效果会同时使自身获得10层成长。]",
