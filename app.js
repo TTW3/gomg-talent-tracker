@@ -1,4 +1,4 @@
-const KEY="gomg-talent-tracker-v3";let GAME=null,db=null;
+const KEY="gomg-talent-tracker-v3";let GAME=null,EXTRAS=[] ,db=null;
 const starter={girls:[],log:[]};
 const BOARD_COUNT=4,SLOT_COUNT=4;
 function emptyBoards(){return Array.from({length:BOARD_COUNT},()=>Array(SLOT_COUNT).fill(""))}
@@ -24,6 +24,7 @@ function talentValue(id,tier){if(!id)return "";const t=talentById(id);const tier
 function charById(id){return GAME.characters.find(x=>x.id===id)}
 function talentLabel(id){let t=talentById(id);const x=splitTalentValue(id);return t?talentName(t):(x.id||"")}
 function charLabel(id){let c=charById(id);return c?c.name_en:id||""}
+function charIcon(c){return c?.icon||(c?.source_id?`https://gomg-wiki.pages.dev/assets/icons/Header/${encodeURIComponent(c.source_id)}.png`:"")}
 function tierClass(t){return t?`tier tier-${t}`:""}
 function tierOptions(t,selected){const tiers=Array.isArray(t?.tiers)&&t.tiers.length?t.tiers:[t?.rank].filter(Boolean);const order=["Orange","Purple","Blue","Green"];const sorted=order.filter(x=>tiers.includes(x)).concat(tiers.filter(x=>!order.includes(x)));return sorted.map(x=>`<option value="${esc(x)}" ${x===selected?"selected":""}>${esc(x)}</option>`).join("")}
 const NAME_TRANSLATIONS={"伤害加深":"Deepened Damage","冬眠蛰伏":"Hibernating Ambush","剧毒唾液":"Toxic Saliva","动态视觉":"Dynamic Vision","动能转化":"Kinetic Conversion","厚实鳞甲":"Thick Scales","变温爆发":"Ectothermic Burst","变色鳞甲":"Color-Changing Scales","吸水皮肤":"Water-Absorbing Skin","奇形吹管":"Strange Flute","巨颚撕咬":"Giant Jaw Bite","强力后肢":"Powerful Hind Legs","断尾求生":"Tail-Shedding Survival","施虐打击":"Sadistic Strike","既定程序":"Preset Program","死亡翻滚":"Death Roll","沼泽霸主":"Swamp Overlord","浪潮翻涌":"Surging Tide","清脆蛙鸣":"Clear Frog Call","猎魔仪式":"Demon Hunt Ritual","疯狂生长":"Wild Growth","耐心潜伏":"Patient Ambush","能源自毁":"Energy Self-Destruct","自我诊断":"Self-Diagnosis","致命毒素":"Deadly Toxin","超载运行":"Overload","远古意志":"Ancient Will","难以清洗":"Hard to Cleanse","默默潜水":"Silent Diving"};
@@ -53,15 +54,55 @@ function tierDot(tier){return ({Green:"🟢",Blue:"🔵",Purple:"🟣",Orange:"�
 let talentDbCategory="All",talentDbRace="All";
 function raceName(t){const label=String(t?.source_label||"");return t?.source_cat==="Race"?label.replace(/^Race:\s*/i,"").trim():""}
 function initTalentDbRaceFilters(){
- const toolbar=document.querySelector(".talent-db-toolbar");if(!toolbar||$("talentDbCategoryFilters"))return;
- const categories=document.createElement("div");categories.id="talentDbCategoryFilters";categories.className="talent-db-category-filters";
- categories.innerHTML=["All","Race","Exclusive","Class","Element","Generic"].map((cat,i)=>`<button type="button" data-db-category="${cat}" class="${i===0?"active":""}">${cat==="All"?"All types":cat}</button>`).join("");
- const races=document.createElement("div");races.id="talentDbRaceFilters";races.className="talent-db-race-filters";races.hidden=true;
- const raceNames=[...new Set(GAME.talents.filter(t=>t.source_cat==="Race").map(raceName).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
- races.innerHTML=`<button type="button" class="active" data-db-race="All">All races</button>`+raceNames.map(r=>`<button type="button" data-db-race="${esc(r)}">${esc(r)}</button>`).join("");
- toolbar.after(categories,races);
- categories.addEventListener("click",e=>{const b=e.target.closest("[data-db-category]");if(!b)return;talentDbCategory=b.dataset.dbCategory;talentDbRace="All";categories.querySelectorAll("[data-db-category]").forEach(x=>x.classList.toggle("active",x===b));races.hidden=talentDbCategory!=="Race";races.querySelectorAll("[data-db-race]").forEach(x=>x.classList.toggle("active",x.dataset.dbRace==="All"));renderTalentDatabase()});
- races.addEventListener("click",e=>{const b=e.target.closest("[data-db-race]");if(!b)return;talentDbRace=b.dataset.dbRace;races.querySelectorAll("[data-db-race]").forEach(x=>x.classList.toggle("active",x===b));renderTalentDatabase()});
+ const toolbar=document.querySelector("#talentDatabaseView .talent-db-toolbar");
+ if(!toolbar)return;
+ const parent=toolbar.parentElement;
+ // Keep one set of filters next to the Talent Database toolbar; remove any duplicates elsewhere.
+ const cats=[...document.querySelectorAll("#talentDbCategoryFilters")];
+ const racesAll=[...document.querySelectorAll("#talentDbRaceFilters")];
+ let categories=cats.find(el=>el.parentElement===parent);
+ let races=racesAll.find(el=>el.parentElement===parent);
+ cats.forEach(el=>{if(el!==categories)el.remove()});
+ racesAll.forEach(el=>{if(el!==races)el.remove()});
+ if(!categories){
+  categories=document.createElement("div");
+  categories.id="talentDbCategoryFilters";
+  categories.className="talent-db-category-filters";
+  categories.innerHTML=["All","Race","Exclusive","Class","Element","Generic"].map(cat=>`<button type="button" data-db-category="${cat}">${cat==="All"?"All types":cat}</button>`).join("");
+  toolbar.after(categories);
+ }
+ if(!races){
+  races=document.createElement("div");
+  races.id="talentDbRaceFilters";
+  races.className="talent-db-race-filters";
+  const raceNames=[...new Set(GAME.talents.filter(t=>t.source_cat==="Race").map(raceName).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  races.innerHTML=`<button type="button" data-db-race="All">All races</button>`+raceNames.map(r=>`<button type="button" data-db-race="${esc(r)}">${esc(r)}</button>`).join("");
+  categories.after(races);
+ }
+ // Always reflect the current filter state, without rebuilding the buttons on each render.
+ categories.querySelectorAll("[data-db-category]").forEach(x=>x.classList.toggle("active",x.dataset.dbCategory===talentDbCategory));
+ races.hidden=talentDbCategory!=="Race";
+ races.querySelectorAll("[data-db-race]").forEach(x=>x.classList.toggle("active",x.dataset.dbRace===talentDbRace));
+ if(!categories.dataset.bound){
+  categories.dataset.bound="1";
+  categories.addEventListener("click",e=>{
+   const b=e.target.closest("[data-db-category]");if(!b)return;
+   talentDbCategory=b.dataset.dbCategory;talentDbRace="All";
+   categories.querySelectorAll("[data-db-category]").forEach(x=>x.classList.toggle("active",x===b));
+   races.hidden=talentDbCategory!=="Race";
+   races.querySelectorAll("[data-db-race]").forEach(x=>x.classList.toggle("active",x.dataset.dbRace==="All"));
+   renderTalentDatabase();
+  });
+ }
+ if(!races.dataset.bound){
+  races.dataset.bound="1";
+  races.addEventListener("click",e=>{
+   const b=e.target.closest("[data-db-race]");if(!b)return;
+   talentDbRace=b.dataset.dbRace;
+   races.querySelectorAll("[data-db-race]").forEach(x=>x.classList.toggle("active",x===b));
+   renderTalentDatabase();
+  });
+ }
 }
 function renderTalentDatabase(){const list=$("talentDatabaseList");if(!list)return;initTalentDbRaceFilters();const q=normalizeText($("talentDbSearch")?.value||"");const active=document.querySelector('[data-db-tier].active')?.dataset.dbTier||"All";
  const matches=GAME.talents.filter(t=>{const race=raceName(t);const text=normalizeText([talentName(t),talentSourceName(t),t.effect_en,t.effect_cn,t.source_label,t.source_value].join(" "));return (!q||text.includes(q))&&(active==="All"||(t.tiers||[t.rank]).includes(active))&&(talentDbCategory==="All"||t.source_cat===talentDbCategory)&&(talentDbCategory!=="Race"||talentDbRace==="All"||race===talentDbRace);}).sort((a,b)=>talentName(a).localeCompare(talentName(b)));
@@ -69,35 +110,8 @@ function renderTalentDatabase(){const list=$("talentDatabaseList");if(!list)retu
  list.innerHTML=matches.map(t=>{const tiers=(t.tiers||[t.rank].filter(Boolean)).filter(Boolean);const source=talentSourceName(t);return `<article class="talent-db-card"><button type="button" class="talent-db-open" data-talent-id="${esc(t.id)}"><span class="talent-db-title">${esc(talentName(t))}</span>${source&&source!==talentName(t)?`<small class="talent-source-name">${esc(source)}</small>`:""}<span class="talent-db-meta">${esc(t.source_label||t.source_cat||"")}</span></button><div class="talent-db-tier-list">${tiers.map(tier=>`<div class="talent-db-tier"><b>${tierDot(tier)} ${esc(tier)}</b><p>${esc(tierEffect(t,tier))}</p></div>`).join("")}</div><button type="button" class="talent-info-btn" data-talent-id="${esc(t.id)}" aria-label="Chi tiết ${esc(talentName(t))}">i</button></article>`}).join("")||'<p class="muted">Không tìm thấy Talent phù hợp.</p>';
 }
 function openTalentModal(id){const t=GAME.talents.find(x=>x.id===id);if(!t)return;$("talentModalTitle").textContent=talentName(t);const src=talentSourceName(t);$("talentModalMeta").innerHTML=`${src&&src!==talentName(t)?`<div class="talent-source-name">Tên gốc: ${esc(src)}</div>`:""}<span>${esc(t.source_label||t.source_cat||"")}</span>`;const tiers=(t.tiers||[t.rank].filter(Boolean)).filter(Boolean);$("talentModalBody").innerHTML=tiers.map(tier=>`<section class="talent-modal-tier"><h4>${tierDot(tier)} ${esc(tier)}</h4><p>${esc(tierEffect(t,tier))}</p></section>`).join("")+`<details><summary>Thông tin gốc</summary><p>${esc(t.effect_cn||"")}</p><small>${esc(t.id||"")}</small></details>`;$("talentModal").hidden=false}
-function initTalentDatabase(){const dbBtn=$("databaseViewBtn"),trackerBtn=$("trackerViewBtn"),view=$("talentDatabaseView");if(!dbBtn||!trackerBtn||!view)return;function show(which){const database=which==="database",team=which==="team";document.querySelectorAll(".tracker-view").forEach(x=>x.hidden=database||team);view.hidden=!database;$("teamBuilderView").hidden=!team;dbBtn.classList.toggle("primary",database);trackerBtn.classList.toggle("primary",!database&&!team);$("teamBuilderViewBtn").classList.toggle("primary",team);if(database)renderTalentDatabase();if(team)renderTeams()};dbBtn.addEventListener("click",()=>show("database"));trackerBtn.addEventListener("click",()=>show("tracker"));$("teamBuilderViewBtn")?.addEventListener("click",()=>show("team"));$("talentDbSearch")?.addEventListener("input",renderTalentDatabase);document.querySelectorAll("[data-db-tier]").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll("[data-db-tier]").forEach(x=>x.classList.toggle("active",x===btn));renderTalentDatabase()}));$("talentDatabaseList")?.addEventListener("click",e=>{const b=e.target.closest("[data-talent-id]");if(b)openTalentModal(b.dataset.talentId)});$("talentModalClose")?.addEventListener("click",()=>$("talentModal").hidden=true);$("talentModal")?.addEventListener("click",e=>{if(e.target.id==="talentModal")$("talentModal").hidden=true});document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("talentModal"))$("talentModal").hidden=true})}
+function initTalentDatabase(){const dbBtn=$("databaseViewBtn"),trackerBtn=$("trackerViewBtn"),view=$("talentDatabaseView");if(!dbBtn||!trackerBtn||!view)return;function show(which){const database=which==="database";document.querySelectorAll(".tracker-view").forEach(x=>x.hidden=database);view.hidden=!database;dbBtn.classList.toggle("primary",database);trackerBtn.classList.toggle("primary",!database);if(database)renderTalentDatabase()};dbBtn.addEventListener("click",()=>show("database"));trackerBtn.addEventListener("click",()=>show("tracker"));$("talentDbSearch")?.addEventListener("input",renderTalentDatabase);document.querySelectorAll("[data-db-tier]").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll("[data-db-tier]").forEach(x=>x.classList.toggle("active",x===btn));renderTalentDatabase()}));$("talentDatabaseList")?.addEventListener("click",e=>{const b=e.target.closest("[data-talent-id]");if(b)openTalentModal(b.dataset.talentId)});$("talentModalClose")?.addEventListener("click",()=>$("talentModal").hidden=true);$("talentModal")?.addEventListener("click",e=>{if(e.target.id==="talentModal")$("talentModal").hidden=true});document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("talentModal"))$("talentModal").hidden=true})}
 function injectTalentDatabaseStyle(){if($("talentDatabaseStyle"))return;const st=document.createElement("style");st.id="talentDatabaseStyle";st.textContent=`.talent-db-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:12px}.talent-db-card{position:relative;border:1px solid var(--border,#ddd);border-radius:14px;padding:14px;padding-right:42px;min-width:0}.talent-db-open{display:flex;flex-direction:column;gap:4px;text-align:left;background:transparent;border:0;padding:0;color:inherit;width:100%;cursor:pointer}.talent-db-title{font-size:17px;font-weight:750}.talent-source-name{display:block;color:var(--muted,#777);font-size:13px}.talent-db-meta{font-size:12px;opacity:.7}.talent-db-tier-list{display:grid;gap:10px;margin-top:12px}.talent-db-tier{border-top:1px solid var(--border,#ddd);padding-top:9px}.talent-db-tier b{display:block;margin-bottom:4px}.talent-db-tier p,.talent-modal-tier p{margin:0;white-space:normal;line-height:1.5}.talent-info-btn{position:absolute;right:10px;top:10px;border-radius:50%;width:27px;height:27px;padding:0;font-weight:800}.talent-modal[hidden]{display:none}.talent-modal{position:fixed;inset:0;z-index:1000;background:#0008;display:grid;place-items:center;padding:16px}.talent-modal-card{background:var(--card,#fff);color:inherit;border-radius:16px;max-width:650px;width:100%;max-height:85vh;overflow:auto;padding:18px}.talent-modal-head{display:flex;justify-content:space-between;gap:12px;align-items:start}.talent-modal-tier{padding:12px 0;border-bottom:1px solid var(--border,#ddd)}.talent-modal-tier h4{margin:0 0 6px}.talent-modal-body details{margin-top:12px}.talent-db-category-filters,.talent-db-race-filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.talent-db-category-filters button,.talent-db-race-filters button{font-size:12px;padding:5px 9px;border:1px solid var(--border,#3a4148);border-radius:5px;background:transparent;color:inherit;cursor:pointer}.talent-db-category-filters button.active,.talent-db-race-filters button.active{background:var(--primary,#60442f);border-color:var(--primary,#60442f);color:#fff}.talent-db-race-filters[hidden]{display:none}@media(max-width:600px){.talent-db-list{grid-template-columns:1fr}.talent-db-title{font-size:16px}}`;document.head.appendChild(st)}
-// ---------------- Team Builder (separate local data; does not modify tracker) ----------------
-const TEAM_KEY="gomg-team-builder-v1";
-let teams=[];
-function loadTeams(){try{const x=JSON.parse(localStorage.getItem(TEAM_KEY)||"[]");return Array.isArray(x)?x:[]}catch{return []}}
-function saveTeams(){localStorage.setItem(TEAM_KEY,JSON.stringify(teams));renderTeams()}
-function newTeam(){return {id:"team_"+Date.now()+"_"+Math.random().toString(36).slice(2,7),name:`Team ${teams.length+1}`,members:["","",""],notes:""}}
-function initTeamBuilder(){
- teams=loadTeams();
- $("addTeamBtn")?.addEventListener("click",()=>{teams.push(newTeam());saveTeams()});
- const list=$("teamBuilderList");
- list?.addEventListener("change",e=>{const el=e.target.closest("[data-team-id]");if(!el)return;const t=teams.find(x=>x.id===el.dataset.teamId);if(!t)return;if(el.dataset.field==="member"){t.members[Number(el.dataset.slot)]=el.value;saveTeams()}});
- list?.addEventListener("input",e=>{const el=e.target.closest("[data-team-id]");if(!el)return;const t=teams.find(x=>x.id===el.dataset.teamId);if(!t)return;if(el.dataset.field==="name")t.name=el.value;else if(el.dataset.field==="notes")t.notes=el.value;else if(el.dataset.field==="member-query")showTeamSuggestions(el);localStorage.setItem(TEAM_KEY,JSON.stringify(teams))});
- list?.addEventListener("click",e=>{
-   const suggestion=e.target.closest("[data-team-char-option]");
-   if(suggestion){e.preventDefault();const wrap=suggestion.closest(".team-char-picker"),input=wrap?.querySelector("[data-field='member-query']");if(!input)return;chooseTeamCharacter(input,suggestion.dataset.teamCharOption);return}
-   const b=e.target.closest("[data-delete-team]");if(!b)return;if(confirm("Xóa đội hình này?")){teams=teams.filter(t=>t.id!==b.dataset.deleteTeam);saveTeams()}
- });
- list?.addEventListener("keydown",e=>{const input=e.target.closest("[data-field='member-query']");if(!input)return;const box=input.parentElement.querySelector(".team-char-suggestions");if(e.key==="Escape"){box.hidden=true;return}if(e.key==="Enter"){const first=box.querySelector("[data-team-char-option]");if(first){e.preventDefault();chooseTeamCharacter(input,first.dataset.teamCharOption)}}});
- document.addEventListener("click",e=>{if(!e.target.closest(".team-char-picker"))list?.querySelectorAll(".team-char-suggestions").forEach(x=>x.hidden=true)});
- if(!teams.length){teams.push(newTeam());saveTeams()}
-}
-function findTeamCharacterMatches(query){const q=normalizeText(query||"");return GAME.characters.filter(c=>!q||normalizeText([c.name_en,c.name_source,c.name_cn,c.id].join(" ")).includes(q)).sort((a,b)=>(a.name_en||a.id).localeCompare(b.name_en||b.id)).slice(0,10)}
-function showTeamSuggestions(input){const box=input.parentElement.querySelector(".team-char-suggestions");if(!box)return;const matches=findTeamCharacterMatches(input.value);box.innerHTML=matches.map(c=>`<button type="button" class="team-char-suggestion" data-team-char-option="${esc(c.id)}">${c.icon?`<img src="${esc(c.icon)}" alt="" loading="lazy" onerror="this.hidden=true">`:""}<span>${esc(c.name_en||c.id)}${c.name_source&&c.name_source!==c.name_en?`<small>${esc(c.name_source)}</small>`:""}</span></button>`).join("")||'<div class="team-char-no-match">Không tìm thấy nhân vật.</div>';box.hidden=false}
-function chooseTeamCharacter(input,id){const wrap=input.closest(".team-char-picker"),teamId=input.dataset.teamId,slot=Number(input.dataset.slot),t=teams.find(x=>x.id===teamId),c=charById(id);if(!t||!c)return;t.members[slot]=c.id;localStorage.setItem(TEAM_KEY,JSON.stringify(teams));renderTeams();const newInput=$(`teamBuilderList`).querySelector(`[data-team-id="${CSS.escape(teamId)}"][data-field="member-query"][data-slot="${slot}"]`);newInput?.focus()}
-function renderTeams(){const list=$("teamBuilderList");if(!list||!GAME)return;list.innerHTML=teams.map(t=>{while(!Array.isArray(t.members))t.members=["","",""];t.members=t.members.slice(0,3);while(t.members.length<3)t.members.push("");return `<article class="team-card" data-team-card="${esc(t.id)}"><div class="team-card-head"><input class="team-name" aria-label="Tên đội hình" data-team-id="${esc(t.id)}" data-field="name" value="${esc(t.name||"")}" placeholder="Tên đội hình"><button class="danger" type="button" data-delete-team="${esc(t.id)}">Xóa team</button></div><div class="team-slots">${t.members.map((id,i)=>{const c=charById(id);return `<div class="team-slot"><div class="team-slot-title">Vị trí ${i+1}</div>${c?.icon?`<img class="team-char-icon" src="${esc(c.icon)}" alt="" loading="lazy" onerror="this.hidden=true">`:`<div class="team-char-icon team-char-placeholder">${i+1}</div>`}<div class="team-char-picker"><input class="team-char-search" type="text" data-team-id="${esc(t.id)}" data-field="member-query" data-slot="${i}" value="${esc(c?.name_en||"")}" placeholder="Gõ tên nhân vật…" autocomplete="off" aria-label="Tìm nhân vật vị trí ${i+1}"><div class="team-char-suggestions" hidden></div></div>${c?`<div class="team-char-meta">${esc([c.rarity,c.role,c.element].filter(Boolean).join(" · ")||"Character")}</div>`:`<div class="team-char-meta">Nhập tên để chọn nhân vật</div>`}</div>`}).join("")}</div><label class="team-notes-label">Ghi chú / rotation<textarea rows="2" data-team-id="${esc(t.id)}" data-field="notes" placeholder="Ví dụ: thứ tự hành động, vai trò từng nhân vật…">${esc(t.notes||"")}</textarea></label></article>`}).join("")}
-
-
 function displayTalent(t){if(!t)return '<span class="muted">Empty</span>';let x=talentById(t);if(!x)return esc(t);return `<span class="${tierClass(talentTier(t))}">${esc(x.name_en||x.name_source)} · ${esc(talentTier(t))}</span>`}
 function migrate(){
  db=loadLocal();
@@ -116,12 +130,51 @@ function migrate(){
 }
 function saveSilently(){localStorage.setItem(KEY,JSON.stringify(db))}
 function injectTalentTierStyle(){if(document.getElementById("talentTierStyle"))return;const st=document.createElement("style");st.id="talentTierStyle";st.textContent=".talent-editor{display:flex;gap:6px;align-items:center}.talent-editor .autocomplete{flex:1;min-width:0}.talent-tier-select{width:92px;min-height:34px;border:1px solid var(--border,#ddd);border-radius:8px;background:var(--input-bg,transparent);color:inherit}.talent-tier-select:disabled{opacity:.55}.tracker-girl-line{display:flex;align-items:center;gap:8px}.tracker-girl-line .autocomplete{flex:1;min-width:0}.tracker-girl-icon{width:38px;height:38px;object-fit:cover;border-radius:8px;flex:0 0 38px}.tracker-talent-info{flex:0 0 28px;width:28px;height:28px;padding:0;border-radius:50%;font-weight:800;line-height:1}.tracker-talent-info:disabled{opacity:.3}@media(max-width:700px){.talent-editor{flex-wrap:wrap}.talent-editor .autocomplete{flex:1 1 calc(100% - 38px)}.talent-tier-select{width:100%}}";document.head.appendChild(st)}
+
+function initCharacterExtras(){
+ const btn=$("characterExtrasViewBtn"),talentBtn=$("databaseViewBtn"),trackerBtn=$("trackerViewBtn"),view=$("characterExtrasView");
+ if(!btn||!talentBtn||!trackerBtn||!view)return;
+ function show(which){
+  const extras=which==="extras",database=which==="database";
+  document.querySelectorAll(".tracker-view").forEach(x=>x.hidden=database||extras);
+  $("talentDatabaseView").hidden=!database;view.hidden=!extras;
+  trackerBtn.classList.toggle("primary",!database&&!extras);
+  talentBtn.classList.toggle("primary",database);btn.classList.toggle("primary",extras);
+  if(database)renderTalentDatabase();if(extras)renderCharacterExtras();
+ }
+ btn.addEventListener("click",()=>show("extras"));
+ talentBtn.addEventListener("click",()=>show("database"));
+ trackerBtn.addEventListener("click",()=>show("tracker"));
+ $("extrasSearch")?.addEventListener("input",renderCharacterExtras);
+ document.querySelectorAll("[data-extras-kind]").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll("[data-extras-kind]").forEach(x=>x.classList.toggle("active",x===b));renderCharacterExtras();
+ }));
+ renderCharacterExtras();
+}
+function renderCharacterExtras(){
+ const list=$("characterExtrasList");if(!list)return;
+ const q=normalizeText($("extrasSearch")?.value||"");
+ const kind=document.querySelector("[data-extras-kind].active")?.dataset.extrasKind||"All";
+ const fields=[["Trait","trait"],["Title","title"],["Perk","perk"]];
+ const rows=EXTRAS.filter(c=>{
+  const blob=normalizeText([c.character,c.base_name,c.variant,c.stem,...fields.flatMap(([label,key])=>[label,c[key]?.name,c[key]?.id,c[key]?.unlock,...(c[key]?.effect||[])])].join(" "));
+  return !q||blob.includes(q);
+ }).sort((a,b)=>a.character.localeCompare(b.character));
+ $("extrasResultCount").textContent=`${rows.length} / ${EXTRAS.length} profiles`;
+ list.innerHTML=rows.map(c=>{
+  const shown=fields.filter(([label])=>kind==="All"||kind===label);
+  const icon=c.icon?`<img class="extras-icon" src="${esc(c.icon)}" alt="" loading="lazy" onerror="this.hidden=true">`:"";
+  return `<article class="extras-card"><div class="extras-character">${icon}<div><b>${esc(c.character)}</b><small>${esc(c.variant||"Profile")} · ${esc(c.stem)}</small></div><a href="${esc(c.profile)}" target="_blank" rel="noopener">Wiki ↗</a></div><div class="extras-effects">${shown.map(([label,key])=>{const x=c[key]||{};return `<section class="extras-effect"><h4>${esc(label)}: ${esc(x.name||"Chưa có dữ liệu")}</h4><div class="extras-meta">${esc(x.id||"")} ${x.unlock?`· ${esc(x.unlock)}`:""}</div><p>${(x.effect||[]).map(line=>`<span>${esc(line)}</span>`).join("<br>")||'<span class="muted">Không có mô tả hiệu ứng.</span>'}</p></section>`}).join("")}</div></article>`;
+ }).join("")||'<p class="muted">Không tìm thấy Profile phù hợp.</p>';
+}
+
 async function init(){
  try{
   const r=await fetch("game-data.json",{cache:"no-store"});if(!r.ok)throw Error();
   GAME=await r.json();$("dbStatus").textContent=`Loaded ${GAME.characters.length} characters / ${GAME.talents.length} bundled talents`;$("dbBadge").textContent=`DB ${GAME.schema_version}`;
  }catch(e){GAME={characters:[],talents:[]};$("dbStatus").textContent="Database file not loaded — add game-data.json";$("dbBadge").textContent="DB error"}
- db=loadLocal();migrate();injectTalentTierStyle();injectTrackerLayoutStyle();injectTalentDatabaseStyle();initTalentDatabase();initTeamBuilder();render();
+ try{const er=await fetch("character-extras.json",{cache:"no-store"});if(er.ok){const ed=await er.json();EXTRAS=Array.isArray(ed.data)?ed.data:[]}}catch(e){EXTRAS=[]}
+ db=loadLocal();migrate();injectTalentTierStyle();injectTrackerLayoutStyle();injectTalentDatabaseStyle();initTalentDatabase();initCharacterExtras();render();
 }
 function render(){
  const q=normalizeText($("search").value),body=$("girlsBody");body.innerHTML="";
@@ -246,7 +299,11 @@ function showSuggestions(input){
  box.innerHTML=items.map(x=>{
    const name=esc(talentName(x));
    const source=talentSourceName(x)&&talentName(x)!==talentSourceName(x)?`<small>${esc(talentSourceName(x))}</small>`:"";
-   if(isGirl)return `<div class="suggestion" data-id="${esc(x.id)}"><span>${name}</span>${source}</div>`;
+   if(isGirl){
+     const icon=charIcon(x);
+     const portrait=icon?`<img class="suggestion-icon" src="${esc(icon)}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">`:"";
+     return `<div class="suggestion" data-id="${esc(x.id)}">${portrait}<span class="suggestion-name"><b>${esc(x.name_en||x.name||x.id)}</b>${source}</span></div>`;
+   }
    const tiers=Array.isArray(x.tiers)&&x.tiers.length?x.tiers:(x.rank?[x.rank]:["Orange"]);
    return tiers.map(tier=>`<div class="suggestion talent-tier-option" data-id="${esc(x.id)}" data-tier="${esc(tier)}"><span>${name}</span>${source}<b class="tier tier-${esc(tier)}">${esc(tier)}</b></div>`).join("");
  }).join("");
@@ -276,6 +333,22 @@ function chooseSuggestion(suggestion){
    db.girls[i].charId=c.id;
    db.girls[i].name=charLabel(c.id);
    db.girls[i].customName=false;
+   // Update the selected character portrait immediately without a page refresh.
+   const line=input.closest(".tracker-girl-line");
+   const icon=charIcon(c);
+   let portrait=line?.querySelector(".tracker-girl-icon");
+   if(icon&&line){
+     if(!portrait){
+       portrait=document.createElement("img");
+       portrait.className="tracker-girl-icon";
+       portrait.alt="";
+       portrait.loading="lazy";
+       portrait.onerror=function(){this.style.display="none"};
+       line.insertBefore(portrait,input.closest(".autocomplete"));
+     }
+     portrait.src=icon;
+     portrait.style.display="block";
+   }else if(portrait){portrait.remove();}
  }else{
    const i=+input.dataset.g,s=+input.dataset.s,b=+input.dataset.b;
    if(!db.girls[i])return;

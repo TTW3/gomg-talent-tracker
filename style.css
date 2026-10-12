@@ -108,8 +108,16 @@ footer{display:flex;justify-content:space-between;color:var(--muted);font-size:1
 }
 
 
-/* Team Builder */
-.team-builder-view[hidden]{display:none!important}.team-builder-list{display:grid;grid-template-columns:1fr;gap:14px}.team-card{border:1px solid var(--line);border-radius:12px;background:#fffdf9;padding:14px;min-width:0}.team-card-head{display:flex;gap:10px;align-items:center;margin-bottom:12px}.team-name{font-size:16px;font-weight:750;flex:1;min-width:0}.team-slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.team-slot{min-width:0;border:1px solid #eadbd0;background:#fff8f1;border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center}.team-slot-title{font-size:12px;font-weight:750;color:var(--brown)}.team-char-icon{width:76px;height:76px;object-fit:contain;border-radius:10px;background:#f3e5d8}.team-char-placeholder{display:grid;place-items:center;font-size:22px;font-weight:800;color:var(--muted)}.team-slot select{width:100%;min-width:0;font-size:12px;padding:7px}.team-char-meta{font-size:11px;color:var(--muted);min-height:28px}.team-notes-label{display:flex;flex-direction:column;gap:6px;margin-top:12px;font-weight:700;font-size:12px}.team-notes-label textarea{width:100%;resize:vertical;border:1px solid #ceb7a4;border-radius:8px;padding:9px;background:#fff;color:var(--text);font:inherit;font-weight:400}.team-builder-view .hint{margin:0 0 14px}.team-builder-view .section-head{gap:10px}@media(max-width:700px){.team-slots{grid-template-columns:repeat(2,minmax(0,1fr))}.team-char-icon{width:64px;height:64px}.team-card{padding:10px}.team-card-head{align-items:stretch;flex-wrap:wrap}.team-name{flex-basis:100%}}
-
-/* Team Builder character name autocomplete */
-.team-char-picker{position:relative;width:100%;min-width:0;text-align:left;z-index:2}.team-char-search{width:100%;min-width:0;border:1px solid #ceb7a4;border-radius:8px;padding:8px 7px;background:#fff;color:var(--text);font:inherit;font-size:12px;outline:none}.team-char-search:focus{border-color:var(--brown);box-shadow:0 0 0 2px #dec9b755}.team-char-suggestions{position:absolute;top:calc(100% + 4px);left:0;right:0;max-height:250px;overflow-y:auto;background:#fffdf9;border:1px solid #dec9b7;border-radius:9px;box-shadow:0 8px 24px #38271e22;z-index:30;text-align:left}.team-char-suggestions[hidden]{display:none!important}.team-char-suggestion{display:flex;align-items:center;gap:8px;width:100%;padding:8px;border:0;border-bottom:1px solid #f0e4d9;border-radius:0;background:transparent;color:var(--text);text-align:left;cursor:pointer;font-size:12px}.team-char-suggestion:hover,.team-char-suggestion:focus{background:#f3e5d8}.team-char-suggestion img{width:32px;height:32px;object-fit:contain;border-radius:6px;background:#f3e5d8;flex:0 0 32px}.team-char-suggestion span{min-width:0;overflow-wrap:anywhere}.team-char-suggestion small{display:block;color:var(--muted);font-size:10px}.team-char-no-match{padding:10px;color:var(--muted);font-size:12px}.team-slot{overflow:visible}.team-char-search{box-sizing:border-box}
+/* Isolated Trait / Title / Perk database view */
+.extras-card{position:relative;border:1px solid var(--border,#ddd);border-radius:12px;padding:14px;margin:10px 0;background:var(--card,#fff)}
+.extras-character{display:flex;align-items:center;gap:10px;margin-bottom:12px;min-width:0}
+.extras-character>div{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.extras-character small{font-size:11px;opacity:.7;overflow-wrap:anywhere}
+.extras-character a{font-size:12px;white-space:nowrap}
+.extras-icon{width:42px;height:42px;object-fit:contain;border-radius:8px;background:rgba(127,127,127,.08);flex-shrink:0}
+.extras-effects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.extras-effect{border-radius:9px;padding:10px;background:rgba(127,127,127,.06);min-width:0}
+.extras-effect h4{margin:0 0 5px;font-size:13px;overflow-wrap:anywhere}
+.extras-meta{font-size:11px;opacity:.7;margin-bottom:7px;overflow-wrap:anywhere}
+.extras-effect p{font-size:12px;line-height:1.5;margin:0;overflow-wrap:anywhere}
+@media(max-width:700px){.extras-effects{grid-template-columns:1fr}.extras-card{padding:10px}.extras-icon{width:36px;height:36px}}
