@@ -10,7 +10,7 @@ function updateModeUI(){const title=document.querySelector('#teamBuilderView .se
 function setMode(next){if(next!=='team'&&next!=='single')return;drafts[mode]=team;mode=next;team=drafts[mode];updateModeUI();render();}
 function loadSaved(){try{saved=JSON.parse(localStorage.getItem(KEY)||'[]');if(!Array.isArray(saved))saved=[]}catch{saved=[]}}
 function persist(){localStorage.setItem(KEY,JSON.stringify(saved))}
-function choicesFor(memberIndex,kind){const selected=team.members[memberIndex].character;const self=profiles.find(p=>p.stem===selected);return profiles.filter(p=>!self||p.base_name!==self.base_name).filter(p=>p[kind]&&p[kind].name).sort((a,b)=>profileLabel(a).localeCompare(profileLabel(b)))}
+function choicesFor(memberIndex,kind){const selected=team.members[memberIndex].character;const self=profiles.find(p=>p.stem===selected);return profiles.filter(p=>!self||p.stem!==self.stem).filter(p=>p[kind]&&p[kind].name).sort((a,b)=>profileLabel(a).localeCompare(profileLabel(b)))}
 function effectText(p,kind){const x=p?.[kind];if(!x)return '';return `${x.name||''}${x.unlock?' · '+x.unlock:''}${(x.effect||[]).length?'\n'+x.effect.join('\n'):''}`}
 function searchBox({index,kind,selected,items,placeholder}){
  const picked=items.find(p=>p.stem===selected);
@@ -81,18 +81,8 @@ function injectStyles(){if($('teamBuilderAutocompleteStyles'))return;const style
 #teamBuilderMembers .tb-no-results{padding:12px;font-size:12px;color:#806f66}
 #teamBuilderMembers .chosen-effect{white-space:pre-line;overflow-wrap:anywhere}
 @media(max-width:850px){#teamBuilderMembers .single-character-card{grid-template-columns:repeat(2,minmax(0,1fr))}#teamBuilderMembers .single-character-card .team-member-head{grid-column:1/-1}}
-@media(max-width:600px){#teamBuilderMembers .single-character-card{grid-template-columns:minmax(0,1fr)}#teamBuilderMembers .single-character-card .team-member-head{grid-column:1}#teamBuilderMembers .team-member-head{gap:7px}#teamBuilderMembers .tb-suggestions{max-height:240px}}
-/* Layout correction: let single-character mode use the full available width */
-#teamBuilderMembers{display:block!important;width:100%!important;max-width:none!important;min-width:0!important;box-sizing:border-box}
-#teamBuilderMembers .single-character-card{display:grid!important;grid-column:1/-1!important;width:100%!important;max-width:none!important;min-width:0!important;box-sizing:border-box;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-#teamBuilderMembers .single-character-card .team-member-head{grid-column:1/-1!important;width:min(100%,620px)!important;max-width:100%;box-sizing:border-box}
-#teamBuilderMembers .single-character-card .team-slot{width:100%;min-width:0;box-sizing:border-box}
-#teamBuilderMembers .single-character-card .tb-autocomplete,#teamBuilderMembers .single-character-card .tb-search-wrap{width:100%;min-width:0;box-sizing:border-box}
-#teamBuilderMembers .tb-suggestions{width:max(100%,280px);max-width:min(420px,calc(100vw - 32px));box-sizing:border-box}
-#teamBuilderMembers .tb-suggestion{min-width:0;white-space:normal}
-#teamBuilderMembers .tb-suggestion-text{flex:1;width:0;min-width:0;word-break:normal;overflow-wrap:anywhere}
-@media(max-width:850px){#teamBuilderMembers .single-character-card{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){#teamBuilderMembers .single-character-card{grid-template-columns:minmax(0,1fr)}#teamBuilderMembers .tb-suggestions{width:100%;max-width:calc(100vw - 48px)}}
+@media(max-width:600px){#teamBuilderMembers .single-character-card{grid-template-columns:minmax(0,1fr)}#teamBuilderMembers .single-character-card .team-member-head{grid-column:1}}
+@media(max-width:650px){#teamBuilderMembers .team-member-head{gap:7px}#teamBuilderMembers .tb-suggestions{max-height:240px}}
 `;document.head.appendChild(style)}
 window.renderTeamBuilder=render;
 document.addEventListener('input',e=>{const input=e.target.closest('#teamBuilderMembers .tb-search-input');if(!input)return;const box=input.closest('.tb-autocomplete');showSuggestions(box,input.textContent)});
