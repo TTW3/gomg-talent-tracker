@@ -3,7 +3,7 @@ name: Update Trait Title Perk data
 on:
   workflow_dispatch:
   schedule:
-    - cron: '47 2 * * *'
+    - cron: '0 23 * * *'
 
 permissions:
   contents: write
