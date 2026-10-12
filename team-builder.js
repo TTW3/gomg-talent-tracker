@@ -83,7 +83,7 @@ function injectStyles(){if($('teamBuilderAutocompleteStyles'))return;const style
 @media(max-width:850px){#teamBuilderMembers .single-character-card{grid-template-columns:repeat(2,minmax(0,1fr))}#teamBuilderMembers .single-character-card .team-member-head{grid-column:1/-1}}
 @media(max-width:600px){#teamBuilderMembers .single-character-card{grid-template-columns:minmax(0,1fr)}#teamBuilderMembers .single-character-card .team-member-head{grid-column:1}#teamBuilderMembers .team-member-head{gap:7px}#teamBuilderMembers .tb-suggestions{max-height:240px}}
 /* Layout correction: let single-character mode use the full available width */
-#teamBuilderMembers{display:block!important;width:100%!important;max-width:none!important;min-width:0!important;box-sizing:border-box}
+#teamBuilderMembers{width:100%!important;max-width:none!important;min-width:0!important;box-sizing:border-box}
 #teamBuilderMembers .single-character-card{display:grid!important;grid-column:1/-1!important;width:100%!important;max-width:none!important;min-width:0!important;box-sizing:border-box;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 #teamBuilderMembers .single-character-card .team-member-head{grid-column:1/-1!important;width:min(100%,620px)!important;max-width:100%;box-sizing:border-box}
 #teamBuilderMembers .single-character-card .team-slot{width:100%;min-width:0;box-sizing:border-box}
