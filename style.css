@@ -22,7 +22,10 @@ footer{display:flex;justify-content:space-between;color:var(--muted);font-size:1
   thead th:last-child,tbody td:last-child{width:6%}
 }
 
-.girlinput{min-width:0}.talentinput{min-width:0}
+/* Talent Tracker character name field: match the rounded Team Builder inputs */
+.girlinput{min-width:0;border:1px solid #ceb7a4;border-radius:9px;background:#fff;color:var(--text);outline:none;}
+.girlinput:focus{border-color:#a77a5a;box-shadow:0 0 0 2px #a77a5a18}
+.talentinput{min-width:0}
 .suggestions{display:none;position:absolute;left:0;top:calc(100% + 3px);width:max(100%,260px);max-height:240px;overflow:auto;background:#fffaf5;border:1px solid var(--line);border-radius:9px;box-shadow:0 8px 20px #6e493426;z-index:1000}
 .suggestions.open{display:block}.suggestion{padding:8px 10px;cursor:pointer;border-bottom:1px solid #eadbd0;display:flex;justify-content:space-between;gap:8px;align-items:center}
 .suggestion:last-child{border-bottom:0}.suggestion:hover{background:#f1e2d5}.suggestion span{font-weight:600}.suggestion small{color:var(--muted);font-size:10px;text-align:right}
@@ -121,3 +124,25 @@ footer{display:flex;justify-content:space-between;color:var(--muted);font-size:1
 .extras-meta{font-size:11px;opacity:.7;margin-bottom:7px;overflow-wrap:anywhere}
 .extras-effect p{font-size:12px;line-height:1.5;margin:0;overflow-wrap:anywhere}
 @media(max-width:700px){.extras-effects{grid-template-columns:1fr}.extras-card{padding:10px}.extras-icon{width:36px;height:36px}}
+
+/* Team Builder */
+.team-builder-toolbar{display:flex;gap:12px;align-items:end;justify-content:space-between;flex-wrap:wrap;margin:14px 0}.team-builder-toolbar>label{flex:1;min-width:220px;display:grid;gap:6px;font-weight:650}.team-builder-toolbar input,.team-slot select{width:100%;min-width:0;padding:10px;border:1px solid var(--border,#ddd);border-radius:9px;background:var(--input-bg,transparent);color:inherit}.team-builder-actions{display:flex;gap:7px;flex-wrap:wrap}.team-builder-members{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.team-member-card{border:1px solid var(--border,#ddd);border-radius:14px;padding:13px;min-width:0}.team-member-head{display:flex;align-items:center;gap:9px;margin-bottom:12px}.team-member-head img{width:42px;height:42px;object-fit:cover;border-radius:10px}.team-member-head .member-number{font-weight:800;opacity:.7}.team-member-head .member-character{flex:1;min-width:0}.team-member-head select{width:100%;margin-top:6px;padding:8px;border:1px solid var(--border,#ddd);border-radius:8px;background:var(--input-bg,transparent);color:inherit}.team-slot{border-top:1px solid var(--border,#ddd);padding:11px 0 2px;display:grid;gap:6px}.team-slot>label{font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}.team-slot .chosen-effect{font-size:12px;line-height:1.45;opacity:.85;margin:2px 0 0;white-space:pre-line}.team-slot .chosen-source{font-size:11px;opacity:.65}.team-slot select{font-size:13px}.team-saved-wrap{margin-top:22px;border-top:1px solid var(--border,#ddd);padding-top:14px}.saved-teams-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:8px}.saved-team-item{display:flex;align-items:center;gap:8px;border:1px solid var(--border,#ddd);border-radius:10px;padding:10px}.saved-team-item .saved-team-name{flex:1;min-width:0;overflow-wrap:anywhere;font-weight:700}.saved-team-item button{padding:6px 8px;font-size:12px}.team-builder-view[hidden]{display:none!important}@media(max-width:900px){.team-builder-members{grid-template-columns:1fr}}@media(min-width:601px) and (max-width:900px){.team-builder-members{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+/* Talent Tracker: soften the talent input border to match the rounded Team Builder style */
+.talentinput,
+.talent-editor input,
+.talent-editor .autocomplete input {
+  border: 1px solid #ceb7a4 !important;
+  border-radius: 9px !important;
+  background: #fffaf5 !important;
+  color: var(--text) !important;
+  box-shadow: none !important;
+  outline: none;
+}
+.talentinput:focus,
+.talent-editor input:focus,
+.talent-editor .autocomplete input:focus {
+  border-color: #a77a5a !important;
+  box-shadow: 0 0 0 2px #a77a5a18 !important;
+}

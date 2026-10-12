@@ -132,17 +132,21 @@ function saveSilently(){localStorage.setItem(KEY,JSON.stringify(db))}
 function injectTalentTierStyle(){if(document.getElementById("talentTierStyle"))return;const st=document.createElement("style");st.id="talentTierStyle";st.textContent=".talent-editor{display:flex;gap:6px;align-items:center}.talent-editor .autocomplete{flex:1;min-width:0}.talent-tier-select{width:92px;min-height:34px;border:1px solid var(--border,#ddd);border-radius:8px;background:var(--input-bg,transparent);color:inherit}.talent-tier-select:disabled{opacity:.55}.tracker-girl-line{display:flex;align-items:center;gap:8px}.tracker-girl-line .autocomplete{flex:1;min-width:0}.tracker-girl-icon{width:38px;height:38px;object-fit:cover;border-radius:8px;flex:0 0 38px}.tracker-talent-info{flex:0 0 28px;width:28px;height:28px;padding:0;border-radius:50%;font-weight:800;line-height:1}.tracker-talent-info:disabled{opacity:.3}@media(max-width:700px){.talent-editor{flex-wrap:wrap}.talent-editor .autocomplete{flex:1 1 calc(100% - 38px)}.talent-tier-select{width:100%}}";document.head.appendChild(st)}
 
 function initCharacterExtras(){
- const btn=$("characterExtrasViewBtn"),talentBtn=$("databaseViewBtn"),trackerBtn=$("trackerViewBtn"),view=$("characterExtrasView");
+ const btn=$("characterExtrasViewBtn"),talentBtn=$("databaseViewBtn"),trackerBtn=$("trackerViewBtn"),view=$("characterExtrasView"),teamBtn=$("teamBuilderViewBtn"),teamView=$("teamBuilderView");
  if(!btn||!talentBtn||!trackerBtn||!view)return;
  function show(which){
-  const extras=which==="extras",database=which==="database";
-  document.querySelectorAll(".tracker-view").forEach(x=>x.hidden=database||extras);
-  $("talentDatabaseView").hidden=!database;view.hidden=!extras;
-  trackerBtn.classList.toggle("primary",!database&&!extras);
-  talentBtn.classList.toggle("primary",database);btn.classList.toggle("primary",extras);
-  if(database)renderTalentDatabase();if(extras)renderCharacterExtras();
+  const extras=which==="extras",database=which==="database",builder=which==="builder";
+  document.querySelectorAll(".tracker-view").forEach(x=>x.hidden=database||extras||builder);
+  $("talentDatabaseView").hidden=!database;view.hidden=!extras;if(teamView)teamView.hidden=!builder;
+  const advisorView=$("buildAdvisorView"),advisorBtn=$("buildAdvisorBtn");
+  if(advisorView)advisorView.hidden=true;
+  if(advisorBtn)advisorBtn.classList.remove("primary");
+  trackerBtn.classList.toggle("primary",!database&&!extras&&!builder);
+  talentBtn.classList.toggle("primary",database);btn.classList.toggle("primary",extras);if(teamBtn)teamBtn.classList.toggle("primary",builder);
+  if(database)renderTalentDatabase();if(extras)renderCharacterExtras();if(builder&&window.renderTeamBuilder)window.renderTeamBuilder();
  }
  btn.addEventListener("click",()=>show("extras"));
+ teamBtn?.addEventListener("click",()=>show("builder"));
  talentBtn.addEventListener("click",()=>show("database"));
  trackerBtn.addEventListener("click",()=>show("tracker"));
  $("extrasSearch")?.addEventListener("input",renderCharacterExtras);
@@ -185,7 +189,7 @@ function render(){
   const tr=document.createElement("tr");
   tr.innerHTML=`<td>${girlEditor(g,i)}</td>`+g.boards[b].map((t,s)=>`<td>${talentEditor(t,i,b,s)}</td>`).join("")+`<td class="tracker-delete-cell"><button class="danger" data-del="${i}">Xóa</button></td>`;
   tr.querySelector("[data-del]").onclick=()=>{if(confirm("Xóa Girl này khỏi tracker?")){db.girls.splice(i,1);save()}};
-  body.appendChild(tr);
+  body.appendChild(tr);const girlInput=tr.querySelector(".girlinput");if(girlInput)fitGirlInput(girlInput);
  });
  fillGirlSelects();fillBoardSelects();fillSlotSelects();renderLookup();renderHistory();
  $("girlCount").textContent=db.girls.length;$("talentCount").textContent=db.girls.length*BOARD_COUNT*SLOT_COUNT;$("logCount").textContent=db.log.length;
@@ -199,7 +203,7 @@ function girlEditor(g,i){
  const active=Math.min(BOARD_COUNT-1,Math.max(0,g.activeBoard||0));
  const boardTabs=Array.from({length:BOARD_COUNT},(_,b)=>{const count=(g.boards[b]||[]).filter(Boolean).length;return `<button type="button" class="board-tab ${b===active?"active":""} ${count===0?"board-empty":""}" data-board="${b}" data-g="${i}">Board ${b+1} <b>${count}/4</b></button>`}).join("");
  const total=g.boards.flat().filter(Boolean).length;
- return `<div class="girl-cell"><div class="tracker-girl-line">${portrait}<div class="autocomplete"><input class="girlinput" data-g="${i}" value="${esc(value)}" placeholder="Gõ tên Girl..." autocomplete="off"><div class="suggestions"></div></div><span class="tracker-total-count">${total}/16</span></div><div class="board-tabs">${boardTabs}</div></div>`;
+ return `<div class="girl-cell"><div class="tracker-girl-line">${portrait}<div class="autocomplete"><textarea class="girlinput" data-g="${i}" rows="1" spellcheck="false" wrap="soft" aria-label="Tên nhân vật" placeholder="Gõ tên Girl..." autocomplete="off">${esc(value)}</textarea><div class="suggestions"></div></div><span class="tracker-total-count">${total}/16</span></div><div class="board-tabs">${boardTabs}</div></div>`;
 }
 function talentEditor(t,i,b,s){
  const value=t?talentLabel(t):"";const tt=t?talentById(t):null;const sel=t?talentTier(t):"";const talentId=t?splitTalentValue(t).id:"";
@@ -216,7 +220,7 @@ function injectTrackerLayoutStyle(){if($("trackerLayoutStyle"))return;const st=d
 .tracker-girl-line{display:flex;align-items:center;gap:8px;min-width:0}
 .tracker-girl-line .autocomplete{flex:1;min-width:0}
 .tracker-girl-icon{width:42px;height:42px;object-fit:cover;border-radius:9px;flex:0 0 42px;background:#f3e4dc}
-.tracker-girl-line .girlinput{width:100%;min-width:0;box-sizing:border-box;height:44px}
+.tracker-girl-line .girlinput{display:block;width:100%;min-width:0;box-sizing:border-box;min-height:44px;height:44px;max-height:180px;resize:none;overflow:hidden;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.25;padding:6px 10px 10px;font:inherit}
 .tracker-total-count{flex:0 0 auto;background:#35ad62;color:#fff;border-radius:8px;padding:5px 8px;font-weight:800;white-space:nowrap}
 .board-tabs{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
 .board-tabs .board-tab{font-size:12px;padding:6px 8px;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
@@ -291,6 +295,7 @@ function findTalentSuggestions(query){
    .slice(0,8)
    .map(x=>x.item);
 }
+function fitGirlInput(input){if(!input||!input.classList.contains("girlinput"))return;input.style.height="auto";input.style.height=Math.min(Math.max(input.scrollHeight,44),180)+"px"}
 function showSuggestions(input){
  const box=input.parentElement.querySelector(".suggestions");
  const isGirl=input.classList.contains("girlinput");
@@ -317,13 +322,13 @@ document.addEventListener("click",e=>{
  db.girls[i].activeBoard=b;save();
 });
 document.addEventListener("input",e=>{
- if(e.target.matches(".girlinput,.talentinput"))showSuggestions(e.target);
+ if(e.target.matches(".girlinput,.talentinput")){if(e.target.classList.contains("girlinput"))fitGirlInput(e.target);showSuggestions(e.target);}
 });
 document.addEventListener("focusin",e=>{
- if(e.target.matches(".girlinput,.talentinput"))showSuggestions(e.target);
+ if(e.target.matches(".girlinput,.talentinput")){if(e.target.classList.contains("girlinput"))fitGirlInput(e.target);showSuggestions(e.target);}
 });
 function chooseSuggestion(suggestion){
- const input=suggestion.closest(".autocomplete")?.querySelector("input");
+ const input=suggestion.closest(".autocomplete")?.querySelector(".girlinput,.talentinput");
  if(!input)return;
  const id=suggestion.dataset.id;
  if(input.classList.contains("girlinput")){
@@ -381,7 +386,7 @@ function chooseSuggestion(suggestion){
  // Persist without re-rendering the table. Re-rendering immediately here can
  // replace the input DOM while the browser is still processing the click/touch.
  localStorage.setItem(KEY,JSON.stringify(db));
- input.value=input.classList.contains("girlinput")?charLabel(id):talentLabel(db.girls[+input.dataset.g].boards[+input.dataset.b][+input.dataset.s]);
+ input.value=input.classList.contains("girlinput")?charLabel(id):talentLabel(db.girls[+input.dataset.g].boards[+input.dataset.b][+input.dataset.s]);if(input.classList.contains("girlinput"))fitGirlInput(input);
  const box=input.parentElement.querySelector(".suggestions");
  if(box){box.innerHTML="";box.classList.remove("open");}
 }
