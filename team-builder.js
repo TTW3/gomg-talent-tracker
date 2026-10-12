@@ -47,8 +47,12 @@ function injectStyles(){if($('teamBuilderAutocompleteStyles'))return;const style
 #teamBuilderMembers .team-member-card{min-width:0}
 #teamBuilderView .tb-mode-switch{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
 #teamBuilderView .tb-mode-switch button{border-radius:9px}
-#teamBuilderMembers .single-character-card{max-width:760px;width:100%;margin-inline:auto}
-#teamBuilderMembers .single-character-card .team-member-head{grid-template-columns:minmax(0,1fr)}
+#teamBuilderMembers .single-character-card{max-width:1120px;width:100%;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+#teamBuilderMembers .single-character-card .team-member-head{grid-column:1/-1;grid-template-columns:minmax(0,1fr);width:min(100%,620px);margin:0 auto 4px;text-align:center}
+#teamBuilderMembers .single-character-card .team-member-head .member-character{text-align:left}
+#teamBuilderMembers .single-character-card .team-slot{min-width:0;height:100%;box-sizing:border-box;border:1px solid var(--border-color,#e4d6ce);border-radius:12px;padding:13px;background:var(--card-bg,rgba(255,250,246,.45))}
+#teamBuilderMembers .single-character-card .team-slot .chosen-effect{overflow-wrap:anywhere}
+#teamBuilderMembers .single-character-card .team-slot .tb-suggestions{z-index:1100}
 #teamBuilderMembers .team-member-head{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:start;gap:10px}
 #teamBuilderMembers .member-number{padding-top:32px}
 #teamBuilderMembers .member-character{min-width:0;width:100%}
@@ -76,7 +80,8 @@ function injectStyles(){if($('teamBuilderAutocompleteStyles'))return;const style
 #teamBuilderMembers .tb-suggestion-text small{font-size:11px;line-height:1.35;color:#806f66;white-space:normal}
 #teamBuilderMembers .tb-no-results{padding:12px;font-size:12px;color:#806f66}
 #teamBuilderMembers .chosen-effect{white-space:pre-line;overflow-wrap:anywhere}
-@media(max-width:650px){#teamBuilderMembers .team-member-head{gap:7px}#teamBuilderMembers .tb-suggestions{max-height:240px}}
+@media(max-width:850px){#teamBuilderMembers .single-character-card{grid-template-columns:repeat(2,minmax(0,1fr))}#teamBuilderMembers .single-character-card .team-member-head{grid-column:1/-1}}
+@media(max-width:600px){#teamBuilderMembers .single-character-card{grid-template-columns:minmax(0,1fr)}#teamBuilderMembers .single-character-card .team-member-head{grid-column:1}#teamBuilderMembers .team-member-head{gap:7px}#teamBuilderMembers .tb-suggestions{max-height:240px}}
 `;document.head.appendChild(style)}
 window.renderTeamBuilder=render;
 document.addEventListener('input',e=>{const input=e.target.closest('#teamBuilderMembers .tb-search-input');if(!input)return;const box=input.closest('.tb-autocomplete');showSuggestions(box,input.textContent)});
