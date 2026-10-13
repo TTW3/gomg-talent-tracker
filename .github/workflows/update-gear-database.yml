@@ -1,0 +1,36 @@
+name: Update GOMG gear database
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '31 3 * * 1'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Refresh gear database
+        run: python tools/update_gear_database.py
+
+      - name: Commit changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if git diff --quiet -- gear-database.json; then
+            echo 'No gear database changes.'
+          else
+            git add gear-database.json
+            git commit -m 'chore: update GOMG gear database'
+            git push
+          fi
