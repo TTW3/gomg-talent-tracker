@@ -118,8 +118,32 @@
     view.innerHTML=`<div class="section-head"><div><h2>🧠 Build Advisor · Character Analyzer</h2><span class="muted">Phân tích Character và tìm Talent đáng xem — không cố đoán một “best build” duy nhất.</span></div></div><div class="ba-controls"><label>Character<div class="ba-autocomplete"><input id="baCharacter" type="text" autocomplete="off" placeholder="Nhập tên Character..."><div id="baCharacterSuggestions" class="ba-suggestions" hidden></div></div></label><label>Mục tiêu<select id="baObjective"><option>Skill Synergy</option><option>DPS</option><option>Sustain</option><option>Control</option><option>Speed</option><option>Resource</option><option>Character Buff</option></select></label><button id="baGenerate" class="primary">🔍 Phân tích Character</button></div><div id="buildAdvisorResults" class="build-advisor-results"></div>`;
     switcher.parentNode.insertBefore(view,switcher.nextSibling);
     const trackerViews=document.querySelectorAll('.tracker-view'),dbView=document.getElementById('talentDatabaseView'),extrasView=document.getElementById('characterExtrasView');
-    function show(){trackerViews.forEach(x=>x.hidden=true);if(dbView)dbView.hidden=true;if(extrasView)extrasView.hidden=true;const teamView=document.getElementById('teamBuilderView');if(teamView)teamView.hidden=true;document.getElementById('teamBuilderViewBtn')?.classList.remove('primary');view.hidden=false;btn.classList.add('primary');document.getElementById('trackerViewBtn')?.classList.remove('primary');document.getElementById('databaseViewBtn')?.classList.remove('primary');document.getElementById('characterExtrasViewBtn')?.classList.remove('primary');const out=document.getElementById('buildAdvisorResults');if(out)out.innerHTML='<div class="muted">Chọn Character + mục tiêu rồi bấm 🔍 Phân tích Character.</div>';}
-    btn.onclick=show;document.getElementById('trackerViewBtn')?.addEventListener('click',()=>{view.hidden=true;btn.classList.remove('primary');});document.getElementById('databaseViewBtn')?.addEventListener('click',()=>{view.hidden=true;btn.classList.remove('primary');});document.getElementById('characterExtrasViewBtn')?.addEventListener('click',()=>{view.hidden=true;btn.classList.remove('primary');});
+    function hideAdvisor(){
+      view.hidden=true;
+      btn.classList.remove('primary');
+    }
+    function show(){
+      trackerViews.forEach(x=>x.hidden=true);
+      if(dbView)dbView.hidden=true;
+      if(extrasView)extrasView.hidden=true;
+      const teamView=document.getElementById('teamBuilderView');
+      if(teamView)teamView.hidden=true;
+      const gearView=document.getElementById('gearDatabaseView');
+      if(gearView)gearView.hidden=true;
+      document.getElementById('gearDatabaseViewBtn')?.classList.remove('primary');
+      document.getElementById('teamBuilderViewBtn')?.classList.remove('primary');
+      document.getElementById('trackerViewBtn')?.classList.remove('primary');
+      document.getElementById('databaseViewBtn')?.classList.remove('primary');
+      document.getElementById('characterExtrasViewBtn')?.classList.remove('primary');
+      view.hidden=false;
+      btn.classList.add('primary');
+      const out=document.getElementById('buildAdvisorResults');
+      if(out)out.innerHTML='<div class="muted">Chọn Character + mục tiêu rồi bấm 🔍 Phân tích Character.</div>';
+    }
+    btn.onclick=show;
+    ['trackerViewBtn','databaseViewBtn','characterExtrasViewBtn','teamBuilderViewBtn','gearDatabaseViewBtn'].forEach(id=>{
+      document.getElementById(id)?.addEventListener('click',hideAdvisor);
+    });
     const input=document.getElementById('baCharacter'),suggestions=document.getElementById('baCharacterSuggestions');const chars=(GAME.characters||[]).filter(c=>c.source_id).sort((a,b)=>norm(a.name_en).localeCompare(norm(b.name_en)));selectedId=chars[0]?.id||'';if(chars[0])input.value=chars[0].name_en+(chars[0].variant==='Alter'?' · Alter':'');
     function paint(qv){const q=norm(qv).trim();const list=q?chars.filter(c=>norm(c.name_en).includes(q)||norm(c.source_id).includes(q)).slice(0,12):chars.slice(0,12);suggestions.innerHTML=list.map(c=>`<button type="button" class="ba-suggestion" data-id="${esc(c.id)}">${c.icon?`<img class="ba-suggestion-icon" src="${esc(c.icon)}" alt="" loading="lazy">`:''}<span class="ba-suggestion-name">${esc(c.name_en)}</span>${c.variant==='Alter'?'<small>Alter</small>':''}</button>`).join('');suggestions.hidden=!list.length;suggestions.querySelectorAll('.ba-suggestion').forEach(b=>b.onclick=()=>{const c=chars.find(x=>x.id===b.dataset.id);if(!c)return;selectedId=c.id;input.value=c.name_en+(c.variant==='Alter'?' · Alter':'');suggestions.hidden=true;document.getElementById('buildAdvisorResults').innerHTML='<div class="muted">Đã chọn Character. Bấm 🔍 Phân tích Character.</div>';});}
     input.addEventListener('input',()=>paint(input.value));input.addEventListener('focus',()=>paint(input.value));input.addEventListener('keydown',e=>{if(e.key==='Enter'){const f=suggestions.querySelector('.ba-suggestion');if(f)f.click();}else if(e.key==='Escape')suggestions.hidden=true;});document.addEventListener('click',e=>{if(!e.target.closest('.ba-autocomplete'))suggestions.hidden=true;});

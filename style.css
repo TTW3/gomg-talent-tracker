@@ -146,3 +146,22 @@ footer{display:flex;justify-content:space-between;color:var(--muted);font-size:1
   border-color: #a77a5a !important;
   box-shadow: 0 0 0 2px #a77a5a18 !important;
 }
+
+
+/* Gear Database */
+.gear-toolbar{display:grid;grid-template-columns:minmax(220px,2fr) repeat(4,minmax(120px,1fr));gap:8px;margin:12px 0}
+.gear-toolbar input,.gear-toolbar select{width:100%;min-width:0}
+.gear-database-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.gear-card{border:1px solid var(--line);border-radius:10px;background:#fffaf5;min-width:0;overflow:hidden}
+.gear-card summary{display:flex;align-items:center;gap:10px;padding:10px;cursor:pointer;list-style:none}
+.gear-card summary::-webkit-details-marker{display:none}
+.gear-icon{width:42px;height:42px;object-fit:contain;flex:0 0 42px;background:#f1e4d8;border-radius:8px}
+.gear-main{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.gear-main b{overflow-wrap:anywhere}.gear-main small{font-size:11px;color:var(--muted);overflow-wrap:anywhere}
+.gear-chevron{color:var(--muted);font-size:16px}.gear-card[open] .gear-chevron{transform:rotate(45deg)}
+.gear-detail{border-top:1px solid var(--line);padding:8px 12px;font-size:12px;overflow-wrap:anywhere}
+.gear-detail p{margin:7px 0;white-space:pre-wrap}
+@media(max-width:760px){.gear-toolbar{grid-template-columns:1fr 1fr}.gear-toolbar input{grid-column:1/-1}.gear-database-list{grid-template-columns:1fr}}
+.gear-bonds{margin:8px 0}.gear-bonds> b{display:block;margin-bottom:7px}.gear-bond{border:1px solid var(--line);border-radius:8px;margin:7px 0;background:rgba(127,127,127,.045);overflow:hidden}.gear-bond-summary{display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;list-style:none;padding:8px 10px;min-height:20px}.gear-bond-summary::-webkit-details-marker{display:none}.gear-bond-title{overflow-wrap:anywhere;flex:1;min-width:0}.gear-bond-toggle{width:18px;height:18px;flex:0 0 18px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;font-size:13px;line-height:1}.gear-bond-toggle::before{content:'+'}.gear-bond[open] .gear-bond-toggle::before{content:'−'}.gear-bond-effect{padding:0 10px 9px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}.gear-bond-effect .muted{opacity:.65;font-style:italic}
+
+.gear-bond-tiers{margin-top:7px}.gear-bond-tiers ul{margin:4px 0 0;padding-left:20px}.gear-bond-tiers li{margin:3px 0;line-height:1.45}.gear-bond-tags{margin-top:7px;font-size:.9em;opacity:.8}
