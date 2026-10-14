@@ -15,6 +15,10 @@
 </section>
 <section class="card team-builder-view" id="teamBuilderView" hidden>
  <div class="section-head"><div><h2>⚔ Team Builder</h2><span class="muted">Tạo team 3 nhân vật và gán Trait / Title / Perk từ Profile của nhân vật khác</span></div><span id="teamBuilderStatus" class="status">Đang tải dữ liệu…</span></div>
+ <div class="tb-mode-switch" role="group" aria-label="Chế độ xây dựng">
+  <button type="button" class="primary" data-tb-mode="team">⚔ Build Team (3 nhân vật)</button>
+  <button type="button" data-tb-mode="single">👤 Build 1 nhân vật</button>
+ </div>
  <div class="team-builder-toolbar"><label>Tên team<input id="teamName" maxlength="80" placeholder="Ví dụ: Precision team"></label><div class="team-builder-actions"><button id="saveTeamBtn" class="primary" type="button">Lưu team</button><button id="newTeamBtn" type="button">Team mới</button><button id="exportTeamBtn" type="button">Xuất JSON</button></div></div>
  <div id="teamBuilderMembers" class="team-builder-members"></div>
  <div class="team-saved-wrap"><div class="section-head"><h3>Team đã lưu</h3><span class="muted">Chỉ lưu trên trình duyệt này</span></div><div id="savedTeamsList" class="saved-teams-list"></div></div>
