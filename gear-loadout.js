@@ -14,7 +14,10 @@ function installGearLoadoutStyles(){
  #gearLoadoutView .gl-stage-title{text-align:center;font-weight:800;font-size:16px;margin:1px 0 10px;color:var(--text,#402a20)}
  #gearLoadoutView .gl-board{position:relative;width:100%;height:560px;min-height:560px;box-sizing:border-box;border:1px dashed #e7bda2;border-radius:12px;background:radial-gradient(ellipse at center,#fff0e4 0%,#fffaf5 68%);overflow:visible}
  #gearLoadoutView .gl-slot{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:4px;width:94px;min-height:90px;padding:25px 5px 7px;box-sizing:border-box;border:1px solid #d7a181;border-radius:9px;background:#fffdf9;color:var(--text,#402a20);box-shadow:0 2px 5px #6e493414;cursor:pointer;text-align:center;z-index:3;white-space:normal}
- #gearLoadoutView .gl-slot:hover{border-color:#9d6547;box-shadow:0 3px 9px #6e49341f;transform:translateY(-1px)}
+#gearLoadoutView .gl-slot:hover{border-color:#9d6547;box-shadow:0 3px 9px #6e49341f;transform:translateY(-1px)}
+ /* Preserve horizontal centering for the Head and Badge slots during hover. */
+ #gearLoadoutView .gl-pos-head:hover{transform:translate(-50%,-1px)}
+ #gearLoadoutView .gl-pos-badge:hover{transform:translate(-50%,-1px)}
  #gearLoadoutView .gl-slot:focus-visible{outline:2px solid #a77a5a;outline-offset:2px}
  #gearLoadoutView .gl-slot img{width:25px;height:25px;object-fit:contain}
  #gearLoadoutView .gl-slot b{font-size:11px;line-height:1.15}
