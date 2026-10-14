@@ -33,7 +33,7 @@ function installGearLoadoutStyles(){
  #gearLoadoutView .gl-pos-main{top:64%;left:34%;z-index:4}
  #gearLoadoutView .gl-pos-off{top:64%;right:34%;z-index:4}
  #gearLoadoutView .gl-pos-badge{bottom:2%;left:50%;transform:translateX(-50%);z-index:8!important}
- #gearLoadoutView .gl-avatar{position:absolute;left:50%;top:51%;transform:translate(-50%,-50%);width:42%;height:48%;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:1}
+ #gearLoadoutView .gl-avatar{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);width:42%;height:48%;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:1}
  #gearLoadoutView .gl-avatar img{width:100%;height:100%;object-fit:contain}
  #gearLoadoutView .gl-avatar span{font-size:42px;color:#b98c70}
  #gearLoadoutView .gl-avatar small{font-size:9px;color:var(--muted,#806d60)}
