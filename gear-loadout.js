@@ -8,6 +8,53 @@ function installGearLoadoutStyles(){
  const style=document.createElement('style');style.id='gearLoadoutOnlyStyles';
  style.textContent=`
  /* Gear Loadout only. Do not affect other tabs. */
+ /* Complete Gear Loadout layout; all selectors are scoped to this view. */
+ #gearLoadoutView .gl-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:12px;align-items:start}
+ #gearLoadoutView .gl-stage,#gearLoadoutView .gl-panel{min-width:0;border:1px solid var(--line,#e7c8b5);border-radius:11px;background:#fffaf5;padding:10px}
+ #gearLoadoutView .gl-stage-title{text-align:center;font-weight:800;font-size:16px;margin:1px 0 10px;color:var(--text,#402a20)}
+ #gearLoadoutView .gl-board{position:relative;width:100%;height:560px;min-height:560px;box-sizing:border-box;border:1px dashed #e7bda2;border-radius:12px;background:radial-gradient(ellipse at center,#fff0e4 0%,#fffaf5 68%);overflow:visible}
+ #gearLoadoutView .gl-slot{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:4px;width:94px;min-height:90px;padding:25px 5px 7px;box-sizing:border-box;border:1px solid #d7a181;border-radius:9px;background:#fffdf9;color:var(--text,#402a20);box-shadow:0 2px 5px #6e493414;cursor:pointer;text-align:center;z-index:3;white-space:normal}
+ #gearLoadoutView .gl-slot:hover{border-color:#9d6547;box-shadow:0 3px 9px #6e49341f;transform:translateY(-1px)}
+ #gearLoadoutView .gl-slot:focus-visible{outline:2px solid #a77a5a;outline-offset:2px}
+ #gearLoadoutView .gl-slot img{width:25px;height:25px;object-fit:contain}
+ #gearLoadoutView .gl-slot b{font-size:11px;line-height:1.15}
+ #gearLoadoutView .gl-slot small{font-size:9px;line-height:1.25;overflow-wrap:anywhere;color:#7b4e38}
+ #gearLoadoutView .gl-slot-icon{font-size:18px;line-height:22px;color:#9c6748}
+ #gearLoadoutView .gl-pos-head{top:3%;left:50%;transform:translateX(-50%)}
+ #gearLoadoutView .gl-pos-necklace{top:20%;left:5%}
+ #gearLoadoutView .gl-pos-body{top:20%;right:5%}
+ #gearLoadoutView .gl-pos-gloves{top:43%;left:2%}
+ #gearLoadoutView .gl-pos-shoes{top:43%;right:2%}
+ #gearLoadoutView .gl-pos-belt{top:65%;left:5%}
+ #gearLoadoutView .gl-pos-ring{top:65%;right:5%}
+ #gearLoadoutView .gl-pos-main{top:64%;left:34%;z-index:4}
+ #gearLoadoutView .gl-pos-off{top:64%;right:34%;z-index:4}
+ #gearLoadoutView .gl-pos-badge{bottom:2%;left:50%;transform:translateX(-50%);z-index:8!important}
+ #gearLoadoutView .gl-avatar{position:absolute;left:50%;top:51%;transform:translate(-50%,-50%);width:42%;height:48%;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:1}
+ #gearLoadoutView .gl-avatar img{width:100%;height:100%;object-fit:contain}
+ #gearLoadoutView .gl-avatar span{font-size:42px;color:#b98c70}
+ #gearLoadoutView .gl-avatar small{font-size:9px;color:var(--muted,#806d60)}
+ #gearLoadoutView .gl-note{text-align:center;color:var(--muted,#806d60);font-size:10px;margin:9px 0 0}
+ #gearLoadoutView .gl-side{display:flex;flex-direction:column;gap:10px;min-width:0}
+ #gearLoadoutView .gl-panel h3{font-size:13px;margin:0 0 9px}
+ #gearLoadoutView .gl-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+ #gearLoadoutView .gl-stat{display:flex;justify-content:space-between;gap:8px;padding:7px 8px;border:1px solid #ead9ca;border-radius:7px;background:#fffdf9;font-size:11px}
+ #gearLoadoutView .gl-empty{font-size:11px;color:var(--muted,#806d60);line-height:1.45}
+ #gearLoadoutView .gl-gear-results{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+ #gearLoadoutView .gl-gear-item{display:flex;align-items:center;gap:9px;width:100%;min-width:0;padding:8px;border:1px solid #e7c8b5;border-radius:8px;background:#fffdf9;color:var(--text,#402a20);text-align:left;cursor:pointer}
+ #gearLoadoutView .gl-gear-item img{width:38px;height:38px;flex:0 0 38px;object-fit:contain;border-radius:6px;background:#f4e3d6}
+ #gearLoadoutView .gl-gear-item>span{display:flex;flex-direction:column;gap:3px;min-width:0}
+ #gearLoadoutView .gl-gear-item b{font-size:12px}
+ #gearLoadoutView .gl-gear-item small{font-size:10px;color:var(--muted,#806d60);overflow-wrap:anywhere}
+ #gearLoadoutView .gl-picker-filters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+ #gearLoadoutView .gl-picker-filters select{width:100%;min-width:0}
+ #gearLoadoutView .gl-toolbar{display:flex;align-items:end;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+ #gearLoadoutView .gl-character-field{display:flex;flex-direction:column;gap:5px;font-size:12px;color:var(--muted,#806d60);min-width:260px;flex:1 1 320px}
+ #gearLoadoutView .gl-character-autocomplete{position:relative;width:100%;min-width:0}
+ #gearLoadoutView .gl-character-autocomplete input{width:100%;box-sizing:border-box}
+ @media(max-width:850px){#gearLoadoutView .gl-layout{grid-template-columns:minmax(0,1fr)}#gearLoadoutView .gl-board{height:560px}#gearLoadoutView .gl-stage,#gearLoadoutView .gl-panel{padding:9px}}
+ @media(max-width:520px){#gearLoadoutView .gl-board{height:500px;min-height:500px}#gearLoadoutView .gl-slot{width:78px;min-height:82px;padding-left:3px;padding-right:3px}#gearLoadoutView .gl-pos-main{left:30%}#gearLoadoutView .gl-pos-off{right:30%}#gearLoadoutView .gl-avatar{width:44%;height:43%}#gearLoadoutView .gl-picker-filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
  #gearLoadoutView .gl-board{min-height:540px;overflow:visible}
  #gearLoadoutView .gl-pos-badge{bottom:2%;z-index:8!important}
  #gearLoadoutView .gl-pos-main,#gearLoadoutView .gl-pos-off{z-index:2}
