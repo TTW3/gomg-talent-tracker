@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "https://gomg-wiki.pages.dev/",
-  "exportedAt": "2026-10-14T23:13:22.782554+00:00",
+  "exportedAt": "2026-10-15T23:09:42.949451+00:00",
   "profilesFound": 214,
   "profilesRead": 214,
   "failed": [],
@@ -6302,7 +6302,7 @@
         "id": "BD40326_000",
         "unlock": "UnlockStar 5",
         "effect": [
-          "[DMG+] Deal + 1 Skill DMG per 25 stacks of Soothe on both self and targets.",
+          "[DMG+] For every 25 stacks of Soothe on targets on both sides, self deals + 1 Total DMG to that target.",
           "(Value0=25, Value1=1.)"
         ]
       }
@@ -6554,7 +6554,7 @@
         "id": "BD40960_000",
         "unlock": "UnlockStar 5",
         "effect": [
-          "[DMG+] Deal + 200 % DMG on the first skill cast each turn, but cannot take extra actions this turn after casting skill.",
+          "[CN: 【增伤】每回合首次释放技能时造成伤害+ 200 %],[CN: 但释放技能后本回合无法进行额外行动。]",
           "(Value0=200.)"
         ]
       }
