@@ -1,6 +1,6 @@
 {
   "schema_version": 6,
-  "last_checked": "2026-10-14",
+  "last_checked": "2026-10-15",
   "character_source": "https://gomg-wiki.pages.dev/units/",
   "talent_source": "https://gomg-wiki.pages.dev/search-talent-new",
   "talent_index_source": "https://gomg-wiki.pages.dev/talent-search-index.js",
@@ -4267,9 +4267,9 @@
   "talents": [
     {
       "id": "talent_122",
-      "name_en": "Deepened Damage",
+      "name_en": "Deep Wounds",
       "name_cn": "伤害加深",
-      "effect_en": "[CN: 目标每拥有20层阻碍使自身对其造成追击伤害+1。]",
+      "effect_en": "Deal +1 Follow-up DMG to the target per 20 stacks of Hinder on the target.",
       "effect_cn": "目标每拥有20层阻碍使自身对其造成追击伤害+1。",
       "tiers": [
         "Orange"
@@ -4289,23 +4289,23 @@
         ]
       },
       "name_source": "伤害加深",
-      "description_en": "For every 20 Hinder stacks on the target, deal +1 Follow-Up DMG to it.",
+      "description_en": "Deal +1 Follow-up DMG to the target per 20 stacks of Hinder on the target.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF01068"
     },
     {
       "id": "talent_123",
-      "name_en": "Hibernating Ambush",
+      "name_en": "Hibernation",
       "name_cn": "冬眠蛰伏",
-      "effect_en": "[CN: 低生命时自身失去韧性-15],[CN: 高生命时自身获得韧性+0。]",
+      "effect_en": "Take -15 Toughness Loss at low HP. Receive +0 Toughness Gain at high HP.",
       "effect_cn": "低生命时自身失去韧性-15，高生命时自身获得韧性+0。",
       "tiers": [
         "Orange"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 呱呱族]",
-      "source_value": "[CN: 呱呱族]",
+      "source_label": "Race: Frogkin",
+      "source_value": "Frogkin",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -4318,24 +4318,24 @@
         ]
       },
       "name_source": "冬眠蛰伏",
-      "description_en": "At low HP, lose 15 Toughness less; at high HP, gain 0 Toughness.",
+      "description_en": "Take -15 Toughness Loss at low HP. Receive +0 Toughness Gain at high HP.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17305_004"
     },
     {
       "id": "talent_124",
-      "name_en": "Toxic Saliva",
+      "name_en": "Venom Spit",
       "name_cn": "剧毒唾液",
-      "effect_en": "[CN: 造成伤害后使目标受到阻碍层数+2。]",
+      "effect_en": "After dealing DMG, the target receives +2 Hinder stacks.",
       "effect_cn": "造成伤害后使目标受到阻碍层数+2。",
       "tiers": [
         "Orange",
         "Purple"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 蜥蜴族]",
-      "source_value": "[CN: 蜥蜴族]",
+      "source_label": "Race: Lizardkin",
+      "source_value": "Lizardkin",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -4353,24 +4353,24 @@
         ]
       },
       "name_source": "剧毒唾液",
-      "description_en": "After dealing DMG, the target gains +2 Hinder stacks.",
+      "description_en": "After dealing DMG, the target receives +2 Hinder stacks.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17202_004"
     },
     {
       "id": "talent_125",
-      "name_en": "Dynamic Vision",
+      "name_en": "Motion Vision",
       "name_cn": "动态视觉",
-      "effect_en": "[CN: 每拥有5层精准使自身速度+1。]",
+      "effect_en": "Gain +1 SPD per 5 stacks of Precision.",
       "effect_cn": "每拥有5层精准使自身速度+1。",
       "tiers": [
         "Orange",
         "Purple"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 呱呱族]",
-      "source_value": "[CN: 呱呱族]",
+      "source_label": "Race: Frogkin",
+      "source_value": "Frogkin",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -4388,7 +4388,7 @@
         ]
       },
       "name_source": "动态视觉",
-      "description_en": "Gain +1 SPD per 5 Precision stacks.",
+      "description_en": "Gain +1 SPD per 5 stacks of Precision.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17302_004"
@@ -4397,15 +4397,15 @@
       "id": "talent_126",
       "name_en": "Kinetic Conversion",
       "name_cn": "动能转化",
-      "effect_en": "[CN: 每30点速度使自身造成全部伤害+1。]",
+      "effect_en": "Deal +1 Total DMG per 30 SPD.",
       "effect_cn": "每30点速度使自身造成全部伤害+1。",
       "tiers": [
         "Orange",
         "Purple"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 机械之灵]",
-      "source_value": "[CN: 机械之灵]",
+      "source_label": "Race: Machine Spirit",
+      "source_value": "Machine Spirit",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -4423,7 +4423,7 @@
         ]
       },
       "name_source": "动能转化",
-      "description_en": "Deal +1 total DMG per 30 SPD.",
+      "description_en": "Deal +1 Total DMG per 30 SPD.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17504_004"
@@ -4432,15 +4432,15 @@
       "id": "talent_127",
       "name_en": "Thick Scales",
       "name_cn": "厚实鳞甲",
-      "effect_en": "[CN: 非弱点暴露时自身受到全部伤害-20。]",
+      "effect_en": "Take -20 Total DMG while not in the Weakness Exposed state.",
       "effect_cn": "非弱点暴露时自身受到全部伤害-20。",
       "tiers": [
         "Orange",
         "Purple"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 巨鳄族]",
-      "source_value": "[CN: 巨鳄族]",
+      "source_label": "Race: Crocodilian",
+      "source_value": "Crocodilian",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -4458,23 +4458,23 @@
         ]
       },
       "name_source": "厚实鳞甲",
-      "description_en": "When Weakness is not exposed, take -20 total DMG.",
+      "description_en": "Take -20 Total DMG while not in the Weakness Exposed state.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17402_004"
     },
     {
       "id": "talent_128",
-      "name_en": "Ectothermic Burst",
+      "name_en": "Thermal Surge",
       "name_cn": "变温爆发",
-      "effect_en": "[CN: 获得热血后使自身造成全部伤害+1。]",
+      "effect_en": "Deal +1 Total DMG after gaining Bloodlust.",
       "effect_cn": "获得热血后使自身造成全部伤害+1。",
       "tiers": [
         "Orange"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 蜥蜴族]",
-      "source_value": "[CN: 蜥蜴族]",
+      "source_label": "Race: Lizardkin",
+      "source_value": "Lizardkin",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -4487,23 +4487,23 @@
         ]
       },
       "name_source": "变温爆发",
-      "description_en": "After gaining Bloodlust, deal +1 total DMG.",
+      "description_en": "Deal +1 Total DMG after gaining Bloodlust.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17205_004"
     },
     {
       "id": "talent_129",
-      "name_en": "Color-Changing Scales",
+      "name_en": "Chameleon Scales",
       "name_cn": "变色鳞甲",
-      "effect_en": "[CN: 不会优先成为敌方目标],[CN: 并且受到群体技能伤害-40。]",
+      "effect_en": "Never be the enemy's first priority, and take -40 AoE Skill DMG.",
       "effect_cn": "不会优先成为敌方目标，并且受到群体技能伤害-40。",
       "tiers": [
         "Orange"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 蜥蜴族]",
-      "source_value": "[CN: 蜥蜴族]",
+      "source_label": "Race: Lizardkin",
+      "source_value": "Lizardkin",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -4519,24 +4519,24 @@
         ]
       },
       "name_source": "变色鳞甲",
-      "description_en": "Cannot be prioritized as an enemy target, and take -40 group Skill DMG.",
+      "description_en": "Never be the enemy's first priority, and take -40 AoE Skill DMG.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17204_004"
     },
     {
       "id": "talent_130",
-      "name_en": "Water-Absorbing Skin",
+      "name_en": "Absorbent Skin",
       "name_cn": "吸水皮肤",
-      "effect_en": "[CN: 弱点暴露后消耗最多20层滋润使自身获得等量层数的坚韧。]",
+      "effect_en": "After becoming Weakness Exposed, consume up to 20 stacks of Soothe and gain the same number of Fortitude stacks.",
       "effect_cn": "弱点暴露后消耗最多20层滋润使自身获得等量层数的坚韧。",
       "tiers": [
         "Orange",
         "Purple"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 呱呱族]",
-      "source_value": "[CN: 呱呱族]",
+      "source_label": "Race: Frogkin",
+      "source_value": "Frogkin",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -4554,16 +4554,16 @@
         ]
       },
       "name_source": "吸水皮肤",
-      "description_en": "After Weakness is exposed, consume up to 20 Moisture stacks to gain the same amount of Toughness.",
+      "description_en": "After becoming Weakness Exposed, consume up to 20 stacks of Soothe and gain the same number of Fortitude stacks.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17303_004"
     },
     {
       "id": "talent_131",
-      "name_en": "Strange Flute",
+      "name_en": "Trick Blowpipe",
       "name_cn": "奇形吹管",
-      "effect_en": "[CN: 敌方全体目标拥有满层阻碍时自身单段技能攻击目标+2。]",
+      "effect_en": "Gain +2 single-hit Skill attack targets when all enemies are at max Hinder stacks.",
       "effect_cn": "敌方全体目标拥有满层阻碍时自身单段技能攻击目标+2。",
       "tiers": [
         "Orange"
@@ -4586,16 +4586,16 @@
         ]
       },
       "name_source": "奇形吹管",
-      "description_en": "When all enemies have max Hinder, gain +2 single-target Skill targets.",
+      "description_en": "Gain +2 single-hit Skill attack targets when all enemies are at max Hinder stacks.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF01072"
     },
     {
       "id": "talent_132",
-      "name_en": "Giant Jaw Bite",
+      "name_en": "Crushing Jaws",
       "name_cn": "巨颚撕咬",
-      "effect_en": "[CN: 目标每拥有15层眩晕使自身对其造成剥离层数+15。]",
+      "effect_en": "Apply +15 stacks of Expose per 15 stacks of Stun on the target.",
       "effect_cn": "目标每拥有15层眩晕使自身对其造成剥离层数+15。",
       "tiers": [
         "Orange",
@@ -4604,8 +4604,8 @@
         "Green"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 巨鳄族]",
-      "source_value": "[CN: 巨鳄族]",
+      "source_label": "Race: Crocodilian",
+      "source_value": "Crocodilian",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -4633,7 +4633,7 @@
         ]
       },
       "name_source": "巨颚撕咬",
-      "description_en": "For every 15 Stun stacks on the target, inflict +15 Remove stacks on it.",
+      "description_en": "Apply +15 stacks of Expose per 15 stacks of Stun on the target.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17401_004"
@@ -4642,7 +4642,7 @@
       "id": "talent_133",
       "name_en": "Powerful Hind Legs",
       "name_cn": "强力后肢",
-      "effect_en": "[CN: 行动回魔+4],[CN: 每200点力量使自身行动回魔额外+1。]",
+      "effect_en": "Gain +4 Action Mana. Gain extra +1 Action Mana per 200 STR.",
       "effect_cn": "行动回魔+4，每200点力量使自身行动回魔额外+1。",
       "tiers": [
         "Orange",
@@ -4651,8 +4651,8 @@
         "Green"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 呱呱族]",
-      "source_value": "[CN: 呱呱族]",
+      "source_label": "Race: Frogkin",
+      "source_value": "Frogkin",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -4680,16 +4680,16 @@
         ]
       },
       "name_source": "强力后肢",
-      "description_en": "Gain +4 Action Mana; gain an additional +1 Action Mana per 200 Strength.",
+      "description_en": "Gain +4 Action Mana. Gain extra +1 Action Mana per 200 STR.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17301_004"
     },
     {
       "id": "talent_134",
-      "name_en": "Tail-Shedding Survival",
+      "name_en": "Tail Shedding",
       "name_cn": "断尾求生",
-      "effect_en": "[CN: 每回合前4次弱点暴露后使自身获得10层坚韧。]",
+      "effect_en": "Gain 10 stacks of Fortitude after becoming Weakness Exposed the first 4 times each turn.",
       "effect_cn": "每回合前4次弱点暴露后使自身获得10层坚韧。",
       "tiers": [
         "Orange",
@@ -4698,8 +4698,8 @@
         "Green"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 蜥蜴族]",
-      "source_value": "[CN: 蜥蜴族]",
+      "source_label": "Race: Lizardkin",
+      "source_value": "Lizardkin",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -4727,7 +4727,7 @@
         ]
       },
       "name_source": "断尾求生",
-      "description_en": "After the first 4 Weakness Exposures each turn, gain 10 Toughness.",
+      "description_en": "Gain 10 stacks of Fortitude after becoming Weakness Exposed the first 4 times each turn.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17201_004"
@@ -4736,7 +4736,7 @@
       "id": "talent_135",
       "name_en": "Sadistic Strike",
       "name_cn": "施虐打击",
-      "effect_en": "[CN: 每回合首次释放技能时无视满层剥离目标全部防御点数。]",
+      "effect_en": "On the first skill cast each turn, ignore all DEF of targets at max Expose stacks.",
       "effect_cn": "每回合首次释放技能时无视满层剥离目标全部防御点数。",
       "tiers": [
         "Orange"
@@ -4763,23 +4763,23 @@
         ]
       },
       "name_source": "施虐打击",
-      "description_en": "On the first Skill cast each turn, ignore all Defense Points of targets with max Remove.",
+      "description_en": "On the first skill cast each turn, ignore all DEF of targets at max Expose stacks.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF01073"
     },
     {
       "id": "talent_136",
-      "name_en": "Preset Program",
+      "name_en": "Programmed Routine",
       "name_cn": "既定程序",
-      "effect_en": "[CN: 友方其他目标每进行5次行动使自身立即进行1次额外行动。]",
+      "effect_en": "Take 1 extra actions immediately for every 5 actions taken by other allies.",
       "effect_cn": "友方其他目标每进行5次行动使自身立即进行1次额外行动。",
       "tiers": [
         "Orange"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 机械之灵]",
-      "source_value": "[CN: 机械之灵]",
+      "source_label": "Race: Machine Spirit",
+      "source_value": "Machine Spirit",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -4792,7 +4792,7 @@
         ]
       },
       "name_source": "既定程序",
-      "description_en": "For every 5 actions performed by other allies, immediately perform 1 extra action.",
+      "description_en": "Take 1 extra actions immediately for every 5 actions taken by other allies.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17503_004"
@@ -4801,14 +4801,14 @@
       "id": "talent_137",
       "name_en": "Death Roll",
       "name_cn": "死亡翻滚",
-      "effect_en": "[CN: 释放技能后使敌方目标受到剥离层数+4],[CN: 并且本回合优先以自身为目标。]",
+      "effect_en": "After casting a skill, enemy targets take +4 stacks of Expose and prioritize self as their target this turn.",
       "effect_cn": "释放技能后使敌方目标受到剥离层数+4，并且本回合优先以自身为目标。",
       "tiers": [
         "Orange"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 巨鳄族]",
-      "source_value": "[CN: 巨鳄族]",
+      "source_label": "Race: Crocodilian",
+      "source_value": "Crocodilian",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -4827,24 +4827,24 @@
         ]
       },
       "name_source": "死亡翻滚",
-      "description_en": "After casting a Skill, the enemy target gains +4 Remove stacks and prioritizes targeting self for the rest of the turn.",
+      "description_en": "After casting a skill, enemy targets take +4 stacks of Expose and prioritize self as their target this turn.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17405_004"
     },
     {
       "id": "talent_138",
-      "name_en": "Swamp Overlord",
+      "name_en": "Swamp Sovereign",
       "name_cn": "沼泽霸主",
-      "effect_en": "[CN: 友方没有其他巨鳄族时使自身造成全部伤害+30],[CN: 位于沼泽地图时效果翻倍。]",
+      "effect_en": "Deal +30 Total DMG when no other Crocodilian ally is present. Effect doubles on Swamp maps.",
       "effect_cn": "友方没有其他巨鳄族时使自身造成全部伤害+30，位于沼泽地图时效果翻倍。",
       "tiers": [
         "Orange",
         "Purple"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 巨鳄族]",
-      "source_value": "[CN: 巨鳄族]",
+      "source_label": "Race: Crocodilian",
+      "source_value": "Crocodilian",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -4862,14 +4862,14 @@
         ]
       },
       "name_source": "沼泽霸主",
-      "description_en": "If there are no other Crocodilian allies, deal +30 total DMG; this effect doubles on Swamp maps.",
+      "description_en": "Deal +30 Total DMG when no other Crocodilian ally is present. Effect doubles on Swamp maps.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17403_004"
     },
     {
       "id": "talent_139",
-      "name_en": "Surging Tide",
+      "name_en": "Rising Tide",
       "name_cn": "浪潮翻涌",
       "effect_en": "Deal +50% single-hit Skill DMG per 450 stacks of Soothe.",
       "effect_cn": "每拥有450层滋润使自身造成单段技能伤害+50%。",
@@ -4901,16 +4901,16 @@
     },
     {
       "id": "talent_140",
-      "name_en": "Clear Frog Call",
+      "name_en": "Crisp Croak",
       "name_cn": "清脆蛙鸣",
-      "effect_en": "[CN: 行动开始前使友方其他高韧性目标获得4层鼓舞。]",
+      "effect_en": "Other allies at high Toughness gain 4 stacks of Inspire before the action start.",
       "effect_cn": "行动开始前使友方其他高韧性目标获得4层鼓舞。",
       "tiers": [
         "Orange"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 呱呱族]",
-      "source_value": "[CN: 呱呱族]",
+      "source_label": "Race: Frogkin",
+      "source_value": "Frogkin",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -4923,16 +4923,16 @@
         ]
       },
       "name_source": "清脆蛙鸣",
-      "description_en": "Before action starts, other allied high-Toughness targets gain 4 Inspire stacks.",
+      "description_en": "Other allies at high Toughness gain 4 stacks of Inspire before the action start.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17304_004"
     },
     {
       "id": "talent_141",
-      "name_en": "Demon Hunt Ritual",
+      "name_en": "Demon Hunt Rite",
       "name_cn": "猎魔仪式",
-      "effect_en": "[CN: 释放技能时每造成100层泯灭使自身造成多段技能攻击次数+1。]",
+      "effect_en": "Gain +1 multi-hit skill count per 100 stacks of Decay applied when casting skills.",
       "effect_cn": "释放技能时每造成100层泯灭使自身造成多段技能攻击次数+1。",
       "tiers": [
         "Orange"
@@ -4955,7 +4955,7 @@
         ]
       },
       "name_source": "猎魔仪式",
-      "description_en": "When casting a Skill, gain +1 multi-hit Skill attacks per 100 Annihilation stacks dealt.",
+      "description_en": "Gain +1 multi-hit skill count per 100 stacks of Decay applied when casting skills.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF01072_000"
@@ -4963,51 +4963,51 @@
     {
       "id": "talent_142",
       "name_en": "Wild Growth",
-      "name_cn": "野蛮生长",
-      "effect_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
-      "effect_cn": "获得成长层数+2，每拥有50层成长使自身获得生命+1。",
+      "name_cn": "疯狂生长",
+      "effect_en": "Gain 10 stacks of Growth when receiving HP Gain.",
+      "effect_cn": "获得生命效果会同时使自身获得10层成长。",
       "tiers": [
         "Orange",
         "Purple"
       ],
-      "source_cat": "Race",
-      "source_label": "Race: Botanical",
-      "source_value": "Botanical",
+      "source_cat": "Exclusive",
+      "source_label": "Exclusive (M11211)",
+      "source_value": "M11211",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
       "tags": [],
       "tier_values": {
-        "Purple": [
-          "1",
-          "100",
-          "1"
-        ],
         "Orange": [
           "2",
           "50",
           "1"
+        ],
+        "Purple": [
+          "1",
+          "100",
+          "1"
         ]
       },
-      "name_source": "野蛮生长",
-      "description_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
+      "name_source": "疯狂生长",
+      "description_en": "Gain 10 stacks of Growth when receiving HP Gain.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
-      "legacy_source_id": "TF12801_004"
+      "legacy_source_id": "TF01071"
     },
     {
       "id": "talent_143",
-      "name_en": "Patient Ambush",
+      "name_en": "Patient Stalker",
       "name_cn": "耐心潜伏",
-      "effect_en": "[CN: 首次进行攻击时如果本场战斗没有受到攻击则使本次造成全部伤害+80。]",
+      "effect_en": "Deal +80 Total DMG on the first attack if not attacked this battle.",
       "effect_cn": "首次进行攻击时如果本场战斗没有受到攻击则使本次造成全部伤害+80。",
       "tiers": [
         "Orange",
         "Purple"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 蜥蜴族]",
-      "source_value": "[CN: 蜥蜴族]",
+      "source_label": "Race: Lizardkin",
+      "source_value": "Lizardkin",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -5025,16 +5025,16 @@
         ]
       },
       "name_source": "耐心潜伏",
-      "description_en": "On the first attack, if no attack has been received this battle, deal +80 total DMG for that attack.",
+      "description_en": "Deal +80 Total DMG on the first attack if not attacked this battle.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17203_004"
     },
     {
       "id": "talent_144",
-      "name_en": "Energy Self-Destruct",
+      "name_en": "Core Meltdown",
       "name_cn": "能源自毁",
-      "effect_en": "[CN: 自身战败后对最近的3名敌方目标造成6层感电。]",
+      "effect_en": "Apply 6 stacks of Shock to the nearest 3 enemy targets when defeated.",
       "effect_cn": "自身战败后对最近的3名敌方目标造成6层感电。",
       "tiers": [
         "Orange",
@@ -5043,8 +5043,8 @@
         "Green"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 机械之灵]",
-      "source_value": "[CN: 机械之灵]",
+      "source_label": "Race: Machine Spirit",
+      "source_value": "Machine Spirit",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -5072,24 +5072,24 @@
         ]
       },
       "name_source": "能源自毁",
-      "description_en": "After being defeated, apply 6 Shock stacks to the 3 nearest enemies.",
+      "description_en": "Apply 6 stacks of Shock to the nearest 3 enemy targets when defeated.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17501_004"
     },
     {
       "id": "talent_145",
-      "name_en": "Self-Diagnosis",
+      "name_en": "Self-Diagnostics",
       "name_cn": "自我诊断",
-      "effect_en": "[CN: 行动结束后使自身获得8层净化],[CN: 并使自身获得本次未生效净化层数等量的生命。]",
+      "effect_en": "Gain 8 stacks of Cleanse at action end. Gain HP equal to the number of Cleanse stacks that do not take effect.",
       "effect_cn": "行动结束后使自身获得8层净化，并使自身获得本次未生效净化层数等量的生命。",
       "tiers": [
         "Orange",
         "Purple"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 机械之灵]",
-      "source_value": "[CN: 机械之灵]",
+      "source_label": "Race: Machine Spirit",
+      "source_value": "Machine Spirit",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -5107,16 +5107,16 @@
         ]
       },
       "name_source": "自我诊断",
-      "description_en": "After action ends, gain 8 Cleanse stacks and gain HP equal to the Cleanse stacks that failed to take effect this time.",
+      "description_en": "Gain 8 stacks of Cleanse at action end. Gain HP equal to the number of Cleanse stacks that do not take effect.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17502_004"
     },
     {
       "id": "talent_146",
-      "name_en": "Deadly Toxin",
+      "name_en": "Lethal Toxin",
       "name_cn": "致命毒素",
-      "effect_en": "[CN: 目标每拥有1层阻碍使自身对其造成单段技能伤害+1],[CN: 并在释放攻击技能后移除目标全部阻碍。]",
+      "effect_en": "Deal +1 single-hit Skill DMG to the target per 1 stacks of Hinder on the target. Remove all Hinder from the target after casting attack skills.",
       "effect_cn": "目标每拥有1层阻碍使自身对其造成单段技能伤害+1，并在释放攻击技能后移除目标全部阻碍。",
       "tiers": [
         "Orange"
@@ -5139,23 +5139,23 @@
         ]
       },
       "name_source": "致命毒素",
-      "description_en": "Deal +1 single-hit Skill DMG per Hinder stack on the target, and remove all Hinder from the target after casting an attack Skill.",
+      "description_en": "Deal +1 single-hit Skill DMG to the target per 1 stacks of Hinder on the target. Remove all Hinder from the target after casting attack skills.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF01033_000"
     },
     {
       "id": "talent_147",
-      "name_en": "Overload",
+      "name_en": "Overdrive",
       "name_cn": "超载运行",
-      "effect_en": "[CN: 造成单段技能攻击次数+1],[CN: 但自身偶数回合无法释放技能。]",
+      "effect_en": "Gain +1 single-hit skill attack hits, but cannot cast skills on even-numbered turns.",
       "effect_cn": "造成单段技能攻击次数+1，但自身偶数回合无法释放技能。",
       "tiers": [
         "Orange"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 机械之灵]",
-      "source_value": "[CN: 机械之灵]",
+      "source_label": "Race: Machine Spirit",
+      "source_value": "Machine Spirit",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -5171,7 +5171,7 @@
         ]
       },
       "name_source": "超载运行",
-      "description_en": "Gain +1 single-hit Skill attack, but cannot cast Skills on even-numbered turns.",
+      "description_en": "Gain +1 single-hit skill attack hits, but cannot cast skills on even-numbered turns.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17505_004"
@@ -5180,14 +5180,14 @@
       "id": "talent_148",
       "name_en": "Ancient Will",
       "name_cn": "远古意志",
-      "effect_en": "[CN: 免疫眩晕],[CN: 但速度-20。]",
+      "effect_en": "Immune to Stun, but lose 20 SPD.",
       "effect_cn": "免疫眩晕，但速度-20。",
       "tiers": [
         "Orange"
       ],
       "source_cat": "Race",
-      "source_label": "Race: [CN: 巨鳄族]",
-      "source_value": "[CN: 巨鳄族]",
+      "source_label": "Race: Crocodilian",
+      "source_value": "Crocodilian",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
@@ -5200,16 +5200,16 @@
         ]
       },
       "name_source": "远古意志",
-      "description_en": "Immune to Stun, but SPD -20.",
+      "description_en": "Immune to Stun, but lose 20 SPD.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17404_004"
     },
     {
       "id": "talent_149",
-      "name_en": "Hard to Cleanse",
+      "name_en": "Stubborn Stain",
       "name_cn": "难以清洗",
-      "effect_en": "[CN: 对目标每造成25层阻碍使其受到阻碍层数+1],[CN: 但受到其他负面状态层数-1。]",
+      "effect_en": "For every 25 stacks of Hinder applied to the target, they take +1 Hinder stacks but -1 stacks of other debuffs.",
       "effect_cn": "对目标每造成25层阻碍使其受到阻碍层数+1，但受到其他负面状态层数-1。",
       "tiers": [
         "Orange"
@@ -5229,16 +5229,16 @@
         ]
       },
       "name_source": "难以清洗",
-      "description_en": "For every 25 Hinder stacks inflicted on the target, it gains +1 Hinder stack, but gains -1 stack of other debuffs.",
+      "description_en": "For every 25 stacks of Hinder applied to the target, they take +1 Hinder stacks but -1 stacks of other debuffs.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF01073_000"
     },
     {
       "id": "talent_150",
-      "name_en": "Silent Diving",
+      "name_en": "Silent Dive",
       "name_cn": "默默潜水",
-      "effect_en": "[CN: 如果本回合没受到攻击则使自身本回合造成泯灭层数+10。]",
+      "effect_en": "If not attacked this turn, apply +10 stacks of Decay for the rest of this turn.",
       "effect_cn": "如果本回合没受到攻击则使自身本回合造成泯灭层数+10。",
       "tiers": [
         "Orange"
@@ -5258,7 +5258,7 @@
         ]
       },
       "name_source": "默默潜水",
-      "description_en": "If no attack was received this turn, deal +10 Annihilation stacks this turn.",
+      "description_en": "If not attacked this turn, apply +10 stacks of Decay for the rest of this turn.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF01069"
@@ -6226,7 +6226,7 @@
       "id": "talent_176",
       "name_en": "Blood Drain",
       "name_cn": "血液枯竭",
-      "effect_en": "Apply +2 Expose stacks on the target and make them suffer +1 HP Loss per 1 stacks of Expose.",
+      "effect_en": "Apply +2 Expose stacks on the target and make them suffer +1 HP Loss per 50 stacks of Expose.",
       "effect_cn": "造成剥离层数+2，目标每拥有50层剥离使其受到失去生命+1。",
       "tiers": [
         "Orange",
@@ -6252,7 +6252,7 @@
         ]
       },
       "name_source": "血液枯竭",
-      "description_en": "Apply +2 Expose stacks on the target and make them suffer +1 HP Loss per 1 stacks of Expose.",
+      "description_en": "Apply +2 Expose stacks on the target and make them suffer +1 HP Loss per 50 stacks of Expose.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF11102_004"
@@ -7856,7 +7856,7 @@
       "id": "talent_026",
       "name_en": "Cycle Strike",
       "name_cn": "循环打击",
-      "effect_en": "[CN: 进行攻击后使自身获得4点魔力],[CN: 但造成全部伤害-25%。]",
+      "effect_en": "Gain 4 Mana after attacking, but deal -25% total DMG.",
       "effect_cn": "进行攻击后使自身获得4点魔力，但造成全部伤害-25%。",
       "tiers": [
         "Orange",
@@ -7882,7 +7882,7 @@
         ]
       },
       "name_source": "循环打击",
-      "description_en": "After attacking, gain 4 Mana, but deal -25% total DMG.",
+      "description_en": "Gain 4 Mana after attacking, but deal -25% total DMG.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17103_004"
@@ -8325,7 +8325,7 @@
       "id": "talent_007",
       "name_en": "Deep Sea Sneak",
       "name_cn": "深海潜行",
-      "effect_en": "When gaining Mana, immune to effects that reduce own Mana Gain.",
+      "effect_en": "Immune to effects that reduce own Mana Gain when receiving Mana Gain.",
       "effect_cn": "获得魔力时免疫使自身获得魔力减少的效果。",
       "tiers": [
         "Orange"
@@ -8345,7 +8345,7 @@
         ]
       },
       "name_source": "深海潜行",
-      "description_en": "When gaining Mana, immune to effects that reduce own Mana Gain.",
+      "description_en": "Immune to effects that reduce own Mana Gain when receiving Mana Gain.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF01067"
@@ -16161,7 +16161,7 @@
       "id": "talent_439",
       "name_en": "Rally",
       "name_cn": "加油鼓劲",
-      "effect_en": "[CN: 其他友方目标弱点暴露后使自身获得2点魔力。]",
+      "effect_en": "Gain 2 Mana when another ally becomes Weakness Exposed.",
       "effect_cn": "其他友方目标弱点暴露后使自身获得2点魔力。",
       "tiers": [
         "Orange"
@@ -16181,7 +16181,7 @@
         ]
       },
       "name_source": "加油鼓劲",
-      "description_en": "When another allied target exposes Weakness, gain 2 Mana.",
+      "description_en": "Gain 2 Mana when another ally becomes Weakness Exposed.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF01070"
@@ -16394,7 +16394,7 @@
       "id": "talent_446",
       "name_en": "Regen Thorns",
       "name_cn": "再生尖刺",
-      "effect_en": "[CN: 获得生命效果会同时使自身获得10层反伤。]",
+      "effect_en": "Gain 10 stacks of Thorns when gaining the HP Gain effect.",
       "effect_cn": "获得生命效果会同时使自身获得10层反伤。",
       "tiers": [
         "Orange"
@@ -16414,7 +16414,7 @@
         ]
       },
       "name_source": "再生尖刺",
-      "description_en": "Whenever a HP Gain effect occurs, also gain 10 Thorns stacks.",
+      "description_en": "Gain 10 stacks of Thorns when gaining the HP Gain effect.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF00065"
@@ -17558,7 +17558,7 @@
       "id": "talent_478",
       "name_en": "Soul Curse",
       "name_cn": "亡魂诅咒",
-      "effect_en": "[CN: 战斗开始前触发2次自身战败效果],[CN: 但使自身失去20%生命上限的生命。]",
+      "effect_en": "Trigger own defeat effect 2 times at battle start, but lose HP equal to 20% of max HP.",
       "effect_cn": "战斗开始前触发2次自身战败效果，但使自身失去20%生命上限的生命。",
       "tiers": [
         "Orange"
@@ -17578,7 +17578,7 @@
         ]
       },
       "name_source": "亡魂诅咒",
-      "description_en": "Before battle starts, trigger your own defeat effect 2 times, but lose HP equal to 20% of Max HP.",
+      "description_en": "Trigger own defeat effect 2 times at battle start, but lose HP equal to 20% of max HP.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF12702_004"
@@ -18625,7 +18625,7 @@
       "id": "talent_509",
       "name_en": "Swarm Wreck",
       "name_cn": "集群破坏",
-      "effect_en": "+2 Ally count. Apply +1 stacks of Vulnerable per 1 ally count.",
+      "effect_en": "+2 Ally count. Apply +1 stacks of Vulnerable per 10 ally ROUND(",
       "effect_cn": "友方数量+2，每10点友方数量使自身造成脆弱层数+1。",
       "tiers": [
         "Orange"
@@ -18645,7 +18645,7 @@
         ]
       },
       "name_source": "集群破坏",
-      "description_en": "+2 Ally count. Apply +1 stacks of Vulnerable per 1 ally count.",
+      "description_en": "+2 Ally count. Apply +1 stacks of Vulnerable per 10 ally ROUND(",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF14004_004"
@@ -20045,7 +20045,7 @@
       "id": "talent_544",
       "name_en": "Vapor Surge",
       "name_cn": "水汽充盈",
-      "effect_en": "[CN: 拥有满层滋润时自身造成多段技能攻击次数+2。]",
+      "effect_en": "Gain +2 multi-hit skill count at max Soothe stacks.",
       "effect_cn": "拥有满层滋润时自身造成多段技能攻击次数+2。",
       "tiers": [
         "Orange"
@@ -20068,7 +20068,7 @@
         ]
       },
       "name_source": "水汽充盈",
-      "description_en": "While at max Soothe, gain +2 multi-hit Skill attacks.",
+      "description_en": "Gain +2 multi-hit skill count at max Soothe stacks.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF00052_000"
@@ -20433,37 +20433,37 @@
     {
       "id": "talent_555",
       "name_en": "Wild Growth",
-      "name_cn": "野蛮生长",
-      "effect_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
-      "effect_cn": "获得成长层数+2，每拥有50层成长使自身获得生命+1。",
+      "name_cn": "疯狂生长",
+      "effect_en": "Gain 10 stacks of Growth when receiving HP Gain.",
+      "effect_cn": "获得生命效果会同时使自身获得10层成长。",
       "tiers": [
         "Orange",
         "Purple"
       ],
-      "source_cat": "Race",
-      "source_label": "Race: Botanical",
-      "source_value": "Botanical",
+      "source_cat": "Exclusive",
+      "source_label": "Exclusive (M11211)",
+      "source_value": "M11211",
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
       "tags": [],
       "tier_values": {
-        "Purple": [
-          "1",
-          "100",
-          "1"
-        ],
         "Orange": [
           "2",
           "50",
           "1"
+        ],
+        "Purple": [
+          "1",
+          "100",
+          "1"
         ]
       },
-      "name_source": "野蛮生长",
-      "description_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
+      "name_source": "疯狂生长",
+      "description_en": "Gain 10 stacks of Growth when receiving HP Gain.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
-      "legacy_source_id": "TF12801_004"
+      "legacy_source_id": "TF01071"
     },
     {
       "id": "talent_043",
@@ -20622,221 +20622,12 @@
     {
       "id": "talent_005",
       "name_en": "Wild Growth",
-      "name_cn": "野蛮生长",
-      "effect_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
-      "effect_cn": "获得成长层数+2，每拥有50层成长使自身获得生命+1。",
-      "tiers": [
-        "Orange",
-        "Purple"
-      ],
-      "source_cat": "Race",
-      "source_label": "Race: Botanical",
-      "source_value": "Botanical",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
-      "tags": [],
-      "tier_values": {
-        "Purple": [
-          "1",
-          "100",
-          "1"
-        ],
-        "Orange": [
-          "2",
-          "50",
-          "1"
-        ]
-      },
-      "name_source": "野蛮生长",
-      "description_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
-      "rank": "Orange",
-      "origin": "gomg-wiki-search-index",
-      "legacy_source_id": "TF12801_004"
-    },
-    {
-      "id": "talent_011",
-      "name_en": "Wild Growth",
-      "name_cn": "野蛮生长",
-      "effect_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
-      "effect_cn": "获得成长层数+2，每拥有50层成长使自身获得生命+1。",
-      "tiers": [
-        "Orange",
-        "Purple"
-      ],
-      "source_cat": "Race",
-      "source_label": "Race: Botanical",
-      "source_value": "Botanical",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
-      "tags": [],
-      "tier_values": {
-        "Purple": [
-          "1",
-          "100",
-          "1"
-        ],
-        "Orange": [
-          "2",
-          "50",
-          "1"
-        ]
-      },
-      "name_source": "野蛮生长",
-      "description_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
-      "rank": "Orange",
-      "origin": "gomg-wiki-search-index",
-      "legacy_source_id": "TF12801_004"
-    },
-    {
-      "id": "talent_029",
-      "name_en": "Wild Growth",
-      "name_cn": "野蛮生长",
-      "effect_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
-      "effect_cn": "获得成长层数+2，每拥有50层成长使自身获得生命+1。",
-      "tiers": [
-        "Orange",
-        "Purple"
-      ],
-      "source_cat": "Race",
-      "source_label": "Race: Botanical",
-      "source_value": "Botanical",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
-      "tags": [],
-      "tier_values": {
-        "Purple": [
-          "1",
-          "100",
-          "1"
-        ],
-        "Orange": [
-          "2",
-          "50",
-          "1"
-        ]
-      },
-      "name_source": "野蛮生长",
-      "description_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
-      "rank": "Orange",
-      "origin": "gomg-wiki-search-index",
-      "legacy_source_id": "TF12801_004"
-    },
-    {
-      "id": "talent_030",
-      "name_en": "Wild Growth",
-      "name_cn": "野蛮生长",
-      "effect_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
-      "effect_cn": "获得成长层数+2，每拥有50层成长使自身获得生命+1。",
-      "tiers": [
-        "Orange",
-        "Purple"
-      ],
-      "source_cat": "Race",
-      "source_label": "Race: Botanical",
-      "source_value": "Botanical",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
-      "tags": [],
-      "tier_values": {
-        "Purple": [
-          "1",
-          "100",
-          "1"
-        ],
-        "Orange": [
-          "2",
-          "50",
-          "1"
-        ]
-      },
-      "name_source": "野蛮生长",
-      "description_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
-      "rank": "Orange",
-      "origin": "gomg-wiki-search-index",
-      "legacy_source_id": "TF12801_004"
-    },
-    {
-      "id": "talent_031",
-      "name_en": "Wild Growth",
-      "name_cn": "野蛮生长",
-      "effect_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
-      "effect_cn": "获得成长层数+2，每拥有50层成长使自身获得生命+1。",
-      "tiers": [
-        "Orange",
-        "Purple"
-      ],
-      "source_cat": "Race",
-      "source_label": "Race: Botanical",
-      "source_value": "Botanical",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
-      "tags": [],
-      "tier_values": {
-        "Purple": [
-          "1",
-          "100",
-          "1"
-        ],
-        "Orange": [
-          "2",
-          "50",
-          "1"
-        ]
-      },
-      "name_source": "野蛮生长",
-      "description_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
-      "rank": "Orange",
-      "origin": "gomg-wiki-search-index",
-      "legacy_source_id": "TF12801_004"
-    },
-    {
-      "id": "talent_033",
-      "name_en": "Wild Growth",
-      "name_cn": "野蛮生长",
-      "effect_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
-      "effect_cn": "获得成长层数+2，每拥有50层成长使自身获得生命+1。",
-      "tiers": [
-        "Orange",
-        "Purple"
-      ],
-      "source_cat": "Race",
-      "source_label": "Race: Botanical",
-      "source_value": "Botanical",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
-      "tags": [],
-      "tier_values": {
-        "Purple": [
-          "1",
-          "100",
-          "1"
-        ],
-        "Orange": [
-          "2",
-          "50",
-          "1"
-        ]
-      },
-      "name_source": "野蛮生长",
-      "description_en": "Gain +2 stacks of Growth. HP Gain +1 per 50 stacks of Growth.",
-      "rank": "Orange",
-      "origin": "gomg-wiki-search-index",
-      "legacy_source_id": "TF12801_004"
-    },
-    {
-      "id": "talent_035",
-      "name_en": "Wild Growth",
       "name_cn": "疯狂生长",
-      "effect_en": "[CN: 获得生命效果会同时使自身获得10层成长。]",
+      "effect_en": "Gain 10 stacks of Growth when receiving HP Gain.",
       "effect_cn": "获得生命效果会同时使自身获得10层成长。",
       "tiers": [
-        "Orange"
+        "Orange",
+        "Purple"
       ],
       "source_cat": "Exclusive",
       "source_label": "Exclusive (M11211)",
@@ -20847,13 +20638,228 @@
       "tags": [],
       "tier_values": {
         "Orange": [
-          "10",
-          "0",
-          "0"
+          "2",
+          "50",
+          "1"
+        ],
+        "Purple": [
+          "1",
+          "100",
+          "1"
         ]
       },
       "name_source": "疯狂生长",
-      "description_en": "Whenever a HP Gain effect occurs, also gain 10 Growth stacks.",
+      "description_en": "Gain 10 stacks of Growth when receiving HP Gain.",
+      "rank": "Orange",
+      "origin": "gomg-wiki-search-index",
+      "legacy_source_id": "TF01071"
+    },
+    {
+      "id": "talent_011",
+      "name_en": "Wild Growth",
+      "name_cn": "疯狂生长",
+      "effect_en": "Gain 10 stacks of Growth when receiving HP Gain.",
+      "effect_cn": "获得生命效果会同时使自身获得10层成长。",
+      "tiers": [
+        "Orange",
+        "Purple"
+      ],
+      "source_cat": "Exclusive",
+      "source_label": "Exclusive (M11211)",
+      "source_value": "M11211",
+      "exclusive_name": "",
+      "exclusive_name_cn": "",
+      "icon": "",
+      "tags": [],
+      "tier_values": {
+        "Orange": [
+          "2",
+          "50",
+          "1"
+        ],
+        "Purple": [
+          "1",
+          "100",
+          "1"
+        ]
+      },
+      "name_source": "疯狂生长",
+      "description_en": "Gain 10 stacks of Growth when receiving HP Gain.",
+      "rank": "Orange",
+      "origin": "gomg-wiki-search-index",
+      "legacy_source_id": "TF01071"
+    },
+    {
+      "id": "talent_029",
+      "name_en": "Wild Growth",
+      "name_cn": "疯狂生长",
+      "effect_en": "Gain 10 stacks of Growth when receiving HP Gain.",
+      "effect_cn": "获得生命效果会同时使自身获得10层成长。",
+      "tiers": [
+        "Orange",
+        "Purple"
+      ],
+      "source_cat": "Exclusive",
+      "source_label": "Exclusive (M11211)",
+      "source_value": "M11211",
+      "exclusive_name": "",
+      "exclusive_name_cn": "",
+      "icon": "",
+      "tags": [],
+      "tier_values": {
+        "Orange": [
+          "2",
+          "50",
+          "1"
+        ],
+        "Purple": [
+          "1",
+          "100",
+          "1"
+        ]
+      },
+      "name_source": "疯狂生长",
+      "description_en": "Gain 10 stacks of Growth when receiving HP Gain.",
+      "rank": "Orange",
+      "origin": "gomg-wiki-search-index",
+      "legacy_source_id": "TF01071"
+    },
+    {
+      "id": "talent_030",
+      "name_en": "Wild Growth",
+      "name_cn": "疯狂生长",
+      "effect_en": "Gain 10 stacks of Growth when receiving HP Gain.",
+      "effect_cn": "获得生命效果会同时使自身获得10层成长。",
+      "tiers": [
+        "Orange",
+        "Purple"
+      ],
+      "source_cat": "Exclusive",
+      "source_label": "Exclusive (M11211)",
+      "source_value": "M11211",
+      "exclusive_name": "",
+      "exclusive_name_cn": "",
+      "icon": "",
+      "tags": [],
+      "tier_values": {
+        "Orange": [
+          "2",
+          "50",
+          "1"
+        ],
+        "Purple": [
+          "1",
+          "100",
+          "1"
+        ]
+      },
+      "name_source": "疯狂生长",
+      "description_en": "Gain 10 stacks of Growth when receiving HP Gain.",
+      "rank": "Orange",
+      "origin": "gomg-wiki-search-index",
+      "legacy_source_id": "TF01071"
+    },
+    {
+      "id": "talent_031",
+      "name_en": "Wild Growth",
+      "name_cn": "疯狂生长",
+      "effect_en": "Gain 10 stacks of Growth when receiving HP Gain.",
+      "effect_cn": "获得生命效果会同时使自身获得10层成长。",
+      "tiers": [
+        "Orange",
+        "Purple"
+      ],
+      "source_cat": "Exclusive",
+      "source_label": "Exclusive (M11211)",
+      "source_value": "M11211",
+      "exclusive_name": "",
+      "exclusive_name_cn": "",
+      "icon": "",
+      "tags": [],
+      "tier_values": {
+        "Orange": [
+          "2",
+          "50",
+          "1"
+        ],
+        "Purple": [
+          "1",
+          "100",
+          "1"
+        ]
+      },
+      "name_source": "疯狂生长",
+      "description_en": "Gain 10 stacks of Growth when receiving HP Gain.",
+      "rank": "Orange",
+      "origin": "gomg-wiki-search-index",
+      "legacy_source_id": "TF01071"
+    },
+    {
+      "id": "talent_033",
+      "name_en": "Wild Growth",
+      "name_cn": "疯狂生长",
+      "effect_en": "Gain 10 stacks of Growth when receiving HP Gain.",
+      "effect_cn": "获得生命效果会同时使自身获得10层成长。",
+      "tiers": [
+        "Orange",
+        "Purple"
+      ],
+      "source_cat": "Exclusive",
+      "source_label": "Exclusive (M11211)",
+      "source_value": "M11211",
+      "exclusive_name": "",
+      "exclusive_name_cn": "",
+      "icon": "",
+      "tags": [],
+      "tier_values": {
+        "Orange": [
+          "2",
+          "50",
+          "1"
+        ],
+        "Purple": [
+          "1",
+          "100",
+          "1"
+        ]
+      },
+      "name_source": "疯狂生长",
+      "description_en": "Gain 10 stacks of Growth when receiving HP Gain.",
+      "rank": "Orange",
+      "origin": "gomg-wiki-search-index",
+      "legacy_source_id": "TF01071"
+    },
+    {
+      "id": "talent_035",
+      "name_en": "Wild Growth",
+      "name_cn": "疯狂生长",
+      "effect_en": "Gain 10 stacks of Growth when receiving HP Gain.",
+      "effect_cn": "获得生命效果会同时使自身获得10层成长。",
+      "tiers": [
+        "Orange",
+        "Purple"
+      ],
+      "source_cat": "Exclusive",
+      "source_label": "Exclusive (M11211)",
+      "source_value": "M11211",
+      "exclusive_name": "",
+      "exclusive_name_cn": "",
+      "icon": "",
+      "tags": [],
+      "tier_values": {
+        "Orange": [
+          "2",
+          "50",
+          "1"
+        ],
+        "Purple": [
+          "1",
+          "100",
+          "1"
+        ]
+      },
+      "name_source": "疯狂生长",
+      "description_en": "Gain 10 stacks of Growth when receiving HP Gain.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF01071"
