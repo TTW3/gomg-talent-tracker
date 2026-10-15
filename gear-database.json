@@ -7359,20 +7359,20 @@
         "name": "Counter Stance",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "Gain +Counter range this turn at turn start.",
-        "effect": "Gain +Counter range this turn at turn start.",
+        "basicDesc": "Gain +Counter range for the next counterattack this turn at turn start.",
+        "effect": "Gain +Counter range for the next counterattack this turn at turn start.",
         "tiers": [
           {
             "pieces": 1,
-            "effect": "Gain +1 Counter range this turn at turn start."
+            "effect": "Gain +1 Counter range for the next counterattack this turn at turn start."
           },
           {
             "pieces": 3,
-            "effect": "Gain +2 Counter range this turn at turn start."
+            "effect": "Gain +2 Counter range for the next counterattack this turn at turn start."
           },
           {
             "pieces": 6,
-            "effect": "Gain +3 Counter range this turn at turn start."
+            "effect": "Gain +3 Counter range for the next counterattack this turn at turn start."
           }
         ],
         "tags": [
@@ -7503,20 +7503,20 @@
         "name": "Counter Stance",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "Gain +Counter range this turn at turn start.",
-        "effect": "Gain +Counter range this turn at turn start.",
+        "basicDesc": "Gain +Counter range for the next counterattack this turn at turn start.",
+        "effect": "Gain +Counter range for the next counterattack this turn at turn start.",
         "tiers": [
           {
             "pieces": 1,
-            "effect": "Gain +1 Counter range this turn at turn start."
+            "effect": "Gain +1 Counter range for the next counterattack this turn at turn start."
           },
           {
             "pieces": 3,
-            "effect": "Gain +2 Counter range this turn at turn start."
+            "effect": "Gain +2 Counter range for the next counterattack this turn at turn start."
           },
           {
             "pieces": 6,
-            "effect": "Gain +3 Counter range this turn at turn start."
+            "effect": "Gain +3 Counter range for the next counterattack this turn at turn start."
           }
         ],
         "tags": [
@@ -7647,20 +7647,20 @@
         "name": "Counter Stance",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "Gain +Counter range this turn at turn start.",
-        "effect": "Gain +Counter range this turn at turn start.",
+        "basicDesc": "Gain +Counter range for the next counterattack this turn at turn start.",
+        "effect": "Gain +Counter range for the next counterattack this turn at turn start.",
         "tiers": [
           {
             "pieces": 1,
-            "effect": "Gain +1 Counter range this turn at turn start."
+            "effect": "Gain +1 Counter range for the next counterattack this turn at turn start."
           },
           {
             "pieces": 3,
-            "effect": "Gain +2 Counter range this turn at turn start."
+            "effect": "Gain +2 Counter range for the next counterattack this turn at turn start."
           },
           {
             "pieces": 6,
-            "effect": "Gain +3 Counter range this turn at turn start."
+            "effect": "Gain +3 Counter range for the next counterattack this turn at turn start."
           }
         ],
         "tags": [
@@ -9892,15 +9892,15 @@
         "tiers": [
           {
             "pieces": 1,
-            "effect": "After a basic heal, gain non-debuff stacks equal to X% of the same statuses granted to targets."
+            "effect": "After a basic heal, gain non-debuff stacks equal to 25% of the same statuses granted to targets."
           },
           {
             "pieces": 3,
-            "effect": "After a basic heal, gain non-debuff stacks equal to X% of the same statuses granted to targets."
+            "effect": "After a basic heal, gain non-debuff stacks equal to 50% of the same statuses granted to targets."
           },
           {
             "pieces": 6,
-            "effect": "After a basic heal, gain non-debuff stacks equal to X% of the same statuses granted to targets."
+            "effect": "After a basic heal, gain non-debuff stacks equal to 75% of the same statuses granted to targets."
           }
         ],
         "tags": [
@@ -10031,15 +10031,15 @@
         "tiers": [
           {
             "pieces": 1,
-            "effect": "After a basic heal, gain non-debuff stacks equal to X% of the same statuses granted to targets."
+            "effect": "After a basic heal, gain non-debuff stacks equal to 25% of the same statuses granted to targets."
           },
           {
             "pieces": 3,
-            "effect": "After a basic heal, gain non-debuff stacks equal to X% of the same statuses granted to targets."
+            "effect": "After a basic heal, gain non-debuff stacks equal to 50% of the same statuses granted to targets."
           },
           {
             "pieces": 6,
-            "effect": "After a basic heal, gain non-debuff stacks equal to X% of the same statuses granted to targets."
+            "effect": "After a basic heal, gain non-debuff stacks equal to 75% of the same statuses granted to targets."
           }
         ],
         "tags": [
@@ -10170,15 +10170,15 @@
         "tiers": [
           {
             "pieces": 1,
-            "effect": "After a basic heal, gain non-debuff stacks equal to X% of the same statuses granted to targets."
+            "effect": "After a basic heal, gain non-debuff stacks equal to 25% of the same statuses granted to targets."
           },
           {
             "pieces": 3,
-            "effect": "After a basic heal, gain non-debuff stacks equal to X% of the same statuses granted to targets."
+            "effect": "After a basic heal, gain non-debuff stacks equal to 50% of the same statuses granted to targets."
           },
           {
             "pieces": 6,
-            "effect": "After a basic heal, gain non-debuff stacks equal to X% of the same statuses granted to targets."
+            "effect": "After a basic heal, gain non-debuff stacks equal to 75% of the same statuses granted to targets."
           }
         ],
         "tags": [
@@ -43012,31 +43012,27 @@
         "name": "Life Siphon",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "Absorb HP from enemies with Expose based on their Expose stacks at action end.",
-        "effect": "Absorb HP from enemies with Expose based on their Expose stacks at action end.",
+        "basicDesc": "Gain HP after applying Expose.",
+        "effect": "Gain HP after applying Expose.",
         "tiers": [
           {
             "pieces": 1,
-            "effect": "Absorb 1 HP from enemies with Expose for every 75 stacks of Expose they have at action end."
+            "effect": "Gain 1 HP after applying Expose."
           },
           {
             "pieces": 3,
-            "effect": "Absorb 1 HP from enemies with Expose for every 50 stacks of Expose they have at action end."
+            "effect": "Gain 2 HP after applying Expose."
           },
           {
             "pieces": 6,
-            "effect": "Absorb 1 HP from enemies with Expose for every 25 stacks of Expose they have at action end."
+            "effect": "Gain 3 HP after applying Expose."
           }
         ],
         "tags": [
-          "Action End",
-          "HP Gain",
-          "HP Loss",
-          "Absorb Effect",
           "Expose",
-          "HP Restore Effect",
-          "HP Loss Effect",
-          "Strip-Related"
+          "HP Gain",
+          "Strip-Related",
+          "HP Restore Effect"
         ]
       }
     ],
@@ -43153,31 +43149,27 @@
         "name": "Life Siphon",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "Absorb HP from enemies with Expose based on their Expose stacks at action end.",
-        "effect": "Absorb HP from enemies with Expose based on their Expose stacks at action end.",
+        "basicDesc": "Gain HP after applying Expose.",
+        "effect": "Gain HP after applying Expose.",
         "tiers": [
           {
             "pieces": 1,
-            "effect": "Absorb 1 HP from enemies with Expose for every 75 stacks of Expose they have at action end."
+            "effect": "Gain 1 HP after applying Expose."
           },
           {
             "pieces": 3,
-            "effect": "Absorb 1 HP from enemies with Expose for every 50 stacks of Expose they have at action end."
+            "effect": "Gain 2 HP after applying Expose."
           },
           {
             "pieces": 6,
-            "effect": "Absorb 1 HP from enemies with Expose for every 25 stacks of Expose they have at action end."
+            "effect": "Gain 3 HP after applying Expose."
           }
         ],
         "tags": [
-          "Action End",
-          "HP Gain",
-          "HP Loss",
-          "Absorb Effect",
           "Expose",
-          "HP Restore Effect",
-          "HP Loss Effect",
-          "Strip-Related"
+          "HP Gain",
+          "Strip-Related",
+          "HP Restore Effect"
         ]
       }
     ],
@@ -43294,31 +43286,27 @@
         "name": "Life Siphon",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "Absorb HP from enemies with Expose based on their Expose stacks at action end.",
-        "effect": "Absorb HP from enemies with Expose based on their Expose stacks at action end.",
+        "basicDesc": "Gain HP after applying Expose.",
+        "effect": "Gain HP after applying Expose.",
         "tiers": [
           {
             "pieces": 1,
-            "effect": "Absorb 1 HP from enemies with Expose for every 75 stacks of Expose they have at action end."
+            "effect": "Gain 1 HP after applying Expose."
           },
           {
             "pieces": 3,
-            "effect": "Absorb 1 HP from enemies with Expose for every 50 stacks of Expose they have at action end."
+            "effect": "Gain 2 HP after applying Expose."
           },
           {
             "pieces": 6,
-            "effect": "Absorb 1 HP from enemies with Expose for every 25 stacks of Expose they have at action end."
+            "effect": "Gain 3 HP after applying Expose."
           }
         ],
         "tags": [
-          "Action End",
-          "HP Gain",
-          "HP Loss",
-          "Absorb Effect",
           "Expose",
-          "HP Restore Effect",
-          "HP Loss Effect",
-          "Strip-Related"
+          "HP Gain",
+          "Strip-Related",
+          "HP Restore Effect"
         ]
       }
     ],
@@ -46363,6 +46351,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -46499,6 +46488,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -46635,6 +46625,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -46771,6 +46762,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -46910,6 +46902,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -47049,6 +47042,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -47188,6 +47182,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -47326,6 +47321,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -47464,6 +47460,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -47602,6 +47599,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -47741,6 +47739,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -47880,6 +47879,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -48019,6 +48019,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -48156,6 +48157,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -48293,6 +48295,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -48430,6 +48433,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -48567,6 +48571,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -48704,6 +48709,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -48841,6 +48847,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -48980,6 +48987,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -49119,6 +49127,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -49258,6 +49267,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -49397,6 +49407,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -49536,6 +49547,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -49675,6 +49687,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -49815,6 +49828,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -49955,6 +49969,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -50095,6 +50110,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -50232,6 +50248,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -50369,6 +50386,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -50506,6 +50524,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -50645,6 +50664,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -50784,6 +50804,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -50923,6 +50944,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -51062,6 +51084,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -51201,6 +51224,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -51340,6 +51364,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -51478,6 +51503,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -51616,6 +51642,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -51754,6 +51781,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -51890,6 +51918,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -52026,6 +52055,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -52162,6 +52192,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -52298,6 +52329,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -52434,6 +52466,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -52570,6 +52603,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -52705,6 +52739,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -52840,6 +52875,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -52975,6 +53011,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -53111,6 +53148,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -53247,6 +53285,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -53383,6 +53422,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -53521,6 +53561,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -53659,6 +53700,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -53797,6 +53839,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -53936,6 +53979,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -54075,6 +54119,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -54214,6 +54259,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -54356,6 +54402,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -54498,6 +54545,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -54640,6 +54688,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -54779,6 +54828,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -54918,6 +54968,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -55057,6 +55108,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -55193,6 +55245,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -55329,6 +55382,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -55465,6 +55519,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -55603,6 +55658,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -55741,6 +55797,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -55879,6 +55936,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -56016,6 +56074,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -56153,6 +56212,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -56290,6 +56350,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -56430,6 +56491,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -56570,6 +56632,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -56710,6 +56773,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -56850,6 +56914,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -56990,6 +57055,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -57130,6 +57196,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -57267,6 +57334,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -57404,6 +57472,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -57541,6 +57610,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -57679,6 +57749,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -57817,6 +57888,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -57955,6 +58027,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -58094,6 +58167,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -58233,6 +58307,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -58372,6 +58447,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -58515,6 +58591,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -58658,6 +58735,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -58801,6 +58879,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -58938,6 +59017,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -59075,6 +59155,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -59212,6 +59293,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -59352,6 +59434,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -59492,6 +59575,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special"
     ],
     "area": "Frostbound Tundra",
@@ -59632,6 +59716,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -59771,6 +59856,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -59910,6 +59996,7 @@
     "src": [
       "Events",
       "Explore",
+      "Chests",
       "Special",
       "Rare"
     ],
@@ -95774,7 +95861,7 @@
         ]
       }
     ],
-    "effect": "Cleanses you inside and out."
+    "effect": "[CN: 可以使人来一次用内到外的净化。]"
   },
   {
     "id": "Z30006_722",
@@ -95914,7 +96001,7 @@
         ]
       }
     ],
-    "effect": "Cleanses you inside and out."
+    "effect": "[CN: 可以使人来一次用内到外的净化。]"
   },
   {
     "id": "Z30019_921",
@@ -96054,7 +96141,7 @@
         ]
       }
     ],
-    "effect": "Cleanses you inside and out."
+    "effect": "[CN: 可以使人来一次用内到外的净化。]"
   },
   {
     "id": "Z60010_121",
@@ -199658,7 +199745,7 @@
         ]
       },
       {
-        "name": "Life Siphon",
+        "name": "Health Drain",
         "count": 1,
         "source": "Enhance",
         "basicDesc": "Absorb HP from enemies with Expose based on their Expose stacks at action end.",
@@ -199800,7 +199887,7 @@
         ]
       },
       {
-        "name": "Life Siphon",
+        "name": "Health Drain",
         "count": 1,
         "source": "Enhance",
         "basicDesc": "Absorb HP from enemies with Expose based on their Expose stacks at action end.",
@@ -199942,7 +200029,7 @@
         ]
       },
       {
-        "name": "Life Siphon",
+        "name": "Health Drain",
         "count": 1,
         "source": "Enhance",
         "basicDesc": "Absorb HP from enemies with Expose based on their Expose stacks at action end.",
@@ -212068,16 +212155,16 @@
         "name": "Dew Fall",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "[CN: 造成滋润后对友方目标造成部分滋润层数的净化。]",
-        "effect": "[CN: 造成滋润后对友方目标造成部分滋润层数的净化。]",
+        "basicDesc": "After applying Soothe, apply Cleanse to allied targets equal to a portion of the Soothe stacks.",
+        "effect": "After applying Soothe, apply Cleanse to allied targets equal to a portion of the Soothe stacks.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "[CN: 造成滋润后对友方目标造成滋润层数25%的净化。]"
+            "effect": "After applying Soothe, apply Cleanse to allied targets equal to 25% of the applied Soothe stacks."
           },
           {
             "pieces": 3,
-            "effect": "[CN: 造成滋润后对友方目标造成滋润层数50%的净化。]"
+            "effect": "After applying Soothe, apply Cleanse to allied targets equal to 50% of the applied Soothe stacks."
           }
         ],
         "tags": [
@@ -213708,7 +213795,7 @@
   },
   {
     "id": "Z00103_344",
-    "name": "[CN: 猎龙项链]",
+    "name": "Wyrmhunt Necklace",
     "step": "S",
     "slot": "Necklace",
     "cls": "Archer",
@@ -213845,7 +213932,7 @@
   },
   {
     "id": "Z00103_345",
-    "name": "[CN: 猎龙戒指]",
+    "name": "Wyrmhunt Ring",
     "step": "S",
     "slot": "Ring",
     "cls": "Archer",
@@ -213982,7 +214069,7 @@
   },
   {
     "id": "Z00103_346",
-    "name": "[CN: 猎龙徽章]",
+    "name": "Wyrmhunt Badge",
     "step": "S",
     "slot": "Badge",
     "cls": "Archer",
@@ -214228,30 +214315,27 @@
         "name": "Pressurize",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "[CN: 拥有满层滋润时自身造成多段技能攻击次数增加。]",
-        "effect": "[CN: 拥有满层滋润时自身造成多段技能攻击次数增加。]",
+        "basicDesc": "When having max Soothe stacks, self's multi-hit skill count increases.",
+        "effect": "When having max Soothe stacks, self's multi-hit skill count increases.",
         "tiers": [
           {
             "pieces": 1,
-            "effect": "[CN: 拥有满层滋润时自身造成多段技能攻击次数+1。]"
+            "effect": "Gain +1 multi-hit skill count at max Soothe stacks."
           },
           {
             "pieces": 3,
-            "effect": "[CN: 拥有满层滋润时自身造成多段技能攻击次数+2。]"
+            "effect": "Gain +2 multi-hit skill count at max Soothe stacks."
           },
           {
             "pieces": 6,
-            "effect": "[CN: 拥有满层滋润时自身造成多段技能攻击次数+3。]"
+            "effect": "Gain +3 multi-hit skill count at max Soothe stacks."
           }
         ],
         "tags": [
           "Soothe",
           "Cast Skill",
           "Skill Uses",
-          "Increase DMG",
-          "Soothe-Related",
-          "Skill DMG",
-          "Skill Healing"
+          "Soothe-Related"
         ]
       }
     ],
@@ -214368,30 +214452,27 @@
         "name": "Pressurize",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "[CN: 拥有满层滋润时自身造成多段技能攻击次数增加。]",
-        "effect": "[CN: 拥有满层滋润时自身造成多段技能攻击次数增加。]",
+        "basicDesc": "When having max Soothe stacks, self's multi-hit skill count increases.",
+        "effect": "When having max Soothe stacks, self's multi-hit skill count increases.",
         "tiers": [
           {
             "pieces": 1,
-            "effect": "[CN: 拥有满层滋润时自身造成多段技能攻击次数+1。]"
+            "effect": "Gain +1 multi-hit skill count at max Soothe stacks."
           },
           {
             "pieces": 3,
-            "effect": "[CN: 拥有满层滋润时自身造成多段技能攻击次数+2。]"
+            "effect": "Gain +2 multi-hit skill count at max Soothe stacks."
           },
           {
             "pieces": 6,
-            "effect": "[CN: 拥有满层滋润时自身造成多段技能攻击次数+3。]"
+            "effect": "Gain +3 multi-hit skill count at max Soothe stacks."
           }
         ],
         "tags": [
           "Soothe",
           "Cast Skill",
           "Skill Uses",
-          "Increase DMG",
-          "Soothe-Related",
-          "Skill DMG",
-          "Skill Healing"
+          "Soothe-Related"
         ]
       }
     ],
@@ -214508,30 +214589,27 @@
         "name": "Pressurize",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "[CN: 拥有满层滋润时自身造成多段技能攻击次数增加。]",
-        "effect": "[CN: 拥有满层滋润时自身造成多段技能攻击次数增加。]",
+        "basicDesc": "When having max Soothe stacks, self's multi-hit skill count increases.",
+        "effect": "When having max Soothe stacks, self's multi-hit skill count increases.",
         "tiers": [
           {
             "pieces": 1,
-            "effect": "[CN: 拥有满层滋润时自身造成多段技能攻击次数+1。]"
+            "effect": "Gain +1 multi-hit skill count at max Soothe stacks."
           },
           {
             "pieces": 3,
-            "effect": "[CN: 拥有满层滋润时自身造成多段技能攻击次数+2。]"
+            "effect": "Gain +2 multi-hit skill count at max Soothe stacks."
           },
           {
             "pieces": 6,
-            "effect": "[CN: 拥有满层滋润时自身造成多段技能攻击次数+3。]"
+            "effect": "Gain +3 multi-hit skill count at max Soothe stacks."
           }
         ],
         "tags": [
           "Soothe",
           "Cast Skill",
           "Skill Uses",
-          "Increase DMG",
-          "Soothe-Related",
-          "Skill DMG",
-          "Skill Healing"
+          "Soothe-Related"
         ]
       }
     ],
@@ -216301,20 +216379,20 @@
         "name": "Drowning Cell",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "When allies gain Soothe stacks, all enemies suffer HP Loss based on the stacks gained.",
-        "effect": "When allies gain Soothe stacks, all enemies suffer HP Loss based on the stacks gained.",
+        "basicDesc": "All enemies receive HP Loss based on Soothe stacks when allies gain Soothe.",
+        "effect": "All enemies receive HP Loss based on Soothe stacks when allies gain Soothe.",
         "tiers": [
           {
             "pieces": 1,
-            "effect": "All enemies lose 1 HP for every 60 Soothe stacks gained by allies."
+            "effect": "All enemies lose 1 HP per 60 Soothe stacks gained by allies."
           },
           {
             "pieces": 3,
-            "effect": "All enemies lose 1 HP for every 40 Soothe stacks gained by allies."
+            "effect": "All enemies lose 1 HP per 40 Soothe stacks gained by allies."
           },
           {
             "pieces": 6,
-            "effect": "All enemies lose 1 HP for every 20 Soothe stacks gained by allies."
+            "effect": "All enemies lose 1 HP per 20 Soothe stacks gained by allies."
           }
         ],
         "tags": [
@@ -216438,20 +216516,20 @@
         "name": "Drowning Cell",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "When allies gain Soothe stacks, all enemies suffer HP Loss based on the stacks gained.",
-        "effect": "When allies gain Soothe stacks, all enemies suffer HP Loss based on the stacks gained.",
+        "basicDesc": "All enemies receive HP Loss based on Soothe stacks when allies gain Soothe.",
+        "effect": "All enemies receive HP Loss based on Soothe stacks when allies gain Soothe.",
         "tiers": [
           {
             "pieces": 1,
-            "effect": "All enemies lose 1 HP for every 60 Soothe stacks gained by allies."
+            "effect": "All enemies lose 1 HP per 60 Soothe stacks gained by allies."
           },
           {
             "pieces": 3,
-            "effect": "All enemies lose 1 HP for every 40 Soothe stacks gained by allies."
+            "effect": "All enemies lose 1 HP per 40 Soothe stacks gained by allies."
           },
           {
             "pieces": 6,
-            "effect": "All enemies lose 1 HP for every 20 Soothe stacks gained by allies."
+            "effect": "All enemies lose 1 HP per 20 Soothe stacks gained by allies."
           }
         ],
         "tags": [
@@ -216575,20 +216653,20 @@
         "name": "Drowning Cell",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "When allies gain Soothe stacks, all enemies suffer HP Loss based on the stacks gained.",
-        "effect": "When allies gain Soothe stacks, all enemies suffer HP Loss based on the stacks gained.",
+        "basicDesc": "All enemies receive HP Loss based on Soothe stacks when allies gain Soothe.",
+        "effect": "All enemies receive HP Loss based on Soothe stacks when allies gain Soothe.",
         "tiers": [
           {
             "pieces": 1,
-            "effect": "All enemies lose 1 HP for every 60 Soothe stacks gained by allies."
+            "effect": "All enemies lose 1 HP per 60 Soothe stacks gained by allies."
           },
           {
             "pieces": 3,
-            "effect": "All enemies lose 1 HP for every 40 Soothe stacks gained by allies."
+            "effect": "All enemies lose 1 HP per 40 Soothe stacks gained by allies."
           },
           {
             "pieces": 6,
-            "effect": "All enemies lose 1 HP for every 20 Soothe stacks gained by allies."
+            "effect": "All enemies lose 1 HP per 20 Soothe stacks gained by allies."
           }
         ],
         "tags": [
