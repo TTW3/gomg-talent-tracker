@@ -1,6 +1,6 @@
 {
   "schema_version": 6,
-  "last_checked": "2026-10-16",
+  "last_checked": "2026-10-17",
   "character_source": "https://gomg-wiki.pages.dev/units/",
   "talent_source": "https://gomg-wiki.pages.dev/search-talent-new",
   "talent_index_source": "https://gomg-wiki.pages.dev/talent-search-index.js",
@@ -20881,6 +20881,17 @@
       ]
     },
     {
+      "id": "M53301_000",
+      "name": "Astral Fiend",
+      "skill": "Let's Play",
+      "desc": "Astral Evil God throws Lil' Cthulhu to spray water, prioritizing the enemy with the most Soothe stacks, dealing {1} hits of {2} DMG. Each hit grants {3} stacks of Soothe to targets on both sides. If the target has at least {4} stacks of Soothe, each hit causes it to lose 3 Mana. Additionally, for every {5} stacks of Soothe on the target, this attack's hit count +1.",
+      "tags": [
+        "Buff",
+        "Conditional",
+        "Summon"
+      ]
+    },
+    {
       "id": "M53301_001",
       "name": "Astral Fiend",
       "skill": "Frostbound Gaze",
@@ -20934,7 +20945,7 @@
       "id": "M13310",
       "name": "Crimson Dragoness",
       "skill": "Crimson Breath",
-      "desc": "Breathes deadly scorching dragonfire. Deals {2} DMG to all enemies and applies {3} stacks of Burn. If the target's Burn is at max stacks, the target loses HP equal to {4}% of Burn stacks applied.",
+      "desc": "Breathes deadly scorching dragonfire. Deals {2} DMG and applies {3} stacks of Burn to all enemies. If the target's Burn is at max stacks, the target loses HP equal to {4}% of their Burn stacks.",
       "tags": [
         "AoE",
         "Debuff",
@@ -20959,19 +20970,19 @@
       "id": "M13306_000",
       "name": "Crystal Shroom",
       "skill": "Dark Fall",
-      "desc": "Summons a massive black hole that deals {1} hits of {2} DMG to all enemies. Applies {3} stacks of Nullify per hit to the target. For every {4} Mana the target is missing, increases skill DMG by {5}.",
+      "desc": "Summons a massive black hole that deals {1} hits of {2} damage to all enemies. Applies {3} stacks of Decay per hit to the target. Increases the enemy target's max mana by {4} per hit.",
       "tags": [
         "AoE",
         "Multi-Hit",
-        "Debuff",
-        "Conditional"
+        "No-Damage",
+        "Mana-Gen"
       ]
     },
     {
       "id": "M51302",
       "name": "Dawn Dragoness",
       "skill": "Lightning Flash",
-      "desc": "Calls down thunder with the dragon pearl. Deals {1} hits of {2} DMG to all enemies, applying {3} stacks of Shock per hit. For every {4} stacks of Soothe, deals +{5} DMG.",
+      "desc": "Calls down thunder with the dragon pearl. Deals {1} hits of {2} DMG to all enemies, applying {3} stacks of Shock per hit. For every {4} stacks of Soothe, deals +{5} DMG. At max Soothe stacks, deals +{6} hits.",
       "tags": [
         "AoE",
         "Multi-Hit",
@@ -21006,11 +21017,10 @@
       "id": "M12211_000",
       "name": "Desert Dancer",
       "skill": "Lunar Spin",
-      "desc": "Spins moon blades to cut. Targets the enemy with highest Mana first. Deals {1} hits of {2} DMG, applying {3} stacks of Nullify per hit. For every {4} stacks of Nullify applied, increases skill DMG by {5}.",
+      "desc": "Spins moon blades to cut. Targets the enemy with highest Mana first. Deals {1} hits of {2} DMG, applying {3} stacks of Decay per hit. For every {4} stacks of Decay applied, increases skill DMG by {5}.",
       "tags": [
         "ST",
         "Multi-Hit",
-        "Debuff",
         "Conditional"
       ]
     },
@@ -21050,7 +21060,7 @@
       "id": "M13303",
       "name": "Earth Witch",
       "skill": "Earthrend",
-      "desc": "Forms countless stone pillars with earth power. Deals {2} DMG to all enemies and applies {3} stacks of Vulnerable. For each target, deals +{4}% DMG. Each point of DMG consumes {5} stacks of Vulnerable.",
+      "desc": "Forms countless stone pillars with earth power. Deals {2} DMG and applies {3} stacks of Vulnerable to all enemies. For each skill target, deals +{4}% DMG. Each point of DMG consumes {5} stacks of Vulnerable.",
       "tags": [
         "AoE",
         "Debuff"
@@ -21060,7 +21070,7 @@
       "id": "M13303_001",
       "name": "Earth Witch",
       "skill": "Sand Tempest",
-      "desc": "Commands endless sand to crush her foes. Deals {1} hits of {2} DMG to all enemies, applying {3} stacks of Slow per hit. For each enemy, deals +{4} hits. Deals +{6} DMG per {5} stacks of Slow on the target.",
+      "desc": "Commands endless sand to crush her foes. Deals {1} hits of {2} DMG and applies {3} stacks of Slow per hit to all enemies. For each skill target, deals +{4} hits. Deals +{6} DMG per {5} stacks of Slow on the target.",
       "tags": [
         "AoE",
         "Multi-Hit",
@@ -21072,7 +21082,7 @@
       "id": "M13303_002",
       "name": "Earth Witch",
       "skill": "Blazing Sun",
-      "desc": "Shapes flames into a blazing sun. Deals {1} hits of {2} DMG to all enemies, applying {3} stacks of Burn per hit. For each enemy, increases Burn stacks applied by {4}%.",
+      "desc": "Shapes flames into a blazing sun. Deals {1} hits of {2} DMG and applies {3} stacks of Burn per hit to all enemies. For each skill target, increases Burn stacks applied by {4}%.",
       "tags": [
         "AoE",
         "Multi-Hit",
@@ -21104,6 +21114,18 @@
       ]
     },
     {
+      "id": "M14301_001",
+      "name": "Flawless Sage",
+      "skill": "Radiant Joy",
+      "desc": "Soothes away allies' weariness. Restores {2} HP to all allies and grants {3} stacks of Inspire and Soothe. At max Soothe stacks, applies +{4}% Soothe stacks.",
+      "tags": [
+        "Ally-Target",
+        "No-Damage",
+        "Heal",
+        "Buff"
+      ]
+    },
+    {
       "id": "M54301",
       "name": "Forest Nymph",
       "skill": "Lifegiving",
@@ -21118,7 +21140,7 @@
       "id": "M54301_000",
       "name": "Forest Nymph",
       "skill": "Flame of Life",
-      "desc": "Transforms eternal fire into life energy. Restores {1} hits of {2} HP to all allies. For every {4} stacks of Burn on all targets (both sides), restores +{5} HP. Removes from the target Burn stacks equal to {6}% of this healing performed.",
+      "desc": "Transforms eternal fire into life energy. Restores {1} hits of {2} HP to all allies, and targets take -{4} Burn stacks. For every ally count, restores +{5} HP.",
       "tags": [
         "Ally-Target",
         "No-Damage",
@@ -21139,7 +21161,7 @@
     {
       "id": "M41301",
       "name": "Ghost Captain",
-      "skill": "Life Drain",
+      "skill": "Health Drain",
       "desc": "Controls spirit blades to cut those who dare offend her. Targets the enemy with highest HP first. Deals {1} hits of {2} DMG, applying {3} stacks of Expose per hit. Gains HP equal to stacks applied.",
       "tags": [
         "ST",
@@ -21175,7 +21197,7 @@
       "id": "M21301_000",
       "name": "Golden Maiden",
       "skill": "Magma Burst",
-      "desc": "Shatters molten rock everywhere. Deals {2} DMG to all enemies. Loses {4}% of current Toughness and applies Burn stacks equal to {5} times the Toughness lost.",
+      "desc": "Shatters molten rock everywhere. Deals {2} DMG to all enemies. Gains +{4} Max Toughness and applies Burn stacks equal to own current Toughness stacks to targets.",
       "tags": [
         "AoE"
       ]
@@ -21235,6 +21257,17 @@
       ]
     },
     {
+      "id": "M31301_000",
+      "name": "Holy Blade",
+      "skill": "Popsicle Strike",
+      "desc": "Summons a giant popsicle to beat the heat. Deals {2} DMG to all enemies. Applies {3} stacks of Chill per ally count. All allies gain Soothe equal to {4}% of Chill stacks applied. If the enemy has at least {5} stacks of Soothe, doubles Chill stacks applied.",
+      "tags": [
+        "AoE",
+        "Buff",
+        "Debuff"
+      ]
+    },
+    {
       "id": "M31301_001",
       "name": "Holy Blade",
       "skill": "Frostbound Sword",
@@ -21266,6 +21299,18 @@
         "Multi-Hit",
         "Debuff",
         "Control",
+        "Conditional"
+      ]
+    },
+    {
+      "id": "M51303_001",
+      "name": "Imp",
+      "skill": "Supercharge",
+      "desc": "Spikes a beach ball at the enemy over and over. Targets the back enemy first. Deals {1} hits of {2} DMG. Each hit grants {3} stacks of Soothe and Cleanse to self. For every {4} stacks of Soothe on self, deals +{5} hits.The final hit deals +{6}% DMG per total hit in this skill.",
+      "tags": [
+        "ST",
+        "Multi-Hit",
+        "Buff",
         "Conditional"
       ]
     },
@@ -21329,6 +21374,51 @@
         "AoE",
         "Mana-Gen",
         "Summon"
+      ]
+    },
+    {
+      "id": "M11304_001",
+      "name": "Minotaur Brave",
+      "skill": "Counter Charge",
+      "desc": "Braces for a counterattack. Restores {2} HP and deals +{4}% Counter DMG this turn.",
+      "tags": [
+        "Self",
+        "Heal"
+      ]
+    },
+    {
+      "id": "M11307",
+      "name": "Naga General",
+      "skill": "Spiral Slash",
+      "desc": "Slashes with all four arms in rapid succession. Targets the front enemy first, dealing {1} hits of {2} DMG. Each hit grants {3} stacks of Soothe to self. DMG increases by {4}% per hit, up to {5}%.",
+      "tags": [
+        "ST",
+        "Buff"
+      ]
+    },
+    {
+      "id": "M13307",
+      "name": "Rose Sovereign",
+      "skill": "Rose Garden",
+      "desc": "Rose Sovereign summons a field of thorny roses across the battlefield. Deals {2} DMG to all enemies and grants {3} stacks of Thorns to all allies. For every {4} stacks of Thorns applied this way, gains {5} stacks of Growth.",
+      "tags": [
+        "AoE",
+        "Ally-Target",
+        "Buff",
+        "Conditional",
+        "Self-Buff"
+      ]
+    },
+    {
+      "id": "M13307_000",
+      "name": "Rose Sovereign",
+      "skill": "Dark Offering",
+      "desc": "Rose Sovereign summons a swarm of bats across the battlefield. Deals {1} hits of {2} DMG to all enemies, applying {3} stacks of Expose per hit. For every {4} stacks of Expose applied, drain {5} HP from target.",
+      "tags": [
+        "AoE",
+        "Multi-Hit",
+        "Debuff",
+        "Conditional"
       ]
     },
     {
@@ -21397,19 +21487,22 @@
       "id": "M23301_000",
       "name": "Slime Queen",
       "skill": "Prismatic Beam",
-      "desc": "Summons a crystal shooting rainbow light. Deals {2} DMG to all enemies and applies {3} stacks of Nullify. Each skill cast increases skill DMG by {4}.",
+      "desc": "Summons a crystal shooting rainbow light. Deals {2} DMG to all enemies and applies {3} stacks of Decay. Each skill cast increases skill DMG by {4}.",
       "tags": [
         "AoE",
-        "Debuff",
         "Conditional"
       ]
     },
     {
       "id": "M23301_001",
       "name": "Slime Queen",
-      "skill": "—",
-      "desc": "",
-      "tags": []
+      "skill": "Meteor Shower",
+      "desc": "Calls down a storm of meteors. Deals {1} hits of {2} DMG to all enemies, applying {3} stacks of Burn per hit. Targets lose DEF equal to {4}% of Burn stacks applied.",
+      "tags": [
+        "AoE",
+        "Multi-Hit",
+        "Debuff"
+      ]
     },
     {
       "id": "M11303",
@@ -21451,11 +21544,12 @@
       "id": "M52301_000",
       "name": "Stellar Archer",
       "skill": "Phantom Edge",
-      "desc": "Achieves perfect unity of blade and spirit. Restores {2} HP and immediately takes {4} Extra Actions. After defeating a target this battle, these Extra Actions deal +{5} total DMG.",
+      "desc": "Achieves perfect unity of blade and spirit. Restores {2} HP and immediately takes {4} Extra Actions. For each Follow-Up or Counter performed, the following Extra Action deals +{5} total DMG.",
       "tags": [
         "Self",
         "Heal",
-        "Mana-Gen"
+        "Mana-Gen",
+        "Follow-Up"
       ]
     },
     {
@@ -21497,6 +21591,40 @@
       "tags": [
         "AoE",
         "Debuff",
+        "Conditional"
+      ]
+    },
+    {
+      "id": "M12303",
+      "name": "Troll Sorceress",
+      "skill": "Mana Bomb",
+      "desc": "Hurls a custom-made Mana Bomb. Targets the enemy with highest Mana first, dealing {2} DMG. Increases Max Mana by {4} for both sides. For every {5} total Max Mana of both sides, deals +{6} DMG.",
+      "tags": [
+        "ST",
+        "Mana-Gen"
+      ]
+    },
+    {
+      "id": "M12303_000",
+      "name": "Troll Sorceress",
+      "skill": "Alchemic Bomb",
+      "desc": "The Troll Warlock hurls a custom-made alchemy potion, dealing {2} DMG to all enemies and applying {3} stacks of Hinder to each target every time. For every {4} stacks of Hinder on all enemies, this attack deals +{5} DMG. Additionally, for each enemy at max Hinder stacks, this attack deals +{6}% DMG.",
+      "tags": [
+        "AoE",
+        "Debuff",
+        "Conditional"
+      ]
+    },
+    {
+      "id": "M14215",
+      "name": "Velvet Thorn",
+      "skill": "Needle Wrap",
+      "desc": "Wraps allies in a soft, spiny blanket. Restores {2} HP to all allies and grants {3} stacks of Thorns. For every {4} stacks of Thorns on her, grants +{5} Thorns stacks.",
+      "tags": [
+        "Ally-Target",
+        "No-Damage",
+        "Heal",
+        "Buff",
         "Conditional"
       ]
     },
@@ -21546,6 +21674,17 @@
       ]
     },
     {
+      "id": "M12205_001",
+      "name": "Windstrider",
+      "skill": "Hydro Cannon",
+      "desc": "Blasts a massive water jet from her water gun. Deals {1} hits of {2} DMG to all enemies. Consumes all own Soothe. Deals +{5} DMG per {4} stacks of Soothe consumed. Deals +{6}% DMG at max Soothe stacks.",
+      "tags": [
+        "AoE",
+        "Multi-Hit",
+        "Buff"
+      ]
+    },
+    {
       "id": "M34301",
       "name": "Wish Djinn",
       "skill": "Wish Spell",
@@ -21577,6 +21716,16 @@
       "tags": [
         "AoE",
         "Conditional"
+      ]
+    },
+    {
+      "id": "M13210",
+      "name": "Alchemy Witch",
+      "skill": "Decompose",
+      "desc": "Breaks matter down to fragments. Targets the enemy with most Shield first. Deals {2} DMG and applies {3} stacks of Vulnerable. Removes {4}% of the target's Shield stacks.",
+      "tags": [
+        "ST",
+        "Debuff"
       ]
     },
     {
@@ -21856,6 +22005,18 @@
       ]
     },
     {
+      "id": "M14202_001",
+      "name": "Goblin Priest",
+      "skill": "Soothe Chant",
+      "desc": "Refreshes allies' body and soul. Restores {2} HP to all allies and grants {3} stacks of Soothe.",
+      "tags": [
+        "Ally-Target",
+        "No-Damage",
+        "Heal",
+        "Buff"
+      ]
+    },
+    {
       "id": "M14208",
       "name": "Green Cap",
       "skill": "Breeze Spore",
@@ -21891,10 +22052,9 @@
       "id": "M33101",
       "name": "Jade Golem",
       "skill": "Mana Pulse",
-      "desc": "Disrupts nearby Mana. Targets the enemy with highest Mana first. Deals {2} DMG and applies {3} stacks of Nullify.",
+      "desc": "Disrupts nearby Mana. Targets the enemy with highest Mana first. Deals {2} DMG and applies {3} stacks of Decay.",
       "tags": [
-        "ST",
-        "Debuff"
+        "ST"
       ]
     },
     {
@@ -21932,7 +22092,7 @@
       "id": "M14213",
       "name": "Lunar Priest",
       "skill": "Deep Moonlight",
-      "desc": "Summons the moon's radiance. Deals {2} DMG to all enemies and applies {3} stacks of Cleanse and Nullify.",
+      "desc": "Summons the moon's radiance. Deals {2} DMG to all enemies and applies {3} stacks of Cleanse and Decay.",
       "tags": [
         "AoE",
         "Cleanse"
@@ -21972,6 +22132,16 @@
       ]
     },
     {
+      "id": "M13204_000",
+      "name": "Magic Attendant",
+      "skill": "Splash Volley",
+      "desc": "Hurls a barrage of water balloons. Deals {2} DMG to all enemies and applies {3} stacks of Soothe to self and targets.",
+      "tags": [
+        "AoE",
+        "Buff"
+      ]
+    },
+    {
       "id": "M12210",
       "name": "Mercenary Gunner",
       "skill": "Quick Shot",
@@ -21990,6 +22160,15 @@
         "ST",
         "Multi-Hit",
         "Conditional"
+      ]
+    },
+    {
+      "id": "M11209_000",
+      "name": "Minotaur Blade",
+      "skill": "Melon Smash",
+      "desc": "Swings a bat around wildly. Targets the front enemy first, dealing {1} hits of {2} DMG. Deals +{4} hits while having Soothe.",
+      "tags": [
+        "ST"
       ]
     },
     {
@@ -22067,6 +22246,42 @@
       "tags": []
     },
     {
+      "id": "M14211",
+      "name": "Red Fox Priestess",
+      "skill": "Fortune's Grace",
+      "desc": "Bestows a blessing in the name of fortune. Restores {2} HP to all allies and grants them +{4} Luck. Each ally gains {6} Mana per {5} Luck.",
+      "tags": [
+        "Ally-Target",
+        "No-Damage",
+        "Heal"
+      ]
+    },
+    {
+      "id": "M14210",
+      "name": "Silver Fox Oracle",
+      "skill": "Begone!",
+      "desc": "Despises all impurities. Targets the ally with most debuffs first. Restores {2} HP and applies {3} stacks of Cleanse. Grants the target HP equal to {4}% of debuff stacks removed.",
+      "tags": [
+        "Ally-Target",
+        "No-Damage",
+        "Heal",
+        "Cleanse"
+      ]
+    },
+    {
+      "id": "M12208",
+      "name": "Silver Ranger",
+      "skill": "Flash Strike",
+      "desc": "Fires a surprise shot. Targets the back enemy first. Deals {2} DMG and applies {3} stacks of Taunt. Gains {4} stacks of Precision.",
+      "tags": [
+        "ST",
+        "Buff",
+        "Debuff",
+        "Control",
+        "Self-Buff"
+      ]
+    },
+    {
       "id": "M13207",
       "name": "Solar Priest",
       "skill": "Solar Radiance",
@@ -22084,6 +22299,17 @@
       "desc": "Sacrifices her own soul. Targets the enemy with lowest HP first. Deals {2} DMG and triggers own defeat effect. Max {4} times per turn.",
       "tags": [
         "ST"
+      ]
+    },
+    {
+      "id": "M13202_000",
+      "name": "Soul Mage",
+      "skill": "Aqua Prison",
+      "desc": "Traps enemies in a water prison. Targets the enemy with most Soothe first. Deals {1} hits of {2} DMG. Each hit applies {3} stacks of Soothe and triggers the target's on-defeat effect.",
+      "tags": [
+        "ST",
+        "Multi-Hit",
+        "Buff"
       ]
     },
     {
@@ -22792,10 +23018,9 @@
       "id": "M11008",
       "name": "Desert Rogue",
       "skill": "Umbra Pierce",
-      "desc": "Ambushes from behind. Targets the back enemy first. Deals {2} DMG and applies {3} stacks of Nullify.",
+      "desc": "Ambushes from behind. Targets the back enemy first. Deals {2} DMG and applies {3} stacks of Decay.",
       "tags": [
-        "ST",
-        "Debuff"
+        "ST"
       ]
     },
     {
@@ -22981,7 +23206,7 @@
     }
   ],
   "skill_source": "https://gomg-wiki.pages.dev/search-unit",
-  "skill_count": 194,
+  "skill_count": 214,
   "unit_source": "https://gomg-wiki.pages.dev/search-unit",
   "notes": [
     "Characters are refreshed from the full GOMG Wiki Search · Units dataset.",
