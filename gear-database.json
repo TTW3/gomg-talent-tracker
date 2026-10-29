@@ -74006,38 +74006,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -74137,38 +74136,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -74277,38 +74275,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -74417,38 +74414,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -74558,38 +74554,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -74697,38 +74692,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -74836,38 +74830,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -75827,38 +75820,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -75966,38 +75958,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -76105,38 +76096,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -77474,38 +77464,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -77610,38 +77599,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -77746,38 +77734,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -80735,38 +80722,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -80871,38 +80857,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -81007,38 +80992,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -81144,38 +81128,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -81285,38 +81268,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -81426,38 +81408,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -92516,27 +92497,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -92642,27 +92635,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -92768,27 +92773,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -94574,27 +94591,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -94699,27 +94728,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -94824,27 +94865,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -97490,28 +97543,26 @@
         "name": "Endless Greed",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "Receive more HP Gain at action start, but apply Expose to self.",
-        "effect": "Receive more HP Gain at action start, but apply Expose to self.",
+        "basicDesc": "Gain +all status stacks.",
+        "effect": "Gain +all status stacks.",
         "tiers": [
           {
             "pieces": 1,
-            "effect": "HP Gain +2 at action start, but apply 12 stacks of Expose to self."
+            "effect": "Gain 1 more stacks of all statuses."
           },
           {
             "pieces": 3,
-            "effect": "HP Gain +4 at action start, but apply 8 stacks of Expose to self."
+            "effect": "Gain 2 more stacks of all statuses."
           },
           {
             "pieces": 6,
-            "effect": "HP Gain +6 at action start, but apply 4 stacks of Expose to self."
+            "effect": "Gain 3 more stacks of all statuses."
           }
         ],
         "tags": [
-          "Action Start",
-          "HP Gain Bonus",
-          "Expose",
-          "HP Restore Gain",
-          "Stack HP"
+          "All Status",
+          "Increase Stacks",
+          "Generic Effect"
         ]
       }
     ],
@@ -97628,28 +97679,26 @@
         "name": "Endless Greed",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "Receive more HP Gain at action start, but apply Expose to self.",
-        "effect": "Receive more HP Gain at action start, but apply Expose to self.",
+        "basicDesc": "Gain +all status stacks.",
+        "effect": "Gain +all status stacks.",
         "tiers": [
           {
             "pieces": 1,
-            "effect": "HP Gain +2 at action start, but apply 12 stacks of Expose to self."
+            "effect": "Gain 1 more stacks of all statuses."
           },
           {
             "pieces": 3,
-            "effect": "HP Gain +4 at action start, but apply 8 stacks of Expose to self."
+            "effect": "Gain 2 more stacks of all statuses."
           },
           {
             "pieces": 6,
-            "effect": "HP Gain +6 at action start, but apply 4 stacks of Expose to self."
+            "effect": "Gain 3 more stacks of all statuses."
           }
         ],
         "tags": [
-          "Action Start",
-          "HP Gain Bonus",
-          "Expose",
-          "HP Restore Gain",
-          "Stack HP"
+          "All Status",
+          "Increase Stacks",
+          "Generic Effect"
         ]
       }
     ],
@@ -97766,28 +97815,26 @@
         "name": "Endless Greed",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "Receive more HP Gain at action start, but apply Expose to self.",
-        "effect": "Receive more HP Gain at action start, but apply Expose to self.",
+        "basicDesc": "Gain +all status stacks.",
+        "effect": "Gain +all status stacks.",
         "tiers": [
           {
             "pieces": 1,
-            "effect": "HP Gain +2 at action start, but apply 12 stacks of Expose to self."
+            "effect": "Gain 1 more stacks of all statuses."
           },
           {
             "pieces": 3,
-            "effect": "HP Gain +4 at action start, but apply 8 stacks of Expose to self."
+            "effect": "Gain 2 more stacks of all statuses."
           },
           {
             "pieces": 6,
-            "effect": "HP Gain +6 at action start, but apply 4 stacks of Expose to self."
+            "effect": "Gain 3 more stacks of all statuses."
           }
         ],
         "tags": [
-          "Action Start",
-          "HP Gain Bonus",
-          "Expose",
-          "HP Restore Gain",
-          "Stack HP"
+          "All Status",
+          "Increase Stacks",
+          "Generic Effect"
         ]
       }
     ],
@@ -132260,38 +132307,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -132400,38 +132446,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -132540,38 +132585,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -146062,8 +146106,8 @@
         "name": "Fear Reap",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "Gain HP after applying Fear.",
-        "effect": "Gain HP after applying Fear.",
+        "basicDesc": "Receive HP Gain after applying Fear.",
+        "effect": "Receive HP Gain after applying Fear.",
         "tiers": [
           {
             "pieces": 1,
@@ -146199,8 +146243,8 @@
         "name": "Fear Reap",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "Gain HP after applying Fear.",
-        "effect": "Gain HP after applying Fear.",
+        "basicDesc": "Receive HP Gain after applying Fear.",
+        "effect": "Receive HP Gain after applying Fear.",
         "tiers": [
           {
             "pieces": 1,
@@ -146336,8 +146380,8 @@
         "name": "Fear Reap",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "Gain HP after applying Fear.",
-        "effect": "Gain HP after applying Fear.",
+        "basicDesc": "Receive HP Gain after applying Fear.",
+        "effect": "Receive HP Gain after applying Fear.",
         "tiers": [
           {
             "pieces": 1,
@@ -186371,38 +186415,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -186512,38 +186555,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -186653,38 +186695,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -186793,38 +186834,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -186932,38 +186972,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -187071,38 +187110,37 @@
         "name": "Guard",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Other allies gain Shield when defeated.",
-        "effect": "Other allies gain Shield when defeated.",
+        "basicDesc": "Gain Shield at action start.",
+        "effect": "Gain Shield at action start.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Other allies gain 1 stacks of Shield when defeated."
+            "effect": "Gain 2 stacks of Shield at action start."
           },
           {
             "pieces": 4,
-            "effect": "Other allies gain 2 stacks of Shield when defeated."
+            "effect": "Gain 4 stacks of Shield at action start."
           },
           {
             "pieces": 6,
-            "effect": "Other allies gain 3 stacks of Shield when defeated."
+            "effect": "Gain 6 stacks of Shield at action start."
           },
           {
             "pieces": 8,
-            "effect": "Other allies gain 4 stacks of Shield when defeated."
+            "effect": "Gain 8 stacks of Shield at action start."
           },
           {
             "pieces": 10,
-            "effect": "Other allies gain 5 stacks of Shield when defeated."
+            "effect": "Gain 10 stacks of Shield at action start."
           },
           {
             "pieces": 12,
-            "effect": "Other allies gain 6 stacks of Shield when defeated."
+            "effect": "Gain 12 stacks of Shield at action start."
           }
         ],
         "tags": [
-          "Defeated",
+          "Action Start",
           "Shield",
-          "Defeated",
           "Protection-Related"
         ]
       },
@@ -199326,7 +199364,7 @@
         ]
       },
       {
-        "name": "Endless Greed",
+        "name": "Relentless Greed",
         "count": 1,
         "source": "Enhance",
         "basicDesc": "Receive more HP Gain at action start, but apply Expose to self.",
@@ -199466,7 +199504,7 @@
         ]
       },
       {
-        "name": "Endless Greed",
+        "name": "Relentless Greed",
         "count": 1,
         "source": "Enhance",
         "basicDesc": "Receive more HP Gain at action start, but apply Expose to self.",
@@ -199606,7 +199644,7 @@
         ]
       },
       {
-        "name": "Endless Greed",
+        "name": "Relentless Greed",
         "count": 1,
         "source": "Enhance",
         "basicDesc": "Receive more HP Gain at action start, but apply Expose to self.",
@@ -202218,27 +202256,27 @@
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Apply 1 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 1 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 4,
-            "effect": "Apply 2 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 2 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply 3 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 3 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 8,
-            "effect": "Apply 4 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 4 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 10,
-            "effect": "Apply 5 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 5 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 12,
-            "effect": "Apply 6 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 6 stacks of Shock to enemy targets after casting skill."
           }
         ],
         "tags": [
@@ -202355,27 +202393,27 @@
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Apply 1 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 1 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 4,
-            "effect": "Apply 2 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 2 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply 3 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 3 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 8,
-            "effect": "Apply 4 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 4 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 10,
-            "effect": "Apply 5 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 5 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 12,
-            "effect": "Apply 6 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 6 stacks of Shock to enemy targets after casting skill."
           }
         ],
         "tags": [
@@ -202492,27 +202530,27 @@
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Apply 1 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 1 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 4,
-            "effect": "Apply 2 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 2 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply 3 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 3 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 8,
-            "effect": "Apply 4 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 4 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 10,
-            "effect": "Apply 5 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 5 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 12,
-            "effect": "Apply 6 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 6 stacks of Shock to enemy targets after casting skill."
           }
         ],
         "tags": [
@@ -202629,27 +202667,27 @@
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Apply 1 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 1 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 4,
-            "effect": "Apply 2 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 2 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply 3 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 3 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 8,
-            "effect": "Apply 4 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 4 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 10,
-            "effect": "Apply 5 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 5 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 12,
-            "effect": "Apply 6 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 6 stacks of Shock to enemy targets after casting skill."
           }
         ],
         "tags": [
@@ -202765,27 +202803,27 @@
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Apply 1 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 1 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 4,
-            "effect": "Apply 2 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 2 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply 3 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 3 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 8,
-            "effect": "Apply 4 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 4 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 10,
-            "effect": "Apply 5 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 5 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 12,
-            "effect": "Apply 6 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 6 stacks of Shock to enemy targets after casting skill."
           }
         ],
         "tags": [
@@ -202901,27 +202939,27 @@
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Apply 1 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 1 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 4,
-            "effect": "Apply 2 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 2 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply 3 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 3 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 8,
-            "effect": "Apply 4 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 4 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 10,
-            "effect": "Apply 5 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 5 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 12,
-            "effect": "Apply 6 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 6 stacks of Shock to enemy targets after casting skill."
           }
         ],
         "tags": [
@@ -208790,27 +208828,27 @@
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Apply 1 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 1 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 4,
-            "effect": "Apply 2 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 2 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply 3 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 3 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 8,
-            "effect": "Apply 4 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 4 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 10,
-            "effect": "Apply 5 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 5 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 12,
-            "effect": "Apply 6 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 6 stacks of Shock to enemy targets after casting skill."
           }
         ],
         "tags": [
@@ -208929,27 +208967,27 @@
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Apply 1 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 1 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 4,
-            "effect": "Apply 2 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 2 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply 3 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 3 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 8,
-            "effect": "Apply 4 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 4 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 10,
-            "effect": "Apply 5 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 5 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 12,
-            "effect": "Apply 6 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 6 stacks of Shock to enemy targets after casting skill."
           }
         ],
         "tags": [
@@ -209068,27 +209106,27 @@
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Apply 1 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 1 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 4,
-            "effect": "Apply 2 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 2 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply 3 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 3 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 8,
-            "effect": "Apply 4 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 4 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 10,
-            "effect": "Apply 5 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 5 stacks of Shock to enemy targets after casting skill."
           },
           {
             "pieces": 12,
-            "effect": "Apply 6 stacks of Shock to enemies after casting skill."
+            "effect": "Apply 6 stacks of Shock to enemy targets after casting skill."
           }
         ],
         "tags": [
@@ -212155,16 +212193,16 @@
         "name": "Dew Fall",
         "count": 1,
         "source": "Enhance",
-        "basicDesc": "After applying Soothe, apply Cleanse to allied targets equal to a portion of the Soothe stacks.",
-        "effect": "After applying Soothe, apply Cleanse to allied targets equal to a portion of the Soothe stacks.",
+        "basicDesc": "After applying Soothe to an ally target, apply Cleanse based on the Soothe stacks applied.",
+        "effect": "After applying Soothe to an ally target, apply Cleanse based on the Soothe stacks applied.",
         "tiers": [
           {
             "pieces": 2,
-            "effect": "After applying Soothe, apply Cleanse to allied targets equal to 25% of the applied Soothe stacks."
+            "effect": "After applying Soothe to an ally target, apply Cleanse stacks equal to 25% of the Soothe stacks applied."
           },
           {
             "pieces": 3,
-            "effect": "After applying Soothe, apply Cleanse to allied targets equal to 50% of the applied Soothe stacks."
+            "effect": "After applying Soothe to an ally target, apply Cleanse stacks equal to 50% of the Soothe stacks applied."
           }
         ],
         "tags": [
@@ -213065,27 +213103,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -213192,27 +213242,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -213319,27 +213381,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Pure",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -216714,27 +216788,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -216840,27 +216926,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -216966,27 +217064,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -217092,27 +217202,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -217217,27 +217339,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -217342,27 +217476,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -220350,27 +220496,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -220476,27 +220634,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -220602,27 +220772,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -220727,27 +220909,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -220789,7 +220983,7 @@
         ]
       },
       {
-        "name": "Wellspring",
+        "name": "Gushing Spring",
         "count": 1,
         "source": "Enhance",
         "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
@@ -220852,27 +221046,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -220914,7 +221120,7 @@
         ]
       },
       {
-        "name": "Wellspring",
+        "name": "Gushing Spring",
         "count": 1,
         "source": "Enhance",
         "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
@@ -220977,27 +221183,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -221039,7 +221257,7 @@
         ]
       },
       {
-        "name": "Wellspring",
+        "name": "Gushing Spring",
         "count": 1,
         "source": "Enhance",
         "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
@@ -221103,27 +221321,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -221185,6 +221415,7 @@
           }
         ],
         "tags": [
+          "Enemy Defeated",
           "Soothe",
           "Toughness Loss",
           "Soothe-Related",
@@ -221229,27 +221460,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -221311,6 +221554,7 @@
           }
         ],
         "tags": [
+          "Enemy Defeated",
           "Soothe",
           "Toughness Loss",
           "Soothe-Related",
@@ -221355,27 +221599,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -221437,6 +221693,7 @@
           }
         ],
         "tags": [
+          "Enemy Defeated",
           "Soothe",
           "Toughness Loss",
           "Soothe-Related",
@@ -221480,27 +221737,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -221605,27 +221874,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -221730,27 +222011,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -223485,27 +223778,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -223611,27 +223916,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
@@ -223737,27 +224054,39 @@
         "name": "Wellspring",
         "count": 1,
         "source": "Title",
-        "basicDesc": "Apply more Soothe stacks for each ally at low HP.",
-        "effect": "Apply more Soothe stacks for each ally at low HP.",
+        "basicDesc": "Allies gain Soothe after casting skill.",
+        "effect": "Allies gain Soothe after casting skill.",
         "tiers": [
           {
-            "pieces": 1,
-            "effect": "Apply +2 stacks of Soothe for each ally at low HP."
+            "pieces": 2,
+            "effect": "Allies gain 1 stacks of Soothe after casting skill."
           },
           {
-            "pieces": 3,
-            "effect": "Apply +4 stacks of Soothe for each ally at low HP."
+            "pieces": 4,
+            "effect": "Allies gain 2 stacks of Soothe after casting skill."
           },
           {
             "pieces": 6,
-            "effect": "Apply +6 stacks of Soothe for each ally at low HP."
+            "effect": "Allies gain 3 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 8,
+            "effect": "Allies gain 4 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 10,
+            "effect": "Allies gain 5 stacks of Soothe after casting skill."
+          },
+          {
+            "pieces": 12,
+            "effect": "Allies gain 6 stacks of Soothe after casting skill."
           }
         ],
         "tags": [
-          "Healing",
-          "HP Granted",
-          "Ally High HP",
-          "Global Healing"
+          "Cast Skill",
+          "Soothe",
+          "Soothe-Related",
+          "Skill DMG"
         ]
       },
       {
