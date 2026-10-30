@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "https://gomg-wiki.pages.dev/",
-  "exportedAt": "2026-10-29T23:23:23.032159+00:00",
+  "exportedAt": "2026-10-30T23:20:26.255347+00:00",
   "profilesFound": 214,
   "profilesRead": 214,
   "failed": [],
@@ -466,12 +466,12 @@
         ]
       },
       "perk": {
-        "name": "Life Plunder",
+        "name": "Black Sail Plunder",
         "id": "BD40939_001",
         "unlock": "UnlockStar 5",
         "effect": [
-          "[Absorb] Absorb 4 HP from target per Counter.",
-          "(Value0=4.)"
+          "[Absorb] Upon counterattacking, absorb 1 Mana from target per 1 Counters.",
+          "(Value0=1, Value1=1.)"
         ]
       }
     },
@@ -3818,7 +3818,7 @@
         "id": "BD40941_002",
         "unlock": "UnlockStar 5",
         "effect": [
-          "[Resist] All allies lose - 4 HP. For every 50 max HP on herself, effect increases by 1 .",
+          "[Resist] All allies suffer - 4 HP Loss. For every 50 max HP on herself, effect increases by 1 .",
           "(Value0=4, Value1=50, Value2=1.)"
         ]
       }
@@ -4430,7 +4430,7 @@
         "id": "BD40945",
         "unlock": "UnlockStar 5",
         "effect": [
-          "[DMG+] Deal + 1 skill DMG per 15 stacks of Taunt on target.",
+          "[CN: 【增伤】目标每拥有 15 层诱导使自身对其造成技能伤害+ 1 。]",
           "(Value0=15, Value1=1.)"
         ]
       }
@@ -4574,7 +4574,7 @@
         "id": "BD40960",
         "unlock": "UnlockStar 5",
         "effect": [
-          "[Gain] Lose all Toughness at battle start and gain Growth stacks equal to lost amount.",
+          "[CN: 【增益】战斗开始前使自身失去全部韧性],[CN: 并获得等量层数的成长。]",
           "(Value0=0.)"
         ]
       }
@@ -4610,8 +4610,8 @@
         "id": "BD40939",
         "unlock": "UnlockStar 5",
         "effect": [
-          "[Counter] Gain 4 HP per counter hit.",
-          "(Value0=4.)"
+          "[Counter] Upon counterattacking, gain 4 HP per 1 Counters.",
+          "(Value0=1, Value1=4.)"
         ]
       }
     },
@@ -4718,7 +4718,7 @@
         "id": "BD40993",
         "unlock": "UnlockStar 5",
         "effect": [
-          "[CN: 【行动】首回合开始后使自身立即释放 1 次单体攻击技能],[CN: 本回合首次释放单体攻击技能时造成伤害+ 100 %。]",
+          "[Action] Immediately cast 1 single-target attack skills at the start of the first turn. The first single-target attack skill cast this turn deals + 100 % DMG.",
           "(Value0=1, Value1=100.)"
         ]
       }
@@ -6302,7 +6302,7 @@
         "id": "BD40326_000",
         "unlock": "UnlockStar 5",
         "effect": [
-          "[DMG+] For every 25 stacks of Soothe on targets on both sides, self deals + 1 Total DMG to that target.",
+          "[DMG+] Deal + 1 total DMG per 25 stacks of Soothe on both self and targets.",
           "(Value0=25, Value1=1.)"
         ]
       }
@@ -6482,7 +6482,7 @@
         "id": "BD40981_001",
         "unlock": "UnlockStar 5",
         "effect": [
-          "[DMG+] Deal + 1 total DMG on the next attack per 5 Soothe stacks lost.",
+          "[DMG+] Deal + 1 Total DMG on the next attack per 5 Soothe stacks lost.",
           "(Value0=5, Value1=1.)"
         ]
       }
