@@ -1,6 +1,6 @@
 {
   "schema_version": 6,
-  "last_checked": "2026-10-29",
+  "last_checked": "2026-10-30",
   "character_source": "https://gomg-wiki.pages.dev/units/",
   "talent_source": "https://gomg-wiki.pages.dev/search-talent-new",
   "talent_index_source": "https://gomg-wiki.pages.dev/talent-search-index.js",
@@ -4269,8 +4269,8 @@
       "id": "talent_122",
       "name_en": "Deep Wounds",
       "name_cn": "伤害加深",
-      "effect_en": "Deal +1 Follow-up DMG to the target per 20 stacks of Hinder on the target.",
-      "effect_cn": "目标每拥有20层阻碍使自身对其造成追击伤害+1。",
+      "effect_en": "Deal +1 Follow-up DMG to the target per 15 stacks of Hinder on the target.",
+      "effect_cn": "目标每拥有15层阻碍使自身对其造成追击伤害+1。",
       "tiers": [
         "Orange"
       ],
@@ -4283,13 +4283,13 @@
       "tags": [],
       "tier_values": {
         "Orange": [
-          "20",
+          "15",
           "1",
           "0"
         ]
       },
       "name_source": "伤害加深",
-      "description_en": "Deal +1 Follow-up DMG to the target per 20 stacks of Hinder on the target.",
+      "description_en": "Deal +1 Follow-up DMG to the target per 15 stacks of Hinder on the target.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF01068"
@@ -4298,8 +4298,8 @@
       "id": "talent_123",
       "name_en": "Hibernation",
       "name_cn": "冬眠蛰伏",
-      "effect_en": "Take -15 Toughness Loss at low HP. Receive +0 Toughness Gain at high HP.",
-      "effect_cn": "低生命时自身失去韧性-15，高生命时自身获得韧性+0。",
+      "effect_en": "Take -10 Toughness Loss at low HP. Receive +10 Toughness Gain at high HP.",
+      "effect_cn": "低生命时自身失去韧性-10，高生命时自身获得韧性+10。",
       "tiers": [
         "Orange"
       ],
@@ -4312,13 +4312,13 @@
       "tags": [],
       "tier_values": {
         "Orange": [
-          "15",
-          "0",
+          "10",
+          "10",
           "0"
         ]
       },
       "name_source": "冬眠蛰伏",
-      "description_en": "Take -15 Toughness Loss at low HP. Receive +0 Toughness Gain at high HP.",
+      "description_en": "Take -10 Toughness Loss at low HP. Receive +10 Toughness Gain at high HP.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17305_004"
@@ -4595,8 +4595,8 @@
       "id": "talent_132",
       "name_en": "Crushing Jaws",
       "name_cn": "巨颚撕咬",
-      "effect_en": "Apply +15 stacks of Expose per 15 stacks of Stun on the target.",
-      "effect_cn": "目标每拥有15层眩晕使自身对其造成剥离层数+15。",
+      "effect_en": "Apply +1 stacks of Expose per 15 stacks of Stun on the target.",
+      "effect_cn": "目标每拥有15层眩晕使自身对其造成剥离层数+1。",
       "tiers": [
         "Orange",
         "Purple",
@@ -4633,7 +4633,7 @@
         ]
       },
       "name_source": "巨颚撕咬",
-      "description_en": "Apply +15 stacks of Expose per 15 stacks of Stun on the target.",
+      "description_en": "Apply +1 stacks of Expose per 15 stacks of Stun on the target.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF17401_004"
@@ -4932,8 +4932,8 @@
       "id": "talent_141",
       "name_en": "Demon Hunt Rite",
       "name_cn": "猎魔仪式",
-      "effect_en": "Gain +1 multi-hit skill count per 100 stacks of Decay applied when casting skills.",
-      "effect_cn": "释放技能时每造成100层泯灭使自身造成多段技能攻击次数+1。",
+      "effect_en": "When casting a skill, for every 100 stacks of Decay applied, self's multi-hit skill attack count +1, up to +4.",
+      "effect_cn": "释放技能时每造成100层泯灭使自身造成多段技能攻击次数+1，最多+4。",
       "tiers": [
         "Orange"
       ],
@@ -4951,11 +4951,11 @@
         "Orange": [
           "100",
           "1",
-          "0"
+          "4"
         ]
       },
       "name_source": "猎魔仪式",
-      "description_en": "Gain +1 multi-hit skill count per 100 stacks of Decay applied when casting skills.",
+      "description_en": "When casting a skill, for every 100 stacks of Decay applied, self's multi-hit skill attack count +1, up to +4.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF01072_000"
@@ -5209,8 +5209,8 @@
       "id": "talent_149",
       "name_en": "Stubborn Stain",
       "name_cn": "难以清洗",
-      "effect_en": "For every 25 stacks of Hinder applied to the target, they take +1 Hinder stacks but -1 stacks of other debuffs.",
-      "effect_cn": "对目标每造成25层阻碍使其受到阻碍层数+1，但受到其他负面状态层数-1。",
+      "effect_en": "After applying Hinder, enemy targets take +3 Hinder stacks but -1 stacks of other debuffs.",
+      "effect_cn": "造成阻碍后使敌方目标受到阻碍层数+3，但受到其他负面状态层数-1。",
       "tiers": [
         "Orange"
       ],
@@ -5223,13 +5223,13 @@
       "tags": [],
       "tier_values": {
         "Orange": [
-          "25",
+          "3",
           "1",
-          "1"
+          "0"
         ]
       },
       "name_source": "难以清洗",
-      "description_en": "For every 25 stacks of Hinder applied to the target, they take +1 Hinder stacks but -1 stacks of other debuffs.",
+      "description_en": "After applying Hinder, enemy targets take +3 Hinder stacks but -1 stacks of other debuffs.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF01073_000"
@@ -5238,8 +5238,8 @@
       "id": "talent_150",
       "name_en": "Silent Dive",
       "name_cn": "默默潜水",
-      "effect_en": "If not attacked this turn, apply +10 stacks of Decay for the rest of this turn.",
-      "effect_cn": "如果本回合没受到攻击则使自身本回合造成泯灭层数+10。",
+      "effect_en": "For every 10 stacks of Decay applied to the target, its received Skill DMG +1.",
+      "effect_cn": "对目标每造成10层泯灭使其受到技能伤害+1。",
       "tiers": [
         "Orange"
       ],
@@ -5249,16 +5249,18 @@
       "exclusive_name": "",
       "exclusive_name_cn": "",
       "icon": "",
-      "tags": [],
+      "tags": [
+        "[excluded-incoming]受到技能伤害"
+      ],
       "tier_values": {
         "Orange": [
           "10",
-          "0",
+          "1",
           "0"
         ]
       },
       "name_source": "默默潜水",
-      "description_en": "If not attacked this turn, apply +10 stacks of Decay for the rest of this turn.",
+      "description_en": "For every 10 stacks of Decay applied to the target, its received Skill DMG +1.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF01069"
@@ -11269,8 +11271,8 @@
       "id": "talent_307",
       "name_en": "Golden Forge",
       "name_cn": "黄金铸造",
-      "effect_en": "Deal +5 skill DMG after enemy action. -5 SPD.",
-      "effect_cn": "敌方行动后使自身造成技能伤害+5，速度-5。",
+      "effect_en": "After an enemy target finishes acting, self deals +5 skill DMG, but SPD -5.",
+      "effect_cn": "敌方目标行动结束后使自身造成技能伤害+5，速度-5。",
       "tiers": [
         "Orange"
       ],
@@ -11296,7 +11298,7 @@
         ]
       },
       "name_source": "黄金铸造",
-      "description_en": "Deal +5 skill DMG after enemy action. -5 SPD.",
+      "description_en": "After an enemy target finishes acting, self deals +5 skill DMG, but SPD -5.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF01049_000"
@@ -11906,8 +11908,8 @@
       "id": "talent_322",
       "name_en": "Horn Charge",
       "name_cn": "长角冲锋",
-      "effect_en": "Apply 20 stacks of Stun to the nearest target upon the first basic attack each turn, increasing by 10 per 1 distance.",
-      "effect_cn": "每回合首次普通攻击后对最近目标造成20层眩晕，双方每1点距离使效果额外+10。",
+      "effect_en": "After the first Basic Attack each turn, apply 20 stacks of Stun to the nearest target. Apply +10 Stun stacks per 1 Attack Range.",
+      "effect_cn": "每回合首次普通攻击后对最近目标造成20层眩晕，每1点攻击距离使效果额外+10。",
       "tiers": [
         "Orange",
         "Purple"
@@ -11932,7 +11934,7 @@
         ]
       },
       "name_source": "长角冲锋",
-      "description_en": "Apply 20 stacks of Stun to the nearest target upon the first basic attack each turn, increasing by 10 per 1 distance.",
+      "description_en": "After the first Basic Attack each turn, apply 20 stacks of Stun to the nearest target. Apply +10 Stun stacks per 1 Attack Range.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF13804_004"
@@ -13344,8 +13346,8 @@
       "id": "talent_363",
       "name_en": "Long Reach",
       "name_cn": "虽远必诛",
-      "effect_en": "Deal +4 total DMG to the farthest enemy. Effect increases by 2 per 1 distance.",
-      "effect_cn": "对敌方最远目标造成全部伤害+4，双方每1点距离使效果额外+2。",
+      "effect_en": "Deal +4 total DMG to the farthest enemy target. Deal +2 additional total DMG per 1 Attack Range.",
+      "effect_cn": "对敌方最远目标造成全部伤害+4，每1点攻击距离使效果额外+2。",
       "tiers": [
         "Orange",
         "Purple"
@@ -13370,7 +13372,7 @@
         ]
       },
       "name_source": "虽远必诛",
-      "description_en": "Deal +4 total DMG to the farthest enemy. Effect increases by 2 per 1 distance.",
+      "description_en": "Deal +4 total DMG to the farthest enemy target. Deal +2 additional total DMG per 1 Attack Range.",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF13905_004"
@@ -20405,8 +20407,8 @@
       "id": "talent_554",
       "name_en": "Wide Vision",
       "name_cn": "广阔视野",
-      "effect_en": "Each 200 Precision stack increases effective attack distance by 1.",
-      "effect_cn": "进行攻击时自身每拥有200层精准使双方距离视为+1。",
+      "effect_en": "[CN: 进行攻击时自身每拥有200层精准使自身攻击距离+1。]",
+      "effect_cn": "进行攻击时自身每拥有200层精准使自身攻击距离+1。",
       "tiers": [
         "Orange"
       ],
@@ -20425,7 +20427,7 @@
         ]
       },
       "name_source": "广阔视野",
-      "description_en": "Each 200 Precision stack increases effective attack distance by 1.",
+      "description_en": " 进行攻击时自身每拥有200层精准使自身攻击距离+1。",
       "rank": "Orange",
       "origin": "gomg-wiki-search-index",
       "legacy_source_id": "TF12905_004"
@@ -20884,8 +20886,9 @@
       "id": "M53301_000",
       "name": "Astral Fiend",
       "skill": "Let's Play",
-      "desc": "Astral Evil God throws Lil' Cthulhu to spray water, prioritizing the enemy with the most Soothe stacks, dealing {1} hits of {2} DMG. Each hit grants {3} stacks of Soothe to targets on both sides. If the target has at least {4} stacks of Soothe, each hit causes it to lose 3 Mana. Additionally, for every {5} stacks of Soothe on the target, this attack's hit count +1.",
+      "desc": "Tosses out Lil' Cthulhu to spray water. Targets the enemy with the most Soothe stacks first. Deals {1} hits of {2} DMG. Each hit grants {3} stacks of Soothe to targets of both sides. If the target has at least {4} stacks of Soothe, they lose 3 Mana per hit. Deals +1 hit per {5} stacks of Soothe on the target.",
       "tags": [
+        "Multi-Hit",
         "Buff",
         "Conditional",
         "Summon"
@@ -21632,7 +21635,7 @@
       "id": "M13304",
       "name": "Wasp Witch",
       "skill": "Wasp Swarm",
-      "desc": "Summons wasps to break enemy resistance. Deals {2} DMG to all enemies and applies {3} stacks of Hinder. For every {4} stacks of Hinder applied, the target loses {5} HP.",
+      "desc": "Summons a swarm of wasps to break enemy resistance, dealing {2} DMG to all enemies, applying {3} stacks of Hinder per hit. Hinder stacks applied +{4}. For every {5} stacks of Hinder applied by this skill, the target loses {6} HP.",
       "tags": [
         "AoE",
         "Debuff",
@@ -21644,7 +21647,7 @@
       "id": "M13304_001",
       "name": "Wasp Witch",
       "skill": "Frostbee Swarm",
-      "desc": "Summons frostbees to freeze enemies. Deals {2} DMG to all enemies and applies {3} stacks of Chill. For every {4} stacks of Chill applied, the target loses {5} HP.",
+      "desc": "Summons a swarm of frostbees to sap the heat from her enemies, dealing {2} DMG to all enemies, applying {3} stacks of Chill per hit. Chill stacks applied +{4}. For every {5} stacks of Chill applied by this skill, the target loses {6} HP.",
       "tags": [
         "AoE",
         "Debuff",
