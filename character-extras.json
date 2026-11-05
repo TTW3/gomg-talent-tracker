@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "source": "https://gomg-wiki.pages.dev/",
-  "exportedAt": "2026-11-04T23:29:18.720070+00:00",
-  "profilesFound": 214,
-  "profilesRead": 214,
+  "exportedAt": "2026-11-05T23:30:35.845734+00:00",
+  "profilesFound": 224,
+  "profilesRead": 224,
   "failed": [],
-  "count": 214,
+  "count": 224,
   "data": [
     {
       "stem": "standard-b-academy-apprentice",
@@ -1628,6 +1628,78 @@
       }
     },
     {
+      "stem": "alter-s-alchemy-fang-warrior",
+      "character_id": "",
+      "character": "Fang Warrior",
+      "base_name": "Fang Warrior",
+      "variant": "",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11305_000.png",
+      "profile": "https://gomg-wiki.pages.dev/units/alter-s-alchemy-fang-warrior.html",
+      "trait": {
+        "name": "Combative",
+        "id": "BD10573_000",
+        "unlock": "UnlockStar 3",
+        "effect": [
+          "[Debuff] Apply 2 stacks of Hinder to all enemies after being attacked, but cannot Counter.",
+          "(Value0=2.)"
+        ]
+      },
+      "title": {
+        "name": "Blocker",
+        "id": "BD51025",
+        "unlock": "UnlockStar 4",
+        "effect": [
+          "[Debuff] Apply 3 stacks of Hinder after attacking.",
+          "(Value0=3.)"
+        ]
+      },
+      "perk": {
+        "name": "Prism Spray",
+        "id": "BD41007_000",
+        "unlock": "UnlockStar 5",
+        "effect": [
+          "[Debuff] Apply + 4 Hinder stacks this turn after casting a single-target attack skill.",
+          "(Value0=4.)"
+        ]
+      }
+    },
+    {
+      "stem": "standard-s-fang-warrior",
+      "character_id": "",
+      "character": "Fang Warrior",
+      "base_name": "Fang Warrior",
+      "variant": "",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11305.png",
+      "profile": "https://gomg-wiki.pages.dev/units/standard-s-fang-warrior.html",
+      "trait": {
+        "name": "Combative",
+        "id": "BD10573",
+        "unlock": "UnlockStar 3",
+        "effect": [
+          "[DMG+] Deal + 1 Skill DMG after applying Expose .",
+          "(Value0=1.)"
+        ]
+      },
+      "title": {
+        "name": "Render",
+        "id": "BD51004",
+        "unlock": "UnlockStar 4",
+        "effect": [
+          "[Debuff] Apply 3 stacks of Expose after attacking.",
+          "(Value0=3.)"
+        ]
+      },
+      "perk": {
+        "name": "Lockjaw",
+        "id": "BD41007",
+        "unlock": "UnlockStar 5",
+        "effect": [
+          "[Debuff] The nearest Stunned enemy is immune to Cleanse from enemies.",
+          "(Value0=0.)"
+        ]
+      }
+    },
+    {
       "stem": "standard-b-fighter-apprentice",
       "character_id": "char_096",
       "character": "Fighter Apprentice (Standard)",
@@ -1948,6 +2020,42 @@
         "effect": [
           "[Buff] Grant 1 stacks of Growth per 4 HP overflow after healing.",
           "(Value0=4, Value1=1.)"
+        ]
+      }
+    },
+    {
+      "stem": "alter-s-mecha-frost-spider-queen",
+      "character_id": "",
+      "character": "Frost Spider Queen",
+      "base_name": "Frost Spider Queen",
+      "variant": "",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M22301_000.png",
+      "profile": "https://gomg-wiki.pages.dev/units/alter-s-mecha-frost-spider-queen.html",
+      "trait": {
+        "name": "Indifferent",
+        "id": "BD10548_000",
+        "unlock": "UnlockStar 3",
+        "effect": [
+          "[Debuff] Apply 5 stacks of Hinder to enemies at their action end, but cannot perform Basic Attack.",
+          "(Value0=5.)"
+        ]
+      },
+      "title": {
+        "name": "Bushwhacker",
+        "id": "BD51058",
+        "unlock": "UnlockStar 4",
+        "effect": [
+          "[DMG+] Deal + 16 Total DMG on the first attack each turn.",
+          "(Value0=16.)"
+        ]
+      },
+      "perk": {
+        "name": "Web Sense",
+        "id": "BD40979_000",
+        "unlock": "UnlockStar 5",
+        "effect": [
+          "[Action] After each enemy target with Hinder acts 3 times, immediately cast 1 single-hit attack skill(s) on it.",
+          "(Value0=3, Value1=1.)"
         ]
       }
     },
@@ -4184,6 +4292,78 @@
       }
     },
     {
+      "stem": "standard-a-lizard-archer",
+      "character_id": "",
+      "character": "Lizard Archer",
+      "base_name": "Lizard Archer",
+      "variant": "",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12107.png",
+      "profile": "https://gomg-wiki.pages.dev/units/standard-a-lizard-archer.html",
+      "trait": {
+        "name": "Nimble",
+        "id": "BD10563",
+        "unlock": "UnlockStar 3",
+        "effect": [
+          "[Basic Attack] Gain + 1 Basic Attack targets, but deal - 50 % total DMG to targets without Hinder .",
+          "(Value0=1, Value1=50.)"
+        ]
+      },
+      "title": {
+        "name": "Blocker",
+        "id": "BD51025",
+        "unlock": "UnlockStar 4",
+        "effect": [
+          "[Debuff] Apply 3 stacks of Hinder after attacking.",
+          "(Value0=3.)"
+        ]
+      },
+      "perk": {
+        "name": "Venom Within",
+        "id": "BD41002",
+        "unlock": "UnlockStar 5",
+        "effect": [
+          "[DMG+] Deal + 50 % Total DMG to targets at max Hinder stacks .",
+          "(Value0=50.)"
+        ]
+      }
+    },
+    {
+      "stem": "standard-b-lizard-warrior",
+      "character_id": "",
+      "character": "Lizard Warrior",
+      "base_name": "Lizard Warrior",
+      "variant": "",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11116.png",
+      "profile": "https://gomg-wiki.pages.dev/units/standard-b-lizard-warrior.html",
+      "trait": {
+        "name": "Bold",
+        "id": "BD10102",
+        "unlock": "UnlockStar 3",
+        "effect": [
+          "[Stat] Gain + 1 SPI per 10 levels.",
+          "(Value0=10, Value1=1.)"
+        ]
+      },
+      "title": {
+        "name": "Impure",
+        "id": "BD51068",
+        "unlock": "UnlockStar 4",
+        "effect": [
+          "[Debuff] Apply 2 stacks of Hinder to the attacker after being attacked.",
+          "(Value0=2.)"
+        ]
+      },
+      "perk": {
+        "name": "Immune Boost",
+        "id": "BD40407",
+        "unlock": "UnlockStar 5",
+        "effect": [
+          "[Resist] Take - 12 stacks of Hinder .",
+          "(Value0=12.)"
+        ]
+      }
+    },
+    {
       "stem": "standard-a-lost-aegis",
       "character_id": "char_039",
       "character": "Lost Aegis (Standard)",
@@ -4432,6 +4612,78 @@
         "effect": [
           "[CN: 【增伤】目标每拥有 15 层诱导使自身对其造成技能伤害+ 1 。]",
           "(Value0=15, Value1=1.)"
+        ]
+      }
+    },
+    {
+      "stem": "standard-a-marshes-nymph",
+      "character_id": "",
+      "character": "Marshes Nymph",
+      "base_name": "Marshes Nymph",
+      "variant": "",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11211.png",
+      "profile": "https://gomg-wiki.pages.dev/units/standard-a-marshes-nymph.html",
+      "trait": {
+        "name": "Voracious",
+        "id": "BD10571",
+        "unlock": "UnlockStar 3",
+        "effect": [
+          "[Counter] Gain + 1 Counter Range while not at max Growth stacks . At max Growth stacks , deal + 1 Counter Attacks.",
+          "(Value0=1, Value1=1.)"
+        ]
+      },
+      "title": {
+        "name": "Devourer",
+        "id": "BD51003",
+        "unlock": "UnlockStar 4",
+        "effect": [
+          "[Buff] Gain 4 stacks of Growth after attacking or healing.",
+          "(Value0=4.)"
+        ]
+      },
+      "perk": {
+        "name": "Predatory Urge",
+        "id": "BD41005",
+        "unlock": "UnlockStar 5",
+        "effect": [
+          "[DMG+] Deal + 1 Counter DMG this turn per 5 stacks of Growth gained.",
+          "(Value0=5, Value1=1.)"
+        ]
+      }
+    },
+    {
+      "stem": "standard-a-marshes-traveler",
+      "character_id": "",
+      "character": "Marshes Traveler",
+      "base_name": "Marshes Traveler",
+      "variant": "",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14212.png",
+      "profile": "https://gomg-wiki.pages.dev/units/standard-a-marshes-traveler.html",
+      "trait": {
+        "name": "Easygoing",
+        "id": "BD10570",
+        "unlock": "UnlockStar 3",
+        "effect": [
+          "[Buff] Apply + 3 stacks of Inspire at high Toughness .",
+          "(Value0=3.)"
+        ]
+      },
+      "title": {
+        "name": "Rallier",
+        "id": "BD51024",
+        "unlock": "UnlockStar 4",
+        "effect": [
+          "[Buff] Target and self gain 3 stacks of Inspire after basic healing.",
+          "(Value0=3.)"
+        ]
+      },
+      "perk": {
+        "name": "Travel Expert",
+        "id": "BD41004",
+        "unlock": "UnlockStar 5",
+        "effect": [
+          "[Buff] Other allies gain 5 stacks of Fortitude at action start.",
+          "(Value0=5.)"
         ]
       }
     },
@@ -5408,6 +5660,78 @@
       }
     },
     {
+      "stem": "alter-s-demon-hunt-silent-hunter",
+      "character_id": "",
+      "character": "Silent Hunter",
+      "base_name": "Silent Hunter",
+      "variant": "",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12209_000.png",
+      "profile": "https://gomg-wiki.pages.dev/units/alter-s-demon-hunt-silent-hunter.html",
+      "trait": {
+        "name": "Timid",
+        "id": "BD10572_000",
+        "unlock": "UnlockStar 3",
+        "effect": [
+          "[Special] Gain + 2 Attack Range at turn start.",
+          "(Value0=2.)"
+        ]
+      },
+      "title": {
+        "name": "Demon Hunter",
+        "id": "BD51067",
+        "unlock": "UnlockStar 4",
+        "effect": [
+          "[Debuff] Apply 2 stacks of Decay to the target after dealing DMG.",
+          "(Value0=2.)"
+        ]
+      },
+      "perk": {
+        "name": "Elusive",
+        "id": "BD41006_000",
+        "unlock": "UnlockStar 5",
+        "effect": [
+          "[Debuff] When casting a skill, apply + 3 Decay stacks to the target per 1 Attack Range.",
+          "(Value0=1, Value1=3.)"
+        ]
+      }
+    },
+    {
+      "stem": "standard-s-silent-hunter",
+      "character_id": "",
+      "character": "Silent Hunter",
+      "base_name": "Silent Hunter",
+      "variant": "",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12209.png",
+      "profile": "https://gomg-wiki.pages.dev/units/standard-s-silent-hunter.html",
+      "trait": {
+        "name": "Timid",
+        "id": "BD10572",
+        "unlock": "UnlockStar 3",
+        "effect": [
+          "[Debuff] Apply 2 stacks of Hinder to all enemies after becoming Weakness Exposed.",
+          "(Value0=2.)"
+        ]
+      },
+      "title": {
+        "name": "Blocker",
+        "id": "BD51025",
+        "unlock": "UnlockStar 4",
+        "effect": [
+          "[Debuff] Apply 3 stacks of Hinder after attacking.",
+          "(Value0=3.)"
+        ]
+      },
+      "perk": {
+        "name": "Deep Lungs",
+        "id": "BD41006",
+        "unlock": "UnlockStar 5",
+        "effect": [
+          "[Debuff] Apply + 100 % Hinder stacks while not in the Weakness Exposed state.",
+          "(Value0=100.)"
+        ]
+      }
+    },
+    {
       "stem": "standard-c-silent-hunter",
       "character_id": "char_106",
       "character": "Silent Hunter (Standard)",
@@ -5439,6 +5763,42 @@
         "unlock": "UnlockStar 5",
         "effect": [
           "[Counter] Deal + 12 Counter DMG.",
+          "(Value0=12.)"
+        ]
+      }
+    },
+    {
+      "stem": "standard-a-silent-shaman",
+      "character_id": "",
+      "character": "Silent Shaman",
+      "base_name": "Silent Shaman",
+      "variant": "",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13208.png",
+      "profile": "https://gomg-wiki.pages.dev/units/standard-a-silent-shaman.html",
+      "trait": {
+        "name": "Taciturn",
+        "id": "BD10564",
+        "unlock": "UnlockStar 3",
+        "effect": [
+          "[Debuff] Apply 2 stacks of Decay to Hindered enemies at action start.",
+          "(Value0=2.)"
+        ]
+      },
+      "title": {
+        "name": "Eraser",
+        "id": "BD51027",
+        "unlock": "UnlockStar 4",
+        "effect": [
+          "[Debuff] Apply 3 stacks of Decay after casting a skill.",
+          "(Value0=3.)"
+        ]
+      },
+      "perk": {
+        "name": "Silencing Toxin",
+        "id": "BD41003",
+        "unlock": "UnlockStar 5",
+        "effect": [
+          "[Debuff] Apply 12 stacks of Decay to enemies at max Hinder stacks at their action end.",
           "(Value0=12.)"
         ]
       }
@@ -7382,7 +7742,7 @@
         "id": "BD40934",
         "unlock": "UnlockStar 5",
         "effect": [
-          "[Loss] Inflict + 2 HP Loss at action end.",
+          "[CN: 【失去】行动结束后使自身释放单段技能时造成阻碍层数+ 2 。]",
           "(Value0=2.)"
         ]
       }
