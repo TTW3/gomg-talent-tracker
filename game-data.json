@@ -1,6 +1,6 @@
 {
   "schema_version": 6,
-  "last_checked": "2026-11-04",
+  "last_checked": "2026-11-08",
   "character_source": "https://gomg-wiki.pages.dev/units/",
   "talent_source": "https://gomg-wiki.pages.dev/search-talent-new",
   "talent_index_source": "https://gomg-wiki.pages.dev/talent-search-index.js",
@@ -26,6 +26,26 @@
         "Skill DMG"
       ],
       "stem": "standard-s-windstrider"
+    },
+    {
+      "id": "char_106",
+      "name_en": "Silent Hunter (Standard)",
+      "source_id": "M12209",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12209.png",
+      "rarity": "Orange",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Swamp",
+      "variant": "Standard",
+      "base_id": "Silent Hunter",
+      "source": "standard-s-silent-hunter",
+      "kind": "standard",
+      "archetypes": [
+        "Hinder",
+        "Skill DMG"
+      ],
+      "stem": "standard-s-silent-hunter"
     },
     {
       "id": "char_053",
@@ -515,6 +535,27 @@
       "stem": "standard-s-minotaur-brave"
     },
     {
+      "id": "char_007",
+      "name_en": "Fang Warrior (Standard)",
+      "source_id": "M11305",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11305.png",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Swamp",
+      "variant": "Standard",
+      "base_id": "Fang Warrior",
+      "source": "standard-s-fang-warrior",
+      "kind": "standard",
+      "archetypes": [
+        "Expose",
+        "Skill DMG",
+        "Stun"
+      ],
+      "stem": "standard-s-fang-warrior"
+    },
+    {
       "id": "char_146",
       "name_en": "Naga General (Standard)",
       "source_id": "M11307",
@@ -713,6 +754,26 @@
         "Vulnerable"
       ],
       "stem": "standard-s-imp"
+    },
+    {
+      "id": "char_147",
+      "name_en": "Lizard Archer (Standard)",
+      "source_id": "M12107",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12107.png",
+      "rarity": "Purple",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Swamp",
+      "variant": "Standard",
+      "base_id": "Lizard Archer",
+      "source": "standard-a-lizard-archer",
+      "kind": "standard",
+      "archetypes": [
+        "Follow-up DMG",
+        "Hinder"
+      ],
+      "stem": "standard-a-lizard-archer"
     },
     {
       "id": "char_063",
@@ -1116,6 +1177,27 @@
       "stem": "standard-a-solar-priest"
     },
     {
+      "id": "char_148",
+      "name_en": "Silent Shaman (Standard)",
+      "source_id": "M13208",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M13208.png",
+      "rarity": "Purple",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Swamp",
+      "variant": "Standard",
+      "base_id": "Silent Shaman",
+      "source": "standard-a-silent-shaman",
+      "kind": "standard",
+      "archetypes": [
+        "Decay",
+        "Hinder",
+        "Skill DMG"
+      ],
+      "stem": "standard-a-silent-shaman"
+    },
+    {
       "id": "char_077",
       "name_en": "Alchemy Witch (Standard)",
       "source_id": "M13210",
@@ -1458,6 +1540,27 @@
       "stem": "standard-a-red-fox-priestess"
     },
     {
+      "id": "char_149",
+      "name_en": "Marshes Traveler (Standard)",
+      "source_id": "M14212",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M14212.png",
+      "rarity": "Purple",
+      "role": "Priest",
+      "type": "Spirit",
+      "element": "Water",
+      "terrain": "Swamp",
+      "variant": "Standard",
+      "base_id": "Marshes Traveler",
+      "source": "standard-a-marshes-traveler",
+      "kind": "standard",
+      "archetypes": [
+        "Fortitude",
+        "Inspire",
+        "Skill Healing"
+      ],
+      "stem": "standard-a-marshes-traveler"
+    },
+    {
       "id": "char_044",
       "name_en": "Hunter Brave (Standard)",
       "source_id": "M11201",
@@ -1659,6 +1762,26 @@
         "Hinder"
       ],
       "stem": "standard-a-stinger-assassin"
+    },
+    {
+      "id": "char_150",
+      "name_en": "Marshes Nymph (Standard)",
+      "source_id": "M11211",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11211.png",
+      "rarity": "Purple",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Earth",
+      "terrain": "Swamp",
+      "variant": "Standard",
+      "base_id": "Marshes Nymph",
+      "source": "standard-a-marshes-nymph",
+      "kind": "standard",
+      "archetypes": [
+        "Counter DMG",
+        "Growth"
+      ],
+      "stem": "standard-a-marshes-nymph"
     },
     {
       "id": "char_035",
@@ -2416,6 +2539,26 @@
       "stem": "standard-b-desert-guard"
     },
     {
+      "id": "char_151",
+      "name_en": "Lizard Warrior (Standard)",
+      "source_id": "M11116",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11116.png",
+      "rarity": "Blue",
+      "role": "Warrior",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Swamp",
+      "variant": "Standard",
+      "base_id": "Lizard Warrior",
+      "source": "standard-b-lizard-warrior",
+      "kind": "standard",
+      "archetypes": [
+        "Hinder",
+        "Skill DMG"
+      ],
+      "stem": "standard-b-lizard-warrior"
+    },
+    {
       "id": "char_091",
       "name_en": "Grand Explorer (Standard)",
       "source_id": "M12104",
@@ -2840,7 +2983,7 @@
     },
     {
       "id": "char_106",
-      "name_en": "Silent Hunter (Standard)",
+      "name_en": "Silent Hunter (Standard) [M11101]",
       "source_id": "M11101",
       "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11101.png",
       "rarity": "Green",
@@ -2918,6 +3061,26 @@
       "stem": "alter-s-swimsuit-windstrider"
     },
     {
+      "id": "alter_M12209_000",
+      "name_en": "Demon Hunt Silent Hunter (Alter)",
+      "source_id": "M12209_000",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M12209_000.png",
+      "rarity": "Orange",
+      "role": "Archer",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Swamp",
+      "variant": "Alter",
+      "base_id": "Silent Hunter",
+      "source": "alter-s-demon-hunt-silent-hunter",
+      "kind": "alter",
+      "archetypes": [
+        "Decay",
+        "Skill DMG"
+      ],
+      "stem": "alter-s-demon-hunt-silent-hunter"
+    },
+    {
       "id": "alter_M12301_001",
       "name_en": "Frostbound Harpy Princess (Alter)",
       "source_id": "M12301_001",
@@ -2978,6 +3141,26 @@
         "Soothe"
       ],
       "stem": "alter-s-swimsuit-imp"
+    },
+    {
+      "id": "alter_M11305_000",
+      "name_en": "Alchemy Fang Warrior (Alter)",
+      "source_id": "M11305_000",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M11305_000.png",
+      "rarity": "Orange",
+      "role": "Mage",
+      "type": "Spirit",
+      "element": "Dark",
+      "terrain": "Swamp",
+      "variant": "Alter",
+      "base_id": "Fang Warrior",
+      "source": "alter-s-alchemy-fang-warrior",
+      "kind": "alter",
+      "archetypes": [
+        "Hinder",
+        "Skill DMG"
+      ],
+      "stem": "alter-s-alchemy-fang-warrior"
     },
     {
       "id": "alter_M12211_000",
@@ -3480,6 +3663,26 @@
         "Skill DMG"
       ],
       "stem": "alter-s-golden-timeless-lord"
+    },
+    {
+      "id": "alter_M22301_000",
+      "name_en": "Mecha Frost Spider Queen (Alter)",
+      "source_id": "M22301_000",
+      "icon": "https://gomg-wiki.pages.dev/assets/icons/Header/M22301_000.png",
+      "rarity": "Orange",
+      "role": "Warrior",
+      "type": "Construct",
+      "element": "Dark",
+      "terrain": "Swamp",
+      "variant": "Alter",
+      "base_id": "Frost Spider Queen",
+      "source": "alter-s-mecha-frost-spider-queen",
+      "kind": "alter",
+      "archetypes": [
+        "Hinder",
+        "Skill DMG"
+      ],
+      "stem": "alter-s-mecha-frost-spider-queen"
     },
     {
       "id": "alter_M31301_000",
@@ -4275,11 +4478,11 @@
         "Orange"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M12107)",
+      "source_label": "Exclusive (Lizard Archer)",
       "source_value": "M12107",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Lizard Archer",
+      "exclusive_name_cn": "蜥蜴射手",
+      "icon": "assets/icons/RoleCard/MD12107.png",
       "tags": [],
       "tier_values": {
         "Orange": [
@@ -4569,11 +4772,11 @@
         "Orange"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M12209)",
+      "source_label": "Exclusive (Silent Hunter)",
       "source_value": "M12209",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Silent Hunter",
+      "exclusive_name_cn": "静谧猎手",
+      "icon": "assets/icons/RoleCard/MD12209.png",
       "tags": [
         "Single-hit",
         "单段技能"
@@ -4742,11 +4945,11 @@
         "Orange"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M11305)",
+      "source_label": "Exclusive (Fang Warrior)",
       "source_value": "M11305",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Fang Warrior",
+      "exclusive_name_cn": "利齿勇士",
+      "icon": "assets/icons/RoleCard/MD11305.png",
       "tags": [
         "Single-target",
         "Multi-target",
@@ -4938,11 +5141,11 @@
         "Orange"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M12209_000)",
+      "source_label": "Exclusive (Demon Hunt Silent Hunter)",
       "source_value": "M12209_000",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Demon Hunt Silent Hunter",
+      "exclusive_name_cn": "猎魔静谧猎手",
+      "icon": "assets/icons/RoleCard/MD12209_000.png",
       "tags": [
         "Multi-hit",
         "多段技能"
@@ -4971,11 +5174,11 @@
         "Purple"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M11211)",
+      "source_label": "Exclusive (Marshes Nymph)",
       "source_value": "M11211",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Marshes Nymph",
+      "exclusive_name_cn": "沼泽花妖",
+      "icon": "assets/icons/RoleCard/MD11211.png",
       "tags": [],
       "tier_values": {
         "Orange": [
@@ -5122,11 +5325,11 @@
         "Orange"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M22301_000)",
+      "source_label": "Exclusive (Mecha Frost Spider Queen)",
       "source_value": "M22301_000",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Mecha Frost Spider Queen",
+      "exclusive_name_cn": "机甲冰蛛女王",
+      "icon": "assets/icons/RoleCard/MD22301_000.png",
       "tags": [
         "Single-hit",
         "单段技能"
@@ -5215,11 +5418,11 @@
         "Orange"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M11305_000)",
+      "source_label": "Exclusive (Alchemy Fang Warrior)",
       "source_value": "M11305_000",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Alchemy Fang Warrior",
+      "exclusive_name_cn": "炼金利齿勇士",
+      "icon": "assets/icons/RoleCard/MD11305_000.png",
       "tags": [],
       "tier_values": {
         "Orange": [
@@ -5244,11 +5447,11 @@
         "Orange"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M13208)",
+      "source_label": "Exclusive (Silent Shaman)",
       "source_value": "M13208",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Silent Shaman",
+      "exclusive_name_cn": "无声萨满",
+      "icon": "assets/icons/RoleCard/MD13208.png",
       "tags": [
         "[excluded-incoming]受到技能伤害"
       ],
@@ -16169,11 +16372,11 @@
         "Orange"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M14212)",
+      "source_label": "Exclusive (Marshes Traveler)",
       "source_value": "M14212",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Marshes Traveler",
+      "exclusive_name_cn": "沼泽旅者",
+      "icon": "assets/icons/RoleCard/MD14212.png",
       "tags": [],
       "tier_values": {
         "Orange": [
@@ -20443,11 +20646,11 @@
         "Purple"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M11211)",
+      "source_label": "Exclusive (Marshes Nymph)",
       "source_value": "M11211",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Marshes Nymph",
+      "exclusive_name_cn": "沼泽花妖",
+      "icon": "assets/icons/RoleCard/MD11211.png",
       "tags": [],
       "tier_values": {
         "Orange": [
@@ -20632,11 +20835,11 @@
         "Purple"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M11211)",
+      "source_label": "Exclusive (Marshes Nymph)",
       "source_value": "M11211",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Marshes Nymph",
+      "exclusive_name_cn": "沼泽花妖",
+      "icon": "assets/icons/RoleCard/MD11211.png",
       "tags": [],
       "tier_values": {
         "Orange": [
@@ -20667,11 +20870,11 @@
         "Purple"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M11211)",
+      "source_label": "Exclusive (Marshes Nymph)",
       "source_value": "M11211",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Marshes Nymph",
+      "exclusive_name_cn": "沼泽花妖",
+      "icon": "assets/icons/RoleCard/MD11211.png",
       "tags": [],
       "tier_values": {
         "Orange": [
@@ -20702,11 +20905,11 @@
         "Purple"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M11211)",
+      "source_label": "Exclusive (Marshes Nymph)",
       "source_value": "M11211",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Marshes Nymph",
+      "exclusive_name_cn": "沼泽花妖",
+      "icon": "assets/icons/RoleCard/MD11211.png",
       "tags": [],
       "tier_values": {
         "Orange": [
@@ -20737,11 +20940,11 @@
         "Purple"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M11211)",
+      "source_label": "Exclusive (Marshes Nymph)",
       "source_value": "M11211",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Marshes Nymph",
+      "exclusive_name_cn": "沼泽花妖",
+      "icon": "assets/icons/RoleCard/MD11211.png",
       "tags": [],
       "tier_values": {
         "Orange": [
@@ -20772,11 +20975,11 @@
         "Purple"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M11211)",
+      "source_label": "Exclusive (Marshes Nymph)",
       "source_value": "M11211",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Marshes Nymph",
+      "exclusive_name_cn": "沼泽花妖",
+      "icon": "assets/icons/RoleCard/MD11211.png",
       "tags": [],
       "tier_values": {
         "Orange": [
@@ -20807,11 +21010,11 @@
         "Purple"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M11211)",
+      "source_label": "Exclusive (Marshes Nymph)",
       "source_value": "M11211",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Marshes Nymph",
+      "exclusive_name_cn": "沼泽花妖",
+      "icon": "assets/icons/RoleCard/MD11211.png",
       "tags": [],
       "tier_values": {
         "Orange": [
@@ -20842,11 +21045,11 @@
         "Purple"
       ],
       "source_cat": "Exclusive",
-      "source_label": "Exclusive (M11211)",
+      "source_label": "Exclusive (Marshes Nymph)",
       "source_value": "M11211",
-      "exclusive_name": "",
-      "exclusive_name_cn": "",
-      "icon": "",
+      "exclusive_name": "Marshes Nymph",
+      "exclusive_name_cn": "沼泽花妖",
+      "icon": "assets/icons/RoleCard/MD11211.png",
       "tags": [],
       "tier_values": {
         "Orange": [
@@ -21093,6 +21296,28 @@
       ]
     },
     {
+      "id": "M11305",
+      "name": "Fang Warrior",
+      "skill": "Fangrend",
+      "desc": "Unleashes a flurry of greatsword slashes. Targets the enemy with the least Expose first. Deals {1} hits of {2} DMG. Each hit applies {3} stacks of Expose. For every {4} stacks of Expose on the target, each hit also applies {5} stacks of Stun.",
+      "tags": [
+        "Multi-Hit",
+        "Debuff",
+        "Control",
+        "Conditional"
+      ]
+    },
+    {
+      "id": "M11305_000",
+      "name": "Fang Warrior",
+      "skill": "Prism Burst",
+      "desc": "Fang Warrior throws a spray can to mark the target. Prioritizes the enemy with the least Hinder, dealing {2} DMG. Each hit applies {3} stacks of Hinder to the target and increases the target's received Hinder stacks this turn by {4}%, but causes the target to immediately perform {5} extra actions against herself.",
+      "tags": [
+        "Mana-Gen",
+        "Debuff"
+      ]
+    },
+    {
       "id": "M14301",
       "name": "Flawless Sage",
       "skill": "Shelter Light",
@@ -21160,6 +21385,13 @@
         "Multi-Hit",
         "DoT"
       ]
+    },
+    {
+      "id": "M22301_000",
+      "name": "Frost Spider Queen",
+      "skill": "Predator's Ambush",
+      "desc": "Ice Spider Queen pounces on her prey, prioritizing the enemy with the most Hinder stacks, dealing {2} DMG. Each action the target takes this turn increases damage dealt to it by {4}%. This skill cannot gain extra targets, but each excess skill target instead adds {5} hits to this skill.",
+      "tags": []
     },
     {
       "id": "M41301",
@@ -21475,6 +21707,24 @@
       ]
     },
     {
+      "id": "M12209",
+      "name": "Silent Hunter",
+      "skill": "Venom Sting",
+      "desc": "Fires a deadly venom needle. Targets the enemy with the most Hinder first. Deals {2} DMG. For every {4} stacks of Hinder on the target, reduces the target's max HP by {5}. If the target is at max Hinder stacks, increases this max HP reduction by {6}%.",
+      "tags": [
+        "Conditional"
+      ]
+    },
+    {
+      "id": "M12209_000",
+      "name": "Silent Hunter",
+      "skill": "Hunter's Mark",
+      "desc": "Fires custom demon-hunting rounds. Targets the enemy with the most Mana first. Deals {1} hits of {2} DMG. Each hit applies {3} stacks of Decay. For each point of Distance between self and target, deals +{4}% DMG. If Distance exceeds {5}, the target takes +{6}% Decay stacks this turn.",
+      "tags": [
+        "Multi-Hit"
+      ]
+    },
+    {
       "id": "M23301",
       "name": "Slime Queen",
       "skill": "Light Rain",
@@ -21635,7 +21885,7 @@
       "id": "M13304",
       "name": "Wasp Witch",
       "skill": "Wasp Swarm",
-      "desc": "Summons a swarm of wasps to break enemy resistance, dealing {2} DMG to all enemies, applying {3} stacks of Hinder per hit. Hinder stacks applied +{4}. For every {5} stacks of Hinder applied by this skill, the target loses {6} HP.",
+      "desc": "Summons wasps to break enemy resistance. Deals {2} DMG to all enemies and applies {3} stacks of Hinder. For every {4} stacks of Hinder applied, the target loses {5} HP.",
       "tags": [
         "AoE",
         "Debuff",
@@ -21647,7 +21897,7 @@
       "id": "M13304_001",
       "name": "Wasp Witch",
       "skill": "Frostbee Swarm",
-      "desc": "Summons a swarm of frostbees to sap the heat from her enemies, dealing {2} DMG to all enemies, applying {3} stacks of Chill per hit. Chill stacks applied +{4}. For every {5} stacks of Chill applied by this skill, the target loses {6} HP.",
+      "desc": "Summons frostbees to freeze enemies. Deals {2} DMG to all enemies and applies {3} stacks of Chill. For every {4} stacks of Chill applied, the target loses {5} HP.",
       "tags": [
         "AoE",
         "Debuff",
@@ -22081,6 +22331,19 @@
       ]
     },
     {
+      "id": "M12107",
+      "name": "Lizard Archer",
+      "skill": "Focused Shot",
+      "desc": "Focuses her aim. Restores {2} HP and immediately takes {4} Extra Actions. For every {5} stacks of Hinder on the target, these Extra Actions deal +{6} Total DMG. If the target has Hinder, always performs a Follow-Up.",
+      "tags": [
+        "Self",
+        "Heal",
+        "Mana-Gen",
+        "Follow-Up",
+        "Conditional"
+      ]
+    },
+    {
       "id": "M31202",
       "name": "Lost Aegis",
       "skill": "Shield Bash",
@@ -22141,6 +22404,29 @@
       "desc": "Hurls a barrage of water balloons. Deals {2} DMG to all enemies and applies {3} stacks of Soothe to self and targets.",
       "tags": [
         "AoE",
+        "Buff"
+      ]
+    },
+    {
+      "id": "M11211",
+      "name": "Marshes Nymph",
+      "skill": "Rapid Bloom",
+      "desc": "Wraps herself in petals. Restores {1} hits of {2} HP. Each hit grants {3} stacks of Growth. At max Growth stacks, gains +{4} Counter Attacks this turn.",
+      "tags": [
+        "No-Damage",
+        "Buff",
+        "Counter"
+      ]
+    },
+    {
+      "id": "M14212",
+      "name": "Marshes Traveler",
+      "skill": "Clearwater Song",
+      "desc": "Sings a clear, pleasant song. Restores {2} HP to all allies. Allies with Weakness Exposed gain {3} stacks of Fortitude. Allies without Weakness Exposed gain {4} stacks of Inspire.",
+      "tags": [
+        "Ally-Target",
+        "No-Damage",
+        "Heal",
         "Buff"
       ]
     },
@@ -22257,6 +22543,17 @@
         "Ally-Target",
         "No-Damage",
         "Heal"
+      ]
+    },
+    {
+      "id": "M13208",
+      "name": "Silent Shaman",
+      "skill": "Silencing Hex",
+      "desc": "Casts a silencing curse. Targets the enemy with the most Hinder first. Deals {1} hits of {2} DMG. Each hit applies {3} stacks of Hinder. If the target is at max Hinder stacks, each hit also applies {4} stacks of Decay.",
+      "tags": [
+        "Multi-Hit",
+        "Debuff",
+        "Conditional"
       ]
     },
     {
@@ -22698,6 +22995,17 @@
         "AoE",
         "Buff",
         "Self-Buff"
+      ]
+    },
+    {
+      "id": "M11116",
+      "name": "Lizard Warrior",
+      "skill": "Venom Spray",
+      "desc": "Spits a glob of venom. Targets the most injured enemy first. Deals {2} DMG and applies {3} stacks of Hinder. For every {4} stacks of Hinder applied, the target loses {5} HP.",
+      "tags": [
+        "Debuff",
+        "DoT",
+        "Conditional"
       ]
     },
     {
@@ -23209,7 +23517,7 @@
     }
   ],
   "skill_source": "https://gomg-wiki.pages.dev/search-unit",
-  "skill_count": 214,
+  "skill_count": 224,
   "unit_source": "https://gomg-wiki.pages.dev/search-unit",
   "notes": [
     "Characters are refreshed from the full GOMG Wiki Search · Units dataset.",
