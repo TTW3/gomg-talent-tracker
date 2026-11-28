@@ -101680,11 +101680,11 @@
         "tiers": [
           {
             "pieces": 2,
-            "effect": "Gain equal Mana when other targets lose Mana from non-skill effects, up to 1 per instance."
+            "effect": "Gain equal Mana when other targets lose Mana from non-skill effects, up to 3 per instance."
           },
           {
             "pieces": 3,
-            "effect": "Gain equal Mana when other targets lose Mana from non-skill effects, up to 2 per instance."
+            "effect": "Gain equal Mana when other targets lose Mana from non-skill effects, up to 6 per instance."
           }
         ],
         "tags": [
